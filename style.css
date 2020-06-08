@@ -149,6 +149,15 @@ img {
   .hexagon__outer:nth-child(5n + 4) {
     margin-left: 8vw;
   }
+
+  .introduction__name {
+    grid-template-columns: 1fr;
+  }
+
+  .introduction__name::before,
+  .introduction__name::after {
+    margin: 1rem 0;
+  }
 }
 
 @media only screen and (max-width: 500px) {
