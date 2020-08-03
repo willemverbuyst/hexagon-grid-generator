@@ -146,8 +146,23 @@ const skewY = (value: string): void => {
   // generateCSStext();
 };
 
+const rotateHexagon = (value: string): void => {
+  root.style.setProperty('--hover-rotation', value + 'deg');
+  // generateCSStext();
+};
+
+const scaleHexagon = (value: string): void => {
+  root.style.setProperty('--hover-scale', value);
+  // generateCSStext();
+};
+
+const transitionHexagon = (value: string): void => {
+  root.style.setProperty('--hover-transition', value + 's');
+  // generateCSStext();
+};
+
 // DISPLAY HTML AND CSS
-function generateHTMLtext(value: number) {
+const generateHTMLtext = (value: number): string => {
   // generateCSStext();
   let html = '';
   for (let i = 1; i <= value; i++) {
@@ -162,7 +177,7 @@ function generateHTMLtext(value: number) {
     </div>
   `;
   htmlTextField.innerText = displayHTML;
-}
+};
 
 // EVENT LISTENERS
 backgroundColor.oninput = (): void =>
@@ -184,3 +199,10 @@ hexagonGap.oninput = (): void => changeGap(hexagonGap.value);
 containerSkewX.oninput = (): void => skewX(containerSkewX.value);
 
 containerSkewY.oninput = (): void => skewY(containerSkewY.value);
+
+hexagonRotation.oninput = (): void => rotateHexagon(hexagonRotation.value);
+
+hexagonScale.oninput = (): void => scaleHexagon(hexagonScale.value);
+
+hexagonTransition.oninput = (): void =>
+  transitionHexagon(hexagonTransition.value);
