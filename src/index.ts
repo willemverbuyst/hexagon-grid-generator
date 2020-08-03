@@ -63,10 +63,10 @@ const changeHexagonSize = (value: string): void => {
 
 const changeAmountFirstRow = (value: string): void => {
   root.style.setProperty('--amount-of-hexagons', value);
-  // generateHexagons(hexagonAmount.value);
+  generateHexagons(hexagonAmount.value);
 };
 
-const generateHexagons = (value: string) => {
+const generateHexagons = (value: string): void => {
   let html: string;
   hexagonContainer.innerHTML = '';
 
@@ -81,7 +81,7 @@ const generateHexagons = (value: string) => {
   hexagonContainer.innerHTML = html;
 };
 
-const generateOneLine = (value: number): string{
+const generateOneLine = (value: number): string => {
   let html_firstRow = '';
   for (let i = 0; i < value; i++) {
     html_firstRow += `
@@ -90,11 +90,11 @@ const generateOneLine = (value: number): string{
       </div>
     </div>`;
   }
-  // generateHTMLtext(value);
+  generateHTMLtext(value);
   return html_firstRow;
-}
+};
 
-const generateRows = (value: number): string =>{
+const generateRows = (value: number): string => {
   let html = '';
   let i = 0;
 
@@ -127,8 +127,26 @@ const generateRows = (value: number): string =>{
     }
     k++;
   }
-  // generateHTMLtext(value);
+  generateHTMLtext(value);
   return html;
+};
+
+// DISPLAY HTML AND CSS
+function generateHTMLtext(value: number) {
+  // generateCSStext();
+  let html = '';
+  for (let i = 1; i <= value; i++) {
+    html += `<div class="hexagon__outer"><div class="hexagon__inner">${i}</div></div>`;
+  }
+
+  let displayHTML = `
+    <div class="hexagon-wrapper">
+      <div class="hexagon-wrapper__hexagon-container">   
+          ${html}
+      </div>
+    </div>
+  `;
+  htmlTextField.innerText = displayHTML;
 }
 
 // EVENT LISTENERS
