@@ -90,3 +90,57 @@ input:focus {
   display: flex;
   justify-content: space-between;
 }
+
+/* HEXAGON SECTION */
+.hexagon-wrapper {
+  grid-area: hexagons;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 6.4rem;
+}
+
+.hexagon-wrapper__hexagon-container {
+  width: var(--width-hexagon-container);
+  display: flex;
+  flex-wrap: wrap;
+  transform: skew(var(--skew-X), var(--skew-Y));
+}
+
+/* top row does not need to go up, all other row got up with a quarter their size */
+.hexagon__outer {
+  -webkit-clip-path: var(--hexagon-clip-path);
+  clip-path: var(--hexagon-clip-path);
+  width: var(--width-hexagon-outer);
+  height: var(--height-hexagon-outer);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--margin-top);
+  transition: all var(--hover-transition);
+}
+
+.hexagon__outer:hover {
+  transform: scale(var(--hover-scale)) rotate(var(--hover-rotation));
+}
+
+.first-row_margin-top {
+  margin-top: 0;
+}
+
+.even-rows__margin-left {
+  margin-left: var(--margin-left);
+}
+
+.hexagon__inner {
+  background-color: var(--color-inner-hexagon);
+  -webkit-clip-path: var(--hexagon-clip-path);
+  clip-path: var(--hexagon-clip-path);
+  width: var(--size-hexagon-inner);
+  height: var(--size-hexagon-inner);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text);
+  font-size: 1.28rem;
+}
