@@ -58,6 +58,11 @@ const changeTextColor = (value: string): void => {
   // generateCSStext();
 };
 
+const changeHexagonSize = (value: string): void => {
+  root.style.setProperty('--width-hexagon-outer', value + 'vw');
+  // generateCSStext();
+};
+
 // EVENT LISTENERS
 backgroundColor.oninput = (): void =>
   changeBackgroundColor(backgroundColor.value);
@@ -65,3 +70,5 @@ backgroundColor.oninput = (): void =>
 hexagonColor.oninput = (): void => changeHexagonColor(hexagonColor.value);
 
 textColor.oninput = (): void => changeTextColor(textColor.value);
+
+hexagonSize.oninput = () => changeHexagonSize(hexagonSize.value);
