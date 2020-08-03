@@ -46,24 +46,9 @@
   const cssTextField = document.getElementById('css');
 
   // FUNCTIONS
-  const changeBackgroundColor = (value: string): void => {
-    root.style.setProperty('--color-bg', value);
-    // generateCSStext();
-  };
-
-  const changeHexagonColor = (value: string): void => {
-    root.style.setProperty('--color-inner-hexagon', value);
-    // generateCSStext();
-  };
-
-  const changeTextColor = (value: string): void => {
-    root.style.setProperty('--color-text', value);
-    // generateCSStext();
-  };
-
-  const changeHexagonSize = (value: string): void => {
-    root.style.setProperty('--width-hexagon-outer', value + 'vw');
-    // generateCSStext();
+  const changeRootValues = (property: string, value: string): void => {
+    root.style.setProperty(property, value);
+    generateCSStext();
   };
 
   const changeAmountFirstRow = (value: string): void => {
@@ -137,36 +122,6 @@
     }
     generateHTMLtext(value);
     return html;
-  };
-
-  const changeGap = (value: string): void => {
-    root.style.setProperty('--size-hexagon-inner', 100 - parseInt(value) + '%');
-    generateCSStext();
-  };
-
-  const skewX = (value: string): void => {
-    root.style.setProperty('--skew-X', value + 'deg');
-    generateCSStext();
-  };
-
-  const skewY = (value: string): void => {
-    root.style.setProperty('--skew-Y', value + 'deg');
-    generateCSStext();
-  };
-
-  const rotateHexagon = (value: string): void => {
-    root.style.setProperty('--hover-rotation', value + 'deg');
-    generateCSStext();
-  };
-
-  const scaleHexagon = (value: string): void => {
-    root.style.setProperty('--hover-scale', value);
-    generateCSStext();
-  };
-
-  const transitionHexagon = (value: string): void => {
-    root.style.setProperty('--hover-transition', value + 's');
-    generateCSStext();
   };
 
   // DISPLAY HTML AND CSS
@@ -431,31 +386,42 @@
 
   // EVENT LISTENERS
   backgroundColor.oninput = (): void =>
-    changeBackgroundColor(backgroundColor.value);
+    changeRootValues('--color-bg', backgroundColor.value);
 
-  hexagonColor.oninput = (): void => changeHexagonColor(hexagonColor.value);
+  hexagonColor.oninput = (): void =>
+    changeRootValues('--color-inner-hexagon', hexagonColor.value);
 
-  textColor.oninput = (): void => changeTextColor(textColor.value);
+  textColor.oninput = (): void =>
+    changeRootValues('--color-text', textColor.value);
 
   hexagonFirstRow.oninput = (): void =>
     changeAmountFirstRow(hexagonFirstRow.value);
 
-  hexagonSize.oninput = (): void => changeHexagonSize(hexagonSize.value);
+  hexagonSize.oninput = (): void =>
+    changeRootValues('--width-hexagon-outer', hexagonSize.value + 'vw');
 
-  hexagonAmount.oninput = (): void => generateHexagons(hexagonAmount.value);
+  hexagonGap.oninput = (): void =>
+    changeRootValues(
+      '--size-hexagon-inner',
+      100 - parseInt(hexagonGap.value) + '%'
+    );
 
-  hexagonGap.oninput = (): void => changeGap(hexagonGap.value);
+  containerSkewX.oninput = (): void =>
+    changeRootValues('--skew-X', containerSkewX.value + 'deg');
 
-  containerSkewX.oninput = (): void => skewX(containerSkewX.value);
+  containerSkewY.oninput = (): void =>
+    changeRootValues('--skew-Y', containerSkewY.value + 'deg');
 
-  containerSkewY.oninput = (): void => skewY(containerSkewY.value);
+  hexagonRotation.oninput = (): void =>
+    changeRootValues('--hover-rotation', hexagonRotation.value + 'deg');
 
-  hexagonRotation.oninput = (): void => rotateHexagon(hexagonRotation.value);
-
-  hexagonScale.oninput = (): void => scaleHexagon(hexagonScale.value);
+  hexagonScale.oninput = (): void =>
+    changeRootValues('--hover-scale', hexagonScale.value);
 
   hexagonTransition.oninput = (): void =>
-    transitionHexagon(hexagonTransition.value);
+    changeRootValues('--hover-transition', hexagonTransition.value + 's');
+
+  hexagonAmount.oninput = (): void => generateHexagons(hexagonAmount.value);
 
   mediaQuery_1.addEventListener('change', generateCSStext);
   mediaQuery_2.addEventListener('change', generateCSStext);
