@@ -43,18 +43,25 @@ const htmlTextField = document.getElementById('html');
 const cssTextField = document.getElementById('css');
 
 // FUNCTIONS
-function changeBackgroundColor(value: string): void {
+const changeBackgroundColor = (value: string): void => {
   root.style.setProperty('--color-bg', value);
   // generateCSStext();
-}
+};
 
-function changeHexagonColor(value: string): void {
+const changeHexagonColor = (value: string): void => {
   root.style.setProperty('--color-inner-hexagon', value);
   // generateCSStext();
-}
+};
+
+const changeTextColor = (value: string): void => {
+  root.style.setProperty('--color-text', value);
+  // generateCSStext();
+};
 
 // EVENT LISTENERS
 backgroundColor.oninput = (): void =>
   changeBackgroundColor(backgroundColor.value);
 
 hexagonColor.oninput = (): void => changeHexagonColor(hexagonColor.value);
+
+textColor.oninput = (): void => changeTextColor(textColor.value);
