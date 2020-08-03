@@ -50,3 +50,43 @@ body {
   background-color: var(--color-bg);
   color: #fff;
 }
+
+input {
+  text-align: right;
+  width: 11.2rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: 23vw 1fr 29vw;
+  grid-template-rows: 50vh 50vh;
+  grid-template-areas:
+    'input-1 hexagons html'
+    'input-2 hexagons css';
+}
+
+.wrapper__box {
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: scroll;
+  font-size: 1.28rem;
+  padding: 1.6rem;
+  z-index: 10;
+}
+
+.input-field--1 {
+  grid-area: input-1;
+}
+
+.input-field--2 {
+  grid-area: input-2;
+}
+
+.input-field__input-item {
+  padding: 2px 0;
+  display: flex;
+  justify-content: space-between;
+}
