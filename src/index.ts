@@ -131,6 +131,21 @@ const generateRows = (value: number): string => {
   return html;
 };
 
+const changeGap = (value: string): void => {
+  root.style.setProperty('--size-hexagon-inner', 100 - parseInt(value) + '%');
+  // generateCSStext();
+};
+
+const skewX = (value: string): void => {
+  root.style.setProperty('--skew-X', value + 'deg');
+  // generateCSStext();
+};
+
+const skewY = (value: string): void => {
+  root.style.setProperty('--skew-Y', value + 'deg');
+  // generateCSStext();
+};
+
 // DISPLAY HTML AND CSS
 function generateHTMLtext(value: number) {
   // generateCSStext();
@@ -163,3 +178,9 @@ hexagonFirstRow.oninput = (): void =>
 hexagonSize.oninput = (): void => changeHexagonSize(hexagonSize.value);
 
 hexagonAmount.oninput = (): void => generateHexagons(hexagonAmount.value);
+
+hexagonGap.oninput = (): void => changeGap(hexagonGap.value);
+
+containerSkewX.oninput = (): void => skewX(containerSkewX.value);
+
+containerSkewY.oninput = (): void => skewY(containerSkewY.value);
