@@ -2,12 +2,40 @@
   const root = document.documentElement;
   const hexagonContainer = document.getElementById('hexagon__container');
 
-  // INPUT FIELD
-  const backgroundColor = <HTMLInputElement>document.getElementById('bg-color');
-  const hexagonColor = <HTMLInputElement>(
-    document.getElementById('hexagon-color')
+  class DOMInputElement {
+    constructor(public id: string, public root: string) {}
+
+    element = <HTMLInputElement>document.getElementById(this.id);
+
+    get value() {
+      return this.element.value;
+    }
+
+    addEventListener() {
+      this.element.oninput = (): void => {
+        console.log('called inside');
+        changeRootValues(this.root, this.element.value);
+      };
+    }
+  }
+
+  const backgroundColor = new DOMInputElement('bg-color', '--color-bg');
+  const hexagonColor = new DOMInputElement(
+    'hexagon-color',
+    '--color-inner-hexagon'
   );
-  const textColor = <HTMLInputElement>document.getElementById('text-color');
+  const textColor = new DOMInputElement('text-color', '--color-text');
+
+  backgroundColor.addEventListener();
+  hexagonColor.addEventListener();
+  textColor.addEventListener();
+
+  // INPUT FIELD
+  // const backgroundColor = <HTMLInputElement>document.getElementById('bg-color');
+  // const hexagonColor = <HTMLInputElement>(
+  //   document.getElementById('hexagon-color')
+  // );
+  // const textColor = <HTMLInputElement>document.getElementById('text-color');
   const hexagonSize = <HTMLInputElement>document.getElementById('hexagon-size');
   const containerSkewX = <HTMLInputElement>(
     document.getElementById('container-skew-X')
@@ -47,6 +75,7 @@
 
   // FUNCTIONS
   const changeRootValues = (property: string, value: string): void => {
+    console.log('called');
     root.style.setProperty(property, value);
     generateCSStext();
   };
@@ -385,14 +414,15 @@
   };
 
   // EVENT LISTENERS
-  backgroundColor.oninput = (): void =>
-    changeRootValues('--color-bg', backgroundColor.value);
 
-  hexagonColor.oninput = (): void =>
-    changeRootValues('--color-inner-hexagon', hexagonColor.value);
+  // domElements('--color-bg').oninput = (): void =>
+  //   changeRootValues('--color-bg', domElements('--color-bg').value);
 
-  textColor.oninput = (): void =>
-    changeRootValues('--color-text', textColor.value);
+  // hexagonColor.oninput = (): void =>
+  //   changeRootValues('--color-inner-hexagon', hexagonColor.value);
+
+  // textColor.oninput = (): void =>
+  //   changeRootValues('--color-text', textColor.value);
 
   hexagonFirstRow.oninput = (): void =>
     changeAmountFirstRow(hexagonFirstRow.value);
