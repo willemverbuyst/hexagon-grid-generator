@@ -5,7 +5,7 @@
   class DOMInputElement {
     constructor(
       private id: string,
-      private root: string,
+      private rootElementName: string = '',
       private postFix: string = ''
     ) {}
 
@@ -15,10 +15,34 @@
       return this.element.value;
     }
 
-    addEventListener() {
+    addEventListenerForRootChange() {
       this.element.oninput = (): void => {
-        console.log('called inside');
-        changeRootValues(this.root, this.element.value + this.postFix);
+        changeRootValues(
+          this.rootElementName,
+          this.element.value + this.postFix
+        );
+      };
+    }
+
+    addEventListenerForMediaQuery() {
+      this.element.addEventListener('change', generateCSStext);
+    }
+
+    onInputChangeFirstRow() {
+      this.element.oninput = (): void =>
+        changeAmountFirstRow(this.element.value);
+    }
+
+    onInputChangeHexagonAmount() {
+      this.element.oninput = (): void => generateHexagons(this.element.value);
+    }
+
+    onInputChangeGapWidth() {
+      this.element.oninput = (): void => {
+        changeRootValues(
+          this.rootElementName,
+          100 - parseInt(this.element.value) + this.postFix
+        );
       };
     }
   }
@@ -54,37 +78,33 @@
     '--hover-transition',
     's'
   );
+  const hexagonScale = new DOMInputElement('hexagon-scale', '--hover-scale');
+  const hexagonFirstRow = new DOMInputElement('hexagon-first-row');
+  const hexagonAmount = new DOMInputElement('hexagon-amount');
+  const hexagonGap = new DOMInputElement(
+    'hexagon-gap',
+    '--size-hexagon-inner',
+    '%'
+  );
+  const mediaQuery_1 = new DOMInputElement('media-query--1');
+  const mediaQuery_2 = new DOMInputElement('media-query--2');
+  const mediaQuery_3 = new DOMInputElement('media-query--3');
 
-  backgroundColor.addEventListener();
-  hexagonColor.addEventListener();
-  textColor.addEventListener();
-  hexagonSize.addEventListener();
-  containerSkewX.addEventListener();
-  containerSkewY.addEventListener();
-  hexagonRotation.addEventListener();
-  hexagonTransition.addEventListener();
-
-  const hexagonGap = <HTMLInputElement>document.getElementById('hexagon-gap');
-  const hexagonAmount = <HTMLInputElement>(
-    document.getElementById('hexagon-amount')
-  );
-  const hexagonFirstRow = <HTMLInputElement>(
-    document.getElementById('hexagon-first-row')
-  );
-
-  const hexagonScale = <HTMLInputElement>(
-    document.getElementById('hexagon-scale')
-  );
-
-  const mediaQuery_1 = <HTMLInputElement>(
-    document.getElementById('media-query--1')
-  );
-  const mediaQuery_2 = <HTMLInputElement>(
-    document.getElementById('media-query--2')
-  );
-  const mediaQuery_3 = <HTMLInputElement>(
-    document.getElementById('media-query--3')
-  );
+  backgroundColor.addEventListenerForRootChange();
+  hexagonColor.addEventListenerForRootChange();
+  textColor.addEventListenerForRootChange();
+  hexagonSize.addEventListenerForRootChange();
+  containerSkewX.addEventListenerForRootChange();
+  containerSkewY.addEventListenerForRootChange();
+  hexagonRotation.addEventListenerForRootChange();
+  hexagonTransition.addEventListenerForRootChange();
+  hexagonScale.addEventListenerForRootChange();
+  hexagonFirstRow.onInputChangeFirstRow();
+  hexagonAmount.onInputChangeHexagonAmount();
+  hexagonGap.onInputChangeGapWidth();
+  mediaQuery_1.addEventListenerForMediaQuery();
+  mediaQuery_2.addEventListenerForMediaQuery();
+  mediaQuery_3.addEventListenerForMediaQuery();
 
   // OUTPUT HTML CSS
   const htmlTextField = document.getElementById('html');
@@ -92,7 +112,6 @@
 
   // FUNCTIONS
   const changeRootValues = (property: string, value: string): void => {
-    console.log('called');
     root.style.setProperty(property, value);
     generateCSStext();
   };
@@ -429,26 +448,6 @@
 
     cssTextField.innerText = displayCSS;
   };
-
-  // EVENT LISTENERS
-
-  hexagonFirstRow.oninput = (): void =>
-    changeAmountFirstRow(hexagonFirstRow.value);
-
-  hexagonGap.oninput = (): void =>
-    changeRootValues(
-      '--size-hexagon-inner',
-      100 - parseInt(hexagonGap.value) + '%'
-    );
-
-  hexagonScale.oninput = (): void =>
-    changeRootValues('--hover-scale', hexagonScale.value);
-
-  hexagonAmount.oninput = (): void => generateHexagons(hexagonAmount.value);
-
-  mediaQuery_1.addEventListener('change', generateCSStext);
-  mediaQuery_2.addEventListener('change', generateCSStext);
-  mediaQuery_3.addEventListener('change', generateCSStext);
 
   // call the function for an initial display of hexagons
   generateHexagons(hexagonAmount.value);
