@@ -20,6 +20,15 @@ class RootElement extends DOMInputElement {
       changeRootValues(this.rootElementName, this.element.value + this.postFix);
     };
   }
+
+  onInputChangeGapWidth() {
+    this.element.oninput = (): void => {
+      changeRootValues(
+        this.rootElementName,
+        100 - parseInt(this.element.value) + this.postFix
+      );
+    };
+  }
 }
 
 const changeRootValues = (property: string, value: string): void => {
@@ -59,6 +68,11 @@ export const hexagonTransition = new RootElement(
   's'
 );
 export const hexagonScale = new RootElement('hexagon-scale', '--hover-scale');
+export const hexagonGap = new RootElement(
+  'hexagon-gap',
+  '--size-hexagon-inner',
+  '%'
+);
 
 backgroundColor.addEventListenerForRootChange();
 hexagonColor.addEventListenerForRootChange();
@@ -69,3 +83,4 @@ containerSkewY.addEventListenerForRootChange();
 hexagonRotation.addEventListenerForRootChange();
 hexagonTransition.addEventListenerForRootChange();
 hexagonScale.addEventListenerForRootChange();
+hexagonGap.onInputChangeGapWidth();
