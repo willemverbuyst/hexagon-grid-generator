@@ -1,9 +1,5 @@
 import { hexagonFirstRow } from './classes/HexagonInput';
-import {
-  mediaQuery_1,
-  mediaQuery_2,
-  mediaQuery_3,
-} from './classes/MediaQueryInput';
+import { mediaQuery_1, mediaQuery_2, mediaQuery_3 } from './index';
 import {
   backgroundColor,
   containerSkewX,
