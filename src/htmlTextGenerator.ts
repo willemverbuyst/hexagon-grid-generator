@@ -1,4 +1,4 @@
-import { generateCSStext } from './cssGenerator';
+import { generateCSStext } from './cssTextGenerator';
 
 export const htmlTextField = document.getElementById('html');
 
