@@ -11,7 +11,7 @@ import {
   hexagonTransition,
   textColor,
   hexagonGap,
-} from './classes/RootInput';
+} from './index';
 
 export const cssTextField = document.getElementById('css');
 
