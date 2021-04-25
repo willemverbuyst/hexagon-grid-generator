@@ -1,5 +1,9 @@
-import { hexagonFirstRow } from './classes/HexagonInputElement';
-import { mediaQuery_1, mediaQuery_2, mediaQuery_3 } from './classes/MediaQuery';
+import { hexagonFirstRow } from './classes/HexagonInput';
+import {
+  mediaQuery_1,
+  mediaQuery_2,
+  mediaQuery_3,
+} from './classes/MediaQueryInput';
 import {
   backgroundColor,
   containerSkewX,
@@ -11,7 +15,7 @@ import {
   hexagonTransition,
   textColor,
   hexagonGap,
-} from './classes/RootElement';
+} from './classes/RootInput';
 
 export const cssTextField = document.getElementById('css');
 

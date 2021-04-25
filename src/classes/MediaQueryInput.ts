@@ -1,7 +1,7 @@
 import { generateCSStext } from '../cssTextGenerator';
 import { DOMInputElement } from './DOMInputElement';
 
-class MediaQuery extends DOMInputElement {
+class MediaQueryInput extends DOMInputElement {
   constructor(id: string) {
     super(id);
   }
@@ -11,9 +11,9 @@ class MediaQuery extends DOMInputElement {
   }
 }
 
-export const mediaQuery_1 = new MediaQuery('media-query--1');
-export const mediaQuery_2 = new MediaQuery('media-query--2');
-export const mediaQuery_3 = new MediaQuery('media-query--3');
+export const mediaQuery_1 = new MediaQueryInput('media-query--1');
+export const mediaQuery_2 = new MediaQueryInput('media-query--2');
+export const mediaQuery_3 = new MediaQueryInput('media-query--3');
 
 mediaQuery_1.generateCSStextOnChange();
 mediaQuery_2.generateCSStextOnChange();

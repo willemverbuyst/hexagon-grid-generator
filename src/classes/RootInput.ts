@@ -2,7 +2,7 @@ import { generateCSStext } from '../cssTextGenerator';
 import { DOMInputElement } from './DOMInputElement';
 import { root } from '../index';
 
-class RootElement extends DOMInputElement {
+class RootInput extends DOMInputElement {
   constructor(
     id: string,
     private rootElementName: string,
@@ -36,39 +36,39 @@ const changeRootValues = (property: string, value: string): void => {
   generateCSStext();
 };
 
-export const backgroundColor = new RootElement('bg-color', '--color-bg');
-export const hexagonColor = new RootElement(
+export const backgroundColor = new RootInput('bg-color', '--color-bg');
+export const hexagonColor = new RootInput(
   'hexagon-color',
   '--color-inner-hexagon'
 );
-export const textColor = new RootElement('text-color', '--color-text');
-export const hexagonSize = new RootElement(
+export const textColor = new RootInput('text-color', '--color-text');
+export const hexagonSize = new RootInput(
   'hexagon-size',
   '--width-hexagon-outer',
   'vw'
 );
-export const containerSkewX = new RootElement(
+export const containerSkewX = new RootInput(
   'container-skew-X',
   '--skew-X',
   'deg'
 );
-export const containerSkewY = new RootElement(
+export const containerSkewY = new RootInput(
   'container-skew-Y',
   '--skew-Y',
   'deg'
 );
-export const hexagonRotation = new RootElement(
+export const hexagonRotation = new RootInput(
   'hexagon-rotation',
   '--hover-rotation',
   'deg'
 );
-export const hexagonTransition = new RootElement(
+export const hexagonTransition = new RootInput(
   'hexagon-transition',
   '--hover-transition',
   's'
 );
-export const hexagonScale = new RootElement('hexagon-scale', '--hover-scale');
-export const hexagonGap = new RootElement(
+export const hexagonScale = new RootInput('hexagon-scale', '--hover-scale');
+export const hexagonGap = new RootInput(
   'hexagon-gap',
   '--size-hexagon-inner',
   '%'

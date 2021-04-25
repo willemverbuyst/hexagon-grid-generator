@@ -1,4 +1,4 @@
-import { generateHexagons, hexagonAmount } from './classes/HexagonInputElement';
+import { generateHexagons, hexagonAmount } from './classes/HexagonInput';
 
 export const root = document.documentElement;
 export const hexagonContainer = document.getElementById('hexagon__container');
