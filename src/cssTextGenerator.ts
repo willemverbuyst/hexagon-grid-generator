@@ -9,11 +9,9 @@ import {
   hexagonScale,
   hexagonSize,
   hexagonTransition,
-  mediaQuery_1,
-  mediaQuery_2,
-  mediaQuery_3,
   textColor,
 } from './index';
+import { mediaQuery_1, mediaQuery_2, mediaQuery_3 } from './MediaQuery';
 
 export const cssTextField = document.getElementById('css');
 

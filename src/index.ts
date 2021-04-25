@@ -1,6 +1,5 @@
 import { generateCSStext } from './cssTextGenerator';
 import { generateHTMLtext } from './htmlTextGenerator';
-import { MediaQuery } from './MediaQuery';
 
 export const root = document.documentElement;
 export const hexagonContainer = document.getElementById('hexagon__container');
@@ -84,9 +83,6 @@ export const hexagonGap = new DOMInputElement(
   '--size-hexagon-inner',
   '%'
 );
-export const mediaQuery_1 = new MediaQuery('media-query--1');
-export const mediaQuery_2 = new MediaQuery('media-query--2');
-export const mediaQuery_3 = new MediaQuery('media-query--3');
 
 backgroundColor.addEventListenerForRootChange();
 hexagonColor.addEventListenerForRootChange();
@@ -100,9 +96,6 @@ hexagonScale.addEventListenerForRootChange();
 hexagonFirstRow.onInputChangeFirstRow();
 hexagonAmount.onInputChangeHexagonAmount();
 hexagonGap.onInputChangeGapWidth();
-mediaQuery_1.generateCSStextOnChange();
-mediaQuery_2.generateCSStextOnChange();
-mediaQuery_3.generateCSStextOnChange();
 
 // FUNCTIONS
 const changeRootValues = (property: string, value: string): void => {
