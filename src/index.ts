@@ -17,12 +17,6 @@ class DOMInputElement {
     return this.element.value;
   }
 
-  addEventListenerForRootChange() {
-    this.element.oninput = (): void => {
-      changeRootValues(this.rootElementName, this.element.value + this.postFix);
-    };
-  }
-
   onInputChangeFirstRow() {
     this.element.oninput = (): void => changeAmountFirstRow(this.element.value);
   }
@@ -41,41 +35,6 @@ class DOMInputElement {
   }
 }
 
-export const backgroundColor = new DOMInputElement('bg-color', '--color-bg');
-export const hexagonColor = new DOMInputElement(
-  'hexagon-color',
-  '--color-inner-hexagon'
-);
-export const textColor = new DOMInputElement('text-color', '--color-text');
-export const hexagonSize = new DOMInputElement(
-  'hexagon-size',
-  '--width-hexagon-outer',
-  'vw'
-);
-export const containerSkewX = new DOMInputElement(
-  'container-skew-X',
-  '--skew-X',
-  'deg'
-);
-export const containerSkewY = new DOMInputElement(
-  'container-skew-Y',
-  '--skew-Y',
-  'deg'
-);
-export const hexagonRotation = new DOMInputElement(
-  'hexagon-rotation',
-  '--hover-rotation',
-  'deg'
-);
-export const hexagonTransition = new DOMInputElement(
-  'hexagon-transition',
-  '--hover-transition',
-  's'
-);
-export const hexagonScale = new DOMInputElement(
-  'hexagon-scale',
-  '--hover-scale'
-);
 export const hexagonFirstRow = new DOMInputElement('hexagon-first-row');
 export const hexagonAmount = new DOMInputElement('hexagon-amount');
 export const hexagonGap = new DOMInputElement(
@@ -84,15 +43,6 @@ export const hexagonGap = new DOMInputElement(
   '%'
 );
 
-backgroundColor.addEventListenerForRootChange();
-hexagonColor.addEventListenerForRootChange();
-textColor.addEventListenerForRootChange();
-hexagonSize.addEventListenerForRootChange();
-containerSkewX.addEventListenerForRootChange();
-containerSkewY.addEventListenerForRootChange();
-hexagonRotation.addEventListenerForRootChange();
-hexagonTransition.addEventListenerForRootChange();
-hexagonScale.addEventListenerForRootChange();
 hexagonFirstRow.onInputChangeFirstRow();
 hexagonAmount.onInputChangeHexagonAmount();
 hexagonGap.onInputChangeGapWidth();

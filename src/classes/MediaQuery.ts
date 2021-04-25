@@ -1,5 +1,5 @@
-import { generateCSStext } from './cssTextGenerator';
-import { DOMInputElement } from './DomInputElement';
+import { generateCSStext } from '../cssTextGenerator';
+import { DOMInputElement } from './DOMInputElement';
 
 class MediaQuery extends DOMInputElement {
   constructor(id: string) {

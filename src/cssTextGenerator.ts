@@ -1,17 +1,16 @@
+import { hexagonFirstRow, hexagonGap } from './index';
+import { mediaQuery_1, mediaQuery_2, mediaQuery_3 } from './classes/MediaQuery';
 import {
   backgroundColor,
   containerSkewX,
   containerSkewY,
   hexagonColor,
-  hexagonFirstRow,
-  hexagonGap,
   hexagonRotation,
   hexagonScale,
   hexagonSize,
   hexagonTransition,
   textColor,
-} from './index';
-import { mediaQuery_1, mediaQuery_2, mediaQuery_3 } from './MediaQuery';
+} from './classes/RootElement';
 
 export const cssTextField = document.getElementById('css');
 
