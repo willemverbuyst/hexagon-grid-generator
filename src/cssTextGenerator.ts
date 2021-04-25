@@ -1,34 +1,26 @@
 import { hexagonFirstRow } from './classes/HexagonInput';
-import { mediaQuery_1, mediaQuery_2, mediaQuery_3 } from './index';
-import {
-  backgroundColor,
-  containerSkewX,
-  containerSkewY,
-  hexagonColor,
-  hexagonRotation,
-  hexagonScale,
-  hexagonSize,
-  hexagonTransition,
-  textColor,
-  hexagonGap,
-} from './index';
+import { mediaQueries, rootInputs, rootInputGap } from './index';
 
 export const cssTextField = document.getElementById('css');
 
 export const generateCSStext = (): void => {
   let displayCSS = `
 .hexagon-wrapper {
-  background-color: ${backgroundColor.value};
+  background-color: ${rootInputs.backgroundColor.value};
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .hexagon-wrapper__hexagon-container {
-  width: ${parseInt(hexagonFirstRow.value) * parseInt(hexagonSize.value)}vw;
+  width: ${
+    parseInt(hexagonFirstRow.value) * parseInt(rootInputs.hexagonSize.value)
+  }vw;
   display: flex;
   flex-wrap: wrap;
-  transform: skew(${containerSkewX.value}deg, ${containerSkewY.value}deg);
+  transform: skew(${rootInputs.containerSkewX.value}deg, ${
+    rootInputs.containerSkewY.value
+  }deg);
 }
 
 .hexagon__outer {
@@ -48,17 +40,22 @@ export const generateCSStext = (): void => {
     50% 100%,
     0 75%
   );
-  width: ${hexagonSize.value}vw;
-  height: ${(1.154665 * parseInt(hexagonSize.value)).toFixed(2)}vw;
+  width: ${rootInputs.hexagonSize.value}vw;
+  height: ${(1.154665 * parseInt(rootInputs.hexagonSize.value)).toFixed(2)}vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: ${((1.154665 * parseInt(hexagonSize.value)) / -4).toFixed(2)}vw;
-  transition: all ${hexagonTransition.value}s;
+  margin-top: ${(
+    (1.154665 * parseInt(rootInputs.hexagonSize.value)) /
+    -4
+  ).toFixed(2)}vw;
+  transition: all ${rootInputs.hexagonTransition.value}s;
 }
 
 .hexagon__outer:hover {
-  transform: scale(${hexagonScale.value}) rotate(${hexagonRotation.value}deg);
+  transform: scale(${rootInputs.hexagonScale.value}) rotate(${
+    rootInputs.hexagonRotation.value
+  }deg);
 }
 
 .hexagon__outer:nth-child(${
@@ -76,11 +73,11 @@ export const generateCSStext = (): void => {
       ? ''
       : parseInt(hexagonFirstRow.value) * 1 + 1
   }) {
-    margin-left: ${0.5 * parseInt(hexagonSize.value)}vw;
+    margin-left: ${0.5 * parseInt(rootInputs.hexagonSize.value)}vw;
   }
 
 .hexagon__inner {
-  background-color: ${hexagonColor.value};
+  background-color: ${rootInputs.hexagonColor.value};
   -webkit-clip-path: polygon(
     0 25%,
     50% 0,
@@ -97,29 +94,31 @@ export const generateCSStext = (): void => {
     50% 100%,
     0 75%
   );
-  width: ${100 - parseInt(hexagonGap.value)}%;
-  height: ${100 - parseInt(hexagonGap.value)}%;
+  width: ${100 - parseInt(rootInputGap.hexagonGap.value)}%;
+  height: ${100 - parseInt(rootInputGap.hexagonGap.value)}%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${textColor.value};
+  color: ${rootInputs.textColor.value};
 }
 `;
 
   if (parseInt(hexagonFirstRow.value) - 1 > 0) {
     displayCSS += `
-    @media (max-width: ${mediaQuery_1.value}px) {
+    @media (max-width: ${mediaQueries.mediaQuery_1.value}px) {
       .hexagon-wrapper__hexagon-container {
         width: ${
-          (parseInt(hexagonFirstRow.value) - 1) * parseInt(hexagonSize.value)
+          (parseInt(hexagonFirstRow.value) - 1) *
+          parseInt(rootInputs.hexagonSize.value)
         }vw;
       }
   
       /* reset */
       .hexagon__outer:nth-child(-n + ${hexagonFirstRow.value}) {
-        margin-top: ${((1.154665 * parseInt(hexagonSize.value)) / -4).toFixed(
-          2
-        )}vw;
+        margin-top: ${(
+          (1.154665 * parseInt(rootInputs.hexagonSize.value)) /
+          -4
+        ).toFixed(2)}vw;
       }
 
       /* reset */
@@ -146,7 +145,7 @@ export const generateCSStext = (): void => {
       }n + ${
       parseInt(hexagonFirstRow.value) < 3 ? 0 : parseInt(hexagonFirstRow.value)
     }) {
-        margin-left: ${0.5 * parseInt(hexagonSize.value)}vw;
+        margin-left: ${0.5 * parseInt(rootInputs.hexagonSize.value)}vw;
     }
   }
   `;
@@ -154,22 +153,24 @@ export const generateCSStext = (): void => {
 
   if (parseInt(hexagonFirstRow.value) - 2 > 0) {
     displayCSS += `
-    @media only screen and (max-width: ${mediaQuery_2.value}px) {
+    @media only screen and (max-width: ${mediaQueries.mediaQuery_2.value}px) {
       html {
         font-size: 50%;
       }
 
       .hexagon-wrapper__hexagon-container {
         width: ${
-          (parseInt(hexagonFirstRow.value) - 2) * parseInt(hexagonSize.value)
+          (parseInt(hexagonFirstRow.value) - 2) *
+          parseInt(rootInputs.hexagonSize.value)
         }vw;
       }
 
       /* reset */
       .hexagon__outer:nth-child(-n + ${parseInt(hexagonFirstRow.value) - 1}) {
-        margin-top: ${((1.154665 * parseInt(hexagonSize.value)) / -4).toFixed(
-          2
-        )}vw;
+        margin-top: ${(
+          (1.154665 * parseInt(rootInputs.hexagonSize.value)) /
+          -4
+        ).toFixed(2)}vw;
       }
 
       /* reset */
@@ -198,7 +199,7 @@ export const generateCSStext = (): void => {
         ? 0
         : parseInt(hexagonFirstRow.value) - 1
     }) {
-        margin-left: ${0.5 * parseInt(hexagonSize.value)}vw;
+        margin-left: ${0.5 * parseInt(rootInputs.hexagonSize.value)}vw;
     }
   }
   `;
@@ -206,18 +207,20 @@ export const generateCSStext = (): void => {
 
   if (parseInt(hexagonFirstRow.value) - 3 > 0) {
     displayCSS += `
-    @media only screen and (max-width: ${mediaQuery_3.value}px) {
+    @media only screen and (max-width: ${mediaQueries.mediaQuery_3.value}px) {
       .hexagon-wrapper__hexagon-container {
         width: ${
-          (parseInt(hexagonFirstRow.value) - 3) * parseInt(hexagonSize.value)
+          (parseInt(hexagonFirstRow.value) - 3) *
+          parseInt(rootInputs.hexagonSize.value)
         }vw;
       }
 
       /* reset */
       .hexagon__outer:nth-child(-n + ${parseInt(hexagonFirstRow.value) - 2}) {
-        margin-top: ${((1.154665 * parseInt(hexagonSize.value)) / -4).toFixed(
-          2
-        )}vw;
+        margin-top: ${(
+          (1.154665 * parseInt(rootInputs.hexagonSize.value)) /
+          -4
+        ).toFixed(2)}vw;
       }
 
       /* reset */
@@ -246,7 +249,7 @@ export const generateCSStext = (): void => {
         ? 0
         : parseInt(hexagonFirstRow.value) - 2
     }) {
-        margin-left: ${0.5 * parseInt(hexagonSize.value)}vw;
+        margin-left: ${0.5 * parseInt(rootInputs.hexagonSize.value)}vw;
     } 
   }
   `;
