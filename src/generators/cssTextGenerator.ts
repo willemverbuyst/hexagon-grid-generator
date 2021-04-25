@@ -1,4 +1,4 @@
-import { hexagonFirstRow } from '../classes/HexagonInput';
+import { hexagonInput } from '../index';
 import { mediaQueries, rootInputs, rootInputGap } from '../index';
 
 export const cssTextField = document.getElementById('css');
@@ -14,7 +14,8 @@ export const generateCSStext = (): void => {
 
 .hexagon-wrapper__hexagon-container {
   width: ${
-    parseInt(hexagonFirstRow.value) * parseInt(rootInputs.hexagonSize.value)
+    parseInt(hexagonInput.hexagonFirstRow.value) *
+    parseInt(rootInputs.hexagonSize.value)
   }vw;
   display: flex;
   flex-wrap: wrap;
@@ -59,19 +60,23 @@ export const generateCSStext = (): void => {
 }
 
 .hexagon__outer:nth-child(${
-    parseInt(hexagonFirstRow.value) === 1 ? 'n' : '-n'
-  } + ${parseInt(hexagonFirstRow.value) === 1 ? 0 : hexagonFirstRow.value}) {
+    parseInt(hexagonInput.hexagonFirstRow.value) === 1 ? 'n' : '-n'
+  } + ${
+    parseInt(hexagonInput.hexagonFirstRow.value) === 1
+      ? 0
+      : hexagonInput.hexagonFirstRow.value
+  }) {
     margin-top: 0;
   }
   
 .hexagon__outer:nth-child(${
-    parseInt(hexagonFirstRow.value) === 1
+    parseInt(hexagonInput.hexagonFirstRow.value) === 1
       ? ''
-      : parseInt(hexagonFirstRow.value) * 2 - 1
+      : parseInt(hexagonInput.hexagonFirstRow.value) * 2 - 1
   }n + ${
-    parseInt(hexagonFirstRow.value) === 1
+    parseInt(hexagonInput.hexagonFirstRow.value) === 1
       ? ''
-      : parseInt(hexagonFirstRow.value) * 1 + 1
+      : parseInt(hexagonInput.hexagonFirstRow.value) * 1 + 1
   }) {
     margin-left: ${0.5 * parseInt(rootInputs.hexagonSize.value)}vw;
   }
@@ -103,18 +108,18 @@ export const generateCSStext = (): void => {
 }
 `;
 
-  if (parseInt(hexagonFirstRow.value) - 1 > 0) {
+  if (parseInt(hexagonInput.hexagonFirstRow.value) - 1 > 0) {
     displayCSS += `
     @media (max-width: ${mediaQueries.mediaQuery_1.value}px) {
       .hexagon-wrapper__hexagon-container {
         width: ${
-          (parseInt(hexagonFirstRow.value) - 1) *
+          (parseInt(hexagonInput.hexagonFirstRow.value) - 1) *
           parseInt(rootInputs.hexagonSize.value)
         }vw;
       }
   
       /* reset */
-      .hexagon__outer:nth-child(-n + ${hexagonFirstRow.value}) {
+      .hexagon__outer:nth-child(-n + ${hexagonInput.hexagonFirstRow.value}) {
         margin-top: ${(
           (1.154665 * parseInt(rootInputs.hexagonSize.value)) /
           -4
@@ -123,27 +128,29 @@ export const generateCSStext = (): void => {
 
       /* reset */
       .hexagon__outer:nth-child(${
-        (parseInt(hexagonFirstRow.value) - 1) * 2 + 1
-      }n + ${parseInt(hexagonFirstRow.value) + 1}) {
+        (parseInt(hexagonInput.hexagonFirstRow.value) - 1) * 2 + 1
+      }n + ${parseInt(hexagonInput.hexagonFirstRow.value) + 1}) {
           margin-left: 0;
       }
   
       .hexagon__outer:nth-child(${
-        parseInt(hexagonFirstRow.value) - 1 < 2 ? 'n' : '-n'
+        parseInt(hexagonInput.hexagonFirstRow.value) - 1 < 2 ? 'n' : '-n'
       } + ${
-      parseInt(hexagonFirstRow.value) - 1 < 2
+      parseInt(hexagonInput.hexagonFirstRow.value) - 1 < 2
         ? 0
-        : parseInt(hexagonFirstRow.value) - 1
+        : parseInt(hexagonInput.hexagonFirstRow.value) - 1
     }) {
           margin-top: 0;
       }
   
       .hexagon__outer:nth-child(${
-        (parseInt(hexagonFirstRow.value) - 1) * 2 - 1 < 3
+        (parseInt(hexagonInput.hexagonFirstRow.value) - 1) * 2 - 1 < 3
           ? 0
-          : (parseInt(hexagonFirstRow.value) - 1) * 2 - 1
+          : (parseInt(hexagonInput.hexagonFirstRow.value) - 1) * 2 - 1
       }n + ${
-      parseInt(hexagonFirstRow.value) < 3 ? 0 : parseInt(hexagonFirstRow.value)
+      parseInt(hexagonInput.hexagonFirstRow.value) < 3
+        ? 0
+        : parseInt(hexagonInput.hexagonFirstRow.value)
     }) {
         margin-left: ${0.5 * parseInt(rootInputs.hexagonSize.value)}vw;
     }
@@ -151,7 +158,7 @@ export const generateCSStext = (): void => {
   `;
   }
 
-  if (parseInt(hexagonFirstRow.value) - 2 > 0) {
+  if (parseInt(hexagonInput.hexagonFirstRow.value) - 2 > 0) {
     displayCSS += `
     @media only screen and (max-width: ${mediaQueries.mediaQuery_2.value}px) {
       html {
@@ -160,13 +167,15 @@ export const generateCSStext = (): void => {
 
       .hexagon-wrapper__hexagon-container {
         width: ${
-          (parseInt(hexagonFirstRow.value) - 2) *
+          (parseInt(hexagonInput.hexagonFirstRow.value) - 2) *
           parseInt(rootInputs.hexagonSize.value)
         }vw;
       }
 
       /* reset */
-      .hexagon__outer:nth-child(-n + ${parseInt(hexagonFirstRow.value) - 1}) {
+      .hexagon__outer:nth-child(-n + ${
+        parseInt(hexagonInput.hexagonFirstRow.value) - 1
+      }) {
         margin-top: ${(
           (1.154665 * parseInt(rootInputs.hexagonSize.value)) /
           -4
@@ -175,29 +184,29 @@ export const generateCSStext = (): void => {
 
       /* reset */
       .hexagon__outer:nth-child(${
-        (parseInt(hexagonFirstRow.value) - 1) * 2 - 1
-      }n + ${hexagonFirstRow.value}) {
+        (parseInt(hexagonInput.hexagonFirstRow.value) - 1) * 2 - 1
+      }n + ${hexagonInput.hexagonFirstRow.value}) {
         margin-left: 0;
       }
 
       .hexagon__outer:nth-child(${
-        parseInt(hexagonFirstRow.value) - 2 < 2 ? 'n' : '-n'
+        parseInt(hexagonInput.hexagonFirstRow.value) - 2 < 2 ? 'n' : '-n'
       } + ${
-      parseInt(hexagonFirstRow.value) - 2 < 2
+      parseInt(hexagonInput.hexagonFirstRow.value) - 2 < 2
         ? 0
-        : parseInt(hexagonFirstRow.value) - 2
+        : parseInt(hexagonInput.hexagonFirstRow.value) - 2
     }) {
         margin-top: 0;
       }
 
       .hexagon__outer:nth-child(${
-        (parseInt(hexagonFirstRow.value) - 1) * 2 - 3 < 3
+        (parseInt(hexagonInput.hexagonFirstRow.value) - 1) * 2 - 3 < 3
           ? 0
-          : (parseInt(hexagonFirstRow.value) - 1) * 2 - 3
+          : (parseInt(hexagonInput.hexagonFirstRow.value) - 1) * 2 - 3
       }n + ${
-      parseInt(hexagonFirstRow.value) - 1 < 3
+      parseInt(hexagonInput.hexagonFirstRow.value) - 1 < 3
         ? 0
-        : parseInt(hexagonFirstRow.value) - 1
+        : parseInt(hexagonInput.hexagonFirstRow.value) - 1
     }) {
         margin-left: ${0.5 * parseInt(rootInputs.hexagonSize.value)}vw;
     }
@@ -205,18 +214,20 @@ export const generateCSStext = (): void => {
   `;
   }
 
-  if (parseInt(hexagonFirstRow.value) - 3 > 0) {
+  if (parseInt(hexagonInput.hexagonFirstRow.value) - 3 > 0) {
     displayCSS += `
     @media only screen and (max-width: ${mediaQueries.mediaQuery_3.value}px) {
       .hexagon-wrapper__hexagon-container {
         width: ${
-          (parseInt(hexagonFirstRow.value) - 3) *
+          (parseInt(hexagonInput.hexagonFirstRow.value) - 3) *
           parseInt(rootInputs.hexagonSize.value)
         }vw;
       }
 
       /* reset */
-      .hexagon__outer:nth-child(-n + ${parseInt(hexagonFirstRow.value) - 2}) {
+      .hexagon__outer:nth-child(-n + ${
+        parseInt(hexagonInput.hexagonFirstRow.value) - 2
+      }) {
         margin-top: ${(
           (1.154665 * parseInt(rootInputs.hexagonSize.value)) /
           -4
@@ -225,29 +236,29 @@ export const generateCSStext = (): void => {
 
       /* reset */
       .hexagon__outer:nth-child(${
-        (parseInt(hexagonFirstRow.value) - 1) * 2 - 3
-      }n + ${parseInt(hexagonFirstRow.value) - 1}) {
+        (parseInt(hexagonInput.hexagonFirstRow.value) - 1) * 2 - 3
+      }n + ${parseInt(hexagonInput.hexagonFirstRow.value) - 1}) {
         margin-left: 0;
       }
 
       .hexagon__outer:nth-child(${
-        parseInt(hexagonFirstRow.value) - 3 < 2 ? 'n' : '-n'
+        parseInt(hexagonInput.hexagonFirstRow.value) - 3 < 2 ? 'n' : '-n'
       } + ${
-      parseInt(hexagonFirstRow.value) - 3 < 2
+      parseInt(hexagonInput.hexagonFirstRow.value) - 3 < 2
         ? 0
-        : parseInt(hexagonFirstRow.value) - 3
+        : parseInt(hexagonInput.hexagonFirstRow.value) - 3
     }) {
         margin-top: 0;
       }
 
       .hexagon__outer:nth-child(${
-        (parseInt(hexagonFirstRow.value) - 1) * 2 - 5 < 3
+        (parseInt(hexagonInput.hexagonFirstRow.value) - 1) * 2 - 5 < 3
           ? 0
-          : (parseInt(hexagonFirstRow.value) - 1) * 2 - 5
+          : (parseInt(hexagonInput.hexagonFirstRow.value) - 1) * 2 - 5
       }n + ${
-      parseInt(hexagonFirstRow.value) - 2 < 3
+      parseInt(hexagonInput.hexagonFirstRow.value) - 2 < 3
         ? 0
-        : parseInt(hexagonFirstRow.value) - 2
+        : parseInt(hexagonInput.hexagonFirstRow.value) - 2
     }) {
         margin-left: ${0.5 * parseInt(rootInputs.hexagonSize.value)}vw;
     } 

@@ -1,4 +1,7 @@
-import { hexagonAmount } from './classes/HexagonInput';
+import {
+  HexagonInputAmount,
+  HexagonInputFirstRow,
+} from './classes/HexagonInput';
 import { MediaQueryInput } from './classes/MediaQueryInput';
 import { RootInput, RootInputGap } from './classes/RootInput';
 import { generateHexagons } from './generators/hexagonGenerator';
@@ -32,5 +35,10 @@ export const rootInputGap = {
   hexagonGap: new RootInputGap('hexagon-gap', '--size-hexagon-inner', '%'),
 };
 
+export const hexagonInput = {
+  hexagonFirstRow: new HexagonInputFirstRow('hexagon-first-row'),
+  hexagonAmount: new HexagonInputAmount('hexagon-amount'),
+};
+
 // call the function for an initial display of hexagons
-generateHexagons(hexagonAmount.value);
+generateHexagons(hexagonInput.hexagonAmount.value);

@@ -1,5 +1,5 @@
 import { hexagonContainer } from '../index';
-import { hexagonFirstRow } from '../classes/HexagonInput';
+import { hexagonInput } from '../index';
 import { generateOneLine } from './oneLineGenerator';
 import { generateRows } from './rowGenerator';
 
@@ -8,8 +8,8 @@ export const generateHexagons = (value: string): void => {
   hexagonContainer!.innerHTML = '';
 
   if (
-    parseInt(hexagonFirstRow.value) === 1 ||
-    parseInt(value) <= parseInt(hexagonFirstRow.value)
+    parseInt(hexagonInput.hexagonFirstRow.value) === 1 ||
+    parseInt(value) <= parseInt(hexagonInput.hexagonFirstRow.value)
   ) {
     html = generateOneLine(parseInt(value));
   } else {
