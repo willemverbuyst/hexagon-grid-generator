@@ -1,4 +1,4 @@
-import { generateCSStext } from '../cssTextGenerator';
+import { generateCSStext } from '../generators/cssTextGenerator';
 import { DOMInputElement } from './DOMInputElement';
 import { root } from '../index';
 

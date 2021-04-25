@@ -1,6 +1,7 @@
-import { generateHexagons, hexagonAmount } from './classes/HexagonInput';
+import { hexagonAmount } from './classes/HexagonInput';
 import { MediaQueryInput } from './classes/MediaQueryInput';
 import { RootInput, RootInputGap } from './classes/RootInput';
+import { generateHexagons } from './generators/hexagonGenerator';
 
 export const root = document.documentElement;
 export const hexagonContainer = document.getElementById('hexagon__container');

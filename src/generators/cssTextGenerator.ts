@@ -1,5 +1,5 @@
-import { hexagonFirstRow } from './classes/HexagonInput';
-import { mediaQueries, rootInputs, rootInputGap } from './index';
+import { hexagonFirstRow } from '../classes/HexagonInput';
+import { mediaQueries, rootInputs, rootInputGap } from '../index';
 
 export const cssTextField = document.getElementById('css');
 
