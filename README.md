@@ -2,27 +2,27 @@
 
 ## What is this?
 
-This is the typescrip version of this [tool](https://github.com/willemverbuyst/hexagon-generator) (written with vanilla js)
+This is the TypeScript version of this [tool](https://github.com/willemverbuyst/hexagon-generator) (written with vanilla js).
 
-The Hexgon generator is a tool to create the html and css needed to display a responsive grid of hexagons.
+The Hexagon Generator is a tool to create the HTML and CSS needed to display a responsive grid of hexagons.
 
-Tool can be found here: https://willemverbuyst.github.io/hexagon-generator/
+A live version of the tool can be found here: https://willemverbuyst.github.io/hexagon-generator/
 
 !['screenshot of the hexagon genrator'](./img/hexagon_generator.png)
 
 ## Why use this?
 
-Setting a up a grid of hexagons with only html/css can be a challenging job. With this tool the user doesn't have to deal with the mathematical calculation that goes hand in hand with geometrical shapes.
+Setting a up a grid of hexagons with only HTML/CSS can be a challenging job. With this tool the user doesn't have to deal with the mathematical calculation that goes hand in hand with geometrical shapes.
 
-When you want to make the grid responsive the css' **flexbox** and **nth-child selectors** combo is a nice but tough solution. This combo is exactly what this tool is based upon. The javascript in the background is used to generate the code - not the grid setup.
+When you want to make the grid responsive the CSS' **flexbox** and **nth-child selectors** combo is a nice but tough solution. This combo is exactly what this tool is based upon. The JavaScript in the background is used to generate the code - not the grid setup.
 
 ## How to use this?
 
-Tweak the values in the left pane. The display of the hexagon grid is updated live, as well as the html and css code. It is just a matter of copying the code in your project. You can replace the numbers with pictures, text, logos etc.
+Tweak the values in the left pane. The display of the hexagon grid is updated live, as well as the HTML and CSS code. It is just a matter of copying the code in your project. You can replace the numbers with pictures, text, logos etc.
 
 ## Installing?
 
-You don't need to installl anything. It is html and css only.
+You don't need to install anything. It is HTML and CSS only.
 
 ## Tweaking of the values
 
@@ -50,7 +50,7 @@ The first row will decrease one hexagon per breakpoint. When you start with 5, p
 
 Tested in Chrome, Firefox and Safari.
 
-## Project with the hexagon generator
+## Project with the Hexagon Generator
 
 !['screenshot of the project made with the hexagon generator'](./img/zucchini-hexagons.png)
 
