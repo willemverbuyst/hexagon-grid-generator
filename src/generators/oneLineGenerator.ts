@@ -1,14 +1,13 @@
-import { generateHTMLtext } from './htmlTextGenerator';
-
 export const generateOneLine = (value: number): string => {
-  let html_firstRow = '';
-  for (let i = 0; i < value; i++) {
-    html_firstRow += `
-    <div class="hexagon__outer first-row_margin-top">
-      <div class="hexagon__inner">${i + 1}
+  let html = '';
+
+  for (let i = 1; i <= value; i++) {
+    html += `
+    <div class="hexagon__outer">
+      <div class="hexagon__inner">${i}
       </div>
     </div>`;
   }
-  generateHTMLtext(value);
-  return html_firstRow;
+
+  return html;
 };

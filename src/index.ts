@@ -9,10 +9,9 @@ import { generateHexagons } from './generators/hexagonGenerator';
 export const root = document.documentElement;
 export const hexagonContainer = document.getElementById('hexagon__container');
 
-export const mediaQueries = {
-  mediaQuery_1: new MediaQueryInput('media-query--1'),
-  mediaQuery_2: new MediaQueryInput('media-query--2'),
-  mediaQuery_3: new MediaQueryInput('media-query--3'),
+export const hexagonInput = {
+  hexagonAmount: new HexagonInputAmount('hexagon-amount'),
+  hexagonFirstRow: new HexagonInputFirstRow('hexagon-first-row'),
 };
 
 export const rootInputs = {
@@ -35,9 +34,10 @@ export const rootInputGap = {
   hexagonGap: new RootInputGap('hexagon-gap', '--size-hexagon-inner', '%'),
 };
 
-export const hexagonInput = {
-  hexagonFirstRow: new HexagonInputFirstRow('hexagon-first-row'),
-  hexagonAmount: new HexagonInputAmount('hexagon-amount'),
+export const mediaQueries = {
+  mediaQuery_1: new MediaQueryInput('media-query--1'),
+  mediaQuery_2: new MediaQueryInput('media-query--2'),
+  mediaQuery_3: new MediaQueryInput('media-query--3'),
 };
 
 // call the function for an initial display of hexagons
