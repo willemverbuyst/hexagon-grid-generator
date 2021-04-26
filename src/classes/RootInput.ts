@@ -41,7 +41,7 @@ export class RootInputGap extends RootInput {
     this.element.oninput = (): void => {
       this.changeRootValues(
         this.rootElementName,
-        100 - parseInt(this.element.value) + this.postFix
+        100 - Number(this.element.value) + this.postFix
       );
     };
   }

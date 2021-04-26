@@ -7,7 +7,7 @@ export const generateRows = (value: number): string => {
 
   // generate first row
   // add css class 'margin-top' to first row
-  for (i; i <= parseInt(hexagonInput.hexagonFirstRow.value); i++) {
+  for (i; i <= hexagonInput.hexagonFirstRow.value; i++) {
     html += `
     <div class="hexagon__outer first-row_margin-top">
       <div class="hexagon__inner">${i}
@@ -19,11 +19,11 @@ export const generateRows = (value: number): string => {
   // even rows will get a css class of 'even-rows__margin-left'
   // uneven rows will not get an extra class
   let k = 0;
-  while (k < value - parseInt(hexagonInput.hexagonFirstRow.value)) {
+  while (k < value - hexagonInput.hexagonFirstRow.value) {
     i++;
     if (
       k === 0 ||
-      k % ((parseInt(hexagonInput.hexagonFirstRow.value) - 1) * 2 + 1) === 0
+      k % ((hexagonInput.hexagonFirstRow.value - 1) * 2 + 1) === 0
     ) {
       html += `
         <div class="hexagon__outer even-rows__margin-left">

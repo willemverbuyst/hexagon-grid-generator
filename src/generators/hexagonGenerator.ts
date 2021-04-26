@@ -5,20 +5,20 @@ import { generateHTMLtext } from './htmlTextGenerator';
 import { generateOneLine } from './oneLineGenerator';
 import { generateRows } from './rowGenerator';
 
-export const generateHexagons = (value: string): void => {
+export const generateHexagons = (value: number): void => {
   let html: string;
 
   if (
-    parseInt(hexagonInput.hexagonFirstRow.value) === 1 ||
-    parseInt(value) <= parseInt(hexagonInput.hexagonFirstRow.value)
+    hexagonInput.hexagonFirstRow.value === 1 ||
+    value <= hexagonInput.hexagonFirstRow.value
   ) {
-    html = generateOneLine(parseInt(value));
+    html = generateOneLine(value);
   } else {
-    html = generateRows(parseInt(value));
+    html = generateRows(value);
   }
   if (hexagonContainer) hexagonContainer.innerHTML = html;
 
-  generateHTMLtext(parseInt(hexagonInput.hexagonAmount.value));
+  generateHTMLtext(hexagonInput.hexagonAmount.value);
   generateCSStext();
 };
 

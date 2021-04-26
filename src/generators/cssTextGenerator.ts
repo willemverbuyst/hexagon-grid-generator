@@ -13,10 +13,7 @@ export const generateCSStext = (): void => {
 }
 
 .hexagon-wrapper__hexagon-container {
-  width: ${
-    parseInt(hexagonInput.hexagonFirstRow.value) *
-    parseInt(rootInputs.hexagonSize.value)
-  }vw;
+  width: ${hexagonInput.hexagonFirstRow.value * rootInputs.hexagonSize.value}vw;
   display: flex;
   flex-wrap: wrap;
   transform: skew(${rootInputs.containerSkewX.value}deg, ${
@@ -42,14 +39,11 @@ export const generateCSStext = (): void => {
     0 75%
   );
   width: ${rootInputs.hexagonSize.value}vw;
-  height: ${(1.154665 * parseInt(rootInputs.hexagonSize.value)).toFixed(2)}vw;
+  height: ${(1.154665 * rootInputs.hexagonSize.value).toFixed(2)}vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: ${(
-    (1.154665 * parseInt(rootInputs.hexagonSize.value)) /
-    -4
-  ).toFixed(2)}vw;
+  margin-top: ${((1.154665 * rootInputs.hexagonSize.value) / -4).toFixed(2)}vw;
   transition: all ${rootInputs.hexagonTransition.value}s;
 }
 
@@ -60,25 +54,25 @@ export const generateCSStext = (): void => {
 }
 
 .hexagon__outer:nth-child(${
-    parseInt(hexagonInput.hexagonFirstRow.value) === 1 ? 'n' : '-n'
+    hexagonInput.hexagonFirstRow.value === 1 ? 'n' : '-n'
   } + ${
-    parseInt(hexagonInput.hexagonFirstRow.value) === 1
+    hexagonInput.hexagonFirstRow.value === 1
       ? 0
       : hexagonInput.hexagonFirstRow.value
   }) {
     margin-top: 0;
   }
-  
+
 .hexagon__outer:nth-child(${
-    parseInt(hexagonInput.hexagonFirstRow.value) === 1
+    hexagonInput.hexagonFirstRow.value === 1
       ? ''
-      : parseInt(hexagonInput.hexagonFirstRow.value) * 2 - 1
+      : hexagonInput.hexagonFirstRow.value * 2 - 1
   }n + ${
-    parseInt(hexagonInput.hexagonFirstRow.value) === 1
+    hexagonInput.hexagonFirstRow.value === 1
       ? ''
-      : parseInt(hexagonInput.hexagonFirstRow.value) * 1 + 1
+      : hexagonInput.hexagonFirstRow.value * 1 + 1
   }) {
-    margin-left: ${0.5 * parseInt(rootInputs.hexagonSize.value)}vw;
+    margin-left: ${0.5 * rootInputs.hexagonSize.value}vw;
   }
 
 .hexagon__inner {
@@ -99,8 +93,8 @@ export const generateCSStext = (): void => {
     50% 100%,
     0 75%
   );
-  width: ${100 - parseInt(rootInputGap.hexagonGap.value)}%;
-  height: ${100 - parseInt(rootInputGap.hexagonGap.value)}%;
+  width: ${100 - rootInputGap.hexagonGap.value}%;
+  height: ${100 - rootInputGap.hexagonGap.value}%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,57 +102,56 @@ export const generateCSStext = (): void => {
 }
 `;
 
-  if (parseInt(hexagonInput.hexagonFirstRow.value) - 1 > 0) {
+  if (hexagonInput.hexagonFirstRow.value - 1 > 0) {
     displayCSS += `
     @media (max-width: ${mediaQueries.mediaQuery_1.value}px) {
       .hexagon-wrapper__hexagon-container {
         width: ${
-          (parseInt(hexagonInput.hexagonFirstRow.value) - 1) *
-          parseInt(rootInputs.hexagonSize.value)
+          (hexagonInput.hexagonFirstRow.value - 1) *
+          rootInputs.hexagonSize.value
         }vw;
       }
-  
+
       /* reset */
       .hexagon__outer:nth-child(-n + ${hexagonInput.hexagonFirstRow.value}) {
-        margin-top: ${(
-          (1.154665 * parseInt(rootInputs.hexagonSize.value)) /
-          -4
-        ).toFixed(2)}vw;
+        margin-top: ${((1.154665 * rootInputs.hexagonSize.value) / -4).toFixed(
+          2
+        )}vw;
       }
 
       /* reset */
       .hexagon__outer:nth-child(${
-        (parseInt(hexagonInput.hexagonFirstRow.value) - 1) * 2 + 1
-      }n + ${parseInt(hexagonInput.hexagonFirstRow.value) + 1}) {
+        (hexagonInput.hexagonFirstRow.value - 1) * 2 + 1
+      }n + ${hexagonInput.hexagonFirstRow.value + 1}) {
           margin-left: 0;
       }
-  
+
       .hexagon__outer:nth-child(${
-        parseInt(hexagonInput.hexagonFirstRow.value) - 1 < 2 ? 'n' : '-n'
+        hexagonInput.hexagonFirstRow.value - 1 < 2 ? 'n' : '-n'
       } + ${
-      parseInt(hexagonInput.hexagonFirstRow.value) - 1 < 2
+      hexagonInput.hexagonFirstRow.value - 1 < 2
         ? 0
-        : parseInt(hexagonInput.hexagonFirstRow.value) - 1
+        : hexagonInput.hexagonFirstRow.value - 1
     }) {
           margin-top: 0;
       }
-  
+
       .hexagon__outer:nth-child(${
-        (parseInt(hexagonInput.hexagonFirstRow.value) - 1) * 2 - 1 < 3
+        (hexagonInput.hexagonFirstRow.value - 1) * 2 - 1 < 3
           ? 0
-          : (parseInt(hexagonInput.hexagonFirstRow.value) - 1) * 2 - 1
+          : (hexagonInput.hexagonFirstRow.value - 1) * 2 - 1
       }n + ${
-      parseInt(hexagonInput.hexagonFirstRow.value) < 3
+      hexagonInput.hexagonFirstRow.value < 3
         ? 0
-        : parseInt(hexagonInput.hexagonFirstRow.value)
+        : hexagonInput.hexagonFirstRow.value
     }) {
-        margin-left: ${0.5 * parseInt(rootInputs.hexagonSize.value)}vw;
+        margin-left: ${0.5 * rootInputs.hexagonSize.value}vw;
     }
   }
   `;
   }
 
-  if (parseInt(hexagonInput.hexagonFirstRow.value) - 2 > 0) {
+  if (hexagonInput.hexagonFirstRow.value - 2 > 0) {
     displayCSS += `
     @media only screen and (max-width: ${mediaQueries.mediaQuery_2.value}px) {
       html {
@@ -167,101 +160,99 @@ export const generateCSStext = (): void => {
 
       .hexagon-wrapper__hexagon-container {
         width: ${
-          (parseInt(hexagonInput.hexagonFirstRow.value) - 2) *
-          parseInt(rootInputs.hexagonSize.value)
+          (hexagonInput.hexagonFirstRow.value - 2) *
+          rootInputs.hexagonSize.value
         }vw;
       }
 
       /* reset */
       .hexagon__outer:nth-child(-n + ${
-        parseInt(hexagonInput.hexagonFirstRow.value) - 1
+        hexagonInput.hexagonFirstRow.value - 1
       }) {
-        margin-top: ${(
-          (1.154665 * parseInt(rootInputs.hexagonSize.value)) /
-          -4
-        ).toFixed(2)}vw;
+        margin-top: ${((1.154665 * rootInputs.hexagonSize.value) / -4).toFixed(
+          2
+        )}vw;
       }
 
       /* reset */
       .hexagon__outer:nth-child(${
-        (parseInt(hexagonInput.hexagonFirstRow.value) - 1) * 2 - 1
+        (hexagonInput.hexagonFirstRow.value - 1) * 2 - 1
       }n + ${hexagonInput.hexagonFirstRow.value}) {
         margin-left: 0;
       }
 
       .hexagon__outer:nth-child(${
-        parseInt(hexagonInput.hexagonFirstRow.value) - 2 < 2 ? 'n' : '-n'
+        hexagonInput.hexagonFirstRow.value - 2 < 2 ? 'n' : '-n'
       } + ${
-      parseInt(hexagonInput.hexagonFirstRow.value) - 2 < 2
+      hexagonInput.hexagonFirstRow.value - 2 < 2
         ? 0
-        : parseInt(hexagonInput.hexagonFirstRow.value) - 2
+        : hexagonInput.hexagonFirstRow.value - 2
     }) {
         margin-top: 0;
       }
 
       .hexagon__outer:nth-child(${
-        (parseInt(hexagonInput.hexagonFirstRow.value) - 1) * 2 - 3 < 3
+        (hexagonInput.hexagonFirstRow.value - 1) * 2 - 3 < 3
           ? 0
-          : (parseInt(hexagonInput.hexagonFirstRow.value) - 1) * 2 - 3
+          : (hexagonInput.hexagonFirstRow.value - 1) * 2 - 3
       }n + ${
-      parseInt(hexagonInput.hexagonFirstRow.value) - 1 < 3
+      hexagonInput.hexagonFirstRow.value - 1 < 3
         ? 0
-        : parseInt(hexagonInput.hexagonFirstRow.value) - 1
+        : hexagonInput.hexagonFirstRow.value - 1
     }) {
-        margin-left: ${0.5 * parseInt(rootInputs.hexagonSize.value)}vw;
+        margin-left: ${0.5 * rootInputs.hexagonSize.value}vw;
     }
   }
   `;
   }
 
-  if (parseInt(hexagonInput.hexagonFirstRow.value) - 3 > 0) {
+  if (hexagonInput.hexagonFirstRow.value - 3 > 0) {
     displayCSS += `
     @media only screen and (max-width: ${mediaQueries.mediaQuery_3.value}px) {
       .hexagon-wrapper__hexagon-container {
         width: ${
-          (parseInt(hexagonInput.hexagonFirstRow.value) - 3) *
-          parseInt(rootInputs.hexagonSize.value)
+          (hexagonInput.hexagonFirstRow.value - 3) *
+          rootInputs.hexagonSize.value
         }vw;
       }
 
       /* reset */
       .hexagon__outer:nth-child(-n + ${
-        parseInt(hexagonInput.hexagonFirstRow.value) - 2
+        hexagonInput.hexagonFirstRow.value - 2
       }) {
-        margin-top: ${(
-          (1.154665 * parseInt(rootInputs.hexagonSize.value)) /
-          -4
-        ).toFixed(2)}vw;
+        margin-top: ${((1.154665 * rootInputs.hexagonSize.value) / -4).toFixed(
+          2
+        )}vw;
       }
 
       /* reset */
       .hexagon__outer:nth-child(${
-        (parseInt(hexagonInput.hexagonFirstRow.value) - 1) * 2 - 3
-      }n + ${parseInt(hexagonInput.hexagonFirstRow.value) - 1}) {
+        (hexagonInput.hexagonFirstRow.value - 1) * 2 - 3
+      }n + ${hexagonInput.hexagonFirstRow.value - 1}) {
         margin-left: 0;
       }
 
       .hexagon__outer:nth-child(${
-        parseInt(hexagonInput.hexagonFirstRow.value) - 3 < 2 ? 'n' : '-n'
+        hexagonInput.hexagonFirstRow.value - 3 < 2 ? 'n' : '-n'
       } + ${
-      parseInt(hexagonInput.hexagonFirstRow.value) - 3 < 2
+      hexagonInput.hexagonFirstRow.value - 3 < 2
         ? 0
-        : parseInt(hexagonInput.hexagonFirstRow.value) - 3
+        : hexagonInput.hexagonFirstRow.value - 3
     }) {
         margin-top: 0;
       }
 
       .hexagon__outer:nth-child(${
-        (parseInt(hexagonInput.hexagonFirstRow.value) - 1) * 2 - 5 < 3
+        (hexagonInput.hexagonFirstRow.value - 1) * 2 - 5 < 3
           ? 0
-          : (parseInt(hexagonInput.hexagonFirstRow.value) - 1) * 2 - 5
+          : (hexagonInput.hexagonFirstRow.value - 1) * 2 - 5
       }n + ${
-      parseInt(hexagonInput.hexagonFirstRow.value) - 2 < 3
+      hexagonInput.hexagonFirstRow.value - 2 < 3
         ? 0
-        : parseInt(hexagonInput.hexagonFirstRow.value) - 2
+        : hexagonInput.hexagonFirstRow.value - 2
     }) {
-        margin-left: ${0.5 * parseInt(rootInputs.hexagonSize.value)}vw;
-    } 
+        margin-left: ${0.5 * rootInputs.hexagonSize.value}vw;
+    }
   }
   `;
   }
