@@ -1,16 +1,15 @@
-import { hexagonContainer, root } from '../index';
-import { hexagonInput } from '../index';
+import { DOMInput, hexagonContainer, root } from '../index';
 import { generateCSStext } from './cssTextGenerator';
 import { generateHTMLtext } from './htmlTextGenerator';
 import { generateOneLine } from './oneLineGenerator';
-import { generateRows } from './rowGenerator';
+import { generateRows } from './rowsGenerator';
 
 export const generateHexagons = (value: number): void => {
   let html: string;
 
   if (
-    hexagonInput.hexagonFirstRow.value === 1 ||
-    value <= hexagonInput.hexagonFirstRow.value
+    DOMInput.hexagonFirstRow.value === 1 ||
+    value <= DOMInput.hexagonFirstRow.value
   ) {
     html = generateOneLine(value);
   } else {
@@ -18,11 +17,11 @@ export const generateHexagons = (value: number): void => {
   }
   if (hexagonContainer) hexagonContainer.innerHTML = html;
 
-  generateHTMLtext(hexagonInput.hexagonAmount.value);
+  generateHTMLtext(DOMInput.hexagonAmount.value);
   generateCSStext();
 };
 
-export const changeAmountFirstRow = (value: string): void => {
-  root.style.setProperty('--amount-of-hexagons', value);
-  generateHexagons(hexagonInput.hexagonAmount.value);
+export const changeAmountFirstRow = (value: number): void => {
+  root.style.setProperty('--amount-of-hexagons', String(value));
+  generateHexagons(DOMInput.hexagonAmount.value);
 };

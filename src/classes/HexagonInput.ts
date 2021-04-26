@@ -11,7 +11,7 @@ export class HexagonInputFirstRow extends DOMInputElement {
   }
 
   private onInputChangeFirstRow() {
-    this.element.oninput = (): void => changeAmountFirstRow(this.element.value);
+    this.element.oninput = (): void => changeAmountFirstRow(this.value);
   }
 
   init() {
@@ -26,8 +26,7 @@ export class HexagonInputAmount extends DOMInputElement {
   }
 
   private onInputChangeHexagonAmount() {
-    this.element.oninput = (): void =>
-      generateHexagons(Number(this.element.value));
+    this.element.oninput = (): void => generateHexagons(this.value);
   }
 
   init() {

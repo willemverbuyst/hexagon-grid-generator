@@ -1,4 +1,4 @@
-import { hexagonInput } from '../index';
+import { DOMInput } from '../index';
 
 export const generateRows = (value: number): string => {
   let html = '';
@@ -7,7 +7,7 @@ export const generateRows = (value: number): string => {
 
   // generate first row
   // add css class 'margin-top' to first row
-  for (i; i <= hexagonInput.hexagonFirstRow.value; i++) {
+  for (i; i <= DOMInput.hexagonFirstRow.value; i++) {
     html += `
     <div class="hexagon__outer first-row_margin-top">
       <div class="hexagon__inner">${i}
@@ -19,12 +19,9 @@ export const generateRows = (value: number): string => {
   // even rows will get a css class of 'even-rows__margin-left'
   // uneven rows will not get an extra class
   let k = 0;
-  while (k < value - hexagonInput.hexagonFirstRow.value) {
+  while (k < value - DOMInput.hexagonFirstRow.value) {
     i++;
-    if (
-      k === 0 ||
-      k % ((hexagonInput.hexagonFirstRow.value - 1) * 2 + 1) === 0
-    ) {
+    if (k === 0 || k % ((DOMInput.hexagonFirstRow.value - 1) * 2 + 1) === 0) {
       html += `
         <div class="hexagon__outer even-rows__margin-left">
           <div class="hexagon__inner">${i}
