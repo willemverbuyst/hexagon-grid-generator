@@ -4,6 +4,6 @@ export class DOMInputElement {
   element = <HTMLInputElement>document.getElementById(this.id);
 
   get value() {
-    return this.element.value;
+    return Number(this.element.value);
   }
 }

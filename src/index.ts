@@ -9,13 +9,9 @@ import { generateHexagons } from './generators/hexagonGenerator';
 export const root = document.documentElement;
 export const hexagonContainer = document.getElementById('hexagon__container');
 
-export const mediaQueries = {
-  mediaQuery_1: new MediaQueryInput('media-query--1'),
-  mediaQuery_2: new MediaQueryInput('media-query--2'),
-  mediaQuery_3: new MediaQueryInput('media-query--3'),
-};
-
-export const rootInputs = {
+export const DOMInput = {
+  hexagonAmount: new HexagonInputAmount('hexagon-amount'),
+  hexagonFirstRow: new HexagonInputFirstRow('hexagon-first-row'),
   backgroundColor: new RootInput('bg-color', '--color-bg'),
   hexagonColor: new RootInput('hexagon-color', '--color-inner-hexagon'),
   textColor: new RootInput('text-color', '--color-text'),
@@ -29,16 +25,11 @@ export const rootInputs = {
     's'
   ),
   hexagonScale: new RootInput('hexagon-scale', '--hover-scale'),
-};
-
-export const rootInputGap = {
   hexagonGap: new RootInputGap('hexagon-gap', '--size-hexagon-inner', '%'),
-};
-
-export const hexagonInput = {
-  hexagonFirstRow: new HexagonInputFirstRow('hexagon-first-row'),
-  hexagonAmount: new HexagonInputAmount('hexagon-amount'),
+  mediaQuery_1: new MediaQueryInput('media-query--1'),
+  mediaQuery_2: new MediaQueryInput('media-query--2'),
+  mediaQuery_3: new MediaQueryInput('media-query--3'),
 };
 
 // call the function for an initial display of hexagons
-generateHexagons(hexagonInput.hexagonAmount.value);
+generateHexagons(DOMInput.hexagonAmount.value);
