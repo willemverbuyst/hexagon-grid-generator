@@ -1,11 +1,10 @@
-import { hexagonContainer } from '../index';
+import { hexagonContainer, root } from '../index';
 import { hexagonInput } from '../index';
 import { generateOneLine } from './oneLineGenerator';
 import { generateRows } from './rowGenerator';
 
 export const generateHexagons = (value: string): void => {
   let html: string;
-  hexagonContainer!.innerHTML = '';
 
   if (
     parseInt(hexagonInput.hexagonFirstRow.value) === 1 ||
@@ -15,5 +14,10 @@ export const generateHexagons = (value: string): void => {
   } else {
     html = generateRows(parseInt(value));
   }
-  hexagonContainer!.innerHTML = html;
+  if (hexagonContainer) hexagonContainer.innerHTML = html;
+};
+
+export const changeAmountFirstRow = (value: string): void => {
+  root.style.setProperty('--amount-of-hexagons', value);
+  generateHexagons(hexagonInput.hexagonAmount.value);
 };

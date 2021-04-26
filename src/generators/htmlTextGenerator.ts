@@ -1,6 +1,6 @@
 import { generateCSStext } from './cssTextGenerator';
 
-export const htmlTextField = document.getElementById('html');
+const htmlTextField = document.getElementById('html');
 
 export const generateHTMLtext = (value: number): void => {
   generateCSStext();
@@ -16,5 +16,5 @@ export const generateHTMLtext = (value: number): void => {
     </div>
   </div>
 `;
-  htmlTextField!.innerText = displayHTML;
+  if (htmlTextField) htmlTextField.innerText = displayHTML;
 };

@@ -1,7 +1,7 @@
 import { hexagonInput } from '../index';
 import { mediaQueries, rootInputs, rootInputGap } from '../index';
 
-export const cssTextField = document.getElementById('css');
+const cssTextField = document.getElementById('css');
 
 export const generateCSStext = (): void => {
   let displayCSS = `
@@ -266,5 +266,5 @@ export const generateCSStext = (): void => {
   `;
   }
 
-  cssTextField!.innerText = displayCSS;
+  if (cssTextField) cssTextField.innerText = displayCSS;
 };

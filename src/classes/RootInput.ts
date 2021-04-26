@@ -12,9 +12,17 @@ export class RootInput extends DOMInputElement {
     this.init();
   }
 
-  private addEventListenerForRootChange() {
+  changeRootValues(property: string, value: string): void {
+    root.style.setProperty(property, value);
+    generateCSStext();
+  }
+
+  addEventListenerForRootChange() {
     this.element.oninput = (): void => {
-      changeRootValues(this.rootElementName, this.element.value + this.postFix);
+      this.changeRootValues(
+        this.rootElementName,
+        this.element.value + this.postFix
+      );
     };
   }
 
@@ -23,31 +31,18 @@ export class RootInput extends DOMInputElement {
   }
 }
 
-export class RootInputGap extends DOMInputElement {
-  constructor(
-    id: string,
-    private rootElementName: string,
-    private postFix: string = ''
-  ) {
-    super(id);
-    this.init();
+export class RootInputGap extends RootInput {
+  constructor(id: string, rootElementName: string, postFix: string = '') {
+    super(id, rootElementName, postFix);
   }
 
-  onInputChangeGapWidth() {
+  // Different implementation of this method
+  addEventListenerForRootChange() {
     this.element.oninput = (): void => {
-      changeRootValues(
+      this.changeRootValues(
         this.rootElementName,
         100 - parseInt(this.element.value) + this.postFix
       );
     };
   }
-
-  init() {
-    this.onInputChangeGapWidth();
-  }
 }
-
-const changeRootValues = (property: string, value: string): void => {
-  root.style.setProperty(property, value);
-  generateCSStext();
-};
