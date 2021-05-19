@@ -1,8 +1,7 @@
 import { DOMInput, hexagonContainer, root } from '../index';
 import { generateCSStext } from './cssTextGenerator';
 import { generateHTMLtext } from './htmlTextGenerator';
-import { generateOneLine } from './oneLineGenerator';
-import { generateRows } from './rowsGenerator';
+import { generateOneRow, generateMultipleRows } from './rowsGenerator';
 
 export const generateHexagons = (value: number): void => {
   let html: string;
@@ -11,9 +10,9 @@ export const generateHexagons = (value: number): void => {
     DOMInput.hexagonFirstRow.valueAsNumber === 1 ||
     value <= DOMInput.hexagonFirstRow.valueAsNumber
   ) {
-    html = generateOneLine(value);
+    html = generateOneRow(value);
   } else {
-    html = generateRows(value);
+    html = generateMultipleRows(value);
   }
 
   if (hexagonContainer) {

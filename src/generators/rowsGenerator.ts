@@ -1,7 +1,17 @@
 import { DOMInput } from '../index';
 import { createHexagonHTMLString } from '../utils/helperFunctions';
 
-export const generateRows = (value: number): string => {
+export const generateOneRow = (value: number): string => {
+  let html: string = '';
+
+  for (let i = 1; i <= value; i++) {
+    html += createHexagonHTMLString(i);
+  }
+
+  return html;
+};
+
+export const generateMultipleRows = (value: number): string => {
   let html: string = '';
   // Hexagon counter
   let i: number = 1;
