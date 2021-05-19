@@ -1,18 +1,15 @@
 import { DOMInput } from '../index';
+import { createHexagonHTMLString } from '../utils/helperFunctions';
 
 export const generateRows = (value: number): string => {
-  let html = '';
+  let html: string = '';
   // Hexagon counter
-  let i = 1;
+  let i: number = 1;
 
   // generate first row
   // add css class 'margin-top' to first row
   for (i; i <= DOMInput.hexagonFirstRow.valueAsNumber; i++) {
-    html += `
-    <div class="hexagon__outer first-row_margin-top">
-      <div class="hexagon__inner">${i}
-      </div>
-    </div>`;
+    html += createHexagonHTMLString(i, 'first-row_margin-top');
   }
 
   // generate next rows
@@ -24,17 +21,9 @@ export const generateRows = (value: number): string => {
       k === 0 ||
       k % ((DOMInput.hexagonFirstRow.valueAsNumber - 1) * 2 + 1) === 0
     ) {
-      html += `
-        <div class="hexagon__outer even-rows__margin-left">
-          <div class="hexagon__inner">${i}
-          </div>
-        </div>`;
+      html += createHexagonHTMLString(i, 'even-rows__margin-left');
     } else {
-      html += `
-        <div class="hexagon__outer">
-          <div class="hexagon__inner">${i}
-          </div>
-        </div>`;
+      html += createHexagonHTMLString(i);
     }
     i++;
     k++;
