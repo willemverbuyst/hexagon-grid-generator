@@ -8,8 +8,7 @@ export class HexagonInputAmount extends DOMInputElement {
   }
 
   private onInputChangeHexagonAmount() {
-    this.element.oninput = (): void =>
-      generateHexagons(Number(this.element.value));
+    this.element.oninput = (): void => generateHexagons(this.valueAsNumber);
   }
 
   init() {

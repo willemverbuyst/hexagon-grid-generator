@@ -8,8 +8,8 @@ export const generateHexagons = (value: number): void => {
   let html: string;
 
   if (
-    DOMInput.hexagonFirstRow.value === 1 ||
-    value <= DOMInput.hexagonFirstRow.value
+    DOMInput.hexagonFirstRow.valueAsNumber === 1 ||
+    value <= DOMInput.hexagonFirstRow.valueAsNumber
   ) {
     html = generateOneLine(value);
   } else {
@@ -17,11 +17,11 @@ export const generateHexagons = (value: number): void => {
   }
   if (hexagonContainer) hexagonContainer.innerHTML = html;
 
-  generateHTMLtext(DOMInput.hexagonAmount.value);
+  generateHTMLtext(DOMInput.hexagonAmount.valueAsNumber);
   generateCSStext();
 };
 
 export const changeAmountFirstRow = (value: number): void => {
   root.style.setProperty('--amount-of-hexagons', String(value));
-  generateHexagons(DOMInput.hexagonAmount.value);
+  generateHexagons(DOMInput.hexagonAmount.valueAsNumber);
 };

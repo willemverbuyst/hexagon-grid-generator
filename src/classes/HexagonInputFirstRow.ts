@@ -8,7 +8,7 @@ export class HexagonInputFirstRow extends DOMInputElement {
   }
 
   private onInputChangeFirstRow() {
-    this.element.oninput = (): void => changeAmountFirstRow(this.value);
+    this.element.oninput = (): void => changeAmountFirstRow(this.valueAsNumber);
   }
 
   init() {
