@@ -22,8 +22,3 @@ export const generateHexagons = (value: number): void => {
   generateHTMLtext();
   generateCSStext();
 };
-
-export const changeAmountFirstRow = (value: number): void => {
-  root.style.setProperty('--amount-of-hexagons', String(value));
-  generateHexagons(DOMInput.hexagonAmount.valueAsNumber);
-};
