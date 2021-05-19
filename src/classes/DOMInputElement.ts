@@ -8,6 +8,6 @@ export class DOMInputElement {
   }
 
   get valueAsString() {
-    return this.element.value;
+    return String(this.element.value);
   }
 }
