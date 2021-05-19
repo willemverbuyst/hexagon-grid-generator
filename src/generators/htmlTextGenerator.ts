@@ -1,8 +1,8 @@
 import { DOMInput } from '../index';
-const htmlTextField = document.getElementById('html');
 import { createHexagonHTMLString } from '../utils/helperFunctions';
 
 export const generateHTMLtext = (): void => {
+  const htmlTextField = document.getElementById('html');
   const {
     hexagonAmount: { valueAsNumber: numberOfHexagons },
   } = DOMInput;
