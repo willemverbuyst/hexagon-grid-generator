@@ -1,7 +1,5 @@
-import {
-  HexagonInputAmount,
-  HexagonInputFirstRow,
-} from './classes/HexagonInput';
+import { HexagonInputAmount } from './classes/HexagonInputAmount';
+import { HexagonInputFirstRow } from './classes/HexagonInputFirstRow';
 import { MediaQueryInput } from './classes/MediaQueryInput';
 import { RootInput, RootInputGap } from './classes/RootInput';
 import { generateHexagons } from './generators/hexagonGenerator';
