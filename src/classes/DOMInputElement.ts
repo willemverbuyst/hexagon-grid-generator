@@ -6,4 +6,12 @@ export class DOMInputElement {
   get value() {
     return Number(this.element.value);
   }
+
+  get valueAsNumber() {
+    return Number(this.element.value);
+  }
+
+  get valueAsString() {
+    return this.element.value;
+  }
 }

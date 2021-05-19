@@ -19,7 +19,10 @@ export class RootInput extends DOMInputElement {
 
   addEventListenerForRootChange() {
     this.element.oninput = (): void => {
-      this.changeRootValues(this.rootElementName, this.value + this.postFix);
+      this.changeRootValues(
+        this.rootElementName,
+        this.valueAsString + this.postFix
+      );
     };
   }
 
