@@ -3,8 +3,12 @@ const htmlTextField = document.getElementById('html');
 import { createHexagonHTMLString } from '../utils/helperFunctions';
 
 export const generateHTMLtext = (): void => {
+  const {
+    hexagonAmount: { valueAsNumber: numberOfHexagons },
+  } = DOMInput;
   let html: string = '';
-  for (let i = 1; i <= DOMInput.hexagonAmount.valueAsNumber; i++) {
+
+  for (let i = 1; i <= numberOfHexagons; i++) {
     html += createHexagonHTMLString(i);
   }
 

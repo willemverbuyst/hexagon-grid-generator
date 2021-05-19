@@ -31,4 +31,4 @@ export const DOMInput = {
 };
 
 // call the function for an initial display of hexagons
-generateHexagons(DOMInput.hexagonAmount.valueAsNumber);
+generateHexagons();

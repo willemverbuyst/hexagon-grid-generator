@@ -1,18 +1,19 @@
-import { DOMInput, hexagonContainer, root } from '../index';
+import { DOMInput, hexagonContainer } from '../index';
 import { generateCSStext } from './cssTextGenerator';
 import { generateHTMLtext } from './htmlTextGenerator';
 import { generateOneRow, generateMultipleRows } from './rowsGenerator';
 
-export const generateHexagons = (value: number): void => {
+export const generateHexagons = (): void => {
+  const {
+    hexagonFirstRow: { valueAsNumber: hexagonsFirstRow },
+    hexagonAmount: { valueAsNumber: numberOfHexagons },
+  } = DOMInput;
   let html: string;
 
-  if (
-    DOMInput.hexagonFirstRow.valueAsNumber === 1 ||
-    value <= DOMInput.hexagonFirstRow.valueAsNumber
-  ) {
-    html = generateOneRow(value);
+  if (hexagonsFirstRow === 1 || numberOfHexagons <= hexagonsFirstRow) {
+    html = generateOneRow();
   } else {
-    html = generateMultipleRows(value);
+    html = generateMultipleRows();
   }
 
   if (hexagonContainer) {
