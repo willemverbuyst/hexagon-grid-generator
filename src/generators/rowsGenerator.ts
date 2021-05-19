@@ -20,7 +20,6 @@ export const generateRows = (value: number): string => {
   // uneven rows will not get an extra class
   let k = 0;
   while (k < value - DOMInput.hexagonFirstRow.valueAsNumber) {
-    i++;
     if (
       k === 0 ||
       k % ((DOMInput.hexagonFirstRow.valueAsNumber - 1) * 2 + 1) === 0
@@ -37,6 +36,7 @@ export const generateRows = (value: number): string => {
           </div>
         </div>`;
     }
+    i++;
     k++;
   }
 

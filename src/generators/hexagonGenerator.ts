@@ -15,9 +15,12 @@ export const generateHexagons = (value: number): void => {
   } else {
     html = generateRows(value);
   }
-  if (hexagonContainer) hexagonContainer.innerHTML = html;
 
-  generateHTMLtext(DOMInput.hexagonAmount.valueAsNumber);
+  if (hexagonContainer) {
+    hexagonContainer.innerHTML = html;
+  }
+
+  generateHTMLtext();
   generateCSStext();
 };
 

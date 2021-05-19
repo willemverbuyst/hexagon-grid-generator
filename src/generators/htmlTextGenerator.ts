@@ -1,8 +1,9 @@
+import { DOMInput } from '../index';
 const htmlTextField = document.getElementById('html');
 
-export const generateHTMLtext = (value: number): void => {
+export const generateHTMLtext = (): void => {
   let html = '';
-  for (let i = 1; i <= value; i++) {
+  for (let i = 1; i <= DOMInput.hexagonAmount.valueAsNumber; i++) {
     html += `<div class="hexagon__outer"><div class="hexagon__inner">${i}</div></div>`;
   }
 
@@ -13,5 +14,7 @@ export const generateHTMLtext = (value: number): void => {
     </div>
   </div>
 `;
-  if (htmlTextField) htmlTextField.innerText = displayHTML;
+  if (htmlTextField) {
+    htmlTextField.innerText = displayHTML;
+  }
 };
