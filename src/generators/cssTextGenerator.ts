@@ -6,7 +6,7 @@ export const generateCSStext = (): void => {
     backgroundColor: { valueAsString: backgroundColor },
     containerSkewX: { valueAsString: containerSkewX },
     containerSkewY: { valueAsString: containerSkewY },
-    hexagonFirstRow: { valueAsNumber: hexagonsFirstRow },
+    hexagonsFirstRow: { valueAsNumber: hexagonsFirstRow },
     hexagonColor: { valueAsString: hexagonColor },
     hexagonGap: { valueAsNumber: hexagonGap },
     hexagonRotation: { valueAsString: hexagonRotation },

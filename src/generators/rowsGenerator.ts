@@ -3,7 +3,7 @@ import { createHexagonHTMLString } from '../utils/helperFunctions';
 
 export const generateOneRow = (): string => {
   const {
-    hexagonAmount: { valueAsNumber: numberOfHexagons },
+    numberOfHexagons: { valueAsNumber: numberOfHexagons },
   } = DOMInput;
   let html: string = '';
 
@@ -16,8 +16,8 @@ export const generateOneRow = (): string => {
 
 export const generateMultipleRows = (): string => {
   const {
-    hexagonFirstRow: { valueAsNumber: hexagonsFirstRow },
-    hexagonAmount: { valueAsNumber: numberOfHexagons },
+    hexagonsFirstRow: { valueAsNumber: hexagonsFirstRow },
+    numberOfHexagons: { valueAsNumber: numberOfHexagons },
   } = DOMInput;
   // i as hexagon counter
   let i: number = 1;

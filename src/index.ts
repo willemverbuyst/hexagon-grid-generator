@@ -9,8 +9,8 @@ export const root = document.documentElement;
 export const hexagonContainer = document.getElementById('hexagon__container');
 
 export const DOMInput = {
-  hexagonAmount: new HexagonInputAmount('hexagon-amount'),
-  hexagonFirstRow: new HexagonInputFirstRow('hexagon-first-row'),
+  numberOfHexagons: new HexagonInputAmount('hexagon-amount'),
+  hexagonsFirstRow: new HexagonInputFirstRow('hexagon-first-row'),
   backgroundColor: new RootInput('bg-color', '--color-bg'),
   hexagonColor: new RootInput('hexagon-color', '--color-inner-hexagon'),
   textColor: new RootInput('text-color', '--color-text'),

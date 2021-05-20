@@ -5,8 +5,8 @@ import { generateOneRow, generateMultipleRows } from './rowsGenerator';
 
 export const generateHexagons = (): void => {
   const {
-    hexagonFirstRow: { valueAsNumber: hexagonsFirstRow },
-    hexagonAmount: { valueAsNumber: numberOfHexagons },
+    hexagonsFirstRow: { valueAsNumber: hexagonsFirstRow },
+    numberOfHexagons: { valueAsNumber: numberOfHexagons },
   } = DOMInput;
   let html: string;
 

@@ -4,7 +4,7 @@ import { createHexagonHTMLString } from '../utils/helperFunctions';
 export const generateHTMLtext = (): void => {
   const htmlTextField = document.getElementById('html');
   const {
-    hexagonAmount: { valueAsNumber: numberOfHexagons },
+    numberOfHexagons: { valueAsNumber: numberOfHexagons },
   } = DOMInput;
   let html: string = '';
 
