@@ -3,7 +3,11 @@ export class DOMInputElement {
 
   element = <HTMLInputElement>document.getElementById(this.id);
 
-  get value() {
+  get valueAsNumber() {
     return Number(this.element.value);
+  }
+
+  get valueAsString() {
+    return String(this.element.value);
   }
 }

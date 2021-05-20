@@ -1,9 +1,15 @@
-const htmlTextField = document.getElementById('html');
+import { DOMInput } from '../index';
+import { createHexagonHTMLString } from '../utils/HTMLhelperFunctions';
 
-export const generateHTMLtext = (value: number): void => {
-  let html = '';
-  for (let i = 1; i <= value; i++) {
-    html += `<div class="hexagon__outer"><div class="hexagon__inner">${i}</div></div>`;
+export const generateHTMLtext = (): void => {
+  const htmlTextField = document.getElementById('html');
+  const {
+    numberOfHexagons: { valueAsNumber: numberOfHexagons },
+  } = DOMInput;
+  let html: string = '';
+
+  for (let i = 1; i <= numberOfHexagons; i++) {
+    html += createHexagonHTMLString(i);
   }
 
   let displayHTML = `
@@ -13,5 +19,7 @@ export const generateHTMLtext = (value: number): void => {
     </div>
   </div>
 `;
-  if (htmlTextField) htmlTextField.innerText = displayHTML;
+  if (htmlTextField) {
+    htmlTextField.innerText = displayHTML;
+  }
 };
