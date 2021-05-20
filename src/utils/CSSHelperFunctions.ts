@@ -19,7 +19,7 @@ export const createMediaQuery = (i: number) => {
     }
 
     /* reset */
-    .hexagon__outer:nth-child(${(hexagonsFirstRow - 1) * 2 + (-2 * i + 3)}n + ${
+    .hexagon__outer:nth-child(${hexagonsFirstRow * 2 - i * 2 + 1}n + ${
       hexagonsFirstRow + 2 - i
     }) {
         margin-left: 0;
@@ -32,9 +32,9 @@ export const createMediaQuery = (i: number) => {
     }
 
     .hexagon__outer:nth-child(${
-      (hexagonsFirstRow - 1) * 2 + (1 - 2 * i) < 3
+      hexagonsFirstRow * 2 - i * 2 - 1 < 3
         ? 0
-        : (hexagonsFirstRow - 1) * 2 + (1 - 2 * i)
+        : hexagonsFirstRow * 2 - i * 2 - 1
     }n + ${hexagonsFirstRow + 1 - i < 3 ? 0 : hexagonsFirstRow + 1 - i}) {
       margin-left: ${0.5 * hexagonSize}vw;
     }
