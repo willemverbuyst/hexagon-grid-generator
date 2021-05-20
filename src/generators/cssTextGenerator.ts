@@ -1,4 +1,5 @@
 import { DOMInput } from '../index';
+import { createMediaQuery } from '../utils/CSSHelperFunctions';
 
 export const generateCSStext = (): void => {
   const cssTextField = document.getElementById('css');
@@ -103,109 +104,15 @@ export const generateCSStext = (): void => {
 `;
 
   if (hexagonsFirstRow - 1 > 0) {
-    displayCSS += `
-    @media (max-width: ${mediaQuery_1}px) {
-      .hexagon-wrapper__hexagon-container {
-        width: ${(hexagonsFirstRow - 1) * hexagonSize}vw;
-      }
-
-      /* reset */
-      .hexagon__outer:nth-child(-n + ${hexagonsFirstRow}) {
-        margin-top: ${((1.154665 * hexagonSize) / -4).toFixed(2)}vw;
-      }
-
-      /* reset */
-      .hexagon__outer:nth-child(${(hexagonsFirstRow - 1) * 2 + 1}n + ${
-      hexagonsFirstRow + 1
-    }) {
-          margin-left: 0;
-      }
-
-      .hexagon__outer:nth-child(${hexagonsFirstRow - 1 < 2 ? 'n' : '-n'} + ${
-      hexagonsFirstRow - 1 < 2 ? 0 : hexagonsFirstRow - 1
-    }) {
-          margin-top: 0;
-      }
-
-      .hexagon__outer:nth-child(${
-        (hexagonsFirstRow - 1) * 2 - 1 < 3 ? 0 : (hexagonsFirstRow - 1) * 2 - 1
-      }n + ${hexagonsFirstRow < 3 ? 0 : hexagonsFirstRow}) {
-        margin-left: ${0.5 * hexagonSize}vw;
-    }
-  }
-  `;
+    displayCSS += createMediaQuery(1);
   }
 
   if (hexagonsFirstRow - 2 > 0) {
-    displayCSS += `
-    @media only screen and (max-width: ${mediaQuery_2}px) {
-      html {
-        font-size: 50%;
-      }
-
-      .hexagon-wrapper__hexagon-container {
-        width: ${(hexagonsFirstRow - 2) * hexagonSize}vw;
-      }
-
-      /* reset */
-      .hexagon__outer:nth-child(-n + ${hexagonsFirstRow - 1}) {
-        margin-top: ${((1.154665 * hexagonSize) / -4).toFixed(2)}vw;
-      }
-
-      /* reset */
-      .hexagon__outer:nth-child(${
-        (hexagonsFirstRow - 1) * 2 - 1
-      }n + ${hexagonsFirstRow}) {
-        margin-left: 0;
-      }
-
-      .hexagon__outer:nth-child(${hexagonsFirstRow - 2 < 2 ? 'n' : '-n'} + ${
-      hexagonsFirstRow - 2 < 2 ? 0 : hexagonsFirstRow - 2
-    }) {
-        margin-top: 0;
-      }
-
-      .hexagon__outer:nth-child(${
-        (hexagonsFirstRow - 1) * 2 - 3 < 3 ? 0 : (hexagonsFirstRow - 1) * 2 - 3
-      }n + ${hexagonsFirstRow - 1 < 3 ? 0 : hexagonsFirstRow - 1}) {
-        margin-left: ${0.5 * hexagonSize}vw;
-    }
-  }
-  `;
+    displayCSS += createMediaQuery(2);
   }
 
   if (hexagonsFirstRow - 3 > 0) {
-    displayCSS += `
-    @media only screen and (max-width: ${mediaQuery_3}px) {
-      .hexagon-wrapper__hexagon-container {
-        width: ${(hexagonsFirstRow - 3) * hexagonSize}vw;
-      }
-
-      /* reset */
-      .hexagon__outer:nth-child(-n + ${hexagonsFirstRow - 2}) {
-        margin-top: ${((1.154665 * hexagonSize) / -4).toFixed(2)}vw;
-      }
-
-      /* reset */
-      .hexagon__outer:nth-child(${(hexagonsFirstRow - 1) * 2 - 3}n + ${
-      hexagonsFirstRow - 1
-    }) {
-        margin-left: 0;
-      }
-
-      .hexagon__outer:nth-child(${hexagonsFirstRow - 3 < 2 ? 'n' : '-n'} + ${
-      hexagonsFirstRow - 3 < 2 ? 0 : hexagonsFirstRow - 3
-    }) {
-        margin-top: 0;
-      }
-
-      .hexagon__outer:nth-child(${
-        (hexagonsFirstRow - 1) * 2 - 5 < 3 ? 0 : (hexagonsFirstRow - 1) * 2 - 5
-      }n + ${hexagonsFirstRow - 2 < 3 ? 0 : hexagonsFirstRow - 2}) {
-        margin-left: ${0.5 * hexagonSize}vw;
-    }
-  }
-  `;
+    displayCSS += createMediaQuery(3);
   }
 
   if (cssTextField) cssTextField.innerText = displayCSS;
