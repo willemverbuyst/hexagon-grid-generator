@@ -40,8 +40,8 @@ export const createMediaQuery = (
   }
 `;
 
-export const generateHexagon = (width: number, height: string | number) => `
-  -webkit-clip-path: polygon(
+export const generateHexagon = (width: number, height: string | number) =>
+  `-webkit-clip-path: polygon(
     0 25%,
     50% 0,
     100% 25%,
@@ -61,5 +61,4 @@ export const generateHexagon = (width: number, height: string | number) => `
   height: ${height}%;
   display: flex;
   justify-content: center;
-  align-items: center;
-`;
+  align-items: center;`;

@@ -19,6 +19,7 @@ export const generateCSStext = (): void => {
     mediaQuery_3: { valueAsString: mediaQuery_3 },
     textColor: { valueAsString: textColor },
   } = DOMInput;
+
   let displayCSS = `
 .hexagon-wrapper {
   background-color: ${backgroundColor};
@@ -52,7 +53,7 @@ export const generateCSStext = (): void => {
 
 .hexagon__outer:nth-child(${
     hexagonsFirstRow === 1 ? '' : hexagonsFirstRow * 2 - 1
-  }n + ${hexagonsFirstRow === 1 ? '' : hexagonsFirstRow * 1 + 1}) {
+  }n + ${hexagonsFirstRow === 1 ? '' : hexagonsFirstRow + 1}) {
     margin-left: ${0.5 * hexagonSize}vw;
 }
 

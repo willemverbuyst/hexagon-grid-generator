@@ -6,7 +6,7 @@ export class RootInputGap extends RootInput {
   }
 
   // Different implementation of this method
-  addEventListenerForRootChange() {
+  protected addEventListenerForRootChange() {
     this.element.oninput = (): void => {
       this.changeRootValues(
         this.rootElementName,

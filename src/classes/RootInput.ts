@@ -12,12 +12,12 @@ export class RootInput extends DOMInputElement {
     this.init();
   }
 
-  changeRootValues(property: string, value: string): void {
+  protected changeRootValues(property: string, value: string): void {
     root.style.setProperty(property, value);
     generateCSStext();
   }
 
-  addEventListenerForRootChange() {
+  protected addEventListenerForRootChange() {
     this.element.oninput = (): void => {
       this.changeRootValues(
         this.rootElementName,
