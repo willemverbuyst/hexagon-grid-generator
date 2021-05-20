@@ -1,14 +1,15 @@
-import { DOMInput } from '../index';
-
-export const createMediaQuery = (i: number) => {
-  const {
-    hexagonsFirstRow: { valueAsNumber: hexagonsFirstRow },
-    hexagonSize: { valueAsNumber: hexagonSize },
-  } = DOMInput;
-
+export const createMediaQuery = (
+  mediaQuery: string,
+  i: number,
+  hexagonsFirstRow: number,
+  hexagonSize: number,
+  extra: string = ''
+) => {
   if (hexagonsFirstRow - i > 0) {
     return `
-  @media (max-width: mediaQuery_${i}px) {
+  @media (max-width: ${mediaQuery}px) {
+    ${extra}
+    
     .hexagon-wrapper__hexagon-container {
       width: ${(hexagonsFirstRow - i) * hexagonSize}vw;
     }

@@ -104,15 +104,35 @@ export const generateCSStext = (): void => {
 `;
 
   if (hexagonsFirstRow - 1 > 0) {
-    displayCSS += createMediaQuery(1);
+    displayCSS += createMediaQuery(
+      mediaQuery_1,
+      1,
+      hexagonsFirstRow,
+      hexagonSize
+    );
   }
 
   if (hexagonsFirstRow - 2 > 0) {
-    displayCSS += createMediaQuery(2);
+    const extra = `html {
+      font-size: 50%;
+      }`;
+
+    displayCSS += createMediaQuery(
+      mediaQuery_2,
+      2,
+      hexagonsFirstRow,
+      hexagonSize,
+      extra
+    );
   }
 
   if (hexagonsFirstRow - 3 > 0) {
-    displayCSS += createMediaQuery(3);
+    displayCSS += createMediaQuery(
+      mediaQuery_3,
+      3,
+      hexagonsFirstRow,
+      hexagonSize
+    );
   }
 
   if (cssTextField) cssTextField.innerText = displayCSS;
