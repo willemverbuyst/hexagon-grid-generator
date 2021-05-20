@@ -8,7 +8,7 @@ export class HexagonInputFirstRow extends DOMInputElement {
     this.init();
   }
 
-  changeAmountFirstRow(value: number) {
+  private changeAmountFirstRow(value: number) {
     root.style.setProperty('--amount-of-hexagons', String(value));
     generateHexagons();
   }

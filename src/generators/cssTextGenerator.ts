@@ -1,5 +1,5 @@
 import { DOMInput } from '../index';
-import { createMediaQuery } from '../utils/CSSHelperFunctions';
+import { createMediaQuery, generateHexagon } from '../utils/CSSHelperFunctions';
 
 export const generateCSStext = (): void => {
   const cssTextField = document.getElementById('css');
@@ -35,29 +35,9 @@ export const generateCSStext = (): void => {
 }
 
 .hexagon__outer {
-  -webkit-clip-path: polygon(
-    0 25%,
-    50% 0,
-    100% 25%,
-    100% 75%,
-    50% 100%,
-    0 75%
-  );
-  clip-path: polygon(
-    0 25%,
-    50% 0,
-    100% 25%,
-    100% 75%,
-    50% 100%,
-    0 75%
-  );
-  width: ${hexagonSize}vw;
-  height: ${(1.154665 * hexagonSize).toFixed(2)}vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-top: ${((1.154665 * hexagonSize) / -4).toFixed(2)}vw;
   transition: all ${hexagonTransition}s;
+  ${generateHexagon(hexagonSize, (1.154665 * hexagonSize).toFixed(2))}
 }
 
 .hexagon__outer:hover {
@@ -68,38 +48,18 @@ export const generateCSStext = (): void => {
     hexagonsFirstRow === 1 ? 0 : hexagonsFirstRow
   }) {
     margin-top: 0;
-  }
+}
 
 .hexagon__outer:nth-child(${
     hexagonsFirstRow === 1 ? '' : hexagonsFirstRow * 2 - 1
   }n + ${hexagonsFirstRow === 1 ? '' : hexagonsFirstRow * 1 + 1}) {
     margin-left: ${0.5 * hexagonSize}vw;
-  }
+}
 
 .hexagon__inner {
   background-color: ${hexagonColor};
-  -webkit-clip-path: polygon(
-    0 25%,
-    50% 0,
-    100% 25%,
-    100% 75%,
-    50% 100%,
-    0 75%
-  );
-  clip-path: polygon(
-    0 25%,
-    50% 0,
-    100% 25%,
-    100% 75%,
-    50% 100%,
-    0 75%
-  );
-  width: ${100 - hexagonGap}%;
-  height: ${100 - hexagonGap}%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: ${textColor};
+  ${generateHexagon(100 - hexagonGap, 100 - hexagonGap)}
 }
 `;
 
@@ -116,7 +76,6 @@ export const generateCSStext = (): void => {
     const extra = `html {
       font-size: 50%;
       }`;
-
     displayCSS += createMediaQuery(
       mediaQuery_2,
       2,
