@@ -4,9 +4,7 @@ export const createMediaQuery = (
   hexagonsFirstRow: number,
   hexagonSize: number,
   extra: string = ''
-) => {
-  if (hexagonsFirstRow - i > 0) {
-    return `
+): string => `
   @media (max-width: ${mediaQuery}px) {
     ${extra}
     
@@ -21,14 +19,14 @@ export const createMediaQuery = (
 
     /* reset */
     .hexagon__outer:nth-child(${hexagonsFirstRow * 2 - i * 2 + 1}n + ${
-      hexagonsFirstRow + 2 - i
-    }) {
+  hexagonsFirstRow + 2 - i
+}) {
         margin-left: 0;
     }
 
     .hexagon__outer:nth-child(${hexagonsFirstRow - i < 2 ? 'n' : '-n'} + ${
-      hexagonsFirstRow - i < 2 ? 0 : hexagonsFirstRow - i
-    }) {
+  hexagonsFirstRow - i < 2 ? 0 : hexagonsFirstRow - i
+}) {
         margin-top: 0;
     }
 
@@ -41,5 +39,3 @@ export const createMediaQuery = (
     }
   }
 `;
-  }
-};
