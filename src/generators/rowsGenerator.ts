@@ -1,5 +1,5 @@
 import { DOMInput } from '../index';
-import { createHexagonHTMLString } from '../utils/helperFunctions';
+import { createHexagonHTMLString } from '../utils/HTMLhelperFunctions';
 
 export const generateOneRow = (): string => {
   const {
