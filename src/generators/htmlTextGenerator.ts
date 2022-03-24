@@ -6,13 +6,13 @@ export const generateHTMLtext = (): void => {
 	const {
 		numberOfHexagons: { valueAsNumber: numberOfHexagons },
 	} = DOMInput
-	let html: string = ''
+	let html = ''
 
 	for (let i = 1; i <= numberOfHexagons; i++) {
 		html += createHexagonHTMLString(i)
 	}
 
-	let displayHTML = `
+	const displayHTML = `
   <div class="hexagon-wrapper">
     <div class="hexagon-wrapper__hexagon-container">   
         ${html}

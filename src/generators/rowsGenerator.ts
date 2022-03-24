@@ -5,7 +5,7 @@ export const generateOneRow = (): string => {
 	const {
 		numberOfHexagons: { valueAsNumber: numberOfHexagons },
 	} = DOMInput
-	let html: string = ''
+	let html = ''
 
 	for (let i = 1; i <= numberOfHexagons; i++) {
 		html += createHexagonHTMLString(i)
@@ -20,8 +20,8 @@ export const generateMultipleRows = (): string => {
 		numberOfHexagons: { valueAsNumber: numberOfHexagons },
 	} = DOMInput
 	// i as hexagon counter
-	let i: number = 1
-	let html: string = ''
+	let i = 1
+	let html = ''
 
 	// generate first row
 	// add css class 'margin-top' to first row

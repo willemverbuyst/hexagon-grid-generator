@@ -3,7 +3,7 @@ export const createMediaQuery = (
 	i: number,
 	hexagonsFirstRow: number,
 	hexagonSize: number,
-	extra: string = ''
+	extra = ''
 ): string => `
   @media (max-width: ${mediaQuery}px) {
     ${extra}

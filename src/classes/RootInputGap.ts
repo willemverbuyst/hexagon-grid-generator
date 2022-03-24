@@ -1,7 +1,7 @@
 import { RootInput } from './RootInput'
 
 export class RootInputGap extends RootInput {
-	constructor(id: string, rootElementName: string, postFix: string = '') {
+	constructor(id: string, rootElementName: string, postFix = '') {
 		super(id, rootElementName, postFix)
 	}
 
