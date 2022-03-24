@@ -1,26 +1,26 @@
-import { DOMInput } from '../index';
-import { createMediaQuery, generateHexagon } from '../utils/CSSHelperFunctions';
+import { DOMInput } from '../index'
+import { createMediaQuery, generateHexagon } from '../utils/CSSHelperFunctions'
 
 export const generateCSStext = (): void => {
-  const cssTextField = document.getElementById('css');
-  const {
-    backgroundColor: { valueAsString: backgroundColor },
-    containerSkewX: { valueAsString: containerSkewX },
-    containerSkewY: { valueAsString: containerSkewY },
-    hexagonsFirstRow: { valueAsNumber: hexagonsFirstRow },
-    hexagonColor: { valueAsString: hexagonColor },
-    hexagonGap: { valueAsNumber: hexagonGap },
-    hexagonRotation: { valueAsString: hexagonRotation },
-    hexagonScale: { valueAsString: hexagonScale },
-    hexagonSize: { valueAsNumber: hexagonSize },
-    hexagonTransition: { valueAsString: hexagonTransition },
-    mediaQuery_1: { valueAsString: mediaQuery_1 },
-    mediaQuery_2: { valueAsString: mediaQuery_2 },
-    mediaQuery_3: { valueAsString: mediaQuery_3 },
-    textColor: { valueAsString: textColor },
-  } = DOMInput;
+	const cssTextField = document.getElementById('css')
+	const {
+		backgroundColor: { valueAsString: backgroundColor },
+		containerSkewX: { valueAsString: containerSkewX },
+		containerSkewY: { valueAsString: containerSkewY },
+		hexagonsFirstRow: { valueAsNumber: hexagonsFirstRow },
+		hexagonColor: { valueAsString: hexagonColor },
+		hexagonGap: { valueAsNumber: hexagonGap },
+		hexagonRotation: { valueAsString: hexagonRotation },
+		hexagonScale: { valueAsString: hexagonScale },
+		hexagonSize: { valueAsNumber: hexagonSize },
+		hexagonTransition: { valueAsString: hexagonTransition },
+		mediaQuery_1: { valueAsString: mediaQuery_1 },
+		mediaQuery_2: { valueAsString: mediaQuery_2 },
+		mediaQuery_3: { valueAsString: mediaQuery_3 },
+		textColor: { valueAsString: textColor },
+	} = DOMInput
 
-  let displayCSS = `
+	let displayCSS = `
 .hexagon-wrapper {
   background-color: ${backgroundColor};
   display: flex;
@@ -46,14 +46,14 @@ export const generateCSStext = (): void => {
 }
 
 .hexagon__outer:nth-child(${hexagonsFirstRow === 1 ? 'n' : '-n'} + ${
-    hexagonsFirstRow === 1 ? 0 : hexagonsFirstRow
-  }) {
+		hexagonsFirstRow === 1 ? 0 : hexagonsFirstRow
+	}) {
     margin-top: 0;
 }
 
 .hexagon__outer:nth-child(${
-    hexagonsFirstRow === 1 ? '' : hexagonsFirstRow * 2 - 1
-  }n + ${hexagonsFirstRow === 1 ? '' : hexagonsFirstRow + 1}) {
+		hexagonsFirstRow === 1 ? '' : hexagonsFirstRow * 2 - 1
+	}n + ${hexagonsFirstRow === 1 ? '' : hexagonsFirstRow + 1}) {
     margin-left: ${0.5 * hexagonSize}vw;
 }
 
@@ -62,38 +62,38 @@ export const generateCSStext = (): void => {
   color: ${textColor};
   ${generateHexagon(100 - hexagonGap, 100 - hexagonGap)}
 }
-`;
+`
 
-  if (hexagonsFirstRow - 1 > 0) {
-    displayCSS += createMediaQuery(
-      mediaQuery_1,
-      1,
-      hexagonsFirstRow,
-      hexagonSize
-    );
-  }
+	if (hexagonsFirstRow - 1 > 0) {
+		displayCSS += createMediaQuery(
+			mediaQuery_1,
+			1,
+			hexagonsFirstRow,
+			hexagonSize
+		)
+	}
 
-  if (hexagonsFirstRow - 2 > 0) {
-    const extra = `html {
+	if (hexagonsFirstRow - 2 > 0) {
+		const extra = `html {
       font-size: 50%;
-      }`;
-    displayCSS += createMediaQuery(
-      mediaQuery_2,
-      2,
-      hexagonsFirstRow,
-      hexagonSize,
-      extra
-    );
-  }
+      }`
+		displayCSS += createMediaQuery(
+			mediaQuery_2,
+			2,
+			hexagonsFirstRow,
+			hexagonSize,
+			extra
+		)
+	}
 
-  if (hexagonsFirstRow - 3 > 0) {
-    displayCSS += createMediaQuery(
-      mediaQuery_3,
-      3,
-      hexagonsFirstRow,
-      hexagonSize
-    );
-  }
+	if (hexagonsFirstRow - 3 > 0) {
+		displayCSS += createMediaQuery(
+			mediaQuery_3,
+			3,
+			hexagonsFirstRow,
+			hexagonSize
+		)
+	}
 
-  if (cssTextField) cssTextField.innerText = displayCSS;
-};
+	if (cssTextField) cssTextField.innerText = displayCSS
+}
