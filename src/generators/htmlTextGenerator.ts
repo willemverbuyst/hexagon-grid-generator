@@ -8,9 +8,11 @@ export const generateHTMLtext = (): void => {
 	} = DOMInput
 	let html = ''
 
-	for (let i = 1; i <= numberOfHexagons; i++) {
-		html += createHexagonHTMLString(i)
-	}
+	Array(numberOfHexagons)
+		.fill(0)
+		.forEach((_, i) => {
+			html += createHexagonHTMLString(i + 1)
+		})
 
 	const displayHTML = `
   <div class="hexagon-wrapper">
