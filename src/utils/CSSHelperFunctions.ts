@@ -39,6 +39,7 @@ export const createMediaQuery = (
     }
   }
 `
+const test = 'for husky'
 
 export const generateHexagon = (width: number, height: string | number) =>
 	`-webkit-clip-path: polygon(

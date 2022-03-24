@@ -6,9 +6,10 @@
 	"scripts": {
 		"start": "parcel serve src/index.html",
 		"build": "parcel build src/index.html --public-url .",
-		"format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+		"format:fix": "prettier --config .prettierrc 'src/**/*.ts' --write",
 		"lint": "eslint . --ext .ts",
-		"lint:fix": "eslint . --ext .ts --fix"
+		"lint:fix": "eslint . --ext .ts --fix",
+		"prepare": "husky install"
 	},
 	"keywords": [
 		"typescript",
@@ -25,9 +26,14 @@
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-no-loops": "^0.3.0",
 		"eslint-plugin-prettier": "^4.0.0",
+		"husky": "^7.0.4",
+		"lint-staged": "^12.3.7",
 		"parcel": "^2.4.0",
 		"prettier": "^2.6.0",
 		"typescript": "^4.6.2"
 	},
-	"dependencies": {}
+	"dependencies": {},
+	"lint-staged": {
+		"*.ts": "eslint --cache --fix"
+	}
 }
