@@ -1,6 +1,7 @@
 node_modules
 dist 
 .cache
+.eslintcache
 .parcel-cache
 
 *.css
