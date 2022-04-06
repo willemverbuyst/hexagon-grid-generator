@@ -2,11 +2,7 @@
 
 ## What is this?
 
-This is the TypeScript version of this [tool](https://github.com/willemverbuyst/hexagon-generator) (written with vanilla js).
-
 The Hexagon Generator is a tool to create the HTML and CSS needed to display a responsive grid of hexagons.
-
-A live version of the tool can be found here: https://willemverbuyst.github.io/hexagon-generator/
 
 !['screenshot of the hexagon genrator'](./img/hexagon_generator.png)
 
@@ -50,10 +46,7 @@ The first row will decrease one hexagon per breakpoint. When you start with 5, p
 
 Tested in Chrome, Firefox and Safari.
 
-## Project with the Hexagon Generator
+## Example project with the Hexagon Generator
 
 !['screenshot of the project made with the hexagon generator'](./img/zucchini-hexagons.png)
 
-Github: https://github.com/willemverbuyst/zucchini-hexagons
-
-https://willemverbuyst.github.io/zucchini-hexagons/
