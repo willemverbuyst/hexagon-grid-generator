@@ -2,7 +2,7 @@ import { DOMInput, hexagonContainer } from '../index'
 import { generateCSStext } from './cssTextGenerator'
 import { generateHTMLtext } from './htmlTextGenerator'
 import { generateOneRow } from './rowGenerartor/generateOneRow'
-import { generateMultipleRows } from './rowGenerartor/rowsGenerator'
+import { generateMultipleRows } from './rowGenerartor/generateMultipleRows'
 
 export const generateHexagons = (): void => {
 	const {
