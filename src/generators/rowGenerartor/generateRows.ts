@@ -16,10 +16,8 @@ export const generateRows = (
 		return html
 	}
 
-	// i as hexagon counter
 	let hexagonNumber = 1
-	// generate first row
-	// add css class 'margin-top' to first row
+
 	Array(hexagonsFirstRow)
 		.fill(0)
 		.forEach((_, i) => {
