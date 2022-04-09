@@ -124,7 +124,7 @@ input:focus {
 	transform: scale(var(--hover-scale)) rotate(var(--hover-rotation));
 }
 
-.first-row_margin-top {
+.first-row__margin-top {
 	margin-top: 0;
 }
 
