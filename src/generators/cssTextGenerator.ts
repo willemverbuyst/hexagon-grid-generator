@@ -1,9 +1,7 @@
 import { DOMInput } from '../index'
 import { createMediaQuery } from '../utils/CSSHelperFunctions'
+import { roundToTwoDecimals } from '../utils/generalFunctions'
 import { generateHexagonCSS } from '../utils/generateHexagonCSS'
-
-const roundToTwoDecimals = (value: number): number =>
-	Number(Math.round(parseFloat(value + 'e' + 2)) + 'e-' + 2)
 
 export const generateCSStext = (): void => {
 	const cssTextField = document.getElementById('css')
