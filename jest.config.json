@@ -1,10 +1,9 @@
 {
 	"clearMocks": true,
-	"collectCoverage": true,
 	"collectCoverageFrom": ["./src/**"],
 	"coverageProvider": "v8",
 	"preset": "ts-jest",
 	"testEnvironment": "node",
-	"moduleFileExtensions": ["js", "jsx", "ts", "tsx", "json", "node"],
+	"moduleFileExtensions": ["js", "ts"],
 	"transformIgnorePatterns": ["/node_modules/", "\\.pnp\\.[^\\/]+$"]
 }
