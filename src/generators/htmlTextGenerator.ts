@@ -14,13 +14,18 @@ export const generateHTMLtext = (): void => {
 			html += createHexagonHTMLString(i + 1)
 		})
 
-	const displayHTML = `
-  <div class="hexagon-wrapper">
-    <div class="hexagon-wrapper__hexagon-container">   
-        ${html}
-    </div>
-  </div>
-`
+	const displayHTML =
+		'<div class="hexagon-wrapper">' +
+		'\n' +
+		'<div class="hexagon-wrapper__hexagon-container">' +
+		'\n' +
+		'\n' +
+		html +
+		'\n' +
+		'</div>' +
+		'\n' +
+		'</div>'
+
 	if (htmlTextField) {
 		htmlTextField.innerText = displayHTML
 	}
