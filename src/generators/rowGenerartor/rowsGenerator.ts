@@ -1,20 +1,5 @@
-import { DOMInput } from '../index'
-import { createHexagonHTMLString } from '../utils/HTMLhelperFunctions'
-
-export const generateOneRow = (): string => {
-	const {
-		numberOfHexagons: { valueAsNumber: numberOfHexagons },
-	} = DOMInput
-	let html = ''
-
-	Array(numberOfHexagons)
-		.fill(0)
-		.forEach((_, i) => {
-			html += createHexagonHTMLString(i + 1)
-		})
-
-	return html
-}
+import { DOMInput } from '../../index'
+import { createHexagonHTMLString } from '../../utils/HTMLhelperFunctions'
 
 export const generateMultipleRows = (): string => {
 	const {
