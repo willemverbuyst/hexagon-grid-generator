@@ -21,94 +21,61 @@ describe('#generateRows', () => {
 
 	describe('given 1 and 1', () => {
 		it('should return string with hexagon #1', () => {
-			expect(generateRows(1, 1)).toMatch(
-				'<div class="hexagon__outer">' +
-					'\n' +
-					'<div class="hexagon__inner">1</div>' +
-					'\n' +
-					'</div>' +
-					'\n'
+			expect(generateRows(1, 1).replace(/\s/g, '')).toMatch(
+				`<div class="hexagon__outer">
+					<div class="hexagon__inner">1</div>
+				</div>`.replace(/\s/g, '')
 			)
 		})
 	})
 
 	describe('given 2 and 2', () => {
 		it('should return string with hexagon #1 and #2', () => {
-			expect(generateRows(2, 2)).toMatch(
-				'<div class="hexagon__outer">' +
-					'\n' +
-					'<div class="hexagon__inner">1</div>' +
-					'\n' +
-					'</div>' +
-					'\n' +
-					'<div class="hexagon__outer">' +
-					'\n' +
-					'<div class="hexagon__inner">2</div>' +
-					'\n' +
-					'</div>' +
-					'\n'
+			expect(generateRows(2, 2).replace(/\s/g, '')).toMatch(
+				`<div class="hexagon__outer">
+					<div class="hexagon__inner">1</div>
+				</div>
+				<div class="hexagon__outer">
+					<div class="hexagon__inner">2</div>
+				</div>`.replace(/\s/g, '')
 			)
 		})
 	})
 
 	describe('given 1 and 3', () => {
 		it('should return string with hexagon #1 and #2 and #3', () => {
-			expect(generateRows(1, 3)).toMatch(
-				'<div class="hexagon__outer">' +
-					'\n' +
-					'<div class="hexagon__inner">1</div>' +
-					'\n' +
-					'</div>' +
-					'\n' +
-					'<div class="hexagon__outer">' +
-					'\n' +
-					'<div class="hexagon__inner">2</div>' +
-					'\n' +
-					'</div>' +
-					'\n' +
-					'<div class="hexagon__outer">' +
-					'\n' +
-					'<div class="hexagon__inner">3</div>' +
-					'\n' +
-					'</div>' +
-					'\n'
+			expect(generateRows(1, 3).replace(/\s/g, '')).toMatch(
+				`<div class="hexagon__outer">
+					<div class="hexagon__inner">1</div>
+				</div>
+				<div class="hexagon__outer">
+					<div class="hexagon__inner">2</div>
+				</div>
+				<div class="hexagon__outer">
+					<div class="hexagon__inner">3</div>
+				</div>`.replace(/\s/g, '')
 			)
 		})
 	})
 
 	describe('given 2 and 5', () => {
 		it('should return string with classes and 5 hexagons', () => {
-			expect(generateRows(2, 5)).toMatch(
-				'<div class="hexagon__outer first-row__margin-top">' +
-					'\n' +
-					'<div class="hexagon__inner">1</div>' +
-					'\n' +
-					'</div>' +
-					'\n' +
-					'<div class="hexagon__outer first-row__margin-top">' +
-					'\n' +
-					'<div class="hexagon__inner">2</div>' +
-					'\n' +
-					'</div>' +
-					'\n' +
-					'<div class="hexagon__outer even-rows__margin-left">' +
-					'\n' +
-					'<div class="hexagon__inner">3</div>' +
-					'\n' +
-					'</div>' +
-					'\n' +
-					'<div class="hexagon__outer">' +
-					'\n' +
-					'<div class="hexagon__inner">4</div>' +
-					'\n' +
-					'</div>' +
-					'\n' +
-					'<div class="hexagon__outer">' +
-					'\n' +
-					'<div class="hexagon__inner">5</div>' +
-					'\n' +
-					'</div>' +
-					'\n'
+			expect(generateRows(2, 5).replace(/\s/g, '')).toMatch(
+				`<div class="hexagon__outer first-row__margin-top">
+					<div class="hexagon__inner">1</div>
+				</div>
+				<div class="hexagon__outer first-row__margin-top">
+					<div class="hexagon__inner">2</div>
+				</div>
+				<div class="hexagon__outer even-rows__margin-left">
+					<div class="hexagon__inner">3</div>
+				</div>
+				<div class="hexagon__outer">
+					<div class="hexagon__inner">4</div>
+				</div>
+				<div class="hexagon__outer">
+					<div class="hexagon__inner">5</div>
+				</div>`.replace(/\s/g, '')
 			)
 		})
 	})
