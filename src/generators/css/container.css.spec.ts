@@ -1,4 +1,4 @@
-import { generateContainerCSSText } from './containerCSS'
+import { generateContainerCSSText } from './container.css'
 
 describe('#generateContainerCSSText', () => {
 	describe('given input values', () => {

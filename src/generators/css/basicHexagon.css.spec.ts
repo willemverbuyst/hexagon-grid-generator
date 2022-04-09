@@ -1,9 +1,9 @@
-import { generateHexagonCSS } from './generateHexagonCSS'
+import { generateBasicHexagonCSSText } from './basicHexagon.css'
 
-describe('#generateHexagonCSS', () => {
+describe('#generateBasicHexagonCSSText', () => {
 	describe('given 90 and 90', () => {
-		it('should return string with css  for hexagon', () => {
-			expect(generateHexagonCSS(90, 90).replace(/\s/g, '')).toMatch(
+		it('should return string with basic css for hexagon', () => {
+			expect(generateBasicHexagonCSSText(90, 90).replace(/\s/g, '')).toMatch(
 				`-webkit-clip-path: polygon(
           0 25%,
           50% 0,

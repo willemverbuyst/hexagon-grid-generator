@@ -1,4 +1,4 @@
-import { generateBackgroundCSSText } from './backgroundCSS'
+import { generateBackgroundCSSText } from './background.css'
 
 describe('#generateBackgroundCSSText', () => {
 	describe('given a color (hexadecimal)', () => {

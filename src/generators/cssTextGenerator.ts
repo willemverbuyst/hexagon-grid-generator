@@ -1,7 +1,7 @@
 import { DOMInput } from '../index'
 import { createMediaQuery } from '../utils/CSSHelperFunctions'
 import { roundToTwoDecimals } from '../utils/generalFunctions'
-import { generateHexagonCSS } from '../utils/generateHexagonCSS'
+import { generateBasicHexagonCSSText } from './css/basicHexagon.css'
 
 export const generateCSStext = (): void => {
 	const cssTextField = document.getElementById('css')
@@ -40,7 +40,10 @@ export const generateCSStext = (): void => {
 .hexagon__outer {
   margin-top: ${((1.154665 * hexagonSize) / -4).toFixed(2)}vw;
   transition: all ${hexagonTransition}s;
-  ${generateHexagonCSS(hexagonSize, roundToTwoDecimals(1.154665 * hexagonSize))}
+  ${generateBasicHexagonCSSText(
+		hexagonSize,
+		roundToTwoDecimals(1.154665 * hexagonSize)
+	)}
 }
 
 .hexagon__outer:hover {
@@ -62,7 +65,7 @@ export const generateCSStext = (): void => {
 .hexagon__inner {
   background-color: ${hexagonColor};
   color: ${textColor};
-  ${generateHexagonCSS(100 - hexagonGap, 100 - hexagonGap)}
+  ${generateBasicHexagonCSSText(100 - hexagonGap, 100 - hexagonGap)}
 }
 `
 
