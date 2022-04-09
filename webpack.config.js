@@ -2,7 +2,6 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
-// eslint-disable-next-line no-undef
 const isProduction = process.env.NODE_ENV == 'production'
 
 const stylesHandler = 'style-loader'
@@ -10,7 +9,6 @@ const stylesHandler = 'style-loader'
 const config = {
 	entry: ['./src/index.ts'],
 	output: {
-		// eslint-disable-next-line no-undef
 		path: path.resolve(__dirname, 'dist'),
 	},
 	devServer: {

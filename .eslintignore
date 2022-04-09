@@ -6,3 +6,5 @@ dist
 
 *.css
 *.html
+
+webpack.config.js
