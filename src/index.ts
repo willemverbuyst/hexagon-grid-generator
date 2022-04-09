@@ -4,6 +4,7 @@ import { MediaQueryInput } from './classes/MediaQueryInput'
 import { RootInput } from './classes/RootInput'
 import { RootInputGap } from './classes/RootInputGap'
 import { generateHexagons } from './generators/hexagonGenerator'
+import './style.css'
 
 export const root = document.documentElement
 export const hexagonContainer = document.getElementById('hexagon__container')
