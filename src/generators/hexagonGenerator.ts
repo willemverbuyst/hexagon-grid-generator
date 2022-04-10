@@ -1,20 +1,29 @@
 import { DOMInput, hexagonContainer } from '../index'
 import { generateCSStext } from './cssTextGenerator'
-import { generateHTMLtext } from './htmlTextGenerator'
-import { generateRows } from './rowGenerartor/generateRows'
+import { generateMultipleRowsHTMLText } from './html/multipleRows.html'
+import { generateContainerHTMLtext } from './html/container.html'
 
 export const generateHexagons = (): void => {
+	const htmlTextField = document.getElementById('html')
 	const {
 		hexagonsFirstRow: { valueAsNumber: hexagonsFirstRow },
 		numberOfHexagons: { valueAsNumber: numberOfHexagons },
 	} = DOMInput
 
-	const html = generateRows(hexagonsFirstRow, numberOfHexagons)
+	const hexagonHTML = generateMultipleRowsHTMLText(
+		hexagonsFirstRow,
+		numberOfHexagons
+	)
 
 	if (hexagonContainer) {
-		hexagonContainer.innerHTML = html
+		hexagonContainer.innerHTML = hexagonHTML
 	}
 
-	generateHTMLtext()
+	const displayHTML = generateContainerHTMLtext(numberOfHexagons)
+
+	if (htmlTextField) {
+		htmlTextField.innerText = displayHTML
+	}
+
 	generateCSStext()
 }
