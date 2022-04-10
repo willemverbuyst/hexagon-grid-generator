@@ -1,4 +1,4 @@
-import { createHexagonHTMLString } from '../../utils/HTMLhelperFunctions'
+import { generateHexagonHTMLText } from '../html/hexagon.html'
 
 export const generateOneRow = (numberOfHexagons: number): string => {
 	let html = ''
@@ -7,7 +7,7 @@ export const generateOneRow = (numberOfHexagons: number): string => {
 		Array(numberOfHexagons)
 			.fill(0)
 			.forEach((_, i) => {
-				html += createHexagonHTMLString(i + 1)
+				html += generateHexagonHTMLText(i + 1)
 			})
 	}
 

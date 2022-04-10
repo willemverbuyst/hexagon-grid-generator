@@ -1,5 +1,5 @@
 import { DOMInput } from '../index'
-import { createHexagonHTMLString } from '../utils/HTMLhelperFunctions'
+import { generateHexagonHTMLText } from './html/hexagon.html'
 
 export const generateHTMLtext = (): void => {
 	const htmlTextField = document.getElementById('html')
@@ -11,7 +11,7 @@ export const generateHTMLtext = (): void => {
 	Array(numberOfHexagons)
 		.fill(0)
 		.forEach((_, i) => {
-			html += createHexagonHTMLString(i + 1)
+			html += generateHexagonHTMLText(i + 1)
 		})
 
 	const displayHTML =

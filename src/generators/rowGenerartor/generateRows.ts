@@ -1,4 +1,4 @@
-import { createHexagonHTMLString } from '../../utils/HTMLhelperFunctions'
+import { generateHexagonHTMLText } from '../html/hexagon.html'
 import { generateOneRow } from './generateOneRow'
 
 export const generateRows = (
@@ -21,7 +21,7 @@ export const generateRows = (
 	Array(hexagonsFirstRow)
 		.fill(0)
 		.forEach((_, i) => {
-			html += createHexagonHTMLString(
+			html += generateHexagonHTMLText(
 				i + hexagonNumber,
 				'first-row__margin-top'
 			)
@@ -35,9 +35,9 @@ export const generateRows = (
 	// eslint-disable-next-line no-loops/no-loops
 	while (k < numberOfHexagons - hexagonsFirstRow) {
 		if (k === 0 || k % ((hexagonsFirstRow - 1) * 2 + 1) === 0) {
-			html += createHexagonHTMLString(hexagonNumber, 'even-rows__margin-left')
+			html += generateHexagonHTMLText(hexagonNumber, 'even-rows__margin-left')
 		} else {
-			html += createHexagonHTMLString(hexagonNumber)
+			html += generateHexagonHTMLText(hexagonNumber)
 		}
 		hexagonNumber++
 		k++

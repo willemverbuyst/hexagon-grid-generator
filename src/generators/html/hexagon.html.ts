@@ -1,4 +1,4 @@
-export const createHexagonHTMLString = (
+export const generateHexagonHTMLText = (
 	i: number,
 	className?: string
 ): string =>
