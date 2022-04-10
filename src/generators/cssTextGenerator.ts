@@ -1,8 +1,8 @@
 import { DOMInput } from '../index'
-import { createMediaQuery } from '../utils/CSSHelperFunctions'
 import { generateBackgroundCSSText } from './css/background.css'
 import { generateContainerCSSText } from './css/container.css'
 import { generateInnerHexagonCSSText } from './css/innerHexagon.css'
+import { generateMediaQueryCSSText } from './css/mediaQuery.css'
 import {
 	generateOuterHexagonChildCSSText,
 	generateOuterHexagonCSSText,
@@ -22,9 +22,9 @@ export const generateCSStext = (): void => {
 		hexagonScale: { valueAsNumber: hexagonScale },
 		hexagonSize: { valueAsNumber: hexagonSize },
 		hexagonTransition: { valueAsNumber: hexagonTransition },
-		mediaQuery_1: { valueAsString: mediaQuery_1 },
-		mediaQuery_2: { valueAsString: mediaQuery_2 },
-		mediaQuery_3: { valueAsString: mediaQuery_3 },
+		mediaQuery_1: { valueAsNumber: mediaQuery_1 },
+		mediaQuery_2: { valueAsNumber: mediaQuery_2 },
+		mediaQuery_3: { valueAsNumber: mediaQuery_3 },
 		textColor: { valueAsString: textColor },
 	} = DOMInput
 
@@ -62,7 +62,7 @@ export const generateCSStext = (): void => {
 		innerHexagonCSSText
 
 	if (hexagonsFirstRow - 1 > 0) {
-		displayCSS += createMediaQuery(
+		displayCSS += generateMediaQueryCSSText(
 			mediaQuery_1,
 			1,
 			hexagonsFirstRow,
@@ -74,7 +74,7 @@ export const generateCSStext = (): void => {
 		const extra = `html {
       font-size: 50%;
       }`
-		displayCSS += createMediaQuery(
+		displayCSS += generateMediaQueryCSSText(
 			mediaQuery_2,
 			2,
 			hexagonsFirstRow,
@@ -84,7 +84,7 @@ export const generateCSStext = (): void => {
 	}
 
 	if (hexagonsFirstRow - 3 > 0) {
-		displayCSS += createMediaQuery(
+		displayCSS += generateMediaQueryCSSText(
 			mediaQuery_3,
 			3,
 			hexagonsFirstRow,

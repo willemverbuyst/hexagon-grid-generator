@@ -1,5 +1,7 @@
-export const createMediaQuery = (
-	mediaQuery: string,
+import { roundToTwoDecimals } from '../../utils/generalFunctions'
+
+export const generateMediaQueryCSSText = (
+	mediaQuery: number,
 	i: number,
 	hexagonsFirstRow: number,
 	hexagonSize: number,
@@ -14,7 +16,7 @@ export const createMediaQuery = (
 
     /* reset */
     .hexagon__outer:nth-child(-n + ${hexagonsFirstRow + 1 - i}) {
-      margin-top: ${((1.154665 * hexagonSize) / -4).toFixed(2)}vw;
+      margin-top: ${roundToTwoDecimals((1.154665 * hexagonSize) / -4)}vw;
     }
 
     /* reset */
