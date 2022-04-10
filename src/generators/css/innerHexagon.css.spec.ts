@@ -29,7 +29,8 @@ describe('#generateInnerHexagonCSSText', () => {
         height: 80%;
         display: flex;
         justify-content: center;
-        align-items: center;`.replace(/\s/g, '')
+        align-items: center;
+        }`.replace(/\s/g, '')
 			)
 		})
 	})
