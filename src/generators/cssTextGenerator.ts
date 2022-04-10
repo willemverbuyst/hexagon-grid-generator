@@ -1,13 +1,13 @@
 import { DOMInput } from '../index'
-import { generateBackgroundCSSText } from './css/background.css'
-import { generateContainerCSSText } from './css/container.css'
-import { generateInnerHexagonCSSText } from './css/innerHexagon.css'
-import { generateMediaQueryCSSText } from './css/mediaQuery.css'
 import {
-	generateOuterHexagonChildCSSText,
+	generateBackgroundCSSText,
+	generateContainerCSSText,
+	generateInnerHexagonCSSText,
+	generateMediaQueryCSSText,
 	generateOuterHexagonCSSText,
 	generateOuterHexagonHoverCSSText,
-} from './css/outerHexagon.css'
+	generateOuterHexagonChildCSSText,
+} from './css'
 
 export const generateCSStext = (): void => {
 	const cssTextField = document.getElementById('css')

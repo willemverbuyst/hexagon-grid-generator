@@ -1,6 +1,6 @@
-import { generateHexagonHTMLText } from '../html/hexagon.html'
+import { generateHexagonHTMLText } from './hexagon.html'
 
-export const generateOneRow = (numberOfHexagons: number): string => {
+export const generateOneRowHTMLText = (numberOfHexagons: number): string => {
 	let html = ''
 
 	if (numberOfHexagons > 0) {

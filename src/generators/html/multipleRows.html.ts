@@ -1,7 +1,7 @@
-import { generateHexagonHTMLText } from '../html/hexagon.html'
-import { generateOneRow } from './generateOneRow'
+import { generateHexagonHTMLText } from './hexagon.html'
+import { generateOneRowHTMLText } from './oneRow.html'
 
-export const generateRows = (
+export const generateMultipleRowsHTMLText = (
 	hexagonsFirstRow: number,
 	numberOfHexagons: number
 ): string => {
@@ -12,7 +12,7 @@ export const generateRows = (
 	}
 
 	if (hexagonsFirstRow === 1 || numberOfHexagons <= hexagonsFirstRow) {
-		html = generateOneRow(numberOfHexagons)
+		html = generateOneRowHTMLText(numberOfHexagons)
 		return html
 	}
 
