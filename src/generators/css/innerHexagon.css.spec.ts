@@ -1,10 +1,10 @@
-import { generateInnerHexagonCSSText } from './innerHexagon.css'
+import { generateInnerHexagonCSS } from './innerHexagon.css'
 
-describe('#generateInnerHexagonCSSText', () => {
+describe('#generateInnerHexagonCSS', () => {
 	describe('given input values', () => {
 		it('should return a css class', () => {
 			expect(
-				generateInnerHexagonCSSText('#333', '#fff', 20).replace(/\s/g, '')
+				generateInnerHexagonCSS('#333', '#fff', 20).replace(/\s/g, '')
 			).toMatch(
 				`.hexagon__inner {
           background-color: #333;

@@ -1,21 +1,21 @@
 import { roundToTwoDecimals } from '../../utils/generalFunctions'
-import { generateBasicHexagonCSSText } from './basicHexagon.css'
+import { generateBasicHexagonCSS } from './basicHexagon.css'
 
-export const generateOuterHexagonCSSText = (
+export const generateOuterHexagonCSS = (
 	hexagonSize: number,
 	hexagonTransition: number
 ): string =>
 	`.hexagon__outer {
     margin-top: ${roundToTwoDecimals((1.154665 * hexagonSize) / -4)}vw;
     transition: all ${hexagonTransition}s;
-    ${generateBasicHexagonCSSText(
+    ${generateBasicHexagonCSS(
 			hexagonSize,
 			roundToTwoDecimals(1.154665 * hexagonSize)
 		)}
   }
   `
 
-export const generateOuterHexagonHoverCSSText = (
+export const generateOuterHexagonHoverCSS = (
 	hexagonScale: number,
 	hexagonRotation: number
 ) =>
@@ -24,7 +24,7 @@ export const generateOuterHexagonHoverCSSText = (
   }
   `
 
-export const generateOuterHexagonChildCSSText = (
+export const generateOuterHexagonChildCSS = (
 	hexagonsFirstRow: number,
 	hexagonSize: number
 ) =>

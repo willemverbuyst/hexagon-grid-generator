@@ -1,11 +1,9 @@
-import { generateMediaQueryCSSText } from './mediaQuery.css'
+import { generateMediaQueryCSS } from './mediaQuery.css'
 
-describe('#generateMediaQueryCSSText', () => {
+describe('#generateMediaQueryCSS', () => {
 	describe('given input values ', () => {
 		it('should return a css class', () => {
-			expect(
-				generateMediaQueryCSSText(900, 1, 4, 3).replace(/\s/g, '')
-			).toMatch(
+			expect(generateMediaQueryCSS(900, 1, 4, 3).replace(/\s/g, '')).toMatch(
 				`@media (max-width: 900px) {
 
         .hexagon-wrapper__hexagon-container {
@@ -38,13 +36,10 @@ describe('#generateMediaQueryCSSText', () => {
 	describe('given input values', () => {
 		it('should return a css class', () => {
 			expect(
-				generateMediaQueryCSSText(
-					700,
-					2,
-					4,
-					3,
-					'html {font-size: 50%;}'
-				).replace(/\s/g, '')
+				generateMediaQueryCSS(700, 2, 4, 3, 'html {font-size: 50%;}').replace(
+					/\s/g,
+					''
+				)
 			).toMatch(
 				`@media (max-width: 700px) {
 
@@ -81,9 +76,7 @@ describe('#generateMediaQueryCSSText', () => {
 
 	describe('given input values', () => {
 		it('should return a css class', () => {
-			expect(
-				generateMediaQueryCSSText(500, 3, 4, 3).replace(/\s/g, '')
-			).toMatch(
+			expect(generateMediaQueryCSS(500, 3, 4, 3).replace(/\s/g, '')).toMatch(
 				`@media (max-width: 500px) {
 	      .hexagon-wrapper__hexagon-container {
 	          width: 3vw;

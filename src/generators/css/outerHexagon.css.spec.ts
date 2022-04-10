@@ -1,13 +1,13 @@
 import {
-	generateOuterHexagonCSSText,
-	generateOuterHexagonChildCSSText,
-	generateOuterHexagonHoverCSSText,
+	generateOuterHexagonCSS,
+	generateOuterHexagonChildCSS,
+	generateOuterHexagonHoverCSS,
 } from './outerHexagon.css'
 
-describe('#generateOuterHexagonCSSText', () => {
+describe('#generateOuterHexagonCSS', () => {
 	describe('given input values', () => {
 		it('should return a css class', () => {
-			expect(generateOuterHexagonCSSText(9, 4).replace(/\s/g, '')).toMatch(
+			expect(generateOuterHexagonCSS(9, 4).replace(/\s/g, '')).toMatch(
 				`.hexagon__outer {
           margin-top: -2.6vw;
           transition: all 4s;
@@ -38,10 +38,10 @@ describe('#generateOuterHexagonCSSText', () => {
 	})
 })
 
-describe('#generateOuterHexagonHoverCSSText', () => {
+describe('#generateOuterHexagonHoverCSS', () => {
 	describe('given input values', () => {
 		it('should return a css class', () => {
-			expect(generateOuterHexagonHoverCSSText(1, 2).replace(/\s/g, '')).toMatch(
+			expect(generateOuterHexagonHoverCSS(1, 2).replace(/\s/g, '')).toMatch(
 				`.hexagon__outer:hover {
           transform: scale(1) rotate(2deg);
         }`.replace(/\s/g, '')
@@ -50,10 +50,10 @@ describe('#generateOuterHexagonHoverCSSText', () => {
 	})
 })
 
-describe('#generateOuterHexagonChildCSSText', () => {
+describe('#generateOuterHexagonChildCSS', () => {
 	describe('given input values, firstrow is 1', () => {
 		it('should return a css class', () => {
-			expect(generateOuterHexagonChildCSSText(1, 2).replace(/\s/g, '')).toMatch(
+			expect(generateOuterHexagonChildCSS(1, 2).replace(/\s/g, '')).toMatch(
 				`.hexagon__outer:nth-child(n + 0) {
           margin-top: 0;
         }
@@ -67,7 +67,7 @@ describe('#generateOuterHexagonChildCSSText', () => {
 
 	describe('given input values, firstrow is 4', () => {
 		it('should return a css class', () => {
-			expect(generateOuterHexagonChildCSSText(4, 2).replace(/\s/g, '')).toMatch(
+			expect(generateOuterHexagonChildCSS(4, 2).replace(/\s/g, '')).toMatch(
 				`.hexagon__outer:nth-child(-n + 4) {
           margin-top: 0;
         }

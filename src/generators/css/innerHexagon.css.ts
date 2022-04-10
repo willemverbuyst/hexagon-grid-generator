@@ -1,6 +1,6 @@
-import { generateBasicHexagonCSSText } from './basicHexagon.css'
+import { generateBasicHexagonCSS } from './basicHexagon.css'
 
-export const generateInnerHexagonCSSText = (
+export const generateInnerHexagonCSS = (
 	hexagonColor: string,
 	textColor: string,
 	hexagonGap: number
@@ -8,6 +8,6 @@ export const generateInnerHexagonCSSText = (
 	`.hexagon__inner {
   background-color: ${hexagonColor};
   color: ${textColor};
-  ${generateBasicHexagonCSSText(100 - hexagonGap, 100 - hexagonGap)}
+  ${generateBasicHexagonCSS(100 - hexagonGap, 100 - hexagonGap)}
 	}
 	`

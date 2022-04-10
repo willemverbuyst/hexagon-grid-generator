@@ -1,6 +1,6 @@
 import { roundToTwoDecimals } from '../../utils/generalFunctions'
 
-export const generateMediaQueryCSSText = (
+export const generateMediaQueryCSS = (
 	mediaQuery: number,
 	i: number,
 	hexagonsFirstRow: number,

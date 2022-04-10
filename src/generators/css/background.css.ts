@@ -1,4 +1,4 @@
-export const generateBackgroundCSSText = (backgroundColor: string): string =>
+export const generateBackgroundCSS = (backgroundColor: string): string =>
 	`.hexagon-wrapper {
   background-color: ${backgroundColor};
   display: flex;

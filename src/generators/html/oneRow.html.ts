@@ -1,13 +1,13 @@
-import { generateHexagonHTMLText } from './hexagon.html'
+import { generateHexagonHTML } from './hexagon.html'
 
-export const generateOneRowHTMLText = (numberOfHexagons: number): string => {
+export const generateOneRowHTML = (numberOfHexagons: number): string => {
 	let html = ''
 
 	if (numberOfHexagons > 0) {
 		Array(numberOfHexagons)
 			.fill(0)
 			.forEach((_, i) => {
-				html += generateHexagonHTMLText(i + 1)
+				html += generateHexagonHTML(i + 1)
 			})
 	}
 

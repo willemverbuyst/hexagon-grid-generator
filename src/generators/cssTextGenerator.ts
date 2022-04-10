@@ -1,12 +1,12 @@
 import { DOMInput } from '../index'
 import {
-	generateBackgroundCSSText,
-	generateContainerCSSText,
-	generateInnerHexagonCSSText,
-	generateMediaQueryCSSText,
-	generateOuterHexagonCSSText,
-	generateOuterHexagonHoverCSSText,
-	generateOuterHexagonChildCSSText,
+	generateBackgroundCSS,
+	generateContainerCSS,
+	generateInnerHexagonCSS,
+	generateMediaQueryCSS,
+	generateOuterHexagonCSS,
+	generateOuterHexagonHoverCSS,
+	generateOuterHexagonChildCSS,
 } from './css'
 
 export const generateCSStext = (): void => {
@@ -28,26 +28,26 @@ export const generateCSStext = (): void => {
 		textColor: { valueAsString: textColor },
 	} = DOMInput
 
-	const backgroundCSSText = generateBackgroundCSSText(backgroundColor)
-	const containerCSSText = generateContainerCSSText(
+	const backgroundCSSText = generateBackgroundCSS(backgroundColor)
+	const containerCSSText = generateContainerCSS(
 		hexagonsFirstRow,
 		hexagonSize,
 		containerSkewX,
 		containerSkewY
 	)
-	const outerHexagonCSSText = generateOuterHexagonCSSText(
+	const outerHexagonCSSText = generateOuterHexagonCSS(
 		hexagonSize,
 		hexagonTransition
 	)
-	const outerHexagonHoverCSSText = generateOuterHexagonHoverCSSText(
+	const outerHexagonHoverCSSText = generateOuterHexagonHoverCSS(
 		hexagonScale,
 		hexagonRotation
 	)
-	const outerHexagonChildCSSText = generateOuterHexagonChildCSSText(
+	const outerHexagonChildCSSText = generateOuterHexagonChildCSS(
 		hexagonsFirstRow,
 		hexagonSize
 	)
-	const innerHexagonCSSText = generateInnerHexagonCSSText(
+	const innerHexagonCSSText = generateInnerHexagonCSS(
 		hexagonColor,
 		textColor,
 		hexagonGap
@@ -62,7 +62,7 @@ export const generateCSStext = (): void => {
 		innerHexagonCSSText
 
 	if (hexagonsFirstRow - 1 > 0) {
-		displayCSS += generateMediaQueryCSSText(
+		displayCSS += generateMediaQueryCSS(
 			mediaQuery_1,
 			1,
 			hexagonsFirstRow,
@@ -74,7 +74,7 @@ export const generateCSStext = (): void => {
 		const extra = `html {
       font-size: 50%;
       }`
-		displayCSS += generateMediaQueryCSSText(
+		displayCSS += generateMediaQueryCSS(
 			mediaQuery_2,
 			2,
 			hexagonsFirstRow,
@@ -84,7 +84,7 @@ export const generateCSStext = (): void => {
 	}
 
 	if (hexagonsFirstRow - 3 > 0) {
-		displayCSS += generateMediaQueryCSSText(
+		displayCSS += generateMediaQueryCSS(
 			mediaQuery_3,
 			3,
 			hexagonsFirstRow,

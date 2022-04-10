@@ -1,7 +1,7 @@
-import { generateHexagonHTMLText } from './hexagon.html'
-import { generateOneRowHTMLText } from './oneRow.html'
+import { generateHexagonHTML } from './hexagon.html'
+import { generateOneRowHTML } from './oneRow.html'
 
-export const generateMultipleRowsHTMLText = (
+export const generateMultipleRowsHTML = (
 	hexagonsFirstRow: number,
 	numberOfHexagons: number
 ): string => {
@@ -12,7 +12,7 @@ export const generateMultipleRowsHTMLText = (
 	}
 
 	if (hexagonsFirstRow === 1 || numberOfHexagons <= hexagonsFirstRow) {
-		html = generateOneRowHTMLText(numberOfHexagons)
+		html = generateOneRowHTML(numberOfHexagons)
 		return html
 	}
 
@@ -21,10 +21,7 @@ export const generateMultipleRowsHTMLText = (
 	Array(hexagonsFirstRow)
 		.fill(0)
 		.forEach((_, i) => {
-			html += generateHexagonHTMLText(
-				i + hexagonNumber,
-				'first-row__margin-top'
-			)
+			html += generateHexagonHTML(i + hexagonNumber, 'first-row__margin-top')
 		})
 
 	// generate next rows
@@ -35,9 +32,9 @@ export const generateMultipleRowsHTMLText = (
 	// eslint-disable-next-line no-loops/no-loops
 	while (k < numberOfHexagons - hexagonsFirstRow) {
 		if (k === 0 || k % ((hexagonsFirstRow - 1) * 2 + 1) === 0) {
-			html += generateHexagonHTMLText(hexagonNumber, 'even-rows__margin-left')
+			html += generateHexagonHTML(hexagonNumber, 'even-rows__margin-left')
 		} else {
-			html += generateHexagonHTMLText(hexagonNumber)
+			html += generateHexagonHTML(hexagonNumber)
 		}
 		hexagonNumber++
 		k++

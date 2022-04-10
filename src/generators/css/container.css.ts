@@ -1,4 +1,4 @@
-export const generateContainerCSSText = (
+export const generateContainerCSS = (
 	hexagonsFirstRow: number,
 	hexagonSize: number,
 	containerSkewX: number,

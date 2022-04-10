@@ -1,12 +1,12 @@
-import { generateHexagonHTMLText } from './hexagon.html'
+import { generateHexagonHTML } from './hexagon.html'
 
-export const generateContainerHTMLtext = (numberOfHexagons: number): string => {
+export const generateContainerHTML = (numberOfHexagons: number): string => {
 	let html = ''
 
 	Array(numberOfHexagons)
 		.fill(0)
 		.forEach((_, i) => {
-			html += generateHexagonHTMLText(i + 1)
+			html += generateHexagonHTML(i + 1)
 		})
 
 	return `
