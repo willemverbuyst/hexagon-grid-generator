@@ -10,4 +10,4 @@ export const generateContainerCSSText = (
     flex-wrap: wrap;
     transform: skew(${containerSkewX}deg, ${containerSkewY}deg);
   }
-}`
+  `

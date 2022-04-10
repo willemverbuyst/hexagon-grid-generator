@@ -9,5 +9,5 @@ export const generateInnerHexagonCSSText = (
   background-color: ${hexagonColor};
   color: ${textColor};
   ${generateBasicHexagonCSSText(100 - hexagonGap, 100 - hexagonGap)}
-}
-`
+	}
+	`

@@ -1,73 +1,65 @@
 import { DOMInput } from '../index'
 import { createMediaQuery } from '../utils/CSSHelperFunctions'
-import { roundToTwoDecimals } from '../utils/generalFunctions'
-import { generateBasicHexagonCSSText } from './css/basicHexagon.css'
+import { generateBackgroundCSSText } from './css/background.css'
+import { generateContainerCSSText } from './css/container.css'
+import { generateInnerHexagonCSSText } from './css/innerHexagon.css'
+import {
+	generateOuterHexagonChildCSSText,
+	generateOuterHexagonCSSText,
+	generateOuterHexagonHoverCSSText,
+} from './css/outerHexagon.css'
 
 export const generateCSStext = (): void => {
 	const cssTextField = document.getElementById('css')
 	const {
 		backgroundColor: { valueAsString: backgroundColor },
-		containerSkewX: { valueAsString: containerSkewX },
-		containerSkewY: { valueAsString: containerSkewY },
+		containerSkewX: { valueAsNumber: containerSkewX },
+		containerSkewY: { valueAsNumber: containerSkewY },
 		hexagonsFirstRow: { valueAsNumber: hexagonsFirstRow },
 		hexagonColor: { valueAsString: hexagonColor },
 		hexagonGap: { valueAsNumber: hexagonGap },
-		hexagonRotation: { valueAsString: hexagonRotation },
-		hexagonScale: { valueAsString: hexagonScale },
+		hexagonRotation: { valueAsNumber: hexagonRotation },
+		hexagonScale: { valueAsNumber: hexagonScale },
 		hexagonSize: { valueAsNumber: hexagonSize },
-		hexagonTransition: { valueAsString: hexagonTransition },
+		hexagonTransition: { valueAsNumber: hexagonTransition },
 		mediaQuery_1: { valueAsString: mediaQuery_1 },
 		mediaQuery_2: { valueAsString: mediaQuery_2 },
 		mediaQuery_3: { valueAsString: mediaQuery_3 },
 		textColor: { valueAsString: textColor },
 	} = DOMInput
 
-	let displayCSS = `
-.hexagon-wrapper {
-  background-color: ${backgroundColor};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hexagon-wrapper__hexagon-container {
-  width: ${hexagonsFirstRow * hexagonSize}vw;
-  display: flex;
-  flex-wrap: wrap;
-  transform: skew(${containerSkewX}deg, ${containerSkewY}deg);
-}
-
-.hexagon__outer {
-  margin-top: ${((1.154665 * hexagonSize) / -4).toFixed(2)}vw;
-  transition: all ${hexagonTransition}s;
-  ${generateBasicHexagonCSSText(
+	const backgroundCSSText = generateBackgroundCSSText(backgroundColor)
+	const containerCSSText = generateContainerCSSText(
+		hexagonsFirstRow,
 		hexagonSize,
-		roundToTwoDecimals(1.154665 * hexagonSize)
-	)}
-}
+		containerSkewX,
+		containerSkewY
+	)
+	const outerHexagonCSSText = generateOuterHexagonCSSText(
+		hexagonSize,
+		hexagonTransition
+	)
+	const outerHexagonHoverCSSText = generateOuterHexagonHoverCSSText(
+		hexagonScale,
+		hexagonRotation
+	)
+	const outerHexagonChildCSSText = generateOuterHexagonChildCSSText(
+		hexagonsFirstRow,
+		hexagonSize
+	)
+	const innerHexagonCSSText = generateInnerHexagonCSSText(
+		hexagonColor,
+		textColor,
+		hexagonGap
+	)
 
-.hexagon__outer:hover {
-  transform: scale(${hexagonScale}) rotate(${hexagonRotation}deg);
-}
-
-.hexagon__outer:nth-child(${hexagonsFirstRow === 1 ? 'n' : '-n'} + ${
-		hexagonsFirstRow === 1 ? 0 : hexagonsFirstRow
-	}) {
-    margin-top: 0;
-}
-
-.hexagon__outer:nth-child(${
-		hexagonsFirstRow === 1 ? '' : hexagonsFirstRow * 2 - 1
-	}n + ${hexagonsFirstRow === 1 ? '' : hexagonsFirstRow + 1}) {
-    margin-left: ${0.5 * hexagonSize}vw;
-}
-
-.hexagon__inner {
-  background-color: ${hexagonColor};
-  color: ${textColor};
-  ${generateBasicHexagonCSSText(100 - hexagonGap, 100 - hexagonGap)}
-}
-`
+	let displayCSS =
+		backgroundCSSText +
+		containerCSSText +
+		outerHexagonCSSText +
+		outerHexagonHoverCSSText +
+		outerHexagonChildCSSText +
+		innerHexagonCSSText
 
 	if (hexagonsFirstRow - 1 > 0) {
 		displayCSS += createMediaQuery(

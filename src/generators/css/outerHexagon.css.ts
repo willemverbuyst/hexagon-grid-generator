@@ -39,4 +39,4 @@ export const generateOuterHexagonChildCSSText = (
 	}n + ${hexagonsFirstRow === 1 ? '' : hexagonsFirstRow + 1}) {
       margin-left: ${0.5 * hexagonSize}vw;
   }
-`
+  `

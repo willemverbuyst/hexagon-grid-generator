@@ -1,7 +1,7 @@
 :root {
-	--color-bg: #ddd;
-	--color-inner-hexagon: rgb(226, 150, 9);
-	--color-text: DarkSlateGrey;
+	--color-bg: #dddddd;
+	--color-inner-hexagon: #e29609;
+	--color-text: #284646;
 	/* Use clip-path to create the shape */
 	--hexagon-clip-path: polygon(
 		0 25%,
