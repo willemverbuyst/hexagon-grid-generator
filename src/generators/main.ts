@@ -1,9 +1,9 @@
 import { DOMInput } from '../index'
 import { generateCSSText } from './css/text.css'
-import { generateMultipleRowsHTML } from './html/multipleRows.html'
+import { generateHexagons } from './html/hexagons.html'
 import { generateHTMLText } from './html/text.html'
 
-export const generateHexagons = (): void => {
+export const main = (): void => {
 	const cssTextField = <HTMLElement>document.getElementById('css')
 	const hexagonContainer = <HTMLElement>(
 		document.getElementById('hexagon__container')
@@ -27,7 +27,7 @@ export const generateHexagons = (): void => {
 		textColor: { valueAsString: textColor },
 	} = DOMInput
 
-	hexagonContainer.innerHTML = generateMultipleRowsHTML(
+	hexagonContainer.innerHTML = generateHexagons(
 		hexagonsFirstRow,
 		numberOfHexagons
 	)

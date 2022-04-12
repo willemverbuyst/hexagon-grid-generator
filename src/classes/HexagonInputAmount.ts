@@ -1,5 +1,5 @@
 import { DOMInputElement } from './DOMInputElement'
-import { generateHexagons } from '../generators/hexagonGenerator'
+import { main } from '../generators/main'
 
 export class HexagonInputAmount extends DOMInputElement {
 	constructor(id: string) {
@@ -8,7 +8,7 @@ export class HexagonInputAmount extends DOMInputElement {
 	}
 
 	private onInputChangeHexagonAmount() {
-		this.element.oninput = (): void => generateHexagons()
+		this.element.oninput = (): void => main()
 	}
 
 	init() {

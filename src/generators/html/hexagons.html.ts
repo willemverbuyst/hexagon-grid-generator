@@ -1,7 +1,7 @@
 import { generateHexagonHTML } from './hexagon.html'
 import { generateOneRowHTML } from './oneRow.html'
 
-export const generateMultipleRowsHTML = (
+export const generateHexagons = (
 	hexagonsFirstRow: number,
 	numberOfHexagons: number
 ): string => {

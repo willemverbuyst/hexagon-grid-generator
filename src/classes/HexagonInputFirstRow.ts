@@ -1,6 +1,6 @@
 import { DOMInputElement } from './DOMInputElement'
 import { root } from '../index'
-import { generateHexagons } from '../generators/hexagonGenerator'
+import { main } from '../generators/main'
 
 export class HexagonInputFirstRow extends DOMInputElement {
 	constructor(id: string) {
@@ -10,7 +10,7 @@ export class HexagonInputFirstRow extends DOMInputElement {
 
 	private changeAmountFirstRow(value: number) {
 		root.style.setProperty('--amount-of-hexagons', String(value))
-		generateHexagons()
+		main()
 	}
 
 	private onInputChangeFirstRow() {

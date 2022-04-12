@@ -1,27 +1,27 @@
-import { generateMultipleRowsHTML } from './multipleRows.html'
+import { generateHexagons } from './hexagons.html'
 
-describe('#generateMultipleRowsHTML', () => {
+describe('#generateHexagons', () => {
 	describe('given 0 and 0', () => {
 		it('should return empty string', () => {
-			expect(generateMultipleRowsHTML(0, 0)).toMatch('')
+			expect(generateHexagons(0, 0)).toMatch('')
 		})
 	})
 
 	describe('given -1 and 1', () => {
 		it('should return empty string', () => {
-			expect(generateMultipleRowsHTML(-1, 1)).toMatch('')
+			expect(generateHexagons(-1, 1)).toMatch('')
 		})
 	})
 
 	describe('given 1 and -1', () => {
 		it('should return empty string', () => {
-			expect(generateMultipleRowsHTML(-1, 1)).toMatch('')
+			expect(generateHexagons(-1, 1)).toMatch('')
 		})
 	})
 
 	describe('given 1 and 1', () => {
 		it('should return string with hexagon #1', () => {
-			expect(generateMultipleRowsHTML(1, 1).replace(/\s/g, '')).toMatch(
+			expect(generateHexagons(1, 1).replace(/\s/g, '')).toMatch(
 				`<div class="hexagon__outer">
 					<div class="hexagon__inner">1</div>
 				</div>`.replace(/\s/g, '')
@@ -31,7 +31,7 @@ describe('#generateMultipleRowsHTML', () => {
 
 	describe('given 2 and 2', () => {
 		it('should return string with hexagon #1 and #2', () => {
-			expect(generateMultipleRowsHTML(2, 2).replace(/\s/g, '')).toMatch(
+			expect(generateHexagons(2, 2).replace(/\s/g, '')).toMatch(
 				`<div class="hexagon__outer">
 					<div class="hexagon__inner">1</div>
 				</div>
@@ -44,7 +44,7 @@ describe('#generateMultipleRowsHTML', () => {
 
 	describe('given 1 and 3', () => {
 		it('should return string with hexagon #1 and #2 and #3', () => {
-			expect(generateMultipleRowsHTML(1, 3).replace(/\s/g, '')).toMatch(
+			expect(generateHexagons(1, 3).replace(/\s/g, '')).toMatch(
 				`<div class="hexagon__outer">
 					<div class="hexagon__inner">1</div>
 				</div>
@@ -60,7 +60,7 @@ describe('#generateMultipleRowsHTML', () => {
 
 	describe('given 2 and 5', () => {
 		it('should return string with classes and 5 hexagons', () => {
-			expect(generateMultipleRowsHTML(2, 5).replace(/\s/g, '')).toMatch(
+			expect(generateHexagons(2, 5).replace(/\s/g, '')).toMatch(
 				`<div class="hexagon__outer first-row__margin-top">
 					<div class="hexagon__inner">1</div>
 				</div>

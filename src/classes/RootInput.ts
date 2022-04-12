@@ -1,4 +1,4 @@
-import { generateHexagons } from '../generators/hexagonGenerator'
+import { main } from '../generators/main'
 import { DOMInputElement } from './DOMInputElement'
 import { root } from '../index'
 
@@ -14,7 +14,7 @@ export class RootInput extends DOMInputElement {
 
 	protected changeRootValues(property: string, value: string): void {
 		root.style.setProperty(property, value)
-		generateHexagons()
+		main()
 	}
 
 	protected addEventListenerForRootChange() {

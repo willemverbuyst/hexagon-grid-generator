@@ -3,7 +3,7 @@ import { HexagonInputFirstRow } from './classes/HexagonInputFirstRow'
 import { MediaQueryInput } from './classes/MediaQueryInput'
 import { RootInput } from './classes/RootInput'
 import { RootInputGap } from './classes/RootInputGap'
-import { generateHexagons } from './generators/hexagonGenerator'
+import { main } from './generators/main'
 import './style.css'
 
 export const root = document.documentElement
@@ -31,4 +31,4 @@ export const DOMInput = {
 }
 
 // call the function for an initial display of hexagons
-generateHexagons()
+main()
