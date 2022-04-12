@@ -1,4 +1,3 @@
-import { DOMInput } from '../index'
 import {
 	generateBackgroundCSS,
 	generateContainerCSS,
@@ -7,27 +6,24 @@ import {
 	generateOuterHexagonCSS,
 	generateOuterHexagonHoverCSS,
 	generateOuterHexagonChildCSS,
-} from './css'
+} from '.'
 
-export const generateCSStext = (): void => {
-	const cssTextField = document.getElementById('css')
-	const {
-		backgroundColor: { valueAsString: backgroundColor },
-		containerSkewX: { valueAsNumber: containerSkewX },
-		containerSkewY: { valueAsNumber: containerSkewY },
-		hexagonsFirstRow: { valueAsNumber: hexagonsFirstRow },
-		hexagonColor: { valueAsString: hexagonColor },
-		hexagonGap: { valueAsNumber: hexagonGap },
-		hexagonRotation: { valueAsNumber: hexagonRotation },
-		hexagonScale: { valueAsNumber: hexagonScale },
-		hexagonSize: { valueAsNumber: hexagonSize },
-		hexagonTransition: { valueAsNumber: hexagonTransition },
-		mediaQuery_1: { valueAsNumber: mediaQuery_1 },
-		mediaQuery_2: { valueAsNumber: mediaQuery_2 },
-		mediaQuery_3: { valueAsNumber: mediaQuery_3 },
-		textColor: { valueAsString: textColor },
-	} = DOMInput
-
+export const generateCSSText = (
+	backgroundColor: string,
+	containerSkewX: number,
+	containerSkewY: number,
+	hexagonsFirstRow: number,
+	hexagonColor: string,
+	hexagonGap: number,
+	hexagonRotation: number,
+	hexagonScale: number,
+	hexagonSize: number,
+	hexagonTransition: number,
+	mediaQuery_1: number,
+	mediaQuery_2: number,
+	mediaQuery_3: number,
+	textColor: string
+): string => {
 	const backgroundCSSText = generateBackgroundCSS(backgroundColor)
 	const containerCSSText = generateContainerCSS(
 		hexagonsFirstRow,
@@ -92,5 +88,5 @@ export const generateCSStext = (): void => {
 		)
 	}
 
-	if (cssTextField) cssTextField.innerText = displayCSS
+	return displayCSS
 }

@@ -7,7 +7,6 @@ import { generateHexagons } from './generators/hexagonGenerator'
 import './style.css'
 
 export const root = document.documentElement
-export const hexagonContainer = document.getElementById('hexagon__container')
 
 export const DOMInput = {
 	numberOfHexagons: new HexagonInputAmount('hexagon-amount'),

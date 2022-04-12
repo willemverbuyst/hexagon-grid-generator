@@ -1,4 +1,4 @@
-import { generateCSStext } from '../generators/cssTextGenerator'
+import { generateHexagons } from '../generators/hexagonGenerator'
 import { DOMInputElement } from './DOMInputElement'
 
 export class MediaQueryInput extends DOMInputElement {
@@ -8,7 +8,7 @@ export class MediaQueryInput extends DOMInputElement {
 	}
 
 	private generateCSStextOnChange() {
-		this.element.oninput = () => generateCSStext()
+		this.element.oninput = () => generateHexagons()
 	}
 
 	init() {
