@@ -1,5 +1,4 @@
 import { generateHexagonHTML } from './hexagon.html'
-import { generateOneRowHTML } from './oneRow.html'
 
 export const generateHexagons = (
 	hexagonsFirstRow: number,
@@ -8,27 +7,26 @@ export const generateHexagons = (
 	let html = ''
 
 	if (hexagonsFirstRow < 1 || numberOfHexagons < 1) {
-		return html
+		return ''
 	}
 
-	if (hexagonsFirstRow === 1 || numberOfHexagons <= hexagonsFirstRow) {
-		html = generateOneRowHTML(numberOfHexagons)
+	if (hexagonsFirstRow === 1) return generateHexagonHTML(1)
+
+	if (numberOfHexagons <= hexagonsFirstRow) {
+		Array(numberOfHexagons)
+			.fill(0)
+			.forEach((_, i) => (html += generateHexagonHTML(i + 1)))
 		return html
 	}
-
-	let hexagonNumber = 1
 
 	Array(hexagonsFirstRow)
 		.fill(0)
 		.forEach((_, i) => {
-			html += generateHexagonHTML(i + hexagonNumber, 'first-row__margin-top')
+			html += generateHexagonHTML(i + 1, 'first-row__margin-top')
 		})
 
-	// generate next rows
-	// even rows will get a css class of 'even-rows__margin-left'
-	// uneven rows will not get an extra class
 	let k = 0
-	hexagonNumber = hexagonsFirstRow + 1
+	let hexagonNumber = hexagonsFirstRow + 1
 	// eslint-disable-next-line no-loops/no-loops
 	while (k < numberOfHexagons - hexagonsFirstRow) {
 		if (k === 0 || k % ((hexagonsFirstRow - 1) * 2 + 1) === 0) {
