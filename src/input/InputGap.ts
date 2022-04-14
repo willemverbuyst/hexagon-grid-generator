@@ -1,17 +1,19 @@
-import { RootInput } from './RootInput'
+import { main } from '../generators/main'
+import { InputRoot } from './InputRoot'
 
-export class RootInputGap extends RootInput {
+export class InputGap extends InputRoot {
 	constructor(id: string, rootElementName: string, postFix = '') {
 		super(id, rootElementName, postFix)
 	}
 
 	// Different implementation of this method
-	protected addEventListenerForRootChange() {
+	protected updateOnInput(): void {
 		this.element.oninput = (): void => {
-			this.changeRootValues(
+			this.changeRoot(
 				this.rootElementName,
 				100 - this.valueAsNumber + this.postFix
 			)
+			main()
 		}
 	}
 }

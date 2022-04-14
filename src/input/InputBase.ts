@@ -1,13 +1,13 @@
-export class DOMInputElement {
+export class InputBase {
 	constructor(private id: string) {}
 
 	element = <HTMLInputElement>document.getElementById(this.id)
 
-	get valueAsNumber() {
+	get valueAsNumber(): number {
 		return Number(this.element.value)
 	}
 
-	get valueAsString() {
+	get valueAsString(): string {
 		return String(this.element.value)
 	}
 }

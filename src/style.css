@@ -13,9 +13,9 @@
 	);
 
 	--width-hexagon-outer: 4vw;
-	--amount-of-hexagons: 5;
+	--number-of-hexagons: 5;
 	--width-hexagon-container: calc(
-		var(--width-hexagon-outer) * var(--amount-of-hexagons)
+		var(--width-hexagon-outer) * var(--number-of-hexagons)
 	);
 	--height-hexagon-outer: calc(1.154665 * var(--width-hexagon-outer));
 	--margin-left: calc(0.5 * (var(--width-hexagon-outer)));
