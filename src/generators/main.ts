@@ -1,7 +1,7 @@
-import { DOMInput } from '../index'
 import { generateCSSText } from './css/text.css'
 import { generateHexagons } from './html/hexagons.html'
 import { generateHTMLText } from './html/text.html'
+import { inputElements } from './input'
 
 export const main = (): void => {
 	const cssTextField = <HTMLElement>document.getElementById('css')
@@ -25,7 +25,7 @@ export const main = (): void => {
 		mediaQuery_3: { valueAsNumber: mediaQuery_3 },
 		numberOfHexagons: { valueAsNumber: numberOfHexagons },
 		textColor: { valueAsString: textColor },
-	} = DOMInput
+	} = inputElements
 
 	hexagonContainer.innerHTML = generateHexagons(
 		hexagonsFirstRow,
