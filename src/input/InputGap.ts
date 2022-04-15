@@ -1,4 +1,3 @@
-import { main } from '../generators/main'
 import { InputRoot } from './InputRoot'
 
 export class InputGap extends InputRoot {
@@ -13,7 +12,7 @@ export class InputGap extends InputRoot {
 				this.rootElementName,
 				100 - this.valueAsNumber + this.postFix
 			)
-			main()
+			this.runMain()
 		}
 	}
 }

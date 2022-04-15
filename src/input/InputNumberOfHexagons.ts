@@ -1,5 +1,4 @@
 import { InputBase } from './InputBase'
-import { main } from '../generators/main'
 
 export class InputNumberOfHexagons extends InputBase {
 	constructor(id: string) {
@@ -8,7 +7,7 @@ export class InputNumberOfHexagons extends InputBase {
 	}
 
 	private updateOnInput(): void {
-		this.element.oninput = (): void => main()
+		this.element.oninput = (): void => this.runMain()
 	}
 
 	init(): void {

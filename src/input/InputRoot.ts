@@ -1,8 +1,8 @@
-import { main } from '../generators/main'
 import { InputBase } from './InputBase'
-import { root } from '../index'
 
 export class InputRoot extends InputBase {
+	root = document.documentElement
+
 	constructor(
 		id: string,
 		public rootElementName: string,
@@ -13,13 +13,13 @@ export class InputRoot extends InputBase {
 	}
 
 	protected changeRoot(property: string, value: string): void {
-		root.style.setProperty(property, value)
+		this.root.style.setProperty(property, value)
 	}
 
 	protected updateOnInput(): void {
 		this.element.oninput = (): void => {
 			this.changeRoot(this.rootElementName, this.valueAsString + this.postFix)
-			main()
+			this.runMain()
 		}
 	}
 

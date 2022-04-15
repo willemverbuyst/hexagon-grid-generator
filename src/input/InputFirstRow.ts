@@ -1,21 +1,21 @@
 import { InputBase } from './InputBase'
-import { root } from '../index'
-import { main } from '../generators/main'
 
 export class InputFirstRow extends InputBase {
+	root = document.documentElement
+
 	constructor(id: string) {
 		super(id)
 		this.init()
 	}
 
 	private changeRoot(value: number): void {
-		root.style.setProperty('--number-of-hexagons', String(value))
+		this.root.style.setProperty('--number-of-hexagons', String(value))
 	}
 
 	private updateOnInput(): void {
 		this.element.oninput = (): void => {
 			this.changeRoot(this.valueAsNumber)
-			main()
+			this.runMain()
 		}
 	}
 

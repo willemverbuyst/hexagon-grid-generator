@@ -1,3 +1,5 @@
+import { main } from '../generators/main'
+
 export class InputBase {
 	constructor(private id: string) {}
 
@@ -9,5 +11,9 @@ export class InputBase {
 
 	get valueAsString(): string {
 		return String(this.element.value)
+	}
+
+	runMain(): void {
+		main()
 	}
 }

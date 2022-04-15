@@ -1,4 +1,3 @@
-import { main } from '../generators/main'
 import { InputBase } from './InputBase'
 
 export class InputMediaQuery extends InputBase {
@@ -8,7 +7,7 @@ export class InputMediaQuery extends InputBase {
 	}
 
 	private updateOnInput(): void {
-		this.element.oninput = () => main()
+		this.element.oninput = () => this.runMain()
 	}
 
 	init(): void {
