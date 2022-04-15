@@ -69,16 +69,38 @@ input:focus {
 }
 
 header {
-	height: 8vh;
 	background-color: rgba(0, 0, 0, 0.5);
 	width: 100vw;
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
+	flex-wrap: wrap;
+}
+
+.brand {
+	margin: 1rem;
+	font-size: 3rem;
+}
+
+.header__section-buttons {
+	margin: 1rem;
+}
+
+.header__button {
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 50%;
+	color: inherit;
+	height: 4rem;
+	width: 4rem;
+	margin-right: 1rem;
 }
 
 .input-field__input-item {
+	margin: 2rem;
 	display: flex;
 	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
 }
 
 /* HEXAGON SECTION */
@@ -143,22 +165,17 @@ main {
 }
 
 footer {
-	height: 12vh;
-	background-color: transparent;
+	background-color: rgba(0, 0, 0, 0.5);
 	width: 100vw;
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	display: flex;
 	align-items: center;
-	justify-content: end;
+	justify-content: center;
 }
 
-.footer__button {
-	margin-right: 2rem;
-	background-color: rgba(0, 0, 0, 0.5);
-	height: 8rem;
-	width: 8rem;
-	border-radius: 50%;
-	color: inherit;
+.controls {
+	display: flex;
+	flex-wrap: wrap;
 }
