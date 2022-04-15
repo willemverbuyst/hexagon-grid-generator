@@ -44,6 +44,7 @@ html {
 }
 
 body {
+	box-sizing: border-box;
 	font-family: 'system';
 	margin: 0;
 	padding: 0;
@@ -152,4 +153,25 @@ input:focus {
 
 .css-code {
 	grid-area: css;
+}
+
+footer {
+	height: 12vh;
+	background-color: transparent;
+	width: 100vw;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: end;
+}
+
+.footer__button {
+	margin-right: 2rem;
+	background-color: rgba(0, 0, 0, 0.5);
+	height: 8rem;
+	width: 8rem;
+	border-radius: 50%;
+	color: inherit;
 }
