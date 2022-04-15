@@ -52,12 +52,6 @@ body {
 	color: #fff;
 }
 
-input {
-	text-align: right;
-	width: 4rem;
-	text-align: left;
-}
-
 input:focus {
 	outline: none;
 }
@@ -75,6 +69,7 @@ header {
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
+	height: 8vh;
 }
 
 .brand {
@@ -95,17 +90,9 @@ header {
 	margin-right: 1rem;
 }
 
-.input-field__input-item {
-	margin: 2rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: center;
-}
-
 /* HEXAGON SECTION */
 main {
-	min-height: 92vh;
+	min-height: 80vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -113,7 +100,7 @@ main {
 
 .hexagon-wrapper {
 	/* grid-area: hexagons; */
-	width: 100vw;
+	/* width: 100vw; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -167,7 +154,8 @@ main {
 footer {
 	background-color: rgba(0, 0, 0, 0.5);
 	width: 100vw;
-	position: absolute;
+	min-height: 12vh;
+	position: sticky;
 	bottom: 0;
 	left: 0;
 	display: flex;
@@ -178,4 +166,25 @@ footer {
 .controls {
 	display: flex;
 	flex-wrap: wrap;
+}
+
+.input-field {
+	margin: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	width: 6rem;
+}
+
+.input-field__label {
+	margin-bottom: 0.5rem;
+	text-align: center;
+}
+
+input {
+	text-align: center;
+	width: 6rem;
+	height: 4rem;
+	border: none;
 }
