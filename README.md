@@ -4,7 +4,7 @@
 
 The Hexagon Generator is a tool to create the HTML and CSS needed to display a responsive grid of hexagons.
 
-!['screenshot of the hexagon genrator'](./img/hexagon_generator.png)
+!['screenshot of the hexagon genrator'](./img/hexagonGridGenerator.png)
 
 ## Why use this?
 
@@ -49,4 +49,3 @@ Tested in Chrome, Firefox and Safari.
 ## Example project with the Hexagon Generator
 
 !['screenshot of the project made with the hexagon generator'](./img/zucchini-hexagons.png)
-
