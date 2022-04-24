@@ -1,6 +1,0 @@
-export * from './background.css'
-export * from './basicHexagon.css'
-export * from './container.css'
-export * from './innerHexagon.css'
-export * from './mediaQuery.css'
-export * from './outerHexagon.css'
