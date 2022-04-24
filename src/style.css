@@ -185,3 +185,11 @@ input {
 input:focus {
 	outline: none;
 }
+
+#css {
+	display: none;
+}
+
+#html {
+	display: none;
+}
