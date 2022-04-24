@@ -1,5 +1,8 @@
-export const generateHexagonHTML = (i: number, className?: string): string =>
+export const generateHexagonHTML = (
+	hexagonNumber: number,
+	className?: string
+): string =>
 	`<div class="hexagon__outer${className ? ' ' + className : ''}">
-	  <div class="hexagon__inner">${i}</div>
+	  <div class="hexagon__inner">${hexagonNumber}</div>
 	</div>
   `

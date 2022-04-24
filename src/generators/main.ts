@@ -1,5 +1,5 @@
 import { generateCSSText } from './css/text.css'
-import { generateHexagons } from './html/hexagons.html'
+import { generateHexagons } from './hexagons'
 import { generateHTMLText } from './html/text.html'
 import { inputElements } from './input'
 

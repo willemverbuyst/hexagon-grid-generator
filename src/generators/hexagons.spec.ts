@@ -1,4 +1,4 @@
-import { generateHexagons } from './hexagons.html'
+import { generateHexagons } from './hexagons'
 
 describe('#generateHexagons', () => {
 	describe('given 0 and 0', () => {
