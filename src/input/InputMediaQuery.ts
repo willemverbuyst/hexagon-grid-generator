@@ -1,13 +1,12 @@
 import { InputBase } from './InputBase'
 
-export class InputMediaQuery extends InputBase {
-	constructor(id: string) {
-		super(id)
+export class InputMediaQuery {
+	constructor(public input: InputBase) {
 		this.init()
 	}
 
 	private updateOnInput(): void {
-		this.element.oninput = () => this.runMain()
+		this.input.element.oninput = () => this.input.runMain()
 	}
 
 	init(): void {

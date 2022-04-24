@@ -1,14 +1,13 @@
 import { InputBase } from './InputBase'
 
-export class InputRoot extends InputBase {
+export class InputRoot {
 	root = document.documentElement
 
 	constructor(
-		id: string,
+		public input: InputBase,
 		public rootElementName: string,
 		public postFix: string = ''
 	) {
-		super(id)
 		this.init()
 	}
 
@@ -17,9 +16,12 @@ export class InputRoot extends InputBase {
 	}
 
 	protected updateOnInput(): void {
-		this.element.oninput = (): void => {
-			this.changeRoot(this.rootElementName, this.valueAsString + this.postFix)
-			this.runMain()
+		this.input.element.oninput = (): void => {
+			this.changeRoot(
+				this.rootElementName,
+				this.input.valueAsString + this.postFix
+			)
+			this.input.runMain()
 		}
 	}
 

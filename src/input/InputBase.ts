@@ -1,9 +1,9 @@
 import { main } from '../generators/main'
 
 export class InputBase {
-	constructor(private id: string) {}
-
 	element = <HTMLInputElement>document.getElementById(this.id)
+
+	constructor(private id: string) {}
 
 	get valueAsNumber(): number {
 		return Number(this.element.value)

@@ -10,21 +10,51 @@ export const main = (): void => {
 	)
 	const htmlTextField = <HTMLElement>document.getElementById('html')
 	const {
-		backgroundColor: { valueAsString: backgroundColor },
-		containerSkewX: { valueAsNumber: containerSkewX },
-		containerSkewY: { valueAsNumber: containerSkewY },
-		hexagonsFirstRow: { valueAsNumber: hexagonsFirstRow },
-		hexagonColor: { valueAsString: hexagonColor },
-		hexagonGap: { valueAsNumber: hexagonGap },
-		hexagonRotation: { valueAsNumber: hexagonRotation },
-		hexagonScale: { valueAsNumber: hexagonScale },
-		hexagonSize: { valueAsNumber: hexagonSize },
-		hexagonTransition: { valueAsNumber: hexagonTransition },
-		mediaQuery_1: { valueAsNumber: mediaQuery_1 },
-		mediaQuery_2: { valueAsNumber: mediaQuery_2 },
-		mediaQuery_3: { valueAsNumber: mediaQuery_3 },
-		numberOfHexagons: { valueAsNumber: numberOfHexagons },
-		textColor: { valueAsString: textColor },
+		backgroundColor: {
+			input: { valueAsString: backgroundColor },
+		},
+		containerSkewX: {
+			input: { valueAsNumber: containerSkewX },
+		},
+		containerSkewY: {
+			input: { valueAsNumber: containerSkewY },
+		},
+		hexagonsFirstRow: {
+			input: { valueAsNumber: hexagonsFirstRow },
+		},
+		hexagonColor: {
+			input: { valueAsString: hexagonColor },
+		},
+		hexagonGap: {
+			input: { valueAsNumber: hexagonGap },
+		},
+		hexagonRotation: {
+			input: { valueAsNumber: hexagonRotation },
+		},
+		hexagonScale: {
+			input: { valueAsNumber: hexagonScale },
+		},
+		hexagonSize: {
+			input: { valueAsNumber: hexagonSize },
+		},
+		hexagonTransition: {
+			input: { valueAsNumber: hexagonTransition },
+		},
+		mediaQuery_1: {
+			input: { valueAsNumber: mediaQuery_1 },
+		},
+		mediaQuery_2: {
+			input: { valueAsNumber: mediaQuery_2 },
+		},
+		mediaQuery_3: {
+			input: { valueAsNumber: mediaQuery_3 },
+		},
+		numberOfHexagons: {
+			input: { valueAsNumber: numberOfHexagons },
+		},
+		textColor: {
+			input: { valueAsString: textColor },
+		},
 	} = inputElements
 
 	hexagonContainer.innerHTML = generateHexagons(

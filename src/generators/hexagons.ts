@@ -17,15 +17,25 @@ export const generateHexagons = (
 		return html
 	}
 
-	if (hexagonsFirstRow === 1) {
+	if (hexagonsFirstRow === 1 && numberOfHexagons === 1) {
 		html = generateHexagonHTML(1)
-	} else {
-		Array(hexagonsFirstRow)
-			.fill(0)
-			.forEach((_, i) => {
-				html += generateHexagonHTML(i + 1, 'first-row__margin-top')
-			})
+		return html
 	}
+
+	if (hexagonsFirstRow === 1) {
+		Array(numberOfHexagons)
+			.fill(0)
+			.forEach(
+				(_, i) => (html += generateHexagonHTML(i + 1, 'first-row__margin-top'))
+			)
+		return html
+	}
+
+	Array(hexagonsFirstRow)
+		.fill(0)
+		.forEach((_, i) => {
+			html += generateHexagonHTML(i + 1, 'first-row__margin-top')
+		})
 
 	let k = 0
 	let hexagonNumber = hexagonsFirstRow + 1

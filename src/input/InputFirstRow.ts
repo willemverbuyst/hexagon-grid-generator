@@ -1,10 +1,9 @@
 import { InputBase } from './InputBase'
 
-export class InputFirstRow extends InputBase {
+export class InputFirstRow {
 	root = document.documentElement
 
-	constructor(id: string) {
-		super(id)
+	constructor(public input: InputBase) {
 		this.init()
 	}
 
@@ -13,9 +12,9 @@ export class InputFirstRow extends InputBase {
 	}
 
 	private updateOnInput(): void {
-		this.element.oninput = (): void => {
-			this.changeRoot(this.valueAsNumber)
-			this.runMain()
+		this.input.element.oninput = (): void => {
+			this.changeRoot(this.input.valueAsNumber)
+			this.input.runMain()
 		}
 	}
 

@@ -23,19 +23,19 @@ export class InputFactory {
 		let input
 		switch (inputKind) {
 			case InputKind.FIRST_ROW:
-				input = new InputFirstRow(id)
+				input = new InputFirstRow(new InputBase(id))
 				break
 			case InputKind.GAP:
-				input = new InputGap(id, rootElementName, postFix)
+				input = new InputGap(new InputBase(id), rootElementName, postFix)
 				break
 			case InputKind.MEDIA_QUERY:
-				input = new InputMediaQuery(id)
+				input = new InputMediaQuery(new InputBase(id))
 				break
 			case InputKind.NUMBER_OF_HEXAGONS:
-				input = new InputNumberOfHexagons(id)
+				input = new InputNumberOfHexagons(new InputBase(id))
 				break
 			case InputKind.ROOT:
-				input = new InputRoot(id, rootElementName, postFix)
+				input = new InputRoot(new InputBase(id), rootElementName, postFix)
 				break
 			default:
 				input = new InputBase(id)

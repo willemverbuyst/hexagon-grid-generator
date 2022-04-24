@@ -1,18 +1,19 @@
+import { InputBase } from './InputBase'
 import { InputRoot } from './InputRoot'
 
 export class InputGap extends InputRoot {
-	constructor(id: string, rootElementName: string, postFix = '') {
-		super(id, rootElementName, postFix)
+	constructor(input: InputBase, rootElementName: string, postFix = '') {
+		super(input, rootElementName, postFix)
 	}
 
 	// Different implementation of this method
 	protected updateOnInput(): void {
-		this.element.oninput = (): void => {
+		this.input.element.oninput = (): void => {
 			this.changeRoot(
 				this.rootElementName,
-				100 - this.valueAsNumber + this.postFix
+				100 - this.input.valueAsNumber + this.postFix
 			)
-			this.runMain()
+			this.input.runMain()
 		}
 	}
 }

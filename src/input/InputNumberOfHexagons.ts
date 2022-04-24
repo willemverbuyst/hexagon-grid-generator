@@ -1,13 +1,12 @@
 import { InputBase } from './InputBase'
 
-export class InputNumberOfHexagons extends InputBase {
-	constructor(id: string) {
-		super(id)
+export class InputNumberOfHexagons {
+	constructor(public input: InputBase) {
 		this.init()
 	}
 
 	private updateOnInput(): void {
-		this.element.oninput = (): void => this.runMain()
+		this.input.element.oninput = (): void => this.input.runMain()
 	}
 
 	init(): void {
