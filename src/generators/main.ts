@@ -9,6 +9,13 @@ export const main = (): void => {
 		document.getElementById('hexagon__container')
 	)
 	const htmlTextField = <HTMLElement>document.getElementById('html')
+	const cssBtn = <HTMLElement>document.getElementById('cssBtn')
+
+	cssBtn.addEventListener('click', () =>
+		cssTextField.style.visibility === 'visible'
+			? (cssTextField.style.visibility = 'hidden')
+			: (cssTextField.style.visibility = 'visible')
+	)
 	const {
 		backgroundColor: {
 			input: { valueAsString: backgroundColor },
