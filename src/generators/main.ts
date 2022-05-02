@@ -3,13 +3,27 @@ import { generateHexagons } from './hexagons'
 import { generateHTMLText } from './html/text.html'
 import { inputElements } from './input'
 
+function assertNonNullish<T>(
+	value: T,
+	message: string
+): asserts value is NonNullable<T> {
+	if (value === null || value === undefined) {
+		throw Error(message)
+	}
+}
+
 export const main = (): void => {
-	const cssTextField = <HTMLElement>document.getElementById('css')
-	const hexagonContainer = <HTMLElement>(
-		document.getElementById('hexagon__container')
-	)
+	const cssTextField = document.getElementById('css')
+	assertNonNullish(cssTextField, 'HTMLElement #css not found!')
+
+	const hexagonContainer = document.getElementById('hexagon__container')
+	assertNonNullish(hexagonContainer, 'HTMLElement #hexagonContainer not found!')
+
 	const htmlTextField = <HTMLElement>document.getElementById('html')
+	assertNonNullish(htmlTextField, 'HTMLElement #htmlTextField not found!')
+
 	const cssBtn = <HTMLElement>document.getElementById('cssBtn')
+	assertNonNullish(cssBtn, 'HTMLElement #cssBtn not found!')
 
 	cssBtn.addEventListener('click', () =>
 		cssTextField.style.visibility === 'visible'
