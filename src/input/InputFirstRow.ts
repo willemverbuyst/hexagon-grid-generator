@@ -8,7 +8,7 @@ export class InputFirstRow {
 	}
 
 	private changeRoot(value: number): void {
-		this.root.style.setProperty('--number-of-hexagons', String(value))
+		this.root.style.setProperty('--number-of-hexagons-first-row', String(value))
 	}
 
 	private updateOnInput(): void {
