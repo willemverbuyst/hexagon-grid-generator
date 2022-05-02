@@ -1,3 +1,4 @@
+import { HEIGHT_TO_WIDTH_RATIO } from '../../constants/hexagon'
 import { roundToTwoDecimals } from '../../utils/generalFunctions'
 
 export const generateMediaQueryCSS = (
@@ -16,7 +17,9 @@ export const generateMediaQueryCSS = (
 
     /* reset */
     .hexagon__outer:nth-child(-n + ${hexagonsFirstRow + 1 - i}) {
-      margin-top: ${roundToTwoDecimals((1.154665 * hexagonSize) / -4)}vw;
+      margin-top: ${roundToTwoDecimals(
+				(HEIGHT_TO_WIDTH_RATIO * hexagonSize) / -4
+			)}vw;
     }
 
     /* reset */

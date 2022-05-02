@@ -1,3 +1,4 @@
+import { HEIGHT_TO_WIDTH_RATIO } from '../../constants/hexagon'
 import { roundToTwoDecimals } from '../../utils/generalFunctions'
 import { generateBasicHexagonCSS } from './basicHexagon.css'
 
@@ -6,11 +7,13 @@ export const generateOuterHexagonCSS = (
 	hexagonTransition: number
 ): string =>
 	`.hexagon__outer {
-    margin-top: ${roundToTwoDecimals((1.154665 * hexagonSize) / -4)}vw;
+    margin-top: ${roundToTwoDecimals(
+			(HEIGHT_TO_WIDTH_RATIO * hexagonSize) / -4
+		)}vw;
     transition: all ${hexagonTransition}s;
     ${generateBasicHexagonCSS(
 			hexagonSize,
-			roundToTwoDecimals(1.154665 * hexagonSize)
+			roundToTwoDecimals(HEIGHT_TO_WIDTH_RATIO * hexagonSize)
 		)}
   }
   `

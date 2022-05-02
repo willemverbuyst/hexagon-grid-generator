@@ -1,4 +1,4 @@
-export const generateBasicHexagonCSS = (width: number, height: number) =>
+export const generateBasicHexagonCSS = (width: number, height = width) =>
 	`-webkit-clip-path: polygon(
   0 25%,
   50% 0,

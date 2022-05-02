@@ -17,7 +17,7 @@
 	--width-hexagon-container: calc(
 		var(--width-hexagon-outer) * var(--number-of-hexagons)
 	);
-	--height-hexagon-outer: calc(1.154665 * var(--width-hexagon-outer));
+	--height-hexagon-outer: calc(1.1547005 * var(--width-hexagon-outer));
 	--margin-left: calc(0.5 * (var(--width-hexagon-outer)));
 	/* the margin at the top for all but the first row is a fourth of the container's height */
 	--margin-top: calc(-1 * var(--height-hexagon-outer) / 4);
