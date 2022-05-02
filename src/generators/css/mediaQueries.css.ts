@@ -21,7 +21,8 @@ export const generateMediaQueriesCSS = (
 	if (hexagonsFirstRow - 2 > 0) {
 		const extra = `html {
       font-size: 50%;
-      }`
+      }
+			`
 		mediaQueriesCSS += generateMediaQueryCSS(
 			mediaQuery_2,
 			2,

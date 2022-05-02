@@ -6,7 +6,8 @@ export const generateOuterHexagonCSS = (
 	hexagonSize: number,
 	hexagonTransition: number
 ): string =>
-	`.hexagon__outer {
+	`
+	.hexagon__outer {
     margin-top: ${roundToTwoDecimals(
 			(HEIGHT_TO_WIDTH_RATIO * hexagonSize) / -4
 		)}vw;
@@ -22,7 +23,8 @@ export const generateOuterHexagonHoverCSS = (
 	hexagonScale: number,
 	hexagonRotation: number
 ) =>
-	`.hexagon__outer:hover {
+	`
+	.hexagon__outer:hover {
     transform: scale(${hexagonScale}) rotate(${hexagonRotation}deg);
   }
   `
@@ -31,7 +33,8 @@ export const generateOuterHexagonChildCSS = (
 	hexagonsFirstRow: number,
 	hexagonSize: number
 ) =>
-	`.hexagon__outer:nth-child(${hexagonsFirstRow === 1 ? 'n' : '-n'} + ${
+	`
+	.hexagon__outer:nth-child(${hexagonsFirstRow === 1 ? 'n' : '-n'} + ${
 		hexagonsFirstRow === 1 ? 0 : hexagonsFirstRow
 	}) {
       margin-top: 0;

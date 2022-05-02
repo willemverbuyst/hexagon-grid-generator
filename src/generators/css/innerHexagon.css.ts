@@ -12,7 +12,8 @@ export const generateInnerHexagonCSS = (
 ): string => {
 	const hexagonCSS = getHexagonCSS(hexagonGap)
 
-	return `.hexagon__inner {
+	return `
+	.hexagon__inner {
   background-color: ${hexagonColor};
   color: ${textColor};
   ${hexagonCSS}

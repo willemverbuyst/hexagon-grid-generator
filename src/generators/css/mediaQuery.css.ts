@@ -10,7 +10,6 @@ export const generateMediaQueryCSS = (
 ): string => `
   @media (max-width: ${mediaQuery}px) {
     ${extra}
-    
     .hexagon-wrapper__hexagon-container {
       width: ${(hexagonsFirstRow - i) * hexagonSize}vw;
     }

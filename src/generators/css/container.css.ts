@@ -3,11 +3,15 @@ export const generateContainerCSS = (
 	hexagonSize: number,
 	containerSkewX: number,
 	containerSkewY: number
-): string =>
-	`.hexagon-wrapper__hexagon-container {
-    width: ${hexagonsFirstRow * hexagonSize}vw;
+): string => {
+	const width = hexagonsFirstRow * hexagonSize
+
+	return `
+  .hexagon-wrapper__hexagon-container {
+    width: ${width}vw;
     display: flex;
     flex-wrap: wrap;
     transform: skew(${containerSkewX}deg, ${containerSkewY}deg);
   }
   `
+}
