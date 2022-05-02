@@ -45,13 +45,13 @@ describe('#generateHexagons', () => {
 	describe('given 1 and 3', () => {
 		it('should return string with hexagon #1 and #2 and #3', () => {
 			expect(generateHexagons(1, 3).replace(/\s/g, '')).toMatch(
-				`<div class="hexagon__outer">
+				`<div class="hexagon__outer first-row__margin-top">
 					<div class="hexagon__inner">1</div>
 				</div>
-				<div class="hexagon__outer">
+				<div class="hexagon__outer first-row__margin-top">
 					<div class="hexagon__inner">2</div>
 				</div>
-				<div class="hexagon__outer">
+				<div class="hexagon__outer first-row__margin-top">
 					<div class="hexagon__inner">3</div>
 				</div>`.replace(/\s/g, '')
 			)
