@@ -12,10 +12,10 @@
 		0 75%
 	);
 
-	--width-hexagon-outer: 4vw;
-	--number-of-hexagons: 9;
+	--width-hexagon-outer: 6vw;
+	--number-of-hexagons-first-row: 9;
 	--width-hexagon-container: calc(
-		var(--width-hexagon-outer) * var(--number-of-hexagons)
+		var(--width-hexagon-outer) * var(--number-of-hexagons-first-row)
 	);
 	--height-hexagon-outer: calc(1.1547005 * var(--width-hexagon-outer));
 	--margin-left: calc(0.5 * (var(--width-hexagon-outer)));
@@ -186,7 +186,8 @@ input:focus {
 	outline: none;
 }
 
-#css {
+#css,
+#html {
 	height: 78vh;
 	position: absolute;
 	top: 8vh;

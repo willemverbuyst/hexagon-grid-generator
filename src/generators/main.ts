@@ -16,20 +16,30 @@ export const main = (): void => {
 	const cssTextField = document.getElementById('css')
 	assertNonNullish(cssTextField, 'HTMLElement #css not found!')
 
-	const hexagonContainer = document.getElementById('hexagon__container')
-	assertNonNullish(hexagonContainer, 'HTMLElement #hexagonContainer not found!')
-
-	const htmlTextField = <HTMLElement>document.getElementById('html')
+	const htmlTextField = document.getElementById('html')
 	assertNonNullish(htmlTextField, 'HTMLElement #htmlTextField not found!')
 
-	const cssBtn = <HTMLElement>document.getElementById('cssBtn')
+	const cssBtn = document.getElementById('cssBtn')
 	assertNonNullish(cssBtn, 'HTMLElement #cssBtn not found!')
+
+	const htmlBtn = document.getElementById('htmlBtn')
+	assertNonNullish(htmlBtn, 'HTMLElement #htmlBtn not found!')
+
+	const hexagonContainer = document.getElementById('hexagon__container')
+	assertNonNullish(hexagonContainer, 'HTMLElement #hexagonContainer not found!')
 
 	cssBtn.addEventListener('click', () =>
 		cssTextField.style.visibility === 'visible'
 			? (cssTextField.style.visibility = 'hidden')
 			: (cssTextField.style.visibility = 'visible')
 	)
+
+	htmlBtn.addEventListener('click', () => {
+		htmlTextField.style.visibility === 'visible'
+			? (htmlTextField.style.visibility = 'hidden')
+			: (htmlTextField.style.visibility = 'visible')
+	})
+
 	const {
 		backgroundColor: {
 			input: { valueAsString: backgroundColor },
