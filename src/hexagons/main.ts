@@ -1,6 +1,6 @@
-import { generateCSSText } from './css/text.css'
+import { generateCSSText } from '../css/text.css'
+import { generateHTMLText } from '../html/text.html'
 import { generateHexagons } from './hexagons'
-import { generateHTMLText } from './html/text.html'
 import { inputElements } from './input'
 
 function assertNonNullish<T>(

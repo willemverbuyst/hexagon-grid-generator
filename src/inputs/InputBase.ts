@@ -1,4 +1,4 @@
-import { main } from '../generators/main'
+import { main } from '../hexagons/main'
 
 export class InputBase {
 	element = <HTMLInputElement>document.getElementById(this.id)

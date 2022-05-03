@@ -1,4 +1,4 @@
-import { generateHexagonHTML } from './html/hexagon.html'
+import { generateHexagonHTML } from '../html/hexagon.html'
 
 export const generateHexagons = (
 	hexagonsFirstRow: number,
