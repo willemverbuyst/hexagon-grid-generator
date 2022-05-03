@@ -1,9 +1,12 @@
-import { InputFactory, InputKind } from '../input/factory'
-import { InputFirstRow } from '../input/InputFirstRow'
-import { InputGap } from '../input/InputGap'
-import { InputMediaQuery } from '../input/InputMediaQuery'
-import { InputNumberOfHexagons } from '../input/InputNumberOfHexagons'
-import { InputRoot } from '../input/InputRoot'
+import {
+	InputFactory,
+	InputFirstRow,
+	InputGap,
+	InputKind,
+	InputMediaQuery,
+	InputNumberOfHexagons,
+	InputRoot,
+} from '../inputs'
 
 const factory = new InputFactory()
 
