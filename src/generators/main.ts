@@ -13,33 +13,6 @@ function assertNonNullish<T>(
 }
 
 export const main = (): void => {
-	const cssTextField = document.getElementById('css')
-	assertNonNullish(cssTextField, 'HTMLElement #css not found!')
-
-	const htmlTextField = document.getElementById('html')
-	assertNonNullish(htmlTextField, 'HTMLElement #htmlTextField not found!')
-
-	const cssBtn = document.getElementById('cssBtn')
-	assertNonNullish(cssBtn, 'HTMLElement #cssBtn not found!')
-
-	const htmlBtn = document.getElementById('htmlBtn')
-	assertNonNullish(htmlBtn, 'HTMLElement #htmlBtn not found!')
-
-	const hexagonContainer = document.getElementById('hexagon__container')
-	assertNonNullish(hexagonContainer, 'HTMLElement #hexagonContainer not found!')
-
-	cssBtn.addEventListener('click', () =>
-		cssTextField.style.visibility === 'visible'
-			? (cssTextField.style.visibility = 'hidden')
-			: (cssTextField.style.visibility = 'visible')
-	)
-
-	htmlBtn.addEventListener('click', () => {
-		htmlTextField.style.visibility === 'visible'
-			? (htmlTextField.style.visibility = 'hidden')
-			: (htmlTextField.style.visibility = 'visible')
-	})
-
 	const {
 		backgroundColor: {
 			input: { valueAsString: backgroundColor },
@@ -88,25 +61,118 @@ export const main = (): void => {
 		},
 	} = inputElements
 
+	const cssTextField = document.getElementById('css')
+	assertNonNullish(cssTextField, 'HTMLElement #css not found!')
+
+	const htmlTextField = document.getElementById('html')
+	assertNonNullish(htmlTextField, 'HTMLElement #htmlTextField not found!')
+
+	const cssBtn = document.getElementById('cssBtn')
+	assertNonNullish(cssBtn, 'HTMLElement #cssBtn not found!')
+
+	const htmlBtn = document.getElementById('htmlBtn')
+	assertNonNullish(htmlBtn, 'HTMLElement #htmlBtn not found!')
+
+	const hexagonContainer = document.getElementById('hexagon__container')
+	assertNonNullish(hexagonContainer, 'HTMLElement #hexagonContainer not found!')
+
+	cssBtn.addEventListener('click', () =>
+		handleCSSBtnClick({
+			cssTextField,
+			backgroundColor,
+			containerSkewX,
+			containerSkewY,
+			hexagonsFirstRow,
+			hexagonColor,
+			hexagonGap,
+			hexagonRotation,
+			hexagonScale,
+			hexagonSize,
+			hexagonTransition,
+			mediaQuery_1,
+			mediaQuery_2,
+			mediaQuery_3,
+			textColor,
+		})
+	)
+
+	htmlBtn.addEventListener('click', () =>
+		handleHTMLBtnClick({ htmlTextField, numberOfHexagons })
+	)
+
 	hexagonContainer.innerHTML = generateHexagons(
 		hexagonsFirstRow,
 		numberOfHexagons
 	)
-	htmlTextField.innerText = generateHTMLText(numberOfHexagons)
-	cssTextField.innerText = generateCSSText(
-		backgroundColor,
-		containerSkewX,
-		containerSkewY,
-		hexagonsFirstRow,
-		hexagonColor,
-		hexagonGap,
-		hexagonRotation,
-		hexagonScale,
-		hexagonSize,
-		hexagonTransition,
-		mediaQuery_1,
-		mediaQuery_2,
-		mediaQuery_3,
-		textColor
-	)
+}
+
+const handleHTMLBtnClick = ({
+	htmlTextField,
+	numberOfHexagons,
+}: {
+	htmlTextField: HTMLElement
+	numberOfHexagons: number
+}): void => {
+	if (htmlTextField.style.visibility === 'visible') {
+		htmlTextField.style.visibility = 'hidden'
+	} else {
+		htmlTextField.innerText = generateHTMLText(numberOfHexagons)
+		htmlTextField.style.visibility = 'visible'
+	}
+}
+
+const handleCSSBtnClick = ({
+	cssTextField,
+	backgroundColor,
+	containerSkewX,
+	containerSkewY,
+	hexagonsFirstRow,
+	hexagonColor,
+	hexagonGap,
+	hexagonRotation,
+	hexagonScale,
+	hexagonSize,
+	hexagonTransition,
+	mediaQuery_1,
+	mediaQuery_2,
+	mediaQuery_3,
+	textColor,
+}: {
+	cssTextField: HTMLElement
+	backgroundColor: string
+	containerSkewX: number
+	containerSkewY: number
+	hexagonsFirstRow: number
+	hexagonColor: string
+	hexagonGap: number
+	hexagonRotation: number
+	hexagonScale: number
+	hexagonSize: number
+	hexagonTransition: number
+	mediaQuery_1: number
+	mediaQuery_2: number
+	mediaQuery_3: number
+	textColor: string
+}): void => {
+	if (cssTextField.style.visibility === 'visible') {
+		cssTextField.style.visibility = 'hidden'
+	} else {
+		cssTextField.innerText = generateCSSText(
+			backgroundColor,
+			containerSkewX,
+			containerSkewY,
+			hexagonsFirstRow,
+			hexagonColor,
+			hexagonGap,
+			hexagonRotation,
+			hexagonScale,
+			hexagonSize,
+			hexagonTransition,
+			mediaQuery_1,
+			mediaQuery_2,
+			mediaQuery_3,
+			textColor
+		)
+		cssTextField.style.visibility = 'visible'
+	}
 }
