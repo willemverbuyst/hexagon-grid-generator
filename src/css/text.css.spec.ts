@@ -4,22 +4,22 @@ describe('#generateCSSText', () => {
 	describe('given input values ', () => {
 		it('should return text for css', () => {
 			expect(
-				generateCSSText(
-					'#f1f1f1',
-					2,
-					1,
-					4,
-					'#333',
-					20,
-					2,
-					1,
-					3,
-					4,
-					900,
-					700,
-					500,
-					'#fff'
-				).replace(/\s/g, '')
+				generateCSSText({
+					backgroundColor: '#f1f1f1',
+					containerSkewX: 2,
+					containerSkewY: 1,
+					hexagonsFirstRow: 4,
+					hexagonColor: '#333',
+					hexagonGap: 20,
+					hexagonRotation: 2,
+					hexagonScale: 1,
+					hexagonSize: 3,
+					hexagonTransition: 4,
+					mediaQuery_1: 900,
+					mediaQuery_2: 700,
+					mediaQuery_3: 500,
+					textColor: '#fff',
+				}).replace(/\s/g, '')
 			).toMatch(
 				`
 				.hexagon-wrapper {
