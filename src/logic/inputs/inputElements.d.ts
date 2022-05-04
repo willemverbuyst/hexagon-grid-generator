@@ -1,0 +1,22 @@
+import { InputFirstRow } from './InputFirstRow';
+import { InputGap } from './InputGap';
+import { InputMediaQuery } from './InputMediaQuery';
+import { InputNumberOfHexagons } from './InputNumberOfHexagons';
+import { InputRoot } from './InputRoot';
+export declare const inputElements: {
+    numberOfHexagons: InputNumberOfHexagons;
+    hexagonsFirstRow: InputFirstRow;
+    backgroundColor: InputRoot;
+    hexagonColor: InputRoot;
+    textColor: InputRoot;
+    hexagonSize: InputRoot;
+    containerSkewX: InputRoot;
+    containerSkewY: InputRoot;
+    hexagonRotation: InputRoot;
+    hexagonTransition: InputRoot;
+    hexagonScale: InputRoot;
+    hexagonGap: InputGap;
+    mediaQuery_1: InputMediaQuery;
+    mediaQuery_2: InputMediaQuery;
+    mediaQuery_3: InputMediaQuery;
+};
