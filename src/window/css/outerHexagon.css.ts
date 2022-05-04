@@ -1,5 +1,5 @@
-import { HEIGHT_TO_WIDTH_RATIO } from '../constants/hexagon'
-import { roundToTwoDecimals } from '../utils/generalFunctions'
+import { HEIGHT_TO_WIDTH_RATIO } from '../../constants/hexagon'
+import { roundToTwoDecimals } from '../../logic/utils/generalFunctions'
 import { generateBasicHexagonCSS } from './basicHexagon.css'
 
 const calculateMarginTop = (hexagonSize: number): number =>

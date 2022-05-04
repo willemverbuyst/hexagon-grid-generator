@@ -1,4 +1,4 @@
-import { main } from '../hexagons/main'
+import { main } from '../main'
 
 export class InputBase {
 	element = <HTMLInputElement>document.getElementById(this.id)

@@ -1,9 +1,9 @@
-import { generateCSSText } from '../css/text.css'
-import { generateHTMLText } from '../html/text.html'
-import { inputElements } from '../inputs/inputElements'
-import { CSSInputValues, HTMLInputValues } from '../models/inputs'
-import { assertNonNullish } from '../utils/assertNonNullish'
-import { generateHexagons } from './hexagons'
+import { inputElements } from '../logic/inputs/inputElements'
+import { CSSInputValues, HTMLInputValues } from '../logic/models/inputs'
+import { assertNonNullish } from '../logic/utils/assertNonNullish'
+import { generateCSSText } from '../window/css/text.css'
+import { generateHexagons } from '../window/hexagons/hexagons'
+import { generateHTMLText } from '../window/html/text.html'
 
 export const main = (): void => {
 	const {

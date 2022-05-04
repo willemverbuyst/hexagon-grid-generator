@@ -1,4 +1,4 @@
-import { HTMLInputValues } from '../models/inputs'
+import { HTMLInputValues } from '../../logic/models/inputs'
 import { generateHexagonsHTML } from './hexagons.html'
 import { wrapHTML } from './wrap.html'
 
