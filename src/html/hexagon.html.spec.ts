@@ -22,15 +22,4 @@ describe('#generateHexagonHTML', () => {
 			)
 		})
 	})
-
-	describe('given a class name test', () => {
-		it('should return string with class "test"', () => {
-			expect(generateHexagonHTML(2, 'test').replace(/\s/g, '')).toMatch(
-				`<div class="hexagon__outer test">
-					<div class="hexagon__inner">2</div>
-				</div>
-				`.replace(/\s/g, '')
-			)
-		})
-	})
 })

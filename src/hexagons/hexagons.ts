@@ -1,4 +1,4 @@
-import { generateHexagonHTML } from '../html/hexagon.html'
+import { generateHexagon } from './hexagon'
 
 export const generateHexagons = (
 	hexagonsFirstRow: number,
@@ -13,12 +13,12 @@ export const generateHexagons = (
 	if (numberOfHexagons <= hexagonsFirstRow) {
 		Array(numberOfHexagons)
 			.fill(0)
-			.forEach((_, i) => (html += generateHexagonHTML(i + 1)))
+			.forEach((_, i) => (html += generateHexagon(i + 1)))
 		return html
 	}
 
 	if (hexagonsFirstRow === 1 && numberOfHexagons === 1) {
-		html = generateHexagonHTML(1)
+		html = generateHexagon(1)
 		return html
 	}
 
@@ -26,7 +26,7 @@ export const generateHexagons = (
 		Array(numberOfHexagons)
 			.fill(0)
 			.forEach(
-				(_, i) => (html += generateHexagonHTML(i + 1, 'first-row__margin-top'))
+				(_, i) => (html += generateHexagon(i + 1, 'first-row__margin-top'))
 			)
 		return html
 	}
@@ -34,7 +34,7 @@ export const generateHexagons = (
 	Array(hexagonsFirstRow)
 		.fill(0)
 		.forEach((_, i) => {
-			html += generateHexagonHTML(i + 1, 'first-row__margin-top')
+			html += generateHexagon(i + 1, 'first-row__margin-top')
 		})
 
 	let k = 0
@@ -42,9 +42,9 @@ export const generateHexagons = (
 	// eslint-disable-next-line no-loops/no-loops
 	while (k < numberOfHexagons - hexagonsFirstRow) {
 		if (k === 0 || k % ((hexagonsFirstRow - 1) * 2 + 1) === 0) {
-			html += generateHexagonHTML(hexagonNumber, 'even-rows__margin-left')
+			html += generateHexagon(hexagonNumber, 'even-rows__margin-left')
 		} else {
-			html += generateHexagonHTML(hexagonNumber)
+			html += generateHexagon(hexagonNumber)
 		}
 		hexagonNumber++
 		k++
