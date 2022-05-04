@@ -1,9 +1,8 @@
 import { generateCSSText } from '../display/css/text.css'
 import { generateHexagons } from '../display/hexagons/hexagons'
 import { generateHTMLText } from '../display/html/text.html'
-import { inputElements } from '../logic/inputs/inputElements'
-import { CSSInputValues, HTMLInputValues } from '../logic/models/inputs'
-import { assertNonNullish } from '../logic/utils/assertNonNullish'
+import { inputElements } from './inputs/inputElements'
+import { assertNonNullish } from './utils/assertNonNullish'
 
 export const main = (): void => {
 	const {
@@ -60,64 +59,28 @@ export const main = (): void => {
 	const htmlTextField = document.getElementById('html')
 	assertNonNullish(htmlTextField, 'HTMLElement #htmlTextField not found!')
 
-	const cssBtn = document.getElementById('cssBtn')
-	assertNonNullish(cssBtn, 'HTMLElement #cssBtn not found!')
-
-	const htmlBtn = document.getElementById('htmlBtn')
-	assertNonNullish(htmlBtn, 'HTMLElement #htmlBtn not found!')
-
 	const hexagonContainer = document.getElementById('hexagon__container')
 	assertNonNullish(hexagonContainer, 'HTMLElement #hexagonContainer not found!')
-
-	cssBtn.addEventListener('click', () =>
-		handleCSSBtnClick(cssTextField, {
-			backgroundColor,
-			containerSkewX,
-			containerSkewY,
-			hexagonsFirstRow,
-			hexagonColor,
-			hexagonGap,
-			hexagonRotation,
-			hexagonScale,
-			hexagonSize,
-			hexagonTransition,
-			mediaQuery_1,
-			mediaQuery_2,
-			mediaQuery_3,
-			textColor,
-		})
-	)
-
-	htmlBtn.addEventListener('click', () =>
-		handleHTMLBtnClick(htmlTextField, { numberOfHexagons })
-	)
 
 	hexagonContainer.innerHTML = generateHexagons(
 		hexagonsFirstRow,
 		numberOfHexagons
 	)
-}
-
-const handleHTMLBtnClick = (
-	htmlTextField: HTMLElement,
-	htmlInputValues: HTMLInputValues
-): void => {
-	if (htmlTextField.style.visibility === 'visible') {
-		htmlTextField.style.visibility = 'hidden'
-	} else {
-		htmlTextField.innerText = generateHTMLText(htmlInputValues)
-		htmlTextField.style.visibility = 'visible'
-	}
-}
-
-const handleCSSBtnClick = (
-	cssTextField: HTMLElement,
-	cssInputValues: CSSInputValues
-): void => {
-	if (cssTextField.style.visibility === 'visible') {
-		cssTextField.style.visibility = 'hidden'
-	} else {
-		cssTextField.innerText = generateCSSText(cssInputValues)
-		cssTextField.style.visibility = 'visible'
-	}
+	htmlTextField.innerText = generateHTMLText({ numberOfHexagons })
+	cssTextField.innerText = generateCSSText({
+		backgroundColor,
+		containerSkewX,
+		containerSkewY,
+		hexagonsFirstRow,
+		hexagonColor,
+		hexagonGap,
+		hexagonRotation,
+		hexagonScale,
+		hexagonSize,
+		hexagonTransition,
+		mediaQuery_1,
+		mediaQuery_2,
+		mediaQuery_3,
+		textColor,
+	})
 }
