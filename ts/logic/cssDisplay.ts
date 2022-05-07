@@ -1,4 +1,4 @@
-import { assertNonNullish } from '../logic/utils/assertNonNullish'
+import { assertNonNullish } from './utils/assertNonNullish'
 
 export const displayCSS = (): void => {
 	const cssBtn = document.getElementById('cssBtn')
