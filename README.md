@@ -1,8 +1,12 @@
+[![Tests](https://github.com/willemverbuyst/hexagon-grid-generator/actions/workflows/tests.yml/badge.svg)](https://github.com/willemverbuyst/hexagon-grid-generator/actions/workflows/tests.yml) [![Publish to GitHub Pages](https://github.com/willemverbuyst/hexagon-grid-generator/actions/workflows/publish-to-gh-pages.yml/badge.svg)](https://github.com/willemverbuyst/hexagon-grid-generator/actions/workflows/publish-to-gh-pages.yml)
+
 # Hexagon Grid Generator
 
 ## What is this?
 
 The Hexagon Grid Generator is a tool to create the HTML and CSS needed to display a responsive grid of hexagons.
+
+[live version](https://willemverbuyst.github.io/hexagon-grid-generator/)
 
 !['screenshot of the hexagon genrator'](./img/hexagonGridGenerator.png)
 
