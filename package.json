@@ -2,17 +2,14 @@
 	"name": "hexagon-generator",
 	"version": "1.0.0",
 	"description": "",
-	"source": "src/index.html",
+	"source": "html/index.html",
 	"scripts": {
-		"format:fix": "prettier --config .prettierrc 'src/**/*.ts' --write",
+		"format:fix": "prettier --config .prettierrc 'ts/**/*.ts' --write",
 		"lint": "eslint . --ext .ts",
 		"lint:fix": "eslint . --ext .ts --fix",
 		"prepare": "husky install",
-		"build": "webpack --mode=production --node-env=production",
-		"build:dev": "webpack --mode=development",
-		"build:prod": "webpack --mode=production --node-env=production",
-		"watch": "webpack --watch",
-		"serve": "webpack serve",
+		"build:dev": "webpack serve --open --config webpack.dev.js",
+		"build:prod": "webpack --config webpack.prod.js",
 		"test": "jest",
 		"test:coverage": "jest --coverage",
 		"test:all": "jest --watchAll --verbose"
@@ -52,7 +49,8 @@
 		"typescript": "^4.6.3",
 		"webpack": "^5.72.0",
 		"webpack-cli": "^4.9.2",
-		"webpack-dev-server": "^4.8.1"
+		"webpack-dev-server": "^4.8.1",
+		"webpack-merge": "^5.8.0"
 	},
 	"dependencies": {},
 	"lint-staged": {
