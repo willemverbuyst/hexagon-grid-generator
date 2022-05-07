@@ -1,5 +1,6 @@
 node_modules
 dist 
+build
 .cache
 .eslintcache
 .parcel-cache
@@ -7,4 +8,4 @@ dist
 *.css
 *.html
 
-webpack.config.js
+webpack.*.js
