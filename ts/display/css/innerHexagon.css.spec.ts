@@ -1,12 +1,12 @@
-import { generateInnerHexagonCSS } from './innerHexagon.css'
+import { generateInnerHexagonCSS } from "./innerHexagon.css";
 
-describe('#generateInnerHexagonCSS', () => {
-	describe('given input values', () => {
-		it('should return a css class', () => {
-			expect(
-				generateInnerHexagonCSS('#333', '#fff', 20).replace(/\s/g, '')
-			).toMatch(
-				`.hexagon__inner {
+describe("#generateInnerHexagonCSS", () => {
+  describe("given input values", () => {
+    it("should return a css class", () => {
+      expect(
+        generateInnerHexagonCSS("#333", "#fff", 20).replace(/\s/g, "")
+      ).toMatch(
+        `.hexagon__inner {
           background-color: #333;
           color: #fff;
 				  -webkit-clip-path: polygon(
@@ -30,8 +30,8 @@ describe('#generateInnerHexagonCSS', () => {
         display: flex;
         justify-content: center;
         align-items: center;
-        }`.replace(/\s/g, '')
-			)
-		})
-	})
-})
+        }`.replace(/\s/g, "")
+      );
+    });
+  });
+});

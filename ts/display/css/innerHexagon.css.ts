@@ -1,22 +1,22 @@
-import { generateBasicHexagonCSS } from './basicHexagon.css'
+import { generateBasicHexagonCSS } from "./basicHexagon.css";
 
 const getHexagonCSS = (hexagonGap: number): string => {
-	const percentageInnerHexagon = 100 - hexagonGap
-	return generateBasicHexagonCSS(percentageInnerHexagon)
-}
+  const percentageInnerHexagon = 100 - hexagonGap;
+  return generateBasicHexagonCSS(percentageInnerHexagon);
+};
 
 export const generateInnerHexagonCSS = (
-	hexagonColor: string,
-	textColor: string,
-	hexagonGap: number
+  hexagonColor: string,
+  textColor: string,
+  hexagonGap: number
 ): string => {
-	const hexagonCSS = getHexagonCSS(hexagonGap)
+  const hexagonCSS = getHexagonCSS(hexagonGap);
 
-	return `
+  return `
 	.hexagon__inner {
   background-color: ${hexagonColor};
   color: ${textColor};
   ${hexagonCSS}
 	}
-	`
-}
+	`;
+};

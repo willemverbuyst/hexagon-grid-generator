@@ -1,5 +1,5 @@
 export const generateBasicHexagonCSS = (width: number, height = width) =>
-	`-webkit-clip-path: polygon(
+  `-webkit-clip-path: polygon(
   0 25%,
   50% 0,
   100% 25%,
@@ -19,4 +19,4 @@ width: ${width}%;
 height: ${height}%;
 display: flex;
 justify-content: center;
-align-items: center;`
+align-items: center;`;

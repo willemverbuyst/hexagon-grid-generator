@@ -1,27 +1,27 @@
-import { generateCSSText } from './text.css'
+import { generateCSSText } from "./text.css";
 
-describe('#generateCSSText', () => {
-	describe('given input values ', () => {
-		it('should return text for css', () => {
-			expect(
-				generateCSSText({
-					backgroundColor: '#f1f1f1',
-					containerSkewX: 2,
-					containerSkewY: 1,
-					hexagonsFirstRow: 4,
-					hexagonColor: '#333',
-					hexagonGap: 20,
-					hexagonRotation: 2,
-					hexagonScale: 1,
-					hexagonSize: 3,
-					hexagonTransition: 4,
-					mediaQuery_1: 900,
-					mediaQuery_2: 700,
-					mediaQuery_3: 500,
-					textColor: '#fff',
-				}).replace(/\s/g, '')
-			).toMatch(
-				`
+describe("#generateCSSText", () => {
+  describe("given input values ", () => {
+    it("should return text for css", () => {
+      expect(
+        generateCSSText({
+          backgroundColor: "#f1f1f1",
+          containerSkewX: 2,
+          containerSkewY: 1,
+          hexagonsFirstRow: 4,
+          hexagonColor: "#333",
+          hexagonGap: 20,
+          hexagonRotation: 2,
+          hexagonScale: 1,
+          hexagonSize: 3,
+          hexagonTransition: 4,
+          mediaQuery_1: 900,
+          mediaQuery_2: 700,
+          mediaQuery_3: 500,
+          textColor: "#fff",
+        }).replace(/\s/g, "")
+      ).toMatch(
+        `
 				.hexagon-wrapper {
 					background-color: #f1f1f1;
 					display: flex;
@@ -175,8 +175,8 @@ describe('#generateCSSText', () => {
 	          margin-left: 1.5vw;
 	        }
 	      }
-        `.replace(/\s/g, '')
-			)
-		})
-	})
-})
+        `.replace(/\s/g, "")
+      );
+    });
+  });
+});

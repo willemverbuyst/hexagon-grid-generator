@@ -1,12 +1,12 @@
-import { generateMediaQueriesCSS } from './mediaQueries.css'
+import { generateMediaQueriesCSS } from "./mediaQueries.css";
 
-describe('#generateMediaQueriesCSS', () => {
-	describe('given input values ', () => {
-		it('should return css for media queries', () => {
-			expect(
-				generateMediaQueriesCSS(4, 3, 900, 700, 500).replace(/\s/g, '')
-			).toMatch(
-				`@media (max-width: 900px) {
+describe("#generateMediaQueriesCSS", () => {
+  describe("given input values ", () => {
+    it("should return css for media queries", () => {
+      expect(
+        generateMediaQueriesCSS(4, 3, 900, 700, 500).replace(/\s/g, "")
+      ).toMatch(
+        `@media (max-width: 900px) {
           .hexagon-wrapper__hexagon-container {
             width: 9vw;
           }
@@ -81,16 +81,16 @@ describe('#generateMediaQueriesCSS', () => {
 	          margin-left: 1.5vw;
 	        }
 	      }
-        `.replace(/\s/g, '')
-			)
-		})
-	})
+        `.replace(/\s/g, "")
+      );
+    });
+  });
 
-	describe('given input first row is 1 ', () => {
-		it('should return no css for media', () => {
-			expect(
-				generateMediaQueriesCSS(1, 1, 900, 700, 500).replace(/\s/g, '')
-			).toMatch('')
-		})
-	})
-})
+  describe("given input first row is 1 ", () => {
+    it("should return no css for media", () => {
+      expect(
+        generateMediaQueriesCSS(1, 1, 900, 700, 500).replace(/\s/g, "")
+      ).toMatch("");
+    });
+  });
+});

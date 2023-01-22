@@ -1,19 +1,19 @@
-import { main } from '../main'
+import { main } from "../main";
 
 export class InputBase {
-	element = <HTMLInputElement>document.getElementById(this.id)
+  element = <HTMLInputElement>document.getElementById(this.id);
 
-	constructor(private id: string) {}
+  constructor(private id: string) {}
 
-	get valueAsNumber(): number {
-		return Number(this.element.value)
-	}
+  get valueAsNumber(): number {
+    return Number(this.element.value);
+  }
 
-	get valueAsString(): string {
-		return String(this.element.value)
-	}
+  get valueAsString(): string {
+    return String(this.element.value);
+  }
 
-	runMain(): void {
-		main()
-	}
+  runMain(): void {
+    main();
+  }
 }

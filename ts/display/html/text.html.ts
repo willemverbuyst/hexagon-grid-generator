@@ -1,12 +1,12 @@
-import { HTMLInputValues } from '../../logic/models/inputs'
-import { generateHexagonsHTML } from './hexagons.html'
-import { wrapHTML } from './wrap.html'
+import { HTMLInputValues } from "../../logic/models/inputs";
+import { generateHexagonsHTML } from "./hexagons.html";
+import { wrapHTML } from "./wrap.html";
 
 export const generateHTMLText = ({
-	numberOfHexagons,
+  numberOfHexagons,
 }: HTMLInputValues): string => {
-	const hexagonsHTML = generateHexagonsHTML(numberOfHexagons)
-	const htmlText = wrapHTML(hexagonsHTML)
+  const hexagonsHTML = generateHexagonsHTML(numberOfHexagons);
+  const htmlText = wrapHTML(hexagonsHTML);
 
-	return htmlText
-}
+  return htmlText;
+};
