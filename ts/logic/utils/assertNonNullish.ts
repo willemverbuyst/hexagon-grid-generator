@@ -5,4 +5,5 @@ export function assertNonNullish<T>(
 	if (value === null || value === undefined) {
 		throw Error(message)
 	}
+	return
 }
