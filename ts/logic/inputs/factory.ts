@@ -4,23 +4,16 @@ import { InputGap } from "./InputGap";
 import { InputMediaQuery } from "./InputMediaQuery";
 import { InputNumberOfHexagons } from "./InputNumberOfHexagons";
 import { InputRoot } from "./InputRoot";
-
-export enum InputKind {
-  FIRST_ROW,
-  GAP,
-  MEDIA_QUERY,
-  NUMBER_OF_HEXAGONS,
-  ROOT,
-}
+import { Input, InputKind } from "./types";
 
 export class InputFactory {
   createInput(
-    inputKind: InputKind,
+    inputKind: keyof typeof InputKind,
     id: string,
     rootElementName = "",
     postFix?: string
-  ) {
-    let input;
+  ): Input {
+    let input: Input;
     switch (inputKind) {
       case InputKind.FIRST_ROW:
         input = new InputFirstRow(new InputBase(id));
