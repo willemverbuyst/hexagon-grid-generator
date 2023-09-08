@@ -1,4 +1,4 @@
-import { CSSInputValues } from "../../logic/models/inputs";
+import { CSSInputValues } from "../../logic/types";
 import { generateBackgroundCSS } from "./background.css";
 import { generateContainerCSS } from "./container.css";
 import { generateInnerHexagonCSS } from "./innerHexagon.css";

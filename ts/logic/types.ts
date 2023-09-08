@@ -1,3 +1,28 @@
+import {
+  InputBase,
+  InputFirstRow,
+  InputGap,
+  InputMediaQuery,
+  InputNumberOfHexagons,
+  InputRoot,
+} from "./inputs";
+
+export type Input =
+  | InputFirstRow
+  | InputGap
+  | InputMediaQuery
+  | InputNumberOfHexagons
+  | InputRoot
+  | InputBase;
+
+export const InputKind = {
+  FIRST_ROW: "FIRST_ROW",
+  GAP: "GAP",
+  MEDIA_QUERY: "MEDIA_QUERY",
+  NUMBER_OF_HEXAGONS: "NUMBER_OF_HEXAGONS",
+  ROOT: "ROOT",
+} as const;
+
 export interface CSSInputValues {
   backgroundColor: string;
   containerSkewX: number;
