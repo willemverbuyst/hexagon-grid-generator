@@ -1,6 +1,6 @@
 import { generateMediaQueriesCSS } from "./mediaQueries.css";
 
-describe("#generateMediaQueriesCSS", () => {
+describe("generateMediaQueriesCSS", () => {
   describe("given input values ", () => {
     it("should return css for media queries", () => {
       expect(

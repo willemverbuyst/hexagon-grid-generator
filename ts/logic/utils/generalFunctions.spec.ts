@@ -1,6 +1,6 @@
 import { roundToTwoDecimals } from "./generalFunctions";
 
-describe("#roundToTwoDecimals", () => {
+describe("roundToTwoDecimals", () => {
   describe("given a number", () => {
     it("should return a number with two decimals", () => {
       expect(roundToTwoDecimals(9)).toBe(9);

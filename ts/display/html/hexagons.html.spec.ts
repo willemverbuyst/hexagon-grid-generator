@@ -1,6 +1,6 @@
 import { generateHexagonsHTML } from "./hexagons.html";
 
-describe("#generateHexagonsHTML", () => {
+describe("generateHexagonsHTML", () => {
   describe("given 0", () => {
     it("should return an empty string", () => {
       expect(generateHexagonsHTML(0).replace(/\s/g, "")).toMatch("");

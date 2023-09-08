@@ -1,6 +1,6 @@
 import { generateHTMLText } from "./text.html";
 
-describe("#generateHTMLText", () => {
+describe("generateHTMLText", () => {
   describe("given 0", () => {
     it("should return anly the wrapper html", () => {
       expect(

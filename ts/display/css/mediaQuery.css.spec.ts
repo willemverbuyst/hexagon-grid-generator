@@ -1,6 +1,6 @@
 import { generateMediaQueryCSS } from "./mediaQuery.css";
 
-describe("#generateMediaQueryCSS", () => {
+describe("generateMediaQueryCSS", () => {
   describe("given input values ", () => {
     it("should return a css class", () => {
       expect(generateMediaQueryCSS(900, 1, 4, 3).replace(/\s/g, "")).toMatch(

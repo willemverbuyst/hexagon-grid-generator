@@ -1,10 +1,10 @@
 import {
-  generateOuterHexagonCSS,
   generateOuterHexagonChildCSS,
+  generateOuterHexagonCSS,
   generateOuterHexagonHoverCSS,
 } from "./outerHexagon.css";
 
-describe("#generateOuterHexagonCSS", () => {
+describe("generateOuterHexagonCSS", () => {
   describe("given input values", () => {
     it("should return a css class", () => {
       expect(generateOuterHexagonCSS(9, 4).replace(/\s/g, "")).toMatch(

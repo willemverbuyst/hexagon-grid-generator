@@ -1,6 +1,6 @@
 import { generateCSSText } from "./text.css";
 
-describe("#generateCSSText", () => {
+describe("generateCSSText", () => {
   describe("given input values ", () => {
     it("should return text for css", () => {
       expect(

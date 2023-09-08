@@ -1,6 +1,6 @@
 import { generateHexagonHTML } from "./hexagon.html";
 
-describe("#generateHexagonHTML", () => {
+describe("generateHexagonHTML", () => {
   describe("given 1", () => {
     it("should return string with hexagon #1", () => {
       expect(generateHexagonHTML(1).replace(/\s/g, "")).toMatch(

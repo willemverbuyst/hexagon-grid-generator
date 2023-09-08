@@ -1,6 +1,6 @@
 import { generateInnerHexagonCSS } from "./innerHexagon.css";
 
-describe("#generateInnerHexagonCSS", () => {
+describe("generateInnerHexagonCSS", () => {
   describe("given input values", () => {
     it("should return a css class", () => {
       expect(

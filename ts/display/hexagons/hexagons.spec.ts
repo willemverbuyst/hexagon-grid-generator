@@ -1,6 +1,6 @@
 import { generateHexagons } from "./hexagons";
 
-describe("#generateHexagons", () => {
+describe("generateHexagons", () => {
   describe("given 0 and 0", () => {
     it("should return empty string", () => {
       expect(generateHexagons(0, 0)).toMatch("");

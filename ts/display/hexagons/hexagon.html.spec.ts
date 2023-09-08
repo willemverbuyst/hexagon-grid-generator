@@ -1,6 +1,6 @@
 import { generateHexagon } from "./hexagon";
 
-describe("#generateHexagon", () => {
+describe("generateHexagon", () => {
   describe("given 1", () => {
     it("should return string with hexagon #1", () => {
       expect(generateHexagon(1).replace(/\s/g, "")).toMatch(

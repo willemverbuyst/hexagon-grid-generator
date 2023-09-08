@@ -1,6 +1,6 @@
 import { generateBasicHexagonCSS } from "./basicHexagon.css";
 
-describe("#generateBasicHexagonCSS", () => {
+describe("generateBasicHexagonCSS", () => {
   describe("given 90 and 90", () => {
     it("should return string with basic css for hexagon", () => {
       expect(generateBasicHexagonCSS(90, 90).replace(/\s/g, "")).toMatch(

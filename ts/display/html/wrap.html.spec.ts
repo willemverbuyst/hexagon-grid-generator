@@ -1,6 +1,6 @@
 import { wrapHTML } from "./wrap.html";
 
-describe("#wrapHTML", () => {
+describe("wrapHTML", () => {
   describe("given string", () => {
     it("should return string with wrapper html", () => {
       expect(wrapHTML("test").replace(/\s/g, "")).toMatch(

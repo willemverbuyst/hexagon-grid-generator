@@ -1,6 +1,6 @@
 import { generateContainerCSS } from "./container.css";
 
-describe("#generateContainerCSS", () => {
+describe("generateContainerCSS", () => {
   describe("given input values", () => {
     it("should return a css-class", () => {
       expect(generateContainerCSS(4, 3, 2, 1).replace(/\s/g, "")).toMatch(
