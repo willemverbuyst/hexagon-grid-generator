@@ -1,5 +1,5 @@
-import { HEIGHT_TO_WIDTH_RATIO } from "../../constants/hexagon";
-import { roundToTwoDecimals } from "../../logic/utils/generalFunctions";
+import { roundToTwoDecimals } from "../../logic/utils";
+import { HEIGHT_TO_WIDTH_RATIO } from "../constants";
 
 export const generateMediaQueryCSS = (
   mediaQuery: number,

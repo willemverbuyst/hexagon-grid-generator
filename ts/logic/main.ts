@@ -2,7 +2,7 @@ import { generateCSSText } from "../display/css/text.css";
 import { generateHexagons } from "../display/hexagons/hexagons";
 import { generateHTMLText } from "../display/html/text.html";
 import { inputElements } from "./inputs/inputElements";
-import { assertNonNullish } from "./utils/assertNonNullish";
+import { assertNonNullish } from "./utils";
 
 export const main = (): void => {
   const {

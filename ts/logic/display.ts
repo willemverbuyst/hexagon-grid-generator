@@ -1,4 +1,4 @@
-import { assertNonNullish } from "./utils/assertNonNullish";
+import { assertNonNullish } from "./utils";
 
 export const displayCSS = (): void => {
   addEventListener("cssBtn");
