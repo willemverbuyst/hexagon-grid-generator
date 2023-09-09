@@ -1,8 +1,28 @@
 import {
+  CSS_HIDDEN,
+  CSS_VISIBLE,
+  ID_BG_COLOR,
   ID_BTN_CSS,
   ID_BTN_HTML,
+  ID_CONTAINER_SKEW_X,
+  ID_CONTAINER_SKEW_Y,
+  ID_HEXAGON_COLOR,
+  ID_HEXAGON_FIRST_ROW,
+  ID_HEXAGON_GAP,
+  ID_HEXAGON_ROTATION,
+  ID_HEXAGON_SCALE,
+  ID_HEXAGON_SIZE,
+  ID_HEXAGON_TRANSITION,
+  ID_MEDIA_QUERY_1,
+  ID_MEDIA_QUERY_2,
+  ID_MEDIA_QUERY_3,
+  ID_NUMBER_OF_HEXAGONS,
   ID_TEXT_FIELD_CSS,
   ID_TEXT_FIELD_HTML,
+  POSTFIX_DEGREE,
+  POSTFIX_PERCENTAGE,
+  POSTFIX_SECONDS,
+  POSTFIX_VW,
 } from "./constants";
 import {
   InputBase,
@@ -14,78 +34,64 @@ import {
 } from "./inputs";
 import { generateCSSText } from "./textCSS";
 import { generateHTMLText } from "./textHTML";
-import { assertNonNullish, htmlElementNotFoundMessage } from "./utils";
+import { getElementByIdAndAssert } from "./utils";
 
 export const inputElements = {
-  numberOfHexagons: new InputNumberOfHexagons(new InputBase("hexagon-amount")),
-  hexagonsFirstRow: new InputFirstRow(new InputBase("hexagon-first-row")),
-  backgroundColor: new InputRoot(new InputBase("bg-color"), "--color-bg"),
+  numberOfHexagons: new InputNumberOfHexagons(
+    new InputBase(ID_NUMBER_OF_HEXAGONS)
+  ),
+  hexagonsFirstRow: new InputFirstRow(new InputBase(ID_HEXAGON_FIRST_ROW)),
+  backgroundColor: new InputRoot(new InputBase(ID_BG_COLOR), "--color-bg"),
   hexagonColor: new InputRoot(
-    new InputBase("hexagon-color"),
+    new InputBase(ID_HEXAGON_COLOR),
     "--color-inner-hexagon"
   ),
   textColor: new InputRoot(new InputBase("text-color"), "--color-text"),
   hexagonSize: new InputRoot(
-    new InputBase("hexagon-size"),
+    new InputBase(ID_HEXAGON_SIZE),
     "--width-hexagon-outer",
-    "vw"
+    POSTFIX_VW
   ),
   containerSkewX: new InputRoot(
-    new InputBase("container-skew-X"),
+    new InputBase(ID_CONTAINER_SKEW_X),
     "--skew-X",
-    "deg"
+    POSTFIX_DEGREE
   ),
   containerSkewY: new InputRoot(
-    new InputBase("container-skew-Y"),
+    new InputBase(ID_CONTAINER_SKEW_Y),
     "--skew-Y",
-    "deg"
+    POSTFIX_DEGREE
   ),
   hexagonRotation: new InputRoot(
-    new InputBase("hexagon-rotation"),
+    new InputBase(ID_HEXAGON_ROTATION),
     "--hover-rotation",
-    "deg"
+    POSTFIX_DEGREE
   ),
   hexagonTransition: new InputRoot(
-    new InputBase("hexagon-transition"),
+    new InputBase(ID_HEXAGON_TRANSITION),
     "--hover-transition",
-    "s"
+    POSTFIX_SECONDS
   ),
-  hexagonScale: new InputRoot(new InputBase("hexagon-scale"), "--hover-scale"),
+  hexagonScale: new InputRoot(new InputBase(ID_HEXAGON_SCALE), "--hover-scale"),
   hexagonGap: new InputGap(
-    new InputBase("hexagon-gap"),
+    new InputBase(ID_HEXAGON_GAP),
     "--size-hexagon-inner",
-    "%"
+    POSTFIX_PERCENTAGE
   ),
-  mediaQuery_1: new InputMediaQuery(new InputBase("media-query--1")),
-  mediaQuery_2: new InputMediaQuery(new InputBase("media-query--2")),
-  mediaQuery_3: new InputMediaQuery(new InputBase("media-query--3")),
+  mediaQuery_1: new InputMediaQuery(new InputBase(ID_MEDIA_QUERY_1)),
+  mediaQuery_2: new InputMediaQuery(new InputBase(ID_MEDIA_QUERY_2)),
+  mediaQuery_3: new InputMediaQuery(new InputBase(ID_MEDIA_QUERY_3)),
 };
 
 export function addEventListener(id: string) {
-  const cssBtn = document.getElementById(id);
-  assertNonNullish(cssBtn, htmlElementNotFoundMessage(id));
+  const btn = getElementByIdAndAssert(id);
 
-  cssBtn.addEventListener("click", () => handleBtnClick(id));
-}
-
-function getCSSTextField() {
-  const cssTextField = document.getElementById(ID_TEXT_FIELD_CSS);
-  assertNonNullish(cssTextField, htmlElementNotFoundMessage(ID_TEXT_FIELD_CSS));
-  return cssTextField;
-}
-
-function getHTMLTextField() {
-  const htmlTextField = document.getElementById(ID_TEXT_FIELD_HTML);
-  assertNonNullish(
-    htmlTextField,
-    htmlElementNotFoundMessage(ID_TEXT_FIELD_HTML)
-  );
-  return htmlTextField;
+  btn.addEventListener("click", () => handleBtnClick(id));
 }
 
 export function generateTextVersions() {
-  const cssTextField = getCSSTextField();
-  const htmlTextField = getHTMLTextField();
+  const cssTextField = getElementByIdAndAssert(ID_TEXT_FIELD_CSS);
+  const htmlTextField = getElementByIdAndAssert(ID_TEXT_FIELD_HTML);
   const {
     backgroundColor,
     containerSkewX,
@@ -127,18 +133,22 @@ export function generateTextVersions() {
 
 function handleBtnClick(id: string) {
   generateTextVersions();
-  const cssTextField = getCSSTextField();
-  const htmlTextField = getHTMLTextField();
+  const cssTextField = getElementByIdAndAssert(ID_TEXT_FIELD_CSS);
+  const htmlTextField = getElementByIdAndAssert(ID_TEXT_FIELD_HTML);
   switch (id) {
     case ID_BTN_CSS:
-      htmlTextField.style.visibility = "hidden";
+      htmlTextField.style.visibility = CSS_HIDDEN;
       cssTextField.style.visibility =
-        cssTextField.style.visibility === "visible" ? "hidden" : "visible";
+        cssTextField.style.visibility === CSS_VISIBLE
+          ? CSS_HIDDEN
+          : CSS_VISIBLE;
       break;
     case ID_BTN_HTML:
-      cssTextField.style.visibility = "hidden";
+      cssTextField.style.visibility = CSS_HIDDEN;
       htmlTextField.style.visibility =
-        htmlTextField.style.visibility === "visible" ? "hidden" : "visible";
+        htmlTextField.style.visibility === CSS_VISIBLE
+          ? CSS_HIDDEN
+          : CSS_VISIBLE;
       break;
     default:
       break;

@@ -1,4 +1,9 @@
-import { assertNonNullish } from "./utils";
+import {
+  ID_HEXAGON_CONTAINER,
+  ID_HEXAGON_FIRST_ROW,
+  ID_NUMBER_OF_HEXAGONS,
+} from "./constants";
+import { getElementByIdAndAssert } from "./utils";
 
 export function generateHexagon(hexagonNumber: number, className?: string) {
   return `<div class="hexagon__outer${className ? " " + className : ""}">
@@ -61,27 +66,13 @@ export function generateHexagons(
 }
 
 export function generateHexagonSection() {
-  const hexagonContainer = document.getElementById("hexagon__container");
-  assertNonNullish(
-    hexagonContainer,
-    "HTMLElement #hexagonContainer not found!"
-  );
-
-  const numberOfHexagonsElement = document.getElementById(
-    "hexagon-amount"
+  const hexagonContainer = getElementByIdAndAssert(ID_HEXAGON_CONTAINER);
+  const numberOfHexagonsElement = getElementByIdAndAssert(
+    ID_NUMBER_OF_HEXAGONS
   ) as HTMLInputElement;
-  assertNonNullish(
-    numberOfHexagonsElement,
-    "HTMLElement #numberOfHexagonsElement not found!"
-  );
-
-  const hexagonsFirstRowElement = document.getElementById(
-    "hexagon-first-row"
+  const hexagonsFirstRowElement = getElementByIdAndAssert(
+    ID_HEXAGON_FIRST_ROW
   ) as HTMLInputElement;
-  assertNonNullish(
-    hexagonsFirstRowElement,
-    "HTMLElement #hexagonsFirstRowElement not found!"
-  );
 
   hexagonContainer.innerHTML = generateHexagons(
     Number(hexagonsFirstRowElement.value),
