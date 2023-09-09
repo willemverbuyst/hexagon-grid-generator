@@ -1,65 +1,40 @@
+import {
+  ID_BTN_CSS,
+  ID_BTN_HTML,
+  ID_TEXT_FIELD_CSS,
+  ID_TEXT_FIELD_HTML,
+} from "../constants";
 import { generateCSSText } from "../display/css/text.css";
 import { generateHTMLText } from "../display/hexagon.html";
 import { inputElements } from "./inputs/inputElements";
-import { assertNonNullish } from "./utils";
+import { assertNonNullish, htmlElementNotFoundMessage } from "./utils";
 
-export const generateTextVersions = (): void => {
+export function addEventListener(id: string) {
+  const cssBtn = document.getElementById(id);
+  assertNonNullish(cssBtn, htmlElementNotFoundMessage(id));
+
+  cssBtn.addEventListener("click", () => handleBtnClick(id));
+}
+
+function getCSSTextField() {
+  const cssTextField = document.getElementById(ID_TEXT_FIELD_CSS);
+  assertNonNullish(cssTextField, htmlElementNotFoundMessage(ID_TEXT_FIELD_CSS));
+  return cssTextField;
+}
+
+function getHTMLTextField() {
+  const htmlTextField = document.getElementById(ID_TEXT_FIELD_HTML);
+  assertNonNullish(
+    htmlTextField,
+    htmlElementNotFoundMessage(ID_TEXT_FIELD_HTML)
+  );
+  return htmlTextField;
+}
+
+export function generateTextVersions() {
+  const cssTextField = getCSSTextField();
+  const htmlTextField = getHTMLTextField();
   const {
-    backgroundColor: {
-      input: { valueAsString: backgroundColor },
-    },
-    containerSkewX: {
-      input: { valueAsNumber: containerSkewX },
-    },
-    containerSkewY: {
-      input: { valueAsNumber: containerSkewY },
-    },
-    hexagonsFirstRow: {
-      input: { valueAsNumber: hexagonsFirstRow },
-    },
-    hexagonColor: {
-      input: { valueAsString: hexagonColor },
-    },
-    hexagonGap: {
-      input: { valueAsNumber: hexagonGap },
-    },
-    hexagonRotation: {
-      input: { valueAsNumber: hexagonRotation },
-    },
-    hexagonScale: {
-      input: { valueAsNumber: hexagonScale },
-    },
-    hexagonSize: {
-      input: { valueAsNumber: hexagonSize },
-    },
-    hexagonTransition: {
-      input: { valueAsNumber: hexagonTransition },
-    },
-    mediaQuery_1: {
-      input: { valueAsNumber: mediaQuery_1 },
-    },
-    mediaQuery_2: {
-      input: { valueAsNumber: mediaQuery_2 },
-    },
-    mediaQuery_3: {
-      input: { valueAsNumber: mediaQuery_3 },
-    },
-    numberOfHexagons: {
-      input: { valueAsNumber: numberOfHexagons },
-    },
-    textColor: {
-      input: { valueAsString: textColor },
-    },
-  } = inputElements;
-
-  const cssTextField = document.getElementById("css");
-  assertNonNullish(cssTextField, "HTMLElement #css not found!");
-
-  const htmlTextField = document.getElementById("html");
-  assertNonNullish(htmlTextField, "HTMLElement #htmlTextField not found!");
-
-  htmlTextField.innerText = generateHTMLText({ numberOfHexagons });
-  cssTextField.innerText = generateCSSText({
     backgroundColor,
     containerSkewX,
     containerSkewY,
@@ -73,48 +48,42 @@ export const generateTextVersions = (): void => {
     mediaQuery_1,
     mediaQuery_2,
     mediaQuery_3,
+    numberOfHexagons,
     textColor,
+  } = inputElements;
+
+  htmlTextField.innerText = generateHTMLText({
+    numberOfHexagons: numberOfHexagons.input.valueAsNumber,
   });
-};
+  cssTextField.innerText = generateCSSText({
+    backgroundColor: backgroundColor.input.valueAsString,
+    containerSkewX: containerSkewX.input.valueAsNumber,
+    containerSkewY: containerSkewY.input.valueAsNumber,
+    hexagonsFirstRow: hexagonsFirstRow.input.valueAsNumber,
+    hexagonColor: hexagonColor.input.valueAsString,
+    hexagonGap: hexagonGap.input.valueAsNumber,
+    hexagonRotation: hexagonRotation.input.valueAsNumber,
+    hexagonScale: hexagonScale.input.valueAsNumber,
+    hexagonSize: hexagonSize.input.valueAsNumber,
+    hexagonTransition: hexagonTransition.input.valueAsNumber,
+    mediaQuery_1: mediaQuery_1.input.valueAsNumber,
+    mediaQuery_2: mediaQuery_2.input.valueAsNumber,
+    mediaQuery_3: mediaQuery_3.input.valueAsNumber,
+    textColor: textColor.input.valueAsString,
+  });
+}
 
-export const displayCSS = (): void => {
-  addEventListener("cssBtn");
-};
-
-export const displayHTML = (): void => {
-  addEventListener("htmlBtn");
-};
-
-export const addEventListener = (id: string): void => {
-  const cssBtn = document.getElementById(id);
-  assertNonNullish(cssBtn, `HTMLElement #${id} not found!`);
-
-  cssBtn.addEventListener("click", () => handleBtnClick(id));
-};
-
-const getCSSTextField = (): HTMLElement => {
-  const cssTextField = document.getElementById("css");
-  assertNonNullish(cssTextField, "HTMLElement #css not found!");
-  return cssTextField;
-};
-
-const getHTMLTextField = (): HTMLElement => {
-  const htmlTextField = document.getElementById("html");
-  assertNonNullish(htmlTextField, "HTMLElement #htmlTextField not found!");
-  return htmlTextField;
-};
-
-const handleBtnClick = (id: string): void => {
+function handleBtnClick(id: string) {
   generateTextVersions();
   const cssTextField = getCSSTextField();
   const htmlTextField = getHTMLTextField();
   switch (id) {
-    case "cssBtn":
+    case ID_BTN_CSS:
       htmlTextField.style.visibility = "hidden";
       cssTextField.style.visibility =
         cssTextField.style.visibility === "visible" ? "hidden" : "visible";
       break;
-    case "htmlBtn":
+    case ID_BTN_HTML:
       cssTextField.style.visibility = "hidden";
       htmlTextField.style.visibility =
         htmlTextField.style.visibility === "visible" ? "hidden" : "visible";
@@ -122,4 +91,4 @@ const handleBtnClick = (id: string): void => {
     default:
       break;
   }
-};
+}

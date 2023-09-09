@@ -8,6 +8,10 @@ export function assertNonNullish<T>(
   return;
 }
 
+export function htmlElementNotFoundMessage(id: string) {
+  return `HTMLElement #${id} not found!`;
+}
+
 export function roundToTwoDecimals(value: number) {
   return Number(Math.round(parseFloat(value + "e" + 2)) + "e-" + 2);
 }
