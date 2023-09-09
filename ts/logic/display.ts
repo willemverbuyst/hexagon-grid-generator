@@ -4,8 +4,8 @@ import {
   ID_TEXT_FIELD_CSS,
   ID_TEXT_FIELD_HTML,
 } from "../constants";
-import { generateCSSText } from "../display/css/text.css";
 import { generateHTMLText } from "../display/hexagon.html";
+import { generateCSSText } from "../texCSS";
 import { inputElements } from "./inputs/inputElements";
 import { assertNonNullish, htmlElementNotFoundMessage } from "./utils";
 
