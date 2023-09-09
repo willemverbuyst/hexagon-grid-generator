@@ -1,4 +1,4 @@
-import { main } from "../main";
+import { generateHexagonSection } from "../main";
 
 export class InputBase {
   element = <HTMLInputElement>document.getElementById(this.id);
@@ -14,6 +14,6 @@ export class InputBase {
   }
 
   runMain(): void {
-    main();
+    generateHexagonSection();
   }
 }
