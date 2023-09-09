@@ -1,4 +1,4 @@
-import { generateHexagon, generateHexagons } from "./hexagons";
+import { generateHexagon, generateHexagons } from "./hexagonSection";
 
 describe("generateHexagon", () => {
   describe("given 1", () => {

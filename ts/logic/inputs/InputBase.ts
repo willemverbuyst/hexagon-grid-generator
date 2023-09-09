@@ -1,4 +1,4 @@
-import { generateHexagonSection } from "../main";
+import { generateHexagonSection } from "../hexagonSection";
 
 export class InputBase {
   element = <HTMLInputElement>document.getElementById(this.id);

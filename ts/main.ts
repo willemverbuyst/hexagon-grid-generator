@@ -1,6 +1,6 @@
 import { ID_BTN_CSS, ID_BTN_HTML } from "./constants";
 import { addEventListener } from "./logic/display";
-import { generateHexagonSection } from "./logic/main";
+import { generateHexagonSection } from "./logic/hexagonSection";
 
 // call the function for an initial display of hexagons
 generateHexagonSection();
