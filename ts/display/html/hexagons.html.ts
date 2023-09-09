@@ -1,6 +1,6 @@
 import { generateHexagonHTML } from "./hexagon.html";
 
-export const generateHexagonsHTML = (numberOfHexagons: number): string => {
+export const generateHexagonsHTML = (numberOfHexagons: number) => {
   let hexagonsHTML = "";
 
   Array(numberOfHexagons)
