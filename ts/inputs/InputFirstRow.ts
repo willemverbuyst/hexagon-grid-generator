@@ -2,8 +2,10 @@ import { InputBase } from "./InputBase";
 
 export class InputFirstRow {
   root = document.documentElement;
+  input: InputBase;
 
-  constructor(public input: InputBase) {
+  constructor(public hexagonFirstRowId: string) {
+    this.input = new InputBase(hexagonFirstRowId);
     this.init();
   }
 

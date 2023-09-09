@@ -1,9 +1,8 @@
-import { InputBase } from "./InputBase";
 import { InputRoot } from "./InputRoot";
 
 export class InputGap extends InputRoot {
-  constructor(input: InputBase, rootElementName: string, postFix = "") {
-    super(input, rootElementName, postFix);
+  constructor(id: string, rootElementName: string, postFix = "") {
+    super(id, rootElementName, postFix);
   }
 
   // Different implementation of this method

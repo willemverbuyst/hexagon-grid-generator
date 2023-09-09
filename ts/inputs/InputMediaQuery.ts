@@ -1,7 +1,10 @@
 import { InputBase } from "./InputBase";
 
 export class InputMediaQuery {
-  constructor(public input: InputBase) {
+  input: InputBase;
+
+  constructor(public id: string) {
+    this.input = new InputBase(id);
     this.init();
   }
 

@@ -2,12 +2,14 @@ import { InputBase } from "./InputBase";
 
 export class InputRoot {
   root = document.documentElement;
+  input: InputBase;
 
   constructor(
-    public input: InputBase,
+    public id: string,
     public rootElementName: string,
     public postFix: string = ""
   ) {
+    this.input = new InputBase(id);
     this.init();
   }
 

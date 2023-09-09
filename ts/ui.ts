@@ -17,6 +17,7 @@ import {
   ID_MEDIA_QUERY_2,
   ID_MEDIA_QUERY_3,
   ID_NUMBER_OF_HEXAGONS,
+  ID_TEXT_COLOR,
   ID_TEXT_FIELD_CSS,
   ID_TEXT_FIELD_HTML,
   POSTFIX_DEGREE,
@@ -25,7 +26,6 @@ import {
   POSTFIX_VW,
 } from "./constants";
 import {
-  InputBase,
   InputFirstRow,
   InputGap,
   InputMediaQuery,
@@ -37,50 +37,45 @@ import { generateHTMLText } from "./textHTML";
 import { getElementByIdAndAssert } from "./utils";
 
 export const inputElements = {
-  numberOfHexagons: new InputNumberOfHexagons(
-    new InputBase(ID_NUMBER_OF_HEXAGONS)
-  ),
-  hexagonsFirstRow: new InputFirstRow(new InputBase(ID_HEXAGON_FIRST_ROW)),
-  backgroundColor: new InputRoot(new InputBase(ID_BG_COLOR), "--color-bg"),
-  hexagonColor: new InputRoot(
-    new InputBase(ID_HEXAGON_COLOR),
-    "--color-inner-hexagon"
-  ),
-  textColor: new InputRoot(new InputBase("text-color"), "--color-text"),
+  numberOfHexagons: new InputNumberOfHexagons(ID_NUMBER_OF_HEXAGONS),
+  hexagonsFirstRow: new InputFirstRow(ID_HEXAGON_FIRST_ROW),
+  backgroundColor: new InputRoot(ID_BG_COLOR, "--color-bg"),
+  hexagonColor: new InputRoot(ID_HEXAGON_COLOR, "--color-inner-hexagon"),
+  textColor: new InputRoot(ID_TEXT_COLOR, "--color-text"),
   hexagonSize: new InputRoot(
-    new InputBase(ID_HEXAGON_SIZE),
+    ID_HEXAGON_SIZE,
     "--width-hexagon-outer",
     POSTFIX_VW
   ),
   containerSkewX: new InputRoot(
-    new InputBase(ID_CONTAINER_SKEW_X),
+    ID_CONTAINER_SKEW_X,
     "--skew-X",
     POSTFIX_DEGREE
   ),
   containerSkewY: new InputRoot(
-    new InputBase(ID_CONTAINER_SKEW_Y),
+    ID_CONTAINER_SKEW_Y,
     "--skew-Y",
     POSTFIX_DEGREE
   ),
   hexagonRotation: new InputRoot(
-    new InputBase(ID_HEXAGON_ROTATION),
+    ID_HEXAGON_ROTATION,
     "--hover-rotation",
     POSTFIX_DEGREE
   ),
   hexagonTransition: new InputRoot(
-    new InputBase(ID_HEXAGON_TRANSITION),
+    ID_HEXAGON_TRANSITION,
     "--hover-transition",
     POSTFIX_SECONDS
   ),
-  hexagonScale: new InputRoot(new InputBase(ID_HEXAGON_SCALE), "--hover-scale"),
+  hexagonScale: new InputRoot(ID_HEXAGON_SCALE, "--hover-scale"),
   hexagonGap: new InputGap(
-    new InputBase(ID_HEXAGON_GAP),
+    ID_HEXAGON_GAP,
     "--size-hexagon-inner",
     POSTFIX_PERCENTAGE
   ),
-  mediaQuery_1: new InputMediaQuery(new InputBase(ID_MEDIA_QUERY_1)),
-  mediaQuery_2: new InputMediaQuery(new InputBase(ID_MEDIA_QUERY_2)),
-  mediaQuery_3: new InputMediaQuery(new InputBase(ID_MEDIA_QUERY_3)),
+  mediaQuery_1: new InputMediaQuery(ID_MEDIA_QUERY_1),
+  mediaQuery_2: new InputMediaQuery(ID_MEDIA_QUERY_2),
+  mediaQuery_3: new InputMediaQuery(ID_MEDIA_QUERY_3),
 };
 
 export function addEventListener(id: string) {

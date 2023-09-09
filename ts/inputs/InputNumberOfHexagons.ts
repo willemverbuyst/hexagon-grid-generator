@@ -1,7 +1,10 @@
 import { InputBase } from "./InputBase";
 
 export class InputNumberOfHexagons {
-  constructor(public input: InputBase) {
+  input: InputBase;
+
+  constructor(public numberOfHexagonsId: string) {
+    this.input = new InputBase(numberOfHexagonsId);
     this.init();
   }
 
