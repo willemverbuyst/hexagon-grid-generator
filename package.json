@@ -4,6 +4,7 @@
   "description": "",
   "source": "html/index.html",
   "scripts": {
+    "architecture": "madge --extensions ts,tsx --exclude \"^.*\\.(spec\\.(ts|tsx)|css)$\" --image graph.svg ts/",
     "format:fix": "prettier --config .prettierrc 'ts/**/*.ts' --write",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
@@ -44,6 +45,7 @@
     "husky": "^7.0.4",
     "jest": "^27.5.1",
     "lint-staged": "^12.5.0",
+    "madge": "^6.1.0",
     "prettier": "^2.8.8",
     "style-loader": "^3.3.1",
     "ts-jest": "^27.1.5",
