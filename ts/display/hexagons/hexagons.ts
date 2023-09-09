@@ -1,9 +1,14 @@
-import { generateHexagon } from "./hexagon";
+export function generateHexagon(hexagonNumber: number, className?: string) {
+  return `<div class="hexagon__outer${className ? " " + className : ""}">
+	  <div class="hexagon__inner">${hexagonNumber}</div>
+	</div>
+  `;
+}
 
-export const generateHexagons = (
+export function generateHexagons(
   hexagonsFirstRow: number,
   numberOfHexagons: number
-): string => {
+) {
   let html = "";
 
   if (hexagonsFirstRow < 1 || numberOfHexagons < 1) {
@@ -51,4 +56,4 @@ export const generateHexagons = (
   }
 
   return html;
-};
+}

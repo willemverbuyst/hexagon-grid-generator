@@ -1,88 +1,51 @@
-import { InputKind } from "../types";
-import { InputFactory } from "./factory";
+import { InputBase } from "./InputBase";
 import { InputFirstRow } from "./InputFirstRow";
 import { InputGap } from "./InputGap";
 import { InputMediaQuery } from "./InputMediaQuery";
 import { InputNumberOfHexagons } from "./InputNumberOfHexagons";
 import { InputRoot } from "./InputRoot";
 
-const factory = new InputFactory();
-
 export const inputElements = {
-  numberOfHexagons: factory.createInput(
-    InputKind.NUMBER_OF_HEXAGONS,
-    "hexagon-amount"
-  ) as InputNumberOfHexagons,
-  hexagonsFirstRow: factory.createInput(
-    InputKind.FIRST_ROW,
-    "hexagon-first-row"
-  ) as InputFirstRow,
-  backgroundColor: factory.createInput(
-    InputKind.ROOT,
-    "bg-color",
-    "--color-bg"
-  ) as InputRoot,
-  hexagonColor: factory.createInput(
-    InputKind.ROOT,
-    "hexagon-color",
+  numberOfHexagons: new InputNumberOfHexagons(new InputBase("hexagon-amount")),
+  hexagonsFirstRow: new InputFirstRow(new InputBase("hexagon-first-row")),
+  backgroundColor: new InputRoot(new InputBase("bg-color"), "--color-bg"),
+  hexagonColor: new InputRoot(
+    new InputBase("hexagon-color"),
     "--color-inner-hexagon"
-  ) as InputRoot,
-  textColor: factory.createInput(
-    InputKind.ROOT,
-    "text-color",
-    "--color-text"
-  ) as InputRoot,
-  hexagonSize: factory.createInput(
-    InputKind.ROOT,
-    "hexagon-size",
+  ),
+  textColor: new InputRoot(new InputBase("text-color"), "--color-text"),
+  hexagonSize: new InputRoot(
+    new InputBase("hexagon-size"),
     "--width-hexagon-outer",
     "vw"
-  ) as InputRoot,
-  containerSkewX: factory.createInput(
-    InputKind.ROOT,
-    "container-skew-X",
+  ),
+  containerSkewX: new InputRoot(
+    new InputBase("container-skew-X"),
     "--skew-X",
     "deg"
-  ) as InputRoot,
-  containerSkewY: factory.createInput(
-    InputKind.ROOT,
-    "container-skew-Y",
+  ),
+  containerSkewY: new InputRoot(
+    new InputBase("container-skew-Y"),
     "--skew-Y",
     "deg"
-  ) as InputRoot,
-  hexagonRotation: factory.createInput(
-    InputKind.ROOT,
-    "hexagon-rotation",
+  ),
+  hexagonRotation: new InputRoot(
+    new InputBase("hexagon-rotation"),
     "--hover-rotation",
     "deg"
-  ) as InputRoot,
-  hexagonTransition: factory.createInput(
-    InputKind.ROOT,
-    "hexagon-transition",
+  ),
+  hexagonTransition: new InputRoot(
+    new InputBase("hexagon-transition"),
     "--hover-transition",
     "s"
-  ) as InputRoot,
-  hexagonScale: factory.createInput(
-    InputKind.ROOT,
-    "hexagon-scale",
-    "--hover-scale"
-  ) as InputRoot,
-  hexagonGap: factory.createInput(
-    InputKind.GAP,
-    "hexagon-gap",
+  ),
+  hexagonScale: new InputRoot(new InputBase("hexagon-scale"), "--hover-scale"),
+  hexagonGap: new InputGap(
+    new InputBase("hexagon-gap"),
     "--size-hexagon-inner",
     "%"
-  ) as InputGap,
-  mediaQuery_1: factory.createInput(
-    InputKind.MEDIA_QUERY,
-    "media-query--1"
-  ) as InputMediaQuery,
-  mediaQuery_2: factory.createInput(
-    InputKind.MEDIA_QUERY,
-    "media-query--2"
-  ) as InputMediaQuery,
-  mediaQuery_3: factory.createInput(
-    InputKind.MEDIA_QUERY,
-    "media-query--3"
-  ) as InputMediaQuery,
+  ),
+  mediaQuery_1: new InputMediaQuery(new InputBase("media-query--1")),
+  mediaQuery_2: new InputMediaQuery(new InputBase("media-query--2")),
+  mediaQuery_3: new InputMediaQuery(new InputBase("media-query--3")),
 };
