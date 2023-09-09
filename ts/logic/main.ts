@@ -1,6 +1,6 @@
 import { generateCSSText } from "../display/css/text.css";
+import { generateHTMLText } from "../display/hexagon.html";
 import { generateHexagons } from "../display/hexagons/hexagons";
-import { generateHTMLText } from "../display/html/text.html";
 import { inputElements } from "./inputs/inputElements";
 import { assertNonNullish } from "./utils";
 
