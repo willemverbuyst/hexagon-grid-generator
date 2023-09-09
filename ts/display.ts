@@ -3,10 +3,10 @@ import {
   ID_BTN_HTML,
   ID_TEXT_FIELD_CSS,
   ID_TEXT_FIELD_HTML,
-} from "../constants";
-import { generateHTMLText } from "../display/hexagon.html";
-import { generateCSSText } from "../texCSS";
+} from "./constants";
 import { inputElements } from "./inputs/inputElements";
+import { generateCSSText } from "./textCSS";
+import { generateHTMLText } from "./textHTML";
 import { assertNonNullish, htmlElementNotFoundMessage } from "./utils";
 
 export function addEventListener(id: string) {

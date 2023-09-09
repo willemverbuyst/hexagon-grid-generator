@@ -1,5 +1,5 @@
 import { HEIGHT_TO_WIDTH_RATIO } from "./constants";
-import { roundToTwoDecimals } from "./logic/utils";
+import { roundToTwoDecimals } from "./utils";
 
 export function generateBackgroundCSS(backgroundColor: string) {
   return `.hexagon-wrapper {
