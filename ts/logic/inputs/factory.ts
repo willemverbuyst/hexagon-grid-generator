@@ -1,10 +1,18 @@
-import { Input, InputKind } from "../types";
+import { InputKind } from "../types";
 import { InputBase } from "./InputBase";
 import { InputFirstRow } from "./InputFirstRow";
 import { InputGap } from "./InputGap";
 import { InputMediaQuery } from "./InputMediaQuery";
 import { InputNumberOfHexagons } from "./InputNumberOfHexagons";
 import { InputRoot } from "./InputRoot";
+
+export type Input =
+  | InputFirstRow
+  | InputGap
+  | InputMediaQuery
+  | InputNumberOfHexagons
+  | InputRoot
+  | InputBase;
 
 export class InputFactory {
   createInput(

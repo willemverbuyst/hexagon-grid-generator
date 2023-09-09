@@ -1,4 +1,3 @@
-import { CSSInputValues } from "../../logic/types";
 import { generateBackgroundCSS } from "./background.css";
 import { generateContainerCSS } from "./container.css";
 import { generateInnerHexagonCSS } from "./innerHexagon.css";
@@ -8,6 +7,23 @@ import {
   generateOuterHexagonCSS,
   generateOuterHexagonHoverCSS,
 } from "./outerHexagon.css";
+
+export interface CSSInputValues {
+  backgroundColor: string;
+  containerSkewX: number;
+  containerSkewY: number;
+  hexagonsFirstRow: number;
+  hexagonColor: string;
+  hexagonGap: number;
+  hexagonRotation: number;
+  hexagonScale: number;
+  hexagonSize: number;
+  hexagonTransition: number;
+  mediaQuery_1: number;
+  mediaQuery_2: number;
+  mediaQuery_3: number;
+  textColor: string;
+}
 
 export const generateCSSText = ({
   backgroundColor,

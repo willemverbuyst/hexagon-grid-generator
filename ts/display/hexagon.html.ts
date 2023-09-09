@@ -1,5 +1,3 @@
-import { HTMLInputValues } from "../logic/types";
-
 export function generateHexagonHTML(hexagonNumber: number) {
   return `<div class="hexagon__outer">
 	  <div class="hexagon__inner">${hexagonNumber}</div>
@@ -28,6 +26,10 @@ export function wrapHTML(html: string) {
 		  </div>
 		</div>
     `;
+}
+
+export interface HTMLInputValues {
+  numberOfHexagons: number;
 }
 
 export function generateHTMLText({ numberOfHexagons }: HTMLInputValues) {
