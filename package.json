@@ -4,8 +4,8 @@
   "description": "",
   "source": "html/index.html",
   "scripts": {
-    "architecture": "madge --extensions ts,tsx --exclude \"^.*\\.(spec\\.(ts|tsx)|css)$\" --image graph.svg ts/",
-    "format:fix": "prettier --config .prettierrc 'ts/**/*.ts' --write",
+    "architecture": "madge --extensions ts,tsx --exclude \"^.*\\.(spec\\.(ts|tsx)|css)$\" --image graph.svg src/",
+    "format:fix": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "prepare": "husky install",
