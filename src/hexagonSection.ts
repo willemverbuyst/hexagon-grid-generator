@@ -14,7 +14,7 @@ export function generateHexagon(hexagonNumber: number, className?: string) {
 
 export function generateHexagons(
   hexagonsFirstRow: number,
-  numberOfHexagons: number
+  numberOfHexagons: number,
 ) {
   let html = "";
 
@@ -38,7 +38,7 @@ export function generateHexagons(
     Array(numberOfHexagons)
       .fill(0)
       .forEach(
-        (_, i) => (html += generateHexagon(i + 1, "first-row__margin-top"))
+        (_, i) => (html += generateHexagon(i + 1, "first-row__margin-top")),
       );
     return html;
   }
@@ -68,14 +68,14 @@ export function generateHexagons(
 export function generateHexagonSection() {
   const hexagonContainer = getElementByIdAndAssert(ID_HEXAGON_CONTAINER);
   const numberOfHexagonsElement = getElementByIdAndAssert(
-    ID_NUMBER_OF_HEXAGONS
+    ID_NUMBER_OF_HEXAGONS,
   ) as HTMLInputElement;
   const hexagonsFirstRowElement = getElementByIdAndAssert(
-    ID_HEXAGON_FIRST_ROW
+    ID_HEXAGON_FIRST_ROW,
   ) as HTMLInputElement;
 
   hexagonContainer.innerHTML = generateHexagons(
     Number(hexagonsFirstRowElement.value),
-    Number(numberOfHexagonsElement.value)
+    Number(numberOfHexagonsElement.value),
   );
 }

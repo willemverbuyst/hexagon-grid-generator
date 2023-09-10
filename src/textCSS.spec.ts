@@ -21,7 +21,7 @@ describe("generateBackgroundCSS", () => {
         display: flex;
         justify-content: center;
         align-items: center;
-      }`.replace(/\s/g, "")
+      }`.replace(/\s/g, ""),
       );
     });
   });
@@ -36,7 +36,7 @@ describe("generateContainerCSS", () => {
           display: flex;
           flex-wrap: wrap;
           transform: skew(2deg, 1deg);
-      }`.replace(/\s/g, "")
+      }`.replace(/\s/g, ""),
       );
     });
   });
@@ -66,7 +66,7 @@ describe("generateBasicHexagonCSS", () => {
         height: 90%;
         display: flex;
         justify-content: center;
-        align-items: center;`.replace(/\s/g, "")
+        align-items: center;`.replace(/\s/g, ""),
       );
     });
 
@@ -92,7 +92,7 @@ describe("generateBasicHexagonCSS", () => {
         height: 70%;
         display: flex;
         justify-content: center;
-        align-items: center;`.replace(/\s/g, "")
+        align-items: center;`.replace(/\s/g, ""),
       );
     });
   });
@@ -126,7 +126,7 @@ describe("generateOuterHexagonCSS", () => {
         display: flex;
         justify-content: center;
         align-items: center;
-        }`.replace(/\s/g, "")
+        }`.replace(/\s/g, ""),
       );
     });
   });
@@ -138,7 +138,7 @@ describe("#generateOuterHexagonHoverCSS", () => {
       expect(generateOuterHexagonHoverCSS(1, 2).replace(/\s/g, "")).toMatch(
         `.hexagon__outer:hover {
           transform: scale(1) rotate(2deg);
-        }`.replace(/\s/g, "")
+        }`.replace(/\s/g, ""),
       );
     });
   });
@@ -154,7 +154,7 @@ describe("#generateOuterHexagonChildCSS", () => {
       
         .hexagon__outer:nth-child(n+) {
           margin-left: 1vw;
-        }`.replace(/\s/g, "")
+        }`.replace(/\s/g, ""),
       );
     });
   });
@@ -168,7 +168,7 @@ describe("#generateOuterHexagonChildCSS", () => {
       
         .hexagon__outer:nth-child(7n + 5) {
             margin-left: 1vw;
-        }`.replace(/\s/g, "")
+        }`.replace(/\s/g, ""),
       );
     });
   });
@@ -178,7 +178,7 @@ describe("generateInnerHexagonCSS", () => {
   describe("given input values", () => {
     it("should return a css class", () => {
       expect(
-        generateInnerHexagonCSS("#333", "#fff", 20).replace(/\s/g, "")
+        generateInnerHexagonCSS("#333", "#fff", 20).replace(/\s/g, ""),
       ).toMatch(
         `.hexagon__inner {
           background-color: #333;
@@ -204,7 +204,7 @@ describe("generateInnerHexagonCSS", () => {
         display: flex;
         justify-content: center;
         align-items: center;
-        }`.replace(/\s/g, "")
+        }`.replace(/\s/g, ""),
       );
     });
   });
@@ -238,7 +238,7 @@ describe("generateMediaQueryCSS", () => {
           margin-left: 1.5vw;
         }
 
-        }`.replace(/\s/g, "")
+        }`.replace(/\s/g, ""),
       );
     });
   });
@@ -248,8 +248,8 @@ describe("generateMediaQueryCSS", () => {
       expect(
         generateMediaQueryCSS(700, 2, 4, 3, "html {font-size: 50%;}").replace(
           /\s/g,
-          ""
-        )
+          "",
+        ),
       ).toMatch(
         `@media (max-width: 700px) {
 
@@ -279,7 +279,7 @@ describe("generateMediaQueryCSS", () => {
 	        margin-left: 1.5vw;
 	      }
 
-	      }`.replace(/\s/g, "")
+	      }`.replace(/\s/g, ""),
       );
     });
   });
@@ -309,7 +309,7 @@ describe("generateMediaQueryCSS", () => {
 	        .hexagon__outer:nth-child(0n + 0) {
 	          margin-left: 1.5vw;
 	        }
-	      }`.replace(/\s/g, "")
+	      }`.replace(/\s/g, ""),
       );
     });
   });
@@ -319,7 +319,7 @@ describe("generateMediaQueriesCSS", () => {
   describe("given input values ", () => {
     it("should return css for media queries", () => {
       expect(
-        generateMediaQueriesCSS(4, 3, 900, 700, 500).replace(/\s/g, "")
+        generateMediaQueriesCSS(4, 3, 900, 700, 500).replace(/\s/g, ""),
       ).toMatch(
         `@media (max-width: 900px) {
           .hexagon-wrapper__hexagon-container {
@@ -396,7 +396,7 @@ describe("generateMediaQueriesCSS", () => {
 	          margin-left: 1.5vw;
 	        }
 	      }
-        `.replace(/\s/g, "")
+        `.replace(/\s/g, ""),
       );
     });
   });
@@ -404,7 +404,7 @@ describe("generateMediaQueriesCSS", () => {
   describe("given input first row is 1 ", () => {
     it("should return no css for media", () => {
       expect(
-        generateMediaQueriesCSS(1, 1, 900, 700, 500).replace(/\s/g, "")
+        generateMediaQueriesCSS(1, 1, 900, 700, 500).replace(/\s/g, ""),
       ).toMatch("");
     });
   });
@@ -429,7 +429,7 @@ describe("generateCSSText", () => {
           mediaQuery_2: 700,
           mediaQuery_3: 500,
           textColor: "#fff",
-        }).replace(/\s/g, "")
+        }).replace(/\s/g, ""),
       ).toMatch(
         `
 				.hexagon-wrapper {
@@ -585,7 +585,7 @@ describe("generateCSSText", () => {
 	          margin-left: 1.5vw;
 	        }
 	      }
-        `.replace(/\s/g, "")
+        `.replace(/\s/g, ""),
       );
     });
   });

@@ -7,7 +7,7 @@ export class InputRoot {
   constructor(
     public id: string,
     public rootElementName: string,
-    public postFix: string = ""
+    public postFix: string = "",
   ) {
     this.input = new InputBase(id);
     this.init();
@@ -21,7 +21,7 @@ export class InputRoot {
     this.input.element.oninput = (): void => {
       this.changeRoot(
         this.rootElementName,
-        this.input.valueAsString + this.postFix
+        this.input.valueAsString + this.postFix,
       );
       this.input.runMain();
     };

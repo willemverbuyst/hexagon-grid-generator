@@ -10,7 +10,7 @@ export class InputGap extends InputRoot {
     this.input.element.oninput = (): void => {
       this.changeRoot(
         this.rootElementName,
-        100 - this.input.valueAsNumber + this.postFix
+        100 - this.input.valueAsNumber + this.postFix,
       );
       this.input.runMain();
     };

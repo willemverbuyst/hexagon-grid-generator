@@ -4,10 +4,10 @@ import { assertNonNullish, roundToTwoDecimals } from "./utils";
 describe("assertNonNullish", () => {
   it("throws an error when the value is null or undefined", () => {
     expect(() => assertNonNullish(null, "Value cannot be null")).toThrowError(
-      "Value cannot be null"
+      "Value cannot be null",
     );
     expect(() =>
-      assertNonNullish(undefined, "Value cannot be undefined")
+      assertNonNullish(undefined, "Value cannot be undefined"),
     ).toThrowError("Value cannot be undefined");
   });
 

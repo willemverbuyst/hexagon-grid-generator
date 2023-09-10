@@ -45,33 +45,33 @@ export const inputElements = {
   hexagonSize: new InputRoot(
     ID_HEXAGON_SIZE,
     "--width-hexagon-outer",
-    POSTFIX_VW
+    POSTFIX_VW,
   ),
   containerSkewX: new InputRoot(
     ID_CONTAINER_SKEW_X,
     "--skew-X",
-    POSTFIX_DEGREE
+    POSTFIX_DEGREE,
   ),
   containerSkewY: new InputRoot(
     ID_CONTAINER_SKEW_Y,
     "--skew-Y",
-    POSTFIX_DEGREE
+    POSTFIX_DEGREE,
   ),
   hexagonRotation: new InputRoot(
     ID_HEXAGON_ROTATION,
     "--hover-rotation",
-    POSTFIX_DEGREE
+    POSTFIX_DEGREE,
   ),
   hexagonTransition: new InputRoot(
     ID_HEXAGON_TRANSITION,
     "--hover-transition",
-    POSTFIX_SECONDS
+    POSTFIX_SECONDS,
   ),
   hexagonScale: new InputRoot(ID_HEXAGON_SCALE, "--hover-scale"),
   hexagonGap: new InputGap(
     ID_HEXAGON_GAP,
     "--size-hexagon-inner",
-    POSTFIX_PERCENTAGE
+    POSTFIX_PERCENTAGE,
   ),
   mediaQuery_1: new InputMediaQuery(ID_MEDIA_QUERY_1),
   mediaQuery_2: new InputMediaQuery(ID_MEDIA_QUERY_2),

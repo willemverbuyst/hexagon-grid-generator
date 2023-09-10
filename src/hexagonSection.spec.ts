@@ -8,7 +8,7 @@ describe("generateHexagon", () => {
         `<div class="hexagon__outer">
 					<div class="hexagon__inner">1</div>
 				</div>
-				`.replace(/\s/g, "")
+				`.replace(/\s/g, ""),
       );
     });
   });
@@ -19,7 +19,7 @@ describe("generateHexagon", () => {
         `<div class="hexagon__outer">
 					<div class="hexagon__inner">2</div>
 				</div>
-				`.replace(/\s/g, "")
+				`.replace(/\s/g, ""),
       );
     });
   });
@@ -30,7 +30,7 @@ describe("generateHexagon", () => {
         `<div class="hexagon__outer test">
 					<div class="hexagon__inner">2</div>
 				</div>
-				`.replace(/\s/g, "")
+				`.replace(/\s/g, ""),
       );
     });
   });
@@ -60,7 +60,7 @@ describe("generateHexagons", () => {
       expect(generateHexagons(1, 1).replace(/\s/g, "")).toMatch(
         `<div class="hexagon__outer">
 					<div class="hexagon__inner">1</div>
-				</div>`.replace(/\s/g, "")
+				</div>`.replace(/\s/g, ""),
       );
     });
   });
@@ -73,7 +73,7 @@ describe("generateHexagons", () => {
 				</div>
 				<div class="hexagon__outer">
 					<div class="hexagon__inner">2</div>
-				</div>`.replace(/\s/g, "")
+				</div>`.replace(/\s/g, ""),
       );
     });
   });
@@ -89,7 +89,7 @@ describe("generateHexagons", () => {
 				</div>
 				<div class="hexagon__outer first-row__margin-top">
 					<div class="hexagon__inner">3</div>
-				</div>`.replace(/\s/g, "")
+				</div>`.replace(/\s/g, ""),
       );
     });
   });
@@ -111,7 +111,7 @@ describe("generateHexagons", () => {
 				</div>
 				<div class="hexagon__outer">
 					<div class="hexagon__inner">5</div>
-				</div>`.replace(/\s/g, "")
+				</div>`.replace(/\s/g, ""),
       );
     });
   });

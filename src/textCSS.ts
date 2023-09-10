@@ -15,7 +15,7 @@ export function generateContainerCSS(
   hexagonsFirstRow: number,
   hexagonSize: number,
   containerSkewX: number,
-  containerSkewY: number
+  containerSkewY: number,
 ) {
   const width = hexagonsFirstRow * hexagonSize;
 
@@ -69,7 +69,7 @@ function getHexagonCSS(hexagonSize: number) {
 
 export function generateOuterHexagonCSS(
   hexagonSize: number,
-  hexagonTransition: number
+  hexagonTransition: number,
 ) {
   const marginTop = calculateMarginTop(hexagonSize);
   const hexagonCSS = getHexagonCSS(hexagonSize);
@@ -85,7 +85,7 @@ export function generateOuterHexagonCSS(
 
 export function generateOuterHexagonHoverCSS(
   hexagonScale: number,
-  hexagonRotation: number
+  hexagonRotation: number,
 ) {
   return `
 	.hexagon__outer:hover {
@@ -96,7 +96,7 @@ export function generateOuterHexagonHoverCSS(
 
 export function generateOuterHexagonChildCSS(
   hexagonsFirstRow: number,
-  hexagonSize: number
+  hexagonSize: number,
 ) {
   const marginLeft = calculateMarginLeft(hexagonSize);
 
@@ -118,7 +118,7 @@ export function generateOuterHexagonChildCSS(
 export function generateInnerHexagonCSS(
   hexagonColor: string,
   textColor: string,
-  hexagonGap: number
+  hexagonGap: number,
 ) {
   const percentageInnerHexagon = 100 - hexagonGap;
   const hexagonCSS = generateBasicHexagonCSS(percentageInnerHexagon);
@@ -137,7 +137,7 @@ export function generateMediaQueryCSS(
   i: number,
   hexagonsFirstRow: number,
   hexagonSize: number,
-  extra = ""
+  extra = "",
 ) {
   return `
   @media (max-width: ${mediaQuery}px) {
@@ -149,20 +149,20 @@ export function generateMediaQueryCSS(
     /* reset */
     .hexagon__outer:nth-child(-n + ${hexagonsFirstRow + 1 - i}) {
       margin-top: ${roundToTwoDecimals(
-        (HEIGHT_TO_WIDTH_RATIO * hexagonSize) / -4
+        (HEIGHT_TO_WIDTH_RATIO * hexagonSize) / -4,
       )}vw;
     }
 
     /* reset */
     .hexagon__outer:nth-child(${hexagonsFirstRow * 2 - i * 2 + 1}n + ${
-    hexagonsFirstRow + 2 - i
-  }) {
+      hexagonsFirstRow + 2 - i
+    }) {
         margin-left: 0;
     }
 
     .hexagon__outer:nth-child(${hexagonsFirstRow - i < 2 ? "n" : "-n"} + ${
-    hexagonsFirstRow - i < 2 ? 0 : hexagonsFirstRow - i
-  }) {
+      hexagonsFirstRow - i < 2 ? 0 : hexagonsFirstRow - i
+    }) {
         margin-top: 0;
     }
 
@@ -182,7 +182,7 @@ export function generateMediaQueriesCSS(
   hexagonSize: number,
   mediaQuery_1: number,
   mediaQuery_2: number,
-  mediaQuery_3: number
+  mediaQuery_3: number,
 ) {
   let mediaQueriesCSS = "";
 
@@ -191,7 +191,7 @@ export function generateMediaQueriesCSS(
       mediaQuery_1,
       1,
       hexagonsFirstRow,
-      hexagonSize
+      hexagonSize,
     );
   }
 
@@ -205,7 +205,7 @@ export function generateMediaQueriesCSS(
       2,
       hexagonsFirstRow,
       hexagonSize,
-      extra
+      extra,
     );
   }
 
@@ -214,7 +214,7 @@ export function generateMediaQueriesCSS(
       mediaQuery_3,
       3,
       hexagonsFirstRow,
-      hexagonSize
+      hexagonSize,
     );
   }
 
@@ -259,31 +259,31 @@ export function generateCSSText({
     hexagonsFirstRow,
     hexagonSize,
     containerSkewX,
-    containerSkewY
+    containerSkewY,
   );
   const outerHexagonCSSText = generateOuterHexagonCSS(
     hexagonSize,
-    hexagonTransition
+    hexagonTransition,
   );
   const outerHexagonHoverCSSText = generateOuterHexagonHoverCSS(
     hexagonScale,
-    hexagonRotation
+    hexagonRotation,
   );
   const outerHexagonChildCSSText = generateOuterHexagonChildCSS(
     hexagonsFirstRow,
-    hexagonSize
+    hexagonSize,
   );
   const innerHexagonCSSText = generateInnerHexagonCSS(
     hexagonColor,
     textColor,
-    hexagonGap
+    hexagonGap,
   );
   const mediaQueriesCSS = generateMediaQueriesCSS(
     hexagonsFirstRow,
     hexagonSize,
     mediaQuery_1,
     mediaQuery_2,
-    mediaQuery_3
+    mediaQuery_3,
   );
 
   const displayCSS =
