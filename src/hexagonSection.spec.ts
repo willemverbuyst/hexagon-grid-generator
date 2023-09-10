@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { generateHexagon, generateHexagons } from "./hexagonSection";
 
 describe("generateHexagon", () => {

@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { assertNonNullish, roundToTwoDecimals } from "./utils";
 
 describe("assertNonNullish", () => {
