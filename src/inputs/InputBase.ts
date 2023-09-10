@@ -1,9 +1,12 @@
 import { generateHexagonSection } from "../hexagonSection";
+import { getElementByIdAndAssert } from "../utils";
 
 export class InputBase {
-  element = <HTMLInputElement>document.getElementById(this.id);
+  element: HTMLInputElement;
 
-  constructor(private id: string) {}
+  constructor(private id: string) {
+    this.element = <HTMLInputElement>getElementByIdAndAssert(this.id);
+  }
 
   get valueAsNumber(): number {
     return Number(this.element.value);
