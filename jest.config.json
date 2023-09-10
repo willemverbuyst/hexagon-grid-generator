@@ -1,9 +1,0 @@
-{
-	"clearMocks": true,
-	"collectCoverageFrom": ["./src/**"],
-	"coverageProvider": "v8",
-	"preset": "ts-jest",
-	"testEnvironment": "node",
-	"moduleFileExtensions": ["js", "ts"],
-	"transformIgnorePatterns": ["/node_modules/", "\\.pnp\\.[^\\/]+$"]
-}

@@ -7,6 +7,15 @@
 			"url": "http://localhost:8080",
 			"webRoot": "${workspaceFolder}",
 			"sourceMaps": true
+		},
+		{
+			"name": "Jest Current File",
+			"type": "node",
+			"request": "launch",
+			"program": "${workspaceFolder}/node_modules/.bin/jest",
+			"args": ["${fileBasenameNoExtension}", "--config", "jest.config.ts"],
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen"
 		}
 	]
 }

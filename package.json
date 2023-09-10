@@ -1,59 +1,48 @@
 {
-	"name": "hexagon-generator",
-	"version": "1.0.0",
-	"description": "",
-	"source": "html/index.html",
-	"scripts": {
-		"format:fix": "prettier --config .prettierrc 'ts/**/*.ts' --write",
-		"lint": "eslint . --ext .ts",
-		"lint:fix": "eslint . --ext .ts --fix",
-		"prepare": "husky install",
-		"build:dev": "webpack serve --open --config webpack.dev.js",
-		"build:prod": "webpack --config webpack.prod.js",
-		"test": "jest",
-		"test:coverage": "jest --coverage",
-		"test:all": "jest --watchAll --verbose"
-	},
-	"keywords": [
-		"typescript",
-		"html5",
-		"css3",
-		"webpack"
-	],
-	"author": "WV",
-	"license": "ISC",
-	"devDependencies": {
-		"@types/jest": "^27.4.1",
-		"@types/node": "^17.0.23",
-		"@types/webpack": "^5.28.0",
-		"@typescript-eslint/eslint-plugin": "^5.38.1",
-		"@typescript-eslint/parser": "^5.16.0",
-		"@webpack-cli/generators": "^2.5.0",
-		"clean-webpack-plugin": "^4.0.0",
-		"copy-webpack-plugin": "^10.2.4",
-		"css-loader": "^6.7.1",
-		"declaration-bundler-webpack-plugin": "^1.0.3",
-		"eslint": "^8.24.0",
-		"eslint-config-prettier": "^8.5.0",
-		"eslint-plugin-no-loops": "^0.3.0",
-		"eslint-plugin-prettier": "^4.2.1",
-		"git-commit-msg-linter": "^4.2.1",
-		"html-webpack-plugin": "^5.5.0",
-		"husky": "^7.0.4",
-		"jest": "^27.5.1",
-		"lint-staged": "^12.3.7",
-		"prettier": "^2.7.1",
-		"style-loader": "^3.3.1",
-		"ts-jest": "^27.1.5",
-		"ts-loader": "^9.4.1",
-		"typescript": "^4.8.4",
-		"webpack": "^5.72.0",
-		"webpack-cli": "^4.10.0",
-		"webpack-dev-server": "^4.8.1",
-		"webpack-merge": "^5.8.0"
-	},
-	"dependencies": {},
-	"lint-staged": {
-		"*.ts": "eslint --cache --fix"
-	}
+  "name": "hexagon-generator",
+  "version": "1.0.0",
+  "description": "",
+  "source": "html/index.html",
+  "scripts": {
+    "architecture": "madge --extensions ts,tsx --exclude \"^.*\\.(test\\.(ts|tsx)|css)$\" --image graph.svg src/",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "format:check": "prettier --check src",
+    "format:fix": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "test": "vitest --silent",
+    "test:coverage": "vitest --silent run --coverage",
+    "type:check": "tsc"
+  },
+  "keywords": [
+    "typescript",
+    "html5",
+    "css3",
+    "webpack"
+  ],
+  "author": "WV",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "6.6.0",
+    "@typescript-eslint/parser": "6.6.0",
+    "@vitest/coverage-v8": "^0.34.4",
+    "eslint": "8.49.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-no-loops": "^0.3.0",
+    "eslint-plugin-prettier": "5.0.0",
+    "git-commit-msg-linter": "5.0.4",
+    "husky": "8.0.3",
+    "lint-staged": "14.0.1",
+    "madge": "^6.1.0",
+    "prettier": "3.0.3",
+    "typescript": "5.2.2",
+    "vite": "^4.4.9",
+    "vitest": "^0.34.4"
+  },
+  "lint-staged": {
+    "*.ts": "eslint --cache --fix"
+  }
 }
