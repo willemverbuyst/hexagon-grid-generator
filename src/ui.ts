@@ -1,6 +1,5 @@
 import {
-  CSS_HIDDEN,
-  CSS_VISIBLE,
+  HIDDEN,
   ID_BG_COLOR,
   ID_BTN_CSS,
   ID_BTN_HTML,
@@ -24,6 +23,7 @@ import {
   POSTFIX_PERCENTAGE,
   POSTFIX_SECONDS,
   POSTFIX_VW,
+  VISIBLE,
 } from "./constants";
 import {
   InputFirstRow,
@@ -132,18 +132,14 @@ function handleBtnClick(id: string) {
   const htmlTextField = getElementByIdAndAssert(ID_TEXT_FIELD_HTML);
   switch (id) {
     case ID_BTN_CSS:
-      htmlTextField.style.visibility = CSS_HIDDEN;
+      htmlTextField.style.visibility = HIDDEN;
       cssTextField.style.visibility =
-        cssTextField.style.visibility === CSS_VISIBLE
-          ? CSS_HIDDEN
-          : CSS_VISIBLE;
+        cssTextField.style.visibility === VISIBLE ? HIDDEN : VISIBLE;
       break;
     case ID_BTN_HTML:
-      cssTextField.style.visibility = CSS_HIDDEN;
+      cssTextField.style.visibility = HIDDEN;
       htmlTextField.style.visibility =
-        htmlTextField.style.visibility === CSS_VISIBLE
-          ? CSS_HIDDEN
-          : CSS_VISIBLE;
+        htmlTextField.style.visibility === VISIBLE ? HIDDEN : VISIBLE;
       break;
     default:
       break;
