@@ -2,7 +2,7 @@
   "name": "hexagon-generator",
   "version": "1.0.0",
   "description": "",
-  "source": "html/index.html",
+  "type": "module",
   "scripts": {
     "architecture": "madge --extensions ts,tsx --exclude \"^.*\\.(test\\.(ts|tsx)|css)$\" --image graph.svg src/",
     "dev": "vite",
