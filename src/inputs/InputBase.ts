@@ -5,7 +5,7 @@ export class InputBase {
   element: HTMLInputElement;
 
   constructor(private id: string) {
-    this.element = <HTMLInputElement>getElementByIdAndAssert(this.id);
+    this.element = getElementByIdAndAssert<HTMLInputElement>(this.id);
   }
 
   get valueAsNumber(): number {

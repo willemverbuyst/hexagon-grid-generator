@@ -130,6 +130,7 @@ function handleBtnClick(id: string) {
   generateTextVersions();
   const cssTextField = getElementByIdAndAssert(ID_TEXT_FIELD_CSS);
   const htmlTextField = getElementByIdAndAssert(ID_TEXT_FIELD_HTML);
+
   switch (id) {
     case ID_BTN_CSS:
       htmlTextField.style.visibility = HIDDEN;

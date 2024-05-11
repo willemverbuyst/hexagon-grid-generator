@@ -10,14 +10,14 @@ export class InputRoot {
     public postFix: string = "",
   ) {
     this.input = new InputBase(id);
-    this.init();
+    this.attachInputHandler();
   }
 
   protected changeRoot(property: string, value: string): void {
     this.root.style.setProperty(property, value);
   }
 
-  protected updateOnInput(): void {
+  protected attachInputHandler(): void {
     this.input.element.oninput = (): void => {
       this.changeRoot(
         this.rootElementName,
@@ -25,9 +25,5 @@ export class InputRoot {
       );
       this.input.runMain();
     };
-  }
-
-  init(): void {
-    this.updateOnInput();
   }
 }
