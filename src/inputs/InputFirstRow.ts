@@ -6,7 +6,7 @@ export class InputFirstRow {
 
   constructor(public hexagonFirstRowId: string) {
     this.input = new InputBase(hexagonFirstRowId);
-    this.init();
+    this.attachInputHandler();
   }
 
   private changeRoot(value: number): void {
@@ -16,14 +16,10 @@ export class InputFirstRow {
     );
   }
 
-  private updateOnInput(): void {
+  private attachInputHandler(): void {
     this.input.element.oninput = (): void => {
       this.changeRoot(this.input.valueAsNumber);
       this.input.runMain();
     };
-  }
-
-  init(): void {
-    this.updateOnInput();
   }
 }

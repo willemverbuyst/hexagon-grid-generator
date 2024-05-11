@@ -5,14 +5,10 @@ export class InputNumberOfHexagons {
 
   constructor(public numberOfHexagonsId: string) {
     this.input = new InputBase(numberOfHexagonsId);
-    this.init();
+    this.attachInputHandler();
   }
 
-  private updateOnInput(): void {
+  private attachInputHandler(): void {
     this.input.element.oninput = (): void => this.input.runMain();
-  }
-
-  init(): void {
-    this.updateOnInput();
   }
 }
