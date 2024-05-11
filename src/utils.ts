@@ -16,8 +16,10 @@ export function roundToTwoDecimals(value: number) {
   return Number(Math.round(parseFloat(value + "e" + 2)) + "e-" + 2);
 }
 
-export function getElementByIdAndAssert(id: string) {
-  const element = document.getElementById(id);
+export function getElementByIdAndAssert<T extends HTMLElement = HTMLElement>(
+  id: string,
+): T {
+  const element = <T>document.getElementById(id);
   const message = htmlElementNotFoundMessage(id);
   assertNonNullish(element, message);
 

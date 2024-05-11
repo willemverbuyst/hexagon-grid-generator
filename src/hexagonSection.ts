@@ -83,12 +83,11 @@ export function generateHexagons(
 
 export function generateHexagonSection() {
   const hexagonContainer = getElementByIdAndAssert(ID_HEXAGON_CONTAINER);
-  const numberOfHexagonsElement = getElementByIdAndAssert(
+  const numberOfHexagonsElement = getElementByIdAndAssert<HTMLInputElement>(
     ID_NUMBER_OF_HEXAGONS,
-  ) as HTMLInputElement;
-  const hexagonsFirstRowElement = getElementByIdAndAssert(
-    ID_HEXAGON_FIRST_ROW,
-  ) as HTMLInputElement;
+  );
+  const hexagonsFirstRowElement =
+    getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_FIRST_ROW);
 
   hexagonContainer.innerHTML = "";
   const hexagons = generateHexagons(
