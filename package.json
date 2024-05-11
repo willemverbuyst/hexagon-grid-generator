@@ -35,7 +35,7 @@
     "eslint-plugin-prettier": "5.1.2",
     "git-commit-msg-linter": "5.0.4",
     "husky": "8.0.3",
-    "lint-staged": "14.0.1",
+    "lint-staged": "15.2.2",
     "madge": "^6.1.0",
     "prettier": "3.2.5",
     "typescript": "5.2.2",
