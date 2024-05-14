@@ -5,29 +5,24 @@ export class InputRoot {
   input: InputBase;
 
   constructor(
-    public id: string,
+    public inputElement: HTMLInputElement,
     public rootElementName: string,
     public postFix: string = "",
   ) {
-    this.input = new InputBase(id);
-    this.init();
+    this.input = new InputBase(inputElement);
+    this.attachInputHandler();
   }
 
   protected changeRoot(property: string, value: string): void {
     this.root.style.setProperty(property, value);
   }
 
-  protected updateOnInput(): void {
+  protected attachInputHandler(): void {
     this.input.element.oninput = (): void => {
       this.changeRoot(
         this.rootElementName,
         this.input.valueAsString + this.postFix,
       );
-      this.input.runMain();
     };
-  }
-
-  init(): void {
-    this.updateOnInput();
   }
 }

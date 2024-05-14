@@ -4,9 +4,12 @@ export class InputFirstRow {
   root = document.documentElement;
   input: InputBase;
 
-  constructor(public hexagonFirstRowId: string) {
-    this.input = new InputBase(hexagonFirstRowId);
-    this.init();
+  constructor(
+    public inputElement: HTMLInputElement,
+    public generateHexagonSection: () => void,
+  ) {
+    this.input = new InputBase(inputElement);
+    this.attachInputHandler();
   }
 
   private changeRoot(value: number): void {
@@ -16,14 +19,10 @@ export class InputFirstRow {
     );
   }
 
-  private updateOnInput(): void {
+  private attachInputHandler(): void {
     this.input.element.oninput = (): void => {
       this.changeRoot(this.input.valueAsNumber);
-      this.input.runMain();
+      this.generateHexagonSection();
     };
-  }
-
-  init(): void {
-    this.updateOnInput();
   }
 }

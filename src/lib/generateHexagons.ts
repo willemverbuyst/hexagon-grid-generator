@@ -1,10 +1,3 @@
-import {
-  ID_HEXAGON_CONTAINER,
-  ID_HEXAGON_FIRST_ROW,
-  ID_NUMBER_OF_HEXAGONS,
-} from "./constants";
-import { getElementByIdAndAssert } from "./utils";
-
 export function generateHexagon(hexagonNumber: string, className?: string) {
   const outerHexagon = document.createElement("div");
   const innerHexagon = document.createElement("div");
@@ -79,24 +72,4 @@ export function generateHexagons(
   }
 
   return fragment;
-}
-
-export function generateHexagonSection() {
-  const hexagonContainer = getElementByIdAndAssert(ID_HEXAGON_CONTAINER);
-  const numberOfHexagonsElement = getElementByIdAndAssert(
-    ID_NUMBER_OF_HEXAGONS,
-  ) as HTMLInputElement;
-  const hexagonsFirstRowElement = getElementByIdAndAssert(
-    ID_HEXAGON_FIRST_ROW,
-  ) as HTMLInputElement;
-
-  hexagonContainer.innerHTML = "";
-  const hexagons = generateHexagons(
-    Number(hexagonsFirstRowElement.value),
-    Number(numberOfHexagonsElement.value),
-  );
-
-  if (hexagons) {
-    hexagonContainer.appendChild(hexagons);
-  }
 }
