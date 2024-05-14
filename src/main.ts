@@ -43,44 +43,36 @@ const {
   numberOfHexagonsElement,
 } = getAndAssertHtmlElements();
 
-const hexagonSection = new HexagonSection(
-  hexagonContainer,
-  numberOfHexagonsElement,
-  hexagonsFirstRowElement,
-);
+function generateHexagonSection() {
+  const hexagonSection = new HexagonSection(
+    hexagonContainer,
+    numberOfHexagonsElement,
+    hexagonsFirstRowElement,
+  );
 
-hexagonSection.generate();
+  return function () {
+    hexagonSection.generate();
+  };
+}
 
-new InputFirstRow(hexagonsFirstRow, hexagonSection);
-new InputNumberOfHexagons(numberOfHexagons, hexagonSection);
-new InputRoot(backgroundColor, hexagonSection, "--color-bg");
-new InputRoot(hexagonColor, hexagonSection, "--color-inner-hexagon");
-new InputRoot(textColor, hexagonSection, "--color-text");
-new InputRoot(hexagonSize, hexagonSection, "--width-hexagon-outer", POSTFIX_VW);
-new InputRoot(containerSkewX, hexagonSection, "--skew-X", POSTFIX_DEGREE);
-new InputRoot(containerSkewY, hexagonSection, "--skew-Y", POSTFIX_DEGREE);
-new InputRoot(
-  hexagonRotation,
-  hexagonSection,
-  "--hover-rotation",
-  POSTFIX_DEGREE,
-);
-new InputRoot(
-  hexagonTransition,
-  hexagonSection,
-  "--hover-transition",
-  POSTFIX_SECONDS,
-);
-new InputRoot(hexagonScale, hexagonSection, "--hover-scale");
-new InputGap(
-  hexagonGap,
-  hexagonSection,
-  "--size-hexagon-inner",
-  POSTFIX_PERCENTAGE,
-);
-new InputMediaQuery(mediaQuery_1, hexagonSection);
-new InputMediaQuery(mediaQuery_2, hexagonSection);
-new InputMediaQuery(mediaQuery_3, hexagonSection);
+// initial run
+generateHexagonSection()();
+
+new InputFirstRow(hexagonsFirstRow, generateHexagonSection());
+new InputNumberOfHexagons(numberOfHexagons, generateHexagonSection());
+new InputRoot(backgroundColor, "--color-bg");
+new InputRoot(hexagonColor, "--color-inner-hexagon");
+new InputRoot(textColor, "--color-text");
+new InputRoot(hexagonSize, "--width-hexagon-outer", POSTFIX_VW);
+new InputRoot(containerSkewX, "--skew-X", POSTFIX_DEGREE);
+new InputRoot(containerSkewY, "--skew-Y", POSTFIX_DEGREE);
+new InputRoot(hexagonRotation, "--hover-rotation", POSTFIX_DEGREE);
+new InputRoot(hexagonTransition, "--hover-transition", POSTFIX_SECONDS);
+new InputRoot(hexagonScale, "--hover-scale");
+new InputGap(hexagonGap, "--size-hexagon-inner", POSTFIX_PERCENTAGE);
+new InputMediaQuery(mediaQuery_1);
+new InputMediaQuery(mediaQuery_2);
+new InputMediaQuery(mediaQuery_3);
 
 new HTMLButton(htmlBtn, cssTextField, htmlTextField, numberOfHexagonsElement);
 new CSSButton(

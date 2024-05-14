@@ -1,4 +1,3 @@
-import { HexagonSection } from "../HexagonSection";
 import { InputBase } from "./InputBase";
 
 export class InputNumberOfHexagons {
@@ -6,14 +5,13 @@ export class InputNumberOfHexagons {
 
   constructor(
     public inputElement: HTMLInputElement,
-    public hexagonSection: HexagonSection,
+    public generateHexagonSection: () => void,
   ) {
-    this.input = new InputBase(inputElement, hexagonSection);
+    this.input = new InputBase(inputElement);
     this.attachInputHandler();
   }
 
   private attachInputHandler(): void {
-    this.input.element.oninput = (): void =>
-      this.input.hexagonSection.generate();
+    this.input.element.oninput = (): void => this.generateHexagonSection();
   }
 }

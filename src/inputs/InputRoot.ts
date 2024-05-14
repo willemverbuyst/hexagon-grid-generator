@@ -1,4 +1,3 @@
-import { HexagonSection } from "../HexagonSection";
 import { InputBase } from "./InputBase";
 
 export class InputRoot {
@@ -7,11 +6,10 @@ export class InputRoot {
 
   constructor(
     public inputElement: HTMLInputElement,
-    public hexagonSection: HexagonSection,
     public rootElementName: string,
     public postFix: string = "",
   ) {
-    this.input = new InputBase(inputElement, hexagonSection);
+    this.input = new InputBase(inputElement);
     this.attachInputHandler();
   }
 
@@ -25,7 +23,6 @@ export class InputRoot {
         this.rootElementName,
         this.input.valueAsString + this.postFix,
       );
-      this.input.hexagonSection.generate();
     };
   }
 }

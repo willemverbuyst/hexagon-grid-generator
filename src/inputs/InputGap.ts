@@ -1,14 +1,12 @@
-import { HexagonSection } from "../HexagonSection";
 import { InputRoot } from "./InputRoot";
 
 export class InputGap extends InputRoot {
   constructor(
     inputElement: HTMLInputElement,
-    hexagonSection: HexagonSection,
     rootElementName: string,
     postFix = "",
   ) {
-    super(inputElement, hexagonSection, rootElementName, postFix);
+    super(inputElement, rootElementName, postFix);
   }
 
   // Different implementation of this method
@@ -18,7 +16,6 @@ export class InputGap extends InputRoot {
         this.rootElementName,
         100 - this.input.valueAsNumber + this.postFix,
       );
-      this.input.hexagonSection.generate();
     };
   }
 }

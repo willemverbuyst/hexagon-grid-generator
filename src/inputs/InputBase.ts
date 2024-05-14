@@ -1,10 +1,5 @@
-import { HexagonSection } from "../HexagonSection";
-
 export class InputBase {
-  constructor(
-    public element: HTMLInputElement,
-    public hexagonSection: HexagonSection,
-  ) {}
+  constructor(public element: HTMLInputElement) {}
 
   get valueAsNumber(): number {
     return Number(this.element.value);
