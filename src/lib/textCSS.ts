@@ -1,5 +1,6 @@
-import { HEIGHT_TO_WIDTH_RATIO } from "./constants";
 import { roundToTwoDecimals } from "./utils";
+
+const HEIGHT_TO_WIDTH_RATIO = 1.1547005;
 
 export function generateBackgroundCSS(backgroundColor: string) {
   return `.hexagon-wrapper {

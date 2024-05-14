@@ -1,8 +1,12 @@
 import { InputRoot } from "./InputRoot";
 
 export class InputGap extends InputRoot {
-  constructor(id: string, rootElementName: string, postFix = "") {
-    super(id, rootElementName, postFix);
+  constructor(
+    inputElement: HTMLInputElement,
+    rootElementName: string,
+    postFix = "",
+  ) {
+    super(inputElement, rootElementName, postFix);
   }
 
   // Different implementation of this method
@@ -12,7 +16,6 @@ export class InputGap extends InputRoot {
         this.rootElementName,
         100 - this.input.valueAsNumber + this.postFix,
       );
-      this.input.runMain();
     };
   }
 }
