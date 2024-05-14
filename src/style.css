@@ -187,17 +187,24 @@ input:focus {
   outline: none;
 }
 
-#css,
-#html {
-  height: 78vh;
-  min-width: 20vw;
-  position: absolute;
-  top: 8vh;
-  right: 0;
-  background-color: rgba(51, 51, 51, 0.6);
+dialog {
+  min-width: 50vw;
+  padding: 1rem;
+  background-color: rgba(51, 51, 51);
   color: #fff;
   font-size: 1.2rem;
-  overflow: scroll;
-  visibility: hidden;
-  padding: 1rem;
+}
+
+dialog > section {
+  position: relative;
+
+  button {
+    position: absolute;
+    right: 0;
+    z-index: 10;
+  }
+}
+
+dialog[open]::backdrop {
+  background-color: rgba(51, 51, 51, 0.6);
 }

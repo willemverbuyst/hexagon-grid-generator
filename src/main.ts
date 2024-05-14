@@ -1,3 +1,4 @@
+import { CloseDialogButton } from "./entities/CloseDialogButton";
 import { CSSButton } from "./entities/CSSButton";
 import { HexagonSection } from "./entities/HexagonSection";
 import { HTMLButton } from "./entities/HTMLButton";
@@ -35,11 +36,12 @@ const {
   mediaQuery_3,
   htmlBtn,
   cssBtn,
-  cssTextField,
-  htmlTextField,
   hexagonContainer,
   hexagonsFirstRowElement,
   numberOfHexagonsElement,
+  dialogElement,
+  dialogCloseBtn,
+  dialogText,
 } = getAndAssertHtmlElements();
 
 function generateHexagonSection() {
@@ -73,11 +75,9 @@ new InputMediaQuery(mediaQuery_1);
 new InputMediaQuery(mediaQuery_2);
 new InputMediaQuery(mediaQuery_3);
 
-new HTMLButton(htmlBtn, cssTextField, htmlTextField, numberOfHexagonsElement);
+new HTMLButton(htmlBtn, numberOfHexagonsElement, dialogElement, dialogText);
 new CSSButton(
   cssBtn,
-  cssTextField,
-  htmlTextField,
   backgroundColor,
   containerSkewX,
   containerSkewY,
@@ -92,4 +92,7 @@ new CSSButton(
   mediaQuery_2,
   mediaQuery_3,
   textColor,
+  dialogElement,
+  dialogText,
 );
+new CloseDialogButton(dialogCloseBtn, dialogElement);
