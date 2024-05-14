@@ -4,7 +4,7 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "architecture": "madge --extensions ts,tsx --exclude \"^.*\\.(test\\.(ts|tsx)|css)$\" --image graph.svg src/",
+    "architecture": "madge --extensions ts,tsx --exclude \"^.*\\.(spec\\.(ts|tsx)|css)$\" --image graph.svg src/",
     "dev": "vite",
     "build": "tsc && vite build",
     "format:check": "prettier --check src",
