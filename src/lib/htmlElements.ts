@@ -24,8 +24,6 @@ export function getElementByIdAndAssert<T extends HTMLElement = HTMLElement>(
 
 const ID_BTN_CSS = "cssBtn";
 const ID_BTN_HTML = "htmlBtn";
-const ID_TEXT_FIELD_CSS = "css";
-const ID_TEXT_FIELD_HTML = "html";
 const ID_HEXAGON_CONTAINER = "hexagon__container";
 const ID_NUMBER_OF_HEXAGONS = "numberOfHexagons";
 const ID_HEXAGON_FIRST_ROW = "hexagon-first-row";
@@ -42,6 +40,9 @@ const ID_HEXAGON_ROTATION = "hexagon-rotation";
 const ID_HEXAGON_TRANSITION = "hexagon-transition";
 const ID_HEXAGON_SCALE = "hexagon-scale";
 const ID_HEXAGON_GAP = "hexagon-gap";
+const ID_DIALOG = "dialog";
+const ID_DIALOG_CLOSE_BTN = "dialog__close-btn";
+const ID_DIALOG_TEXT = "dialog__text";
 
 export function getAndAssertHtmlElements() {
   const numberOfHexagons = getElementByIdAndAssert<HTMLInputElement>(
@@ -74,8 +75,6 @@ export function getAndAssertHtmlElements() {
     getElementByIdAndAssert<HTMLInputElement>(ID_MEDIA_QUERY_2);
   const mediaQuery_3 =
     getElementByIdAndAssert<HTMLInputElement>(ID_MEDIA_QUERY_3);
-  const cssTextField = getElementByIdAndAssert(ID_TEXT_FIELD_CSS);
-  const htmlTextField = getElementByIdAndAssert(ID_TEXT_FIELD_HTML);
   const cssBtn = getElementByIdAndAssert<HTMLButtonElement>(ID_BTN_CSS);
   const htmlBtn = getElementByIdAndAssert<HTMLButtonElement>(ID_BTN_HTML);
   const hexagonContainer = getElementByIdAndAssert(ID_HEXAGON_CONTAINER);
@@ -84,6 +83,10 @@ export function getAndAssertHtmlElements() {
   );
   const hexagonsFirstRowElement =
     getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_FIRST_ROW);
+  const dialogElement = getElementByIdAndAssert<HTMLDialogElement>(ID_DIALOG);
+  const dialogCloseBtn =
+    getElementByIdAndAssert<HTMLButtonElement>(ID_DIALOG_CLOSE_BTN);
+  const dialogText = getElementByIdAndAssert(ID_DIALOG_TEXT);
 
   return {
     numberOfHexagons,
@@ -101,12 +104,13 @@ export function getAndAssertHtmlElements() {
     mediaQuery_1,
     mediaQuery_2,
     mediaQuery_3,
-    cssTextField,
-    htmlTextField,
     cssBtn,
     htmlBtn,
     hexagonContainer,
     numberOfHexagonsElement,
     hexagonsFirstRowElement,
+    dialogElement,
+    dialogCloseBtn,
+    dialogText,
   };
 }

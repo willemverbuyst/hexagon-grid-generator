@@ -3,8 +3,6 @@ import { generateCSSText } from "../lib/textCSS";
 export class CSSButton {
   constructor(
     public btn: HTMLButtonElement,
-    public cssTextField: HTMLElement,
-    public htmlTextField: HTMLElement,
     public backgroundColor: HTMLInputElement,
     public containerSkewX: HTMLInputElement,
     public containerSkewY: HTMLInputElement,
@@ -19,31 +17,33 @@ export class CSSButton {
     public mediaQuery_2: HTMLInputElement,
     public mediaQuery_3: HTMLInputElement,
     public textColor: HTMLInputElement,
+    public dialogElement: HTMLDialogElement,
+    public dialogTextElement: HTMLElement,
   ) {
     this.attachClickHandler();
   }
 
   public attachClickHandler() {
     this.btn.addEventListener("click", () => {
-      this.cssTextField.innerText = generateCSSText({
-        backgroundColor: this.backgroundColor.value,
-        containerSkewX: Number(this.containerSkewX.value),
-        containerSkewY: Number(this.containerSkewY.value),
-        hexagonsFirstRow: Number(this.hexagonsFirstRow.value),
-        hexagonColor: this.hexagonColor.value,
-        hexagonGap: Number(this.hexagonGap.value),
-        hexagonRotation: Number(this.hexagonRotation.value),
-        hexagonScale: Number(this.hexagonScale.value),
-        hexagonSize: Number(this.hexagonSize.value),
-        hexagonTransition: Number(this.hexagonTransition.value),
-        mediaQuery_1: Number(this.mediaQuery_1.value),
-        mediaQuery_2: Number(this.mediaQuery_2.value),
-        mediaQuery_3: Number(this.mediaQuery_3.value),
-        textColor: this.textColor.value,
-      });
-      this.htmlTextField.style.visibility = "hidden";
-      this.cssTextField.style.visibility =
-        this.cssTextField.style.visibility === "visible" ? "hidden" : "visible";
+      if (!this.dialogElement.open) {
+        this.dialogTextElement.innerText = generateCSSText({
+          backgroundColor: this.backgroundColor.value,
+          containerSkewX: Number(this.containerSkewX.value),
+          containerSkewY: Number(this.containerSkewY.value),
+          hexagonsFirstRow: Number(this.hexagonsFirstRow.value),
+          hexagonColor: this.hexagonColor.value,
+          hexagonGap: Number(this.hexagonGap.value),
+          hexagonRotation: Number(this.hexagonRotation.value),
+          hexagonScale: Number(this.hexagonScale.value),
+          hexagonSize: Number(this.hexagonSize.value),
+          hexagonTransition: Number(this.hexagonTransition.value),
+          mediaQuery_1: Number(this.mediaQuery_1.value),
+          mediaQuery_2: Number(this.mediaQuery_2.value),
+          mediaQuery_3: Number(this.mediaQuery_3.value),
+          textColor: this.textColor.value,
+        });
+        this.dialogElement.showModal();
+      }
     });
   }
 }
