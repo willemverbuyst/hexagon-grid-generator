@@ -1,13 +1,12 @@
-import { HexagonSection } from "./HexagonSection";
-import { getAndAssertHtmlElements } from "./htmlElements";
-import { CSSButton } from "./inputs/CSSButton";
-import { HTMLButton } from "./inputs/HTMLButton";
-import { InputFirstRow } from "./inputs/InputFirstRow";
-import { InputGap } from "./inputs/InputGap";
-import { InputMediaQuery } from "./inputs/InputMediaQuery";
-import { InputNumberOfHexagons } from "./inputs/InputNumberOfHexagons";
-import { InputRoot } from "./inputs/InputRoot";
-
+import { CSSButton } from "./entities/CSSButton";
+import { HexagonSection } from "./entities/HexagonSection";
+import { HTMLButton } from "./entities/HTMLButton";
+import { InputFirstRow } from "./entities/InputFirstRow";
+import { InputGap } from "./entities/InputGap";
+import { InputMediaQuery } from "./entities/InputMediaQuery";
+import { InputNumberOfHexagons } from "./entities/InputNumberOfHexagons";
+import { InputRoot } from "./entities/InputRoot";
+import { getAndAssertHtmlElements } from "./lib/htmlElements";
 import "./style.css";
 
 const POSTFIX_PERCENTAGE = "%";

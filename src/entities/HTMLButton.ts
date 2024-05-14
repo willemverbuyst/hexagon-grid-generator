@@ -1,4 +1,4 @@
-import { generateHTMLText } from "../textHTML";
+import { generateHTMLText } from "../lib/textHTML";
 
 export class HTMLButton {
   constructor(

@@ -1,4 +1,4 @@
-import { generateCSSText } from "../textCSS";
+import { generateCSSText } from "../lib/textCSS";
 
 export class CSSButton {
   constructor(

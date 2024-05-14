@@ -1,4 +1,4 @@
-import { generateHexagons } from "./hexagon-functions";
+import { generateHexagons } from "../lib/generateHexagons";
 
 export class HexagonSection {
   constructor(
