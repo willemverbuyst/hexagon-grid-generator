@@ -58,7 +58,7 @@ export function generateHexagons(
 
   let k = 0;
   let hexagonNumber = numberOfHexagonsFirstRow + 1;
-  // eslint-disable-next-line no-loops/no-loops
+
   while (k < totalNumberOfHexagons - numberOfHexagonsFirstRow) {
     if (k === 0 || k % ((numberOfHexagonsFirstRow - 1) * 2 + 1) === 0) {
       fragment.appendChild(
