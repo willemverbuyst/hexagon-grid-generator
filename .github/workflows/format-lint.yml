@@ -9,8 +9,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
       - name: Install dependencies
-        run: yarn
+        run: npm i
       - name: Format
-        run: yarn format:check
+        run: npm run format:check
       - name: Lint
-        run: yarn lint
+        run: npm run lint
