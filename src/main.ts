@@ -15,7 +15,6 @@ const POSTFIX_DEGREE = "deg";
 const POSTFIX_VW = "vw";
 const POSTFIX_SECONDS = "s";
 
-// eslint-disable-next-line no-console
 console.info("🚀 Running the app!");
 
 const {
