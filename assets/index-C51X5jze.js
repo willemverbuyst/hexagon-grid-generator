@@ -11,7 +11,7 @@ var Z=Object.defineProperty;var J=(t,e,n)=>e in t?Z(t,e,{enumerable:!0,configura
     flex-wrap: wrap;
     transform: skew(${n}deg, ${o}deg);
   }
-  `}function k(t,e=t){return`-webkit-clip-path: polygon(
+  `}function k({width:t,height:e=t,unit:n}){return`-webkit-clip-path: polygon(
   0 25%,
   50% 0,
   100% 25%,
@@ -27,11 +27,11 @@ clip-path: polygon(
   50% 100%,
   0 75%
 );
-width: ${t}%;
-height: ${e}%;
+width: ${t}${n};
+height: ${e}${n};
 display: flex;
 justify-content: center;
-align-items: center;`}function te(t){return w(y*t/-4)}function ne(t){return .5*t}function oe(t){const e=w(y*t);return k(t,e)}function re(t,e){const n=te(t),o=oe(t);return`
+align-items: center;`}function te(t){return w(y*t/-4)}function ne(t){return .5*t}function oe(t){const e=w(y*t);return k({height:e,width:t,unit:"vw"})}function re(t,e){const n=te(t),o=oe(t);return`
 	.hexagon__outer {
     margin-top: ${n}vw;
     transition: all ${e}s;
@@ -49,7 +49,7 @@ align-items: center;`}function te(t){return w(y*t/-4)}function ne(t){return .5*t
   .hexagon__outer:nth-child(${t===1?"":t*2-1}n + ${t===1?"":t+1}) {
       margin-left: ${n}vw;
   }
-  `}function se(t,e,n){const o=100-n,r=k(o);return`
+  `}function se(t,e,n){const o=100-n,r=k({width:o,unit:"%"});return`
 	.hexagon__inner {
   background-color: ${t};
   color: ${e};
