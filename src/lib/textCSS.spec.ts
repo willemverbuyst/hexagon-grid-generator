@@ -43,9 +43,14 @@ describe("generateContainerCSS", () => {
 });
 
 describe("generateBasicHexagonCSS", () => {
-  describe("given 90 and 90", () => {
+  describe("given width=90, height=100 and unit is vw", () => {
     it("should return string with basic css for hexagon", () => {
-      expect(generateBasicHexagonCSS(90, 90).replace(/\s/g, "")).toMatch(
+      expect(
+        generateBasicHexagonCSS({ width: 90, height: 100, unit: "vw" }).replace(
+          /\s/g,
+          "",
+        ),
+      ).toMatch(
         `-webkit-clip-path: polygon(
           0 25%,
           50% 0,
@@ -62,16 +67,18 @@ describe("generateBasicHexagonCSS", () => {
           50% 100%,
           0 75%
         );
-        width: 90%;
-        height: 90%;
+        width: 90vw;
+        height: 100vw;
         display: flex;
         justify-content: center;
         align-items: center;`.replace(/\s/g, ""),
       );
     });
 
-    it("should return string with basic css for hexagon with one argument", () => {
-      expect(generateBasicHexagonCSS(70).replace(/\s/g, "")).toMatch(
+    it("should return string with basic css for hexagon when only width and unit is provided", () => {
+      expect(
+        generateBasicHexagonCSS({ width: 70, unit: "%" }).replace(/\s/g, ""),
+      ).toMatch(
         `-webkit-clip-path: polygon(
           0 25%,
           50% 0,
@@ -121,8 +128,8 @@ describe("generateOuterHexagonCSS", () => {
           50% 100%,
           0 75%
         );
-        width: 9%;
-        height:10.39%;
+        width: 9vw;
+        height:10.39vw;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -465,8 +472,8 @@ describe("generateCSSText", () => {
 						50% 100%,
 						0 75%
 					);
-					width: 3%;
-					height:3.46%;
+					width: 3vw;
+					height:3.46vw;
 					display: flex;
 					justify-content: center;
 					align-items: center;

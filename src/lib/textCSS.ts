@@ -30,7 +30,15 @@ export function generateContainerCSS(
   `;
 }
 
-export function generateBasicHexagonCSS(width: number, height = width) {
+export function generateBasicHexagonCSS({
+  width,
+  height = width,
+  unit,
+}: {
+  width: number;
+  height?: number;
+  unit: "%" | "vw";
+}) {
   return `-webkit-clip-path: polygon(
   0 25%,
   50% 0,
@@ -47,8 +55,8 @@ clip-path: polygon(
   50% 100%,
   0 75%
 );
-width: ${width}%;
-height: ${height}%;
+width: ${width}${unit};
+height: ${height}${unit};
 display: flex;
 justify-content: center;
 align-items: center;`;
@@ -63,9 +71,9 @@ function calculateMarginLeft(hexagonSize: number) {
 }
 
 function getHexagonCSS(hexagonSize: number) {
-  const width = roundToTwoDecimals(HEIGHT_TO_WIDTH_RATIO * hexagonSize);
+  const height = roundToTwoDecimals(HEIGHT_TO_WIDTH_RATIO * hexagonSize);
 
-  return generateBasicHexagonCSS(hexagonSize, width);
+  return generateBasicHexagonCSS({ height, width: hexagonSize, unit: "vw" });
 }
 
 export function generateOuterHexagonCSS(
@@ -122,7 +130,10 @@ export function generateInnerHexagonCSS(
   hexagonGap: number,
 ) {
   const percentageInnerHexagon = 100 - hexagonGap;
-  const hexagonCSS = generateBasicHexagonCSS(percentageInnerHexagon);
+  const hexagonCSS = generateBasicHexagonCSS({
+    width: percentageInnerHexagon,
+    unit: "%",
+  });
 
   return `
 	.hexagon__inner {
