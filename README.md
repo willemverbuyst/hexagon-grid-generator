@@ -1,4 +1,4 @@
-[![Tests](https://github.com/willemverbuyst/hexagon-grid-generator/actions/workflows/tests.yml/badge.svg)](https://github.com/willemverbuyst/hexagon-grid-generator/actions/workflows/tests.yml) [![Publish to GitHub Pages](https://github.com/willemverbuyst/hexagon-grid-generator/actions/workflows/publish-to-gh-pages.yml/badge.svg)](https://github.com/willemverbuyst/hexagon-grid-generator/actions/workflows/publish-to-gh-pages.yml)
+[![Tests](https://github.com/willemverbuyst/hexagon-grid-generator/actions/workflows/tests.yml/badge.svg)](https://github.com/willemverbuyst/hexagon-grid-generator/actions/workflows/tests.yml) [![Publish to GitHub Pages](https://github.com/willemverbuyst/hexagon-grid-generator/actions/workflows/publish-to-gh-pages.yml/badge.svg)](https://github.com/willemverbuyst/hexagon-grid-generator/actions/workflows/publish-to-gh-pages.yml) [![Lint GitHub Actions workflows](https://github.com/willemverbuyst/hexagon-grid-generator/actions/workflows/gh-actions-lint.yml/badge.svg)](https://github.com/willemverbuyst/hexagon-grid-generator/actions/workflows/gh-actions-lint.yml)
 
 # Hexagon Grid Generator
 
