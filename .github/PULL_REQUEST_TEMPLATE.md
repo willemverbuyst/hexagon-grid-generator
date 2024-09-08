@@ -1,8 +1,10 @@
-## What is this?
+# PR Template
 
-## How does it work?
+## Synopsis
 
-## How to test?
+## How does this work?
+
+## How to test this PR?
 
 ## Checklist
 
