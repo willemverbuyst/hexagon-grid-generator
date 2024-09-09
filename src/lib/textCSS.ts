@@ -3,12 +3,14 @@ import { roundToTwoDecimals } from "./utils";
 const HEIGHT_TO_WIDTH_RATIO = 1.1547005;
 
 export function generateBackgroundCSS(backgroundColor: string) {
-  return `.hexagon-wrapper {
-  background-color: ${backgroundColor};
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  return `
+  .hexagon-wrapper {
+    background-color: ${backgroundColor};
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
   `;
 }
 
@@ -27,6 +29,7 @@ export function generateContainerCSS(
     flex-wrap: wrap;
     transform: skew(${containerSkewX}deg, ${containerSkewY}deg);
   }
+
   `;
 }
 
@@ -40,26 +43,26 @@ export function generateBasicHexagonCSS({
   unit: "%" | "vw";
 }) {
   return `-webkit-clip-path: polygon(
-  0 25%,
-  50% 0,
-  100% 25%,
-  100% 75%,
-  50% 100%,
-  0 75%
-);
-clip-path: polygon(
-  0 25%,
-  50% 0,
-  100% 25%,
-  100% 75%,
-  50% 100%,
-  0 75%
-);
-width: ${width}${unit};
-height: ${height}${unit};
-display: flex;
-justify-content: center;
-align-items: center;`;
+    0 25%,
+    50% 0,
+    100% 25%,
+    100% 75%,
+    50% 100%,
+    0 75%
+    );
+    clip-path: polygon(
+      0 25%,
+      50% 0,
+      100% 25%,
+      100% 75%,
+      50% 100%,
+      0 75%
+    );
+    width: ${width}${unit};
+    height: ${height}${unit};
+    display: flex;
+    justify-content: center;
+    align-items: center;`;
 }
 
 function calculateMarginTop(hexagonSize: number) {
@@ -84,11 +87,12 @@ export function generateOuterHexagonCSS(
   const hexagonCSS = getHexagonCSS(hexagonSize);
 
   return `
-	.hexagon__outer {
+  .hexagon__outer {
     margin-top: ${marginTop}vw;
     transition: all ${hexagonTransition}s;
     ${hexagonCSS}
   }
+
   `;
 }
 
@@ -96,10 +100,10 @@ export function generateOuterHexagonHoverCSS(
   hexagonScale: number,
   hexagonRotation: number,
 ) {
-  return `
-	.hexagon__outer:hover {
+  return `.hexagon__outer:hover {
     transform: scale(${hexagonScale}) rotate(${hexagonRotation}deg);
   }
+
   `;
 }
 
@@ -110,17 +114,18 @@ export function generateOuterHexagonChildCSS(
   const marginLeft = calculateMarginLeft(hexagonSize);
 
   return `
-	.hexagon__outer:nth-child(${hexagonsFirstRow === 1 ? "n" : "-n"} + ${
+  .hexagon__outer:nth-child(${hexagonsFirstRow === 1 ? "n" : "-n"} + ${
     hexagonsFirstRow === 1 ? 0 : hexagonsFirstRow
   }) {
-      margin-top: 0;
+    margin-top: 0;
   }
 
   .hexagon__outer:nth-child(${
     hexagonsFirstRow === 1 ? "" : hexagonsFirstRow * 2 - 1
   }n + ${hexagonsFirstRow === 1 ? "" : hexagonsFirstRow + 1}) {
-      margin-left: ${marginLeft}vw;
+    margin-left: ${marginLeft}vw;
   }
+
   `;
 }
 
@@ -136,11 +141,12 @@ export function generateInnerHexagonCSS(
   });
 
   return `
-	.hexagon__inner {
-  background-color: ${hexagonColor};
-  color: ${textColor};
-  ${hexagonCSS}
-	}
+  .hexagon__inner {
+    background-color: ${hexagonColor};
+    color: ${textColor};
+    ${hexagonCSS}
+  }
+
 	`;
 }
 
