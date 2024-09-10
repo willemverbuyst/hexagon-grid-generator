@@ -1,8 +1,9 @@
 export function generateHexagonHTML(hexagonNumber: number) {
-  return `<div class="hexagon__outer">
-	  <div class="hexagon__inner">${hexagonNumber}</div>
-	</div>
-  `;
+  return `
+      <div class="hexagon__outer">
+        <div class="hexagon__inner">${hexagonNumber}</div>
+      </div>
+`;
 }
 
 export function generateHexagonsHTML(numberOfHexagons: number) {
@@ -19,13 +20,12 @@ export function generateHexagonsHTML(numberOfHexagons: number) {
 
 export function wrapHTML(html: string) {
   return `
-    <div class="hexagon-wrapper">
-		  <div class="hexagon-wrapper__hexagon-container">
-			
-		    ${html}
-		  </div>
-		</div>
-    `;
+  <div class="hexagon-wrapper">
+    <div class="hexagon-wrapper__hexagon-container">
+      ${html}
+    </div>
+  </div>
+`;
 }
 
 export interface HTMLInputValues {
