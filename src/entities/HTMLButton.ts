@@ -13,7 +13,7 @@ export class HTMLButton {
   public attachClickHandler() {
     this.btn.addEventListener("click", () => {
       if (!this.dialogElement.open) {
-        this.dialogTextElement.innerText = generateHTMLText({
+        this.dialogTextElement.innerHTML = generateHTMLText({
           numberOfHexagons: Number(this.numberOfHexagonsElement.value),
         });
         this.dialogElement.showModal();

@@ -190,8 +190,8 @@ input:focus {
 dialog {
   min-width: 50vw;
   padding: 1rem;
-  background-color: rgba(51, 51, 51);
-  color: #fff;
+  /* background-color: rgba(51, 51, 51); */
+  /* color: #fff; */
   font-size: 1.2rem;
 }
 
@@ -201,10 +201,43 @@ dialog > section {
   button {
     position: absolute;
     right: 0;
+    top: 0;
     z-index: 10;
   }
 }
 
 dialog[open]::backdrop {
   background-color: rgba(51, 51, 51, 0.6);
+}
+
+/* pre {
+  border: 3px solid red;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+} */
+/* 
+code {
+  font-family: "Roboto", monospace;
+  font-size: 14px;
+} */
+
+.html-symbol,
+.css-brace {
+  color: rgb(255, 165, 0);
+}
+
+.html-element,
+.css-value {
+  color: rgb(9, 125, 125);
+}
+
+.html-attribute,
+.css-selector {
+  color: rgb(229, 93, 116);
+}
+
+.css-property {
+  color: rgb(8, 2, 54);
 }
