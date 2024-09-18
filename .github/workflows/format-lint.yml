@@ -1,6 +1,10 @@
 name: Format & Lint
 
-on: [pull_request]
+on:
+  push:
+    branches: ["development", "main"]
+  pull_request:
+    branches: ["development", "main"]
 
 jobs:
   format-and-lint:
