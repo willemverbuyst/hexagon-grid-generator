@@ -1,3 +1,4 @@
+import { highlightCSS } from "../lib/highlightText";
 import { generateCSSText } from "../lib/textCSS";
 
 export class CSSButton {
@@ -19,6 +20,7 @@ export class CSSButton {
     public textColor: HTMLInputElement,
     public dialogElement: HTMLDialogElement,
     public dialogTextElement: HTMLElement,
+    public dialogTitle: HTMLElement,
   ) {
     this.attachClickHandler();
   }
@@ -26,7 +28,8 @@ export class CSSButton {
   public attachClickHandler() {
     this.btn.addEventListener("click", () => {
       if (!this.dialogElement.open) {
-        this.dialogTextElement.innerText = generateCSSText({
+        this.dialogTitle.innerText = "CSS";
+        const generatedCSS = generateCSSText({
           backgroundColor: this.backgroundColor.value,
           containerSkewX: Number(this.containerSkewX.value),
           containerSkewY: Number(this.containerSkewY.value),
@@ -42,6 +45,8 @@ export class CSSButton {
           mediaQuery_3: Number(this.mediaQuery_3.value),
           textColor: this.textColor.value,
         });
+        const highlightedCSS = highlightCSS(generatedCSS);
+        this.dialogTextElement.innerHTML = highlightedCSS;
         this.dialogElement.showModal();
       }
     });
