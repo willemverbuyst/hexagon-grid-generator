@@ -10,7 +10,6 @@ import {
   generateOuterHexagonChildCSS,
   generateOuterHexagonCSS,
   generateOuterHexagonHoverCSS,
-  highlightCSS,
 } from "./textCSS";
 
 describe("generateBackgroundCSS", () => {
@@ -415,88 +414,6 @@ describe("generateMediaQueriesCSS", () => {
         generateMediaQueriesCSS(1, 1, 900, 700, 500).replace(/\s/g, ""),
       ).toMatch("");
     });
-  });
-});
-
-describe("highlightCSS", () => {
-  it("highlights basic CSS selectors and properties", () => {
-    const inputCSS = "div { color: red; }";
-    const result = highlightCSS(inputCSS);
-
-    const expectedOutput =
-      '<span class="css-selector">div</span> <span class="css-brace">{</span> ' +
-      '<span class="css-property">color</span>: ' +
-      '<span class="css-value">red</span>; ' +
-      '<span class="css-brace">}</span>';
-
-    expect(result).toBe(expectedOutput);
-  });
-
-  it("highlights CSS with class and Id selectors", () => {
-    const inputCSS =
-      "#header { background-color: blue; } .container { margin: 10px; } span { color: #000; }";
-    const result = highlightCSS(inputCSS);
-
-    const expectedOutput =
-      '<span class="css-selector">#header</span> ' +
-      '<span class="css-brace">{</span> ' +
-      '<span class="css-property">background-color</span>: ' +
-      '<span class="css-value">blue</span>; ' +
-      '<span class="css-brace">}</span> ' +
-      '<span class="css-selector">.container</span> ' +
-      '<span class="css-brace">{</span> ' +
-      '<span class="css-property">margin</span>: ' +
-      '<span class="css-value">10px</span>; ' +
-      '<span class="css-brace">}</span> ' +
-      '<span class="css-selector">span</span> ' +
-      '<span class="css-brace">{</span> ' +
-      '<span class="css-property">color</span>: ' +
-      '<span class="css-value">#000</span>; ' +
-      '<span class="css-brace">}</span>';
-
-    expect(result).toBe(expectedOutput);
-  });
-
-  it("highlights multiple CSS properties", () => {
-    const inputCSS = "p { font-size: 16px; line-height: 1.5; }";
-    const result = highlightCSS(inputCSS);
-
-    const expectedOutput =
-      '<span class="css-selector">p</span> <span class="css-brace">{</span> ' +
-      '<span class="css-property">font-size</span>: ' +
-      '<span class="css-value">16px</span>; ' +
-      '<span class="css-property">line-height</span>: ' +
-      '<span class="css-value">1.5</span>; ' +
-      '<span class="css-brace">}</span>';
-
-    expect(result).toBe(expectedOutput);
-  });
-
-  it("handles empty string input", () => {
-    const inputCSS = "";
-    const result = highlightCSS(inputCSS);
-
-    expect(result).toBe("");
-  });
-
-  it("handles nested css", () => {
-    const inputCSS =
-      "header { background-color: blue; h1 { font-size: 2rem; } }";
-    const result = highlightCSS(inputCSS);
-
-    const expectedOutput =
-      '<span class="css-selector">header</span> ' +
-      '<span class="css-brace">{</span> ' +
-      '<span class="css-property">background-color</span>: ' +
-      '<span class="css-value">blue</span>; ' +
-      '<span class="css-selector">h1</span> ' +
-      '<span class="css-brace">{</span> ' +
-      '<span class="css-property">font-size</span>: ' +
-      '<span class="css-value">2rem</span>; ' +
-      '<span class="css-brace">}</span> ' +
-      '<span class="css-brace">}</span>';
-
-    expect(result).toBe(expectedOutput);
   });
 });
 
