@@ -10,6 +10,7 @@ import {
   generateOuterHexagonChildCSS,
   generateOuterHexagonCSS,
   generateOuterHexagonHoverCSS,
+  highlightCSS,
 } from "./textCSS";
 
 describe("generateBackgroundCSS", () => {
@@ -417,6 +418,88 @@ describe("generateMediaQueriesCSS", () => {
   });
 });
 
+describe("highlightCSS", () => {
+  it("highlights basic CSS selectors and properties", () => {
+    const inputCSS = "div { color: red; }";
+    const result = highlightCSS(inputCSS);
+
+    const expectedOutput =
+      '<span class="css-selector">div</span> <span class="css-brace">{</span> ' +
+      '<span class="css-property">color</span>: ' +
+      '<span class="css-value">red</span>; ' +
+      '<span class="css-brace">}</span>';
+
+    expect(result).toBe(expectedOutput);
+  });
+
+  it("highlights CSS with class and Id selectors", () => {
+    const inputCSS =
+      "#header { background-color: blue; } .container { margin: 10px; } span { color: #000; }";
+    const result = highlightCSS(inputCSS);
+
+    const expectedOutput =
+      '<span class="css-selector">#header</span> ' +
+      '<span class="css-brace">{</span> ' +
+      '<span class="css-property">background-color</span>: ' +
+      '<span class="css-value">blue</span>; ' +
+      '<span class="css-brace">}</span> ' +
+      '<span class="css-selector">.container</span> ' +
+      '<span class="css-brace">{</span> ' +
+      '<span class="css-property">margin</span>: ' +
+      '<span class="css-value">10px</span>; ' +
+      '<span class="css-brace">}</span> ' +
+      '<span class="css-selector">span</span> ' +
+      '<span class="css-brace">{</span> ' +
+      '<span class="css-property">color</span>: ' +
+      '<span class="css-value">#000</span>; ' +
+      '<span class="css-brace">}</span>';
+
+    expect(result).toBe(expectedOutput);
+  });
+
+  it("highlights multiple CSS properties", () => {
+    const inputCSS = "p { font-size: 16px; line-height: 1.5; }";
+    const result = highlightCSS(inputCSS);
+
+    const expectedOutput =
+      '<span class="css-selector">p</span> <span class="css-brace">{</span> ' +
+      '<span class="css-property">font-size</span>: ' +
+      '<span class="css-value">16px</span>; ' +
+      '<span class="css-property">line-height</span>: ' +
+      '<span class="css-value">1.5</span>; ' +
+      '<span class="css-brace">}</span>';
+
+    expect(result).toBe(expectedOutput);
+  });
+
+  it("handles empty string input", () => {
+    const inputCSS = "";
+    const result = highlightCSS(inputCSS);
+
+    expect(result).toBe("");
+  });
+
+  it("handles nested css", () => {
+    const inputCSS =
+      "header { background-color: blue; h1 { font-size: 2rem; } }";
+    const result = highlightCSS(inputCSS);
+
+    const expectedOutput =
+      '<span class="css-selector">header</span> ' +
+      '<span class="css-brace">{</span> ' +
+      '<span class="css-property">background-color</span>: ' +
+      '<span class="css-value">blue</span>; ' +
+      '<span class="css-selector">h1</span> ' +
+      '<span class="css-brace">{</span> ' +
+      '<span class="css-property">font-size</span>: ' +
+      '<span class="css-value">2rem</span>; ' +
+      '<span class="css-brace">}</span> ' +
+      '<span class="css-brace">}</span>';
+
+    expect(result).toBe(expectedOutput);
+  });
+});
+
 describe("generateCSSText", () => {
   describe("given input values ", () => {
     it("should return text for css", () => {
@@ -437,162 +520,8 @@ describe("generateCSSText", () => {
           mediaQuery_3: 500,
           textColor: "#fff",
         }).replace(/\s/g, ""),
-      ).toMatch(
-        `
-				.hexagon-wrapper {
-					background-color: #f1f1f1;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-				}
-
-				.hexagon-wrapper__hexagon-container {
-					width: 12vw;
-					display: flex;
-					flex-wrap: wrap;
-					transform: skew(2deg, 1deg);
-				}
-
-				.hexagon__outer {
-					margin-top: -0.87vw;
-					transition: all 4s;
-					-webkit-clip-path: polygon(
-					0 25%,
-					50% 0,
-					100% 25%,
-					100% 75%,
-					50% 100%,
-					0 75%
-					);
-					clip-path: polygon(
-						0 25%,
-						50% 0,
-						100% 25%,
-						100% 75%,
-						50% 100%,
-						0 75%
-					);
-					width: 3vw;
-					height:3.46vw;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-				}
-
-				.hexagon__outer:hover {
-					transform: scale(1) rotate(2deg);
-				}
-
-				.hexagon__outer:nth-child(-n + 4) {
-          margin-top: 0;
-        }
-      
-        .hexagon__outer:nth-child(7n + 5) {
-            margin-left: 1.5vw;
-				}
-			
-				.hexagon__inner {
-					background-color: #333;
-					color: #fff;
-					-webkit-clip-path: polygon(
-					0 25%,
-					50% 0,
-					100% 25%,
-					100% 75%,
-					50% 100%,
-					0 75%
-					);
-					clip-path: polygon(
-						0 25%,
-						50% 0,
-						100% 25%,
-						100% 75%,
-						50% 100%,
-						0 75%
-					);
-					width: 80%;
-					height: 80%;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-				}
-				
-				@media (max-width: 900px) {
-          .hexagon-wrapper__hexagon-container {
-            width: 9vw;
-          }
-        
-          /* reset */
-          .hexagon__outer:nth-child(-n + 4) {
-            margin-top: -0.87vw;
-          }
-      
-          /* reset */
-          .hexagon__outer:nth-child(7n + 5) {
-            margin-left: 0;
-          }
-      
-          .hexagon__outer:nth-child(-n + 3) {
-            margin-top: 0;
-          }
-      
-          .hexagon__outer:nth-child(5n + 4) {
-            margin-left: 1.5vw;
-          }
-        }
-
-				@media (max-width: 700px) {
-          html {
-            font-size: 50%;
-          }
-
-          .hexagon-wrapper__hexagon-container {
-            width: 6vw;
-          }
-
-          /* reset */
-          .hexagon__outer:nth-child(-n + 3) {
-            margin-top: -0.87vw;
-          }
-
-          /* reset */
-          .hexagon__outer:nth-child(5n + 4) {
-            margin-left: 0;
-          }
-
-          .hexagon__outer:nth-child(-n + 2) {
-            margin-top: 0;
-          }
-
-          .hexagon__outer:nth-child(3n + 3) {
-            margin-left: 1.5vw;
-          }
-        }
-
-				@media (max-width: 500px) {
-          .hexagon-wrapper__hexagon-container {
-              width: 3vw;
-          }
-
-	        /* reset */
-	        .hexagon__outer:nth-child(-n + 2) {
-	          margin-top: -0.87vw;
-	        }
-
-	        /* reset */
-	        .hexagon__outer:nth-child(3n + 3) {
-	          margin-left: 0;
-	        }
-
-	        .hexagon__outer:nth-child(n + 0) {
-	          margin-top: 0;
-	        }
-
-	        .hexagon__outer:nth-child(0n + 0) {
-	          margin-left: 1.5vw;
-	        }
-	      }
-        `.replace(/\s/g, ""),
+      ).toBe(
+        '<spanclass="css-selector">.hexagon-wrapper</span><spanclass="css-brace">{</span><spanclass="css-property">background-color</span>:<spanclass="css-value">#f1f1f1</span>;<spanclass="css-property">display</span>:<spanclass="css-value">flex</span>;<spanclass="css-property">justify-content</span>:<spanclass="css-value">center</span>;<spanclass="css-property">align-items</span>:<spanclass="css-value">center</span>;<spanclass="css-brace">}</span><spanclass="css-selector">.hexagon-wrapper__hexagon-container</span><spanclass="css-brace">{</span><spanclass="css-property">width</span>:<spanclass="css-value">12vw</span>;<spanclass="css-property">display</span>:<spanclass="css-value">flex</span>;<spanclass="css-property">flex-wrap</span>:<spanclass="css-value">wrap</span>;<spanclass="css-property">transform</span>:<spanclass="css-value">skew(2deg,1deg)</span>;<spanclass="css-brace">}</span><spanclass="css-selector">.hexagon__outer</span><spanclass="css-brace">{</span><spanclass="css-property">margin-top</span>:<spanclass="css-value">-0.87vw</span>;<spanclass="css-property">transition</span>:<spanclass="css-value">all4s</span>;<spanclass="css-property">-webkit-clip-path</span>:<spanclass="css-value">polygon(025%,50%0,100%25%,100%75%,50%100%,075%)</span>;<spanclass="css-property">clip-path</span>:<spanclass="css-value">polygon(025%,50%0,100%25%,100%75%,50%100%,075%)</span>;<spanclass="css-property">width</span>:<spanclass="css-value">3vw</span>;<spanclass="css-property">height</span>:<spanclass="css-value">3.46vw</span>;<spanclass="css-property">display</span>:<spanclass="css-value">flex</span>;<spanclass="css-property">justify-content</span>:<spanclass="css-value">center</span>;<spanclass="css-property">align-items</span>:<spanclass="css-value">center</span>;<spanclass="css-brace">}</span>.hexagon__<spanclass="css-property">outer</span>:<spanclass="css-value"><spanclass="css-selector">hover</span><spanclass="css-brace">{</span>transform:scale(1)rotate(2deg)</span>;<spanclass="css-brace">}</span>.hexagon__<spanclass="css-property">outer</span>:<spanclass="css-value">nth-child(-n+4)<spanclass="css-brace">{</span>margin-top:0</span>;<spanclass="css-brace">}</span>.hexagon__<spanclass="css-property">outer</span>:<spanclass="css-value">nth-child(7n+5)<spanclass="css-brace">{</span>margin-left:1.5vw</span>;<spanclass="css-brace">}</span><spanclass="css-selector">.hexagon__inner</span><spanclass="css-brace">{</span><spanclass="css-property">background-color</span>:<spanclass="css-value">#333</span>;<spanclass="css-property">color</span>:<spanclass="css-value">#fff</span>;<spanclass="css-property">-webkit-clip-path</span>:<spanclass="css-value">polygon(025%,50%0,100%25%,100%75%,50%100%,075%)</span>;<spanclass="css-property">clip-path</span>:<spanclass="css-value">polygon(025%,50%0,100%25%,100%75%,50%100%,075%)</span>;<spanclass="css-property">width</span>:<spanclass="css-value">80%</span>;<spanclass="css-property">height</span>:<spanclass="css-value">80%</span>;<spanclass="css-property">display</span>:<spanclass="css-value">flex</span>;<spanclass="css-property">justify-content</span>:<spanclass="css-value">center</span>;<spanclass="css-property">align-items</span>:<spanclass="css-value">center</span>;<spanclass="css-brace">}</span>@media(<spanclass="css-property">max-width</span>:<spanclass="css-value">900px)<spanclass="css-brace">{</span><spanclass="css-selector">.hexagon-wrapper__hexagon-container</span><spanclass="css-brace">{</span>width:9vw</span>;<spanclass="css-brace">}</span>/*reset*/.hexagon__<spanclass="css-property">outer</span>:<spanclass="css-value">nth-child(-n+4)<spanclass="css-brace">{</span>margin-top:-0.87vw</span>;<spanclass="css-brace">}</span>/*reset*/.hexagon__<spanclass="css-property">outer</span>:<spanclass="css-value">nth-child(7n+5)<spanclass="css-brace">{</span>margin-left:0</span>;<spanclass="css-brace">}</span>.hexagon__<spanclass="css-property">outer</span>:<spanclass="css-value">nth-child(-n+3)<spanclass="css-brace">{</span>margin-top:0</span>;<spanclass="css-brace">}</span>.hexagon__<spanclass="css-property">outer</span>:<spanclass="css-value">nth-child(5n+4)<spanclass="css-brace">{</span>margin-left:1.5vw</span>;<spanclass="css-brace">}</span><spanclass="css-brace">}</span>@media(<spanclass="css-property">max-width</span>:<spanclass="css-value">700px)<spanclass="css-brace">{</span><spanclass="css-selector">html</span><spanclass="css-brace">{</span>font-size:50%</span>;<spanclass="css-brace">}</span><spanclass="css-selector">.hexagon-wrapper__hexagon-container</span><spanclass="css-brace">{</span><spanclass="css-property">width</span>:<spanclass="css-value">6vw</span>;<spanclass="css-brace">}</span>/*reset*/.hexagon__<spanclass="css-property">outer</span>:<spanclass="css-value">nth-child(-n+3)<spanclass="css-brace">{</span>margin-top:-0.87vw</span>;<spanclass="css-brace">}</span>/*reset*/.hexagon__<spanclass="css-property">outer</span>:<spanclass="css-value">nth-child(5n+4)<spanclass="css-brace">{</span>margin-left:0</span>;<spanclass="css-brace">}</span>.hexagon__<spanclass="css-property">outer</span>:<spanclass="css-value">nth-child(-n+2)<spanclass="css-brace">{</span>margin-top:0</span>;<spanclass="css-brace">}</span>.hexagon__<spanclass="css-property">outer</span>:<spanclass="css-value">nth-child(3n+3)<spanclass="css-brace">{</span>margin-left:1.5vw</span>;<spanclass="css-brace">}</span><spanclass="css-brace">}</span>@media(<spanclass="css-property">max-width</span>:<spanclass="css-value">500px)<spanclass="css-brace">{</span><spanclass="css-selector">.hexagon-wrapper__hexagon-container</span><spanclass="css-brace">{</span>width:3vw</span>;<spanclass="css-brace">}</span>/*reset*/.hexagon__<spanclass="css-property">outer</span>:<spanclass="css-value">nth-child(-n+2)<spanclass="css-brace">{</span>margin-top:-0.87vw</span>;<spanclass="css-brace">}</span>/*reset*/.hexagon__<spanclass="css-property">outer</span>:<spanclass="css-value">nth-child(3n+3)<spanclass="css-brace">{</span>margin-left:0</span>;<spanclass="css-brace">}</span>.hexagon__<spanclass="css-property">outer</span>:<spanclass="css-value">nth-child(n+0)<spanclass="css-brace">{</span>margin-top:0</span>;<spanclass="css-brace">}</span>.hexagon__<spanclass="css-property">outer</span>:<spanclass="css-value">nth-child(0n+0)<spanclass="css-brace">{</span>margin-left:1.5vw</span>;<spanclass="css-brace">}</span><spanclass="css-brace">}</span>',
       );
     });
   });
