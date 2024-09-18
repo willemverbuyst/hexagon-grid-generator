@@ -7,17 +7,18 @@
   </head>
 
   <body>
-    <header>
-      <section>
-        <h1 class="header__brand">Hexagon Grid Generator</h1>
-      </section>
-      <section class="header__section-buttons">
-        <button class="header__button" id="cssBtn">css</button>
-        <button class="header__button" id="htmlBtn">html</button>
-      </section>
-    </header>
-
     <main>
+      <section class="header">
+        <header>
+          <h1 class="header__brand">Hexagon Grid Generator</h1>
+        </header>
+
+        <section class="header__section-buttons">
+          <button class="header__button" id="cssBtn">css</button>
+          <button class="header__button" id="htmlBtn">html</button>
+        </section>
+      </section>
+
       <section class="generator">
         <section class="hexagon-wrapper">
           <div
@@ -27,8 +28,8 @@
         </section>
       </section>
 
-      <section>
-        <form autocomplete="off" class="controls">
+      <section class="controls">
+        <form autocomplete="off" class="controls__input">
           <p class="input-field">
             <label for="bg-color" class="input-field__label"
               >Background Color</label
