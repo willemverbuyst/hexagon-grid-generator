@@ -1,5 +1,3 @@
-import { highlightHTML } from "./highlightText";
-
 export function generateHexagonHTML(hexagonNumber: number) {
   const hexagon = `
     <div class="hexagon__outer">
@@ -41,5 +39,5 @@ export function generateHTMLText({ numberOfHexagons }: HTMLInputValues) {
   const hexagonsHTML = generateHexagonsHTML(numberOfHexagons);
   const htmlText = wrapHTML(hexagonsHTML);
 
-  return highlightHTML(htmlText);
+  return htmlText;
 }

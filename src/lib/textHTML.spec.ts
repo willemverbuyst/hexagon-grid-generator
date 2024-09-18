@@ -69,32 +69,15 @@ describe("wrapHTML", () => {
 
 describe("generateHTMLText", () => {
   describe("given 0", () => {
-    it("should return the wrapper html", () => {
+    it("should return anly the wrapper html", () => {
       expect(
         generateHTMLText({ numberOfHexagons: 0 }).replace(/\s/g, ""),
       ).toMatch(
-        (
-          '<span class="html-symbol">&lt;</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-attribute">class</span>' +
-          '<span class="html-symbol">="</span>' +
-          '<span class="html-attribute">hexagon-wrapper</span>' +
-          '<span class="html-symbol">"</span>' +
-          '<span class="html-symbol">&gt;</span>' +
-          '<span class="html-symbol">&lt;</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-attribute">class</span>' +
-          '<span class="html-symbol">="</span>' +
-          '<span class="html-attribute">hexagon-wrapper__hexagon-container</span>' +
-          '<span class="html-symbol">"</span>' +
-          '<span class="html-symbol">&gt;</span>' +
-          '<span class="html-symbol">&lt;/</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-symbol">&gt;</span>' +
-          '<span class="html-symbol">&lt;/</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-symbol">&gt;</span>'
-        ).replace(/\s/g, ""),
+        `<div class="hexagon-wrapper">
+		      <div class="hexagon-wrapper__hexagon-container">
+		      </div>
+		    </div>
+        `.replace(/\s/g, ""),
       );
     });
   });
@@ -104,48 +87,14 @@ describe("generateHTMLText", () => {
       expect(
         generateHTMLText({ numberOfHexagons: 1 }).replace(/\s/g, ""),
       ).toMatch(
-        (
-          '<span class="html-symbol">&lt;</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-attribute">class</span>' +
-          '<span class="html-symbol">="</span>' +
-          '<span class="html-attribute">hexagon-wrapper</span>' +
-          '<span class="html-symbol">"</span>' +
-          '<span class="html-symbol">&gt;</span>' +
-          '<span class="html-symbol">&lt;</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-attribute">class</span>' +
-          '<span class="html-symbol">="</span>' +
-          '<span class="html-attribute">hexagon-wrapper__hexagon-container</span>' +
-          '<span class="html-symbol">"</span>' +
-          '<span class="html-symbol">&gt;</span>' +
-          '<span class="html-symbol">&lt;</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-attribute">class</span>' +
-          '<span class="html-symbol">="</span>' +
-          '<span class="html-attribute">hexagon__outer</span>' +
-          '<span class="html-symbol">"</span>' +
-          '<span class="html-symbol">&gt;</span>' +
-          '<span class="html-symbol">&lt;</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-attribute">class</span>' +
-          '<span class="html-symbol">="</span>' +
-          '<span class="html-attribute">hexagon__inner</span>' +
-          '<span class="html-symbol">"</span>' +
-          '<span class="html-symbol">&gt;</span>1' +
-          '<span class="html-symbol">&lt;/</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-symbol">&gt;</span>' +
-          '<span class="html-symbol">&lt;/</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-symbol">&gt;</span>' +
-          '<span class="html-symbol">&lt;/</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-symbol">&gt;</span>' +
-          '<span class="html-symbol">&lt;/</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-symbol">&gt;</span>'
-        ).replace(/\s/g, ""),
+        `<div class="hexagon-wrapper">
+          <div class="hexagon-wrapper__hexagon-container">
+            <div class="hexagon__outer">
+              <div class="hexagon__inner">1</div>
+            </div>
+          </div>
+        </div>
+				`.replace(/\s/g, ""),
       );
     });
   });
@@ -155,68 +104,17 @@ describe("generateHTMLText", () => {
       expect(
         generateHTMLText({ numberOfHexagons: 2 }).replace(/\s/g, ""),
       ).toMatch(
-        (
-          '<span class="html-symbol">&lt;</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-attribute">class</span>' +
-          '<span class="html-symbol">="</span>' +
-          '<span class="html-attribute">hexagon-wrapper</span>' +
-          '<span class="html-symbol">"</span>' +
-          '<span class="html-symbol">&gt;</span>' +
-          '<span class="html-symbol">&lt;</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-attribute">class</span>' +
-          '<span class="html-symbol">="</span>' +
-          '<span class="html-attribute">hexagon-wrapper__hexagon-container</span>' +
-          '<span class="html-symbol">"</span>' +
-          '<span class="html-symbol">&gt;</span>' +
-          '<span class="html-symbol">&lt;</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-attribute">class</span>' +
-          '<span class="html-symbol">="</span>' +
-          '<span class="html-attribute">hexagon__outer</span>' +
-          '<span class="html-symbol">"</span>' +
-          '<span class="html-symbol">&gt;</span>' +
-          '<span class="html-symbol">&lt;</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-attribute">class</span>' +
-          '<span class="html-symbol">="</span>' +
-          '<span class="html-attribute">hexagon__inner</span>' +
-          '<span class="html-symbol">"</span>' +
-          '<span class="html-symbol">&gt;</span>1' +
-          '<span class="html-symbol">&lt;/</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-symbol">&gt;</span>' +
-          '<span class="html-symbol">&lt;/</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-symbol">&gt;</span>' +
-          '<span class="html-symbol">&lt;</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-attribute">class</span>' +
-          '<span class="html-symbol">="</span>' +
-          '<span class="html-attribute">hexagon__outer</span>' +
-          '<span class="html-symbol">"</span>' +
-          '<span class="html-symbol">&gt;</span>' +
-          '<span class="html-symbol">&lt;</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-attribute">class</span>' +
-          '<span class="html-symbol">="</span>' +
-          '<span class="html-attribute">hexagon__inner</span>' +
-          '<span class="html-symbol">"</span>' +
-          '<span class="html-symbol">&gt;</span>2' +
-          '<span class="html-symbol">&lt;/</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-symbol">&gt;</span>' +
-          '<span class="html-symbol">&lt;/</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-symbol">&gt;</span>' +
-          '<span class="html-symbol">&lt;/</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-symbol">&gt;</span>' +
-          '<span class="html-symbol">&lt;/</span>' +
-          '<span class="html-element">div</span>' +
-          '<span class="html-symbol">&gt;</span>'
-        ).replace(/\s/g, ""),
+        `<div class="hexagon-wrapper">
+		      <div class="hexagon-wrapper__hexagon-container">
+            <div class="hexagon__outer">
+              <div class="hexagon__inner">1</div>
+            </div>
+            <div class="hexagon__outer">
+              <div class="hexagon__inner">2</div>
+            </div>
+		      </div>
+		    </div>
+				`.replace(/\s/g, ""),
       );
     });
   });

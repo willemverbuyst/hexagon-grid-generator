@@ -1,3 +1,4 @@
+import { highlightHTML } from "../lib/highlightText";
 import { generateHTMLText } from "../lib/textHTML";
 
 export class HTMLButton {
@@ -15,9 +16,11 @@ export class HTMLButton {
     this.btn.addEventListener("click", () => {
       if (!this.dialogElement.open) {
         this.dialogTitle.innerText = "HTML";
-        this.dialogTextElement.innerHTML = generateHTMLText({
+        const generatedHTML = generateHTMLText({
           numberOfHexagons: Number(this.numberOfHexagonsElement.value),
         });
+        const highlightedHTML = highlightHTML(generatedHTML);
+        this.dialogTextElement.innerHTML = highlightedHTML;
         this.dialogElement.showModal();
       }
     });

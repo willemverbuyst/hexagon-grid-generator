@@ -1,4 +1,3 @@
-import { highlightCSS } from "./highlightText";
 import { roundToTwoDecimals } from "./utils";
 
 const HEIGHT_TO_WIDTH_RATIO = 1.1547005;
@@ -314,5 +313,5 @@ export function generateCSSText({
     innerHexagonCSSText +
     mediaQueriesCSS;
 
-  return highlightCSS(displayCSS);
+  return displayCSS;
 }
