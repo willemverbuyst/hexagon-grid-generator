@@ -6,6 +6,7 @@ export class HTMLButton {
     public numberOfHexagonsElement: HTMLInputElement,
     public dialogElement: HTMLDialogElement,
     public dialogTextElement: HTMLElement,
+    public dialogTitle: HTMLElement,
   ) {
     this.attachClickHandler();
   }
@@ -13,6 +14,7 @@ export class HTMLButton {
   public attachClickHandler() {
     this.btn.addEventListener("click", () => {
       if (!this.dialogElement.open) {
+        this.dialogTitle.innerText = "HTML";
         this.dialogTextElement.innerHTML = generateHTMLText({
           numberOfHexagons: Number(this.numberOfHexagonsElement.value),
         });

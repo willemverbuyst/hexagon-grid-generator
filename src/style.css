@@ -190,19 +190,23 @@ main {
 dialog {
   min-width: 50vw;
   padding: 1rem;
-  /* background-color: rgba(51, 51, 51); */
-  /* color: #fff; */
   font-size: 1.2rem;
   position: relative;
 
-  .dialog__btns {
-    width: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 10;
+  .dialog__header {
     display: flex;
-    gap: 1rem;
-    justify-content: end;
+    justify-content: space-between;
+    align-items: center;
+
+    .dialog__btns {
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      gap: 1rem;
+      justify-content: end;
+    }
   }
 
   dialog[open]::backdrop {
@@ -210,7 +214,8 @@ dialog {
   }
 
   pre {
-    padding: 2rem;
+    padding: 0 2rem;
+    margin: 0;
 
     code {
       .html-symbol,

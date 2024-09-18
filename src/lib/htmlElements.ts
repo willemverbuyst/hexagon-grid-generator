@@ -44,6 +44,7 @@ const ID_DIALOG = "dialog";
 const ID_DIALOG_CLOSE_BTN = "dialog__close-btn";
 const ID_DIALOG_COPY_BTN = "dialog__copy-btn";
 const ID_DIALOG_TEXT = "dialog__text";
+const ID_DIALOG_TITLE = "dialog__title";
 
 export function getAndAssertHtmlElements() {
   const numberOfHexagons = getElementByIdAndAssert<HTMLInputElement>(
@@ -90,6 +91,7 @@ export function getAndAssertHtmlElements() {
   const dialogCopyBtn =
     getElementByIdAndAssert<HTMLButtonElement>(ID_DIALOG_COPY_BTN);
   const dialogText = getElementByIdAndAssert(ID_DIALOG_TEXT);
+  const dialogTitle = getElementByIdAndAssert(ID_DIALOG_TITLE);
 
   return {
     numberOfHexagons,
@@ -116,5 +118,6 @@ export function getAndAssertHtmlElements() {
     dialogCloseBtn,
     dialogCopyBtn,
     dialogText,
+    dialogTitle,
   };
 }
