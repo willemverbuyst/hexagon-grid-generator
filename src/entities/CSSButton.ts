@@ -26,7 +26,7 @@ export class CSSButton {
   public attachClickHandler() {
     this.btn.addEventListener("click", () => {
       if (!this.dialogElement.open) {
-        this.dialogTextElement.innerText = generateCSSText({
+        this.dialogTextElement.innerHTML = generateCSSText({
           backgroundColor: this.backgroundColor.value,
           containerSkewX: Number(this.containerSkewX.value),
           containerSkewY: Number(this.containerSkewY.value),
