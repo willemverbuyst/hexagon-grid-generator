@@ -119,10 +119,10 @@ main {
     align-items: center;
     margin-top: var(--margin-top);
     transition: all var(--hover-transition);
-  }
 
-  .hexagon__outer:hover {
-    transform: scale(var(--hover-scale)) rotate(var(--hover-rotation));
+    &:hover {
+      transform: scale(var(--hover-scale)) rotate(var(--hover-rotation));
+    }
   }
 
   .first-row__margin-top {
