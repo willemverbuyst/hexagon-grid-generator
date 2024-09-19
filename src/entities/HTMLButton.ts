@@ -1,3 +1,4 @@
+import DOMPurify from "dompurify";
 import { highlightHTML } from "../lib/highlightText";
 import { generateHTMLText } from "../lib/textHTML";
 
@@ -20,7 +21,7 @@ export class HTMLButton {
           numberOfHexagons: Number(this.numberOfHexagonsElement.value),
         });
         const highlightedHTML = highlightHTML(generatedHTML);
-        this.dialogTextElement.innerHTML = highlightedHTML;
+        this.dialogTextElement.innerHTML = DOMPurify.sanitize(highlightedHTML);
         this.dialogElement.showModal();
       }
     });

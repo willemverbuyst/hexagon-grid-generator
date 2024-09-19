@@ -1,3 +1,4 @@
+import DOMPurify from "dompurify";
 import { highlightCSS } from "../lib/highlightText";
 import { generateCSSText } from "../lib/textCSS";
 
@@ -46,7 +47,7 @@ export class CSSButton {
           textColor: this.textColor.value,
         });
         const highlightedCSS = highlightCSS(generatedCSS);
-        this.dialogTextElement.innerHTML = highlightedCSS;
+        this.dialogTextElement.innerHTML = DOMPurify.sanitize(highlightedCSS);
         this.dialogElement.showModal();
       }
     });
