@@ -6,5 +6,8 @@ export default defineConfig({
     mockReset: true,
     exclude: ["**/node_modules/**", "**/dist/**", "**/e2e/**"],
     environment: "happy-dom",
+    coverage: {
+      include: ["**/src/**"],
+    },
   },
 });
