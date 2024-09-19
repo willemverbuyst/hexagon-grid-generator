@@ -7,17 +7,18 @@
   </head>
 
   <body>
-    <header>
-      <section>
-        <h1 class="header__brand">Hexagon Grid Generator</h1>
-      </section>
-      <section class="header__section-buttons">
-        <button class="header__button" id="cssBtn">css</button>
-        <button class="header__button" id="htmlBtn">html</button>
-      </section>
-    </header>
-
     <main>
+      <section class="header">
+        <header>
+          <h1 class="header__brand">Hexagon Grid Generator</h1>
+        </header>
+
+        <section class="header__section-buttons">
+          <button class="header__button" id="cssBtn">css</button>
+          <button class="header__button" id="htmlBtn">html</button>
+        </section>
+      </section>
+
       <section class="generator">
         <section class="hexagon-wrapper">
           <div
@@ -27,22 +28,26 @@
         </section>
       </section>
 
-      <section>
-        <form autocomplete="off" class="controls">
+      <section class="controls">
+        <form autocomplete="off" class="controls__input">
           <p class="input-field">
             <label for="bg-color" class="input-field__label"
-              >Background Color</label
+              >Background<span class="tooltip-text"
+                >Color of the background</span
+              ></label
             >
             <input
               id="bg-color"
               type="color"
               value="#dddddd"
-              name="backgroundcolor"
+              name="background-color"
             />
           </p>
           <p class="input-field">
             <label for="hexagon-color" class="input-field__label"
-              >Hexagon Color</label
+              >Hexagon<span class="tooltip-text"
+                >Color of the hexagons</span
+              ></label
             >
             <input
               id="hexagon-color"
@@ -53,121 +58,145 @@
           </p>
           <p class="input-field">
             <label for="text-color" class="input-field__label"
-              >Text Color</label
+              >Text<span class="tooltip-text"
+                >Color of the text inside the hexagons</span
+              ></label
             >
             <input
               id="text-color"
               type="color"
               value="#284646"
-              name="textcolor"
+              name="text-color"
             />
           </p>
           <p class="input-field">
             <label for="numberOfHexagons" class="input-field__label"
-              >Number of Hexagons</label
+              >Hexagons<span class="tooltip-text"
+                >Total number of hexagons</span
+              ></label
             >
             <input
               id="numberOfHexagons"
               type="number"
               min="0"
               value="34"
-              name="hexagonamount"
+              name="number-of-hexagons"
             />
           </p>
           <p class="input-field">
             <label for="hexagon-first-row" class="input-field__label"
-              >First Row</label
+              >1st Row<span class="tooltip-text"
+                >Number of hexagons on the first row</span
+              ></label
             >
             <input
               id="hexagon-first-row"
               type="number"
               min="0"
               value="9"
-              name="hexagonfirstrow"
+              name="hexagon-first-row"
             />
           </p>
           <p class="input-field">
             <label for="hexagon-size" class="input-field__label"
-              >Size of Hexagon</label
+              >Size<span class="tooltip-text"
+                >The relative size of the hexagon</span
+              ></label
             >
             <input
               id="hexagon-size"
               type="number"
               min="0"
               value="6"
-              name="hexagonsize"
+              name="hexagon-size"
             />
           </p>
           <p class="input-field">
             <label for="hexagon-gap" class="input-field__label"
-              >Size of Gap</label
+              >Gap<span class="tooltip-text"
+                >The size of the gap between the hexagons</span
+              ></label
             >
             <input
               id="hexagon-gap"
               type="number"
               min="0"
               value="14"
-              name="hexagongap"
+              name="hexagon-gap"
             />
           </p>
           <p class="input-field">
             <label for="container-skew-X" class="input-field__label"
-              >Skew X</label
+              >Skew X<span class="tooltip-text"
+                >The value for skewing on the X-axis (deg)</span
+              ></label
             >
             <input
               id="container-skew-X"
               type="number"
               value="0"
-              name="containerskewx"
+              name="container-skew-x"
             />
           </p>
           <p class="input-field">
             <label for="container-skew-Y" class="input-field__label"
-              >Skew Y</label
+              >Skew Y<span class="tooltip-text"
+                >The value for skewing on the Y-axis (deg)</span
+              ></label
             >
             <input
               id="container-skew-Y"
               type="number"
               value="0"
-              name="containerskewy"
+              name="container-skew-y"
             />
           </p>
           <p class="input-field">
-            <label class="input-field__label">Rotate on hover</label>
+            <label class="input-field__label"
+              >Rotation<span class="tooltip-text"
+                >The rotation on hover over the hexagon (deg)</span
+              ></label
+            >
             <input
               id="hexagon-rotation"
               type="number"
               value="6"
-              name="hexagonrotation"
+              name="hexagon-rotation"
             />
           </p>
           <p class="input-field">
             <label for="hexagon-scale" class="input-field__label"
-              >Scale on hover</label
+              >Scale<span class="tooltip-text"
+                >The scale on hover over the hexagon (%)</span
+              ></label
             >
             <input
               id="hexagon-scale"
               type="number"
               step="0.1"
               value="1.6"
-              name="hexagonscale"
+              name="hexagon-scale"
             />
           </p>
           <p class="input-field">
             <label for="hexagon-transition" class="input-field__label"
-              >Transition</label
+              >Transition<span class="tooltip-text"
+                >The transition value on hover (seconds)</span
+              ></label
             >
             <input
               id="hexagon-transition"
               type="number"
               step="0.1"
               value="0.7"
-              name="hexagontransition"
+              name="hexagon-transition"
             />
           </p>
           <p class="input-field">
             <label for="media-query--1" class="input-field__label"
-              >#1 max-width</label
+              >@media 1<span class="tooltip-text"
+                >The 1st media query (value in px)</span
+              ></label
             >
             <input
               id="media-query--1"
@@ -179,7 +208,9 @@
           </p>
           <p class="input-field">
             <label for="media-query--2" class="input-field__label"
-              >#2 max-width</label
+              >@media 2<span class="tooltip-text"
+                >The 2nd media query (value in px)</span
+              ></label
             >
             <input
               id="media-query--2"
@@ -191,7 +222,9 @@
           </p>
           <p class="input-field">
             <label for="media-query--3" class="input-field__label"
-              >#3 max-width</label
+              >@media 3<span class="tooltip-text"
+                >The 3rd media query (value in px)</span
+              ></label
             >
             <input
               id="media-query--3"
@@ -204,10 +237,16 @@
         </form>
       </section>
       <dialog id="dialog">
-        <section>
+        <section class="dialog__btns">
+          <button id="dialog__copy-btn">Copy</button>
           <button id="dialog__close-btn">Close</button>
         </section>
-        <section id="dialog__text"></section>
+        <section class="dialog__header">
+          <h2 id="dialog__title"></h2>
+        </section>
+        <section>
+          <pre><code id="dialog__text"></code></pre>
+        </section>
       </dialog>
     </main>
   </body>
