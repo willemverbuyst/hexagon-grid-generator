@@ -241,6 +241,7 @@ dialog {
   padding: 1rem;
   font-size: 1.2rem;
   position: relative;
+  height: 90vh;
 
   .dialog__header {
     display: flex;
