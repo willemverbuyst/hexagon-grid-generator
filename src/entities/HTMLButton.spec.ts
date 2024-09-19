@@ -38,7 +38,7 @@ describe("HTMLButton", () => {
     const generatedHTML = "<div>Generated HTML</div>";
     const highlightedHTML = '<div style="color: red;">Generated HTML</div>';
 
-    vi.spyOn(global, "Number").mockReturnValue(5);
+    numberOfHexagonsElement.value = "5";
     (generateHTMLText as Mock).mockReturnValue(generatedHTML);
     (highlightHTML as Mock).mockReturnValue(highlightedHTML);
 
