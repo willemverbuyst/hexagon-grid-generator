@@ -5,6 +5,7 @@ describe("CopyTextButton", () => {
   it("should attach a click handler to the button", () => {
     const btn = document.createElement("button");
     const text = document.createElement("div");
+
     new CopyTextButton(btn, text);
 
     expect(btn.onclick).toBeDefined();
@@ -14,6 +15,7 @@ describe("CopyTextButton", () => {
     const btn = document.createElement("button");
     const text = document.createElement("div");
     text.innerText = "Sample text";
+
     new CopyTextButton(btn, text);
 
     const writeTextMock = vi
