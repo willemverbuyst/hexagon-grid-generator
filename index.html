@@ -14,8 +14,10 @@
         </header>
 
         <section class="header__section-buttons">
-          <button class="header__button" id="cssBtn">css</button>
-          <button class="header__button" id="htmlBtn">html</button>
+          <button class="header__button" id="cssBtn" name="css-btn">CSS</button>
+          <button class="header__button" id="htmlBtn" name="html-btn">
+            HTML
+          </button>
         </section>
       </section>
 
@@ -30,65 +32,64 @@
 
       <section class="controls">
         <form autocomplete="off" class="controls__input">
-          <p class="input-field">
-            <label for="bg-color" class="input-field__label"
-              >Background<span class="tooltip-text"
-                >Color of the background</span
-              ></label
-            >
+          <section class="input-field">
+            <section class="input-field-label">
+              <span class="tooltip-text">Color of the background</span>
+              <label for="bg-color">Background</label>
+            </section>
             <input
               id="bg-color"
               type="color"
               value="#dddddd"
               name="background-color"
             />
-          </p>
-          <p class="input-field">
-            <label for="hexagon-color" class="input-field__label"
-              >Hexagon<span class="tooltip-text"
-                >Color of the hexagons</span
-              ></label
-            >
+          </section>
+          <section class="input-field">
+            <section class="input-field-label">
+              <span class="tooltip-text">Color of the hexagons</span>
+              <label for="hexagon-color">Hexagon</label>
+            </section>
             <input
               id="hexagon-color"
               type="color"
               value="#E29609"
               name="hexagon-color"
             />
-          </p>
-          <p class="input-field">
-            <label for="text-color" class="input-field__label"
-              >Text<span class="tooltip-text"
+          </section>
+          <section class="input-field">
+            <section class="input-field-label">
+              <span class="tooltip-text"
                 >Color of the text inside the hexagons</span
-              ></label
-            >
+              >
+              <label for="text-color">Text</label>
+            </section>
             <input
               id="text-color"
               type="color"
               value="#284646"
               name="text-color"
             />
-          </p>
-          <p class="input-field">
-            <label for="numberOfHexagons" class="input-field__label"
-              >Hexagons<span class="tooltip-text"
-                >Total number of hexagons</span
-              ></label
-            >
+          </section>
+          <section class="input-field">
+            <section class="input-field-label">
+              <span class="tooltip-text">Number of hexagons</span>
+              <label for="number-of-hexagons">Hexagons</label>
+            </section>
             <input
-              id="numberOfHexagons"
+              id="number-of-hexagons"
               type="number"
               min="0"
               value="34"
               name="number-of-hexagons"
             />
-          </p>
-          <p class="input-field">
-            <label for="hexagon-first-row" class="input-field__label"
-              >1st Row<span class="tooltip-text"
+          </section>
+          <section class="input-field">
+            <section class="input-field-label">
+              <span class="tooltip-text"
                 >Number of hexagons on the first row</span
-              ></label
-            >
+              >
+              <label for="hexagon-first-row">1st Row</label>
+            </section>
             <input
               id="hexagon-first-row"
               type="number"
@@ -96,13 +97,12 @@
               value="9"
               name="hexagon-first-row"
             />
-          </p>
-          <p class="input-field">
-            <label for="hexagon-size" class="input-field__label"
-              >Size<span class="tooltip-text"
-                >The relative size of the hexagon</span
-              ></label
-            >
+          </section>
+          <section class="input-field">
+            <section class="input-field-label">
+              <span class="tooltip-text">The relative size of the hexagon</span>
+              <label for="hexagon-size">Size</label>
+            </section>
             <input
               id="hexagon-size"
               type="number"
@@ -110,13 +110,14 @@
               value="6"
               name="hexagon-size"
             />
-          </p>
-          <p class="input-field">
-            <label for="hexagon-gap" class="input-field__label"
-              >Gap<span class="tooltip-text"
+          </section>
+          <section class="input-field">
+            <section class="input-field-label">
+              <span class="tooltip-text"
                 >The size of the gap between the hexagons</span
-              ></label
-            >
+              >
+              <label for="hexagon-gap">Gap</label>
+            </section>
             <input
               id="hexagon-gap"
               type="number"
@@ -124,52 +125,56 @@
               value="14"
               name="hexagon-gap"
             />
-          </p>
-          <p class="input-field">
-            <label for="container-skew-X" class="input-field__label"
-              >Skew X<span class="tooltip-text"
+          </section>
+          <section class="input-field">
+            <section class="input-field-label">
+              <span class="tooltip-text"
                 >The value for skewing on the X-axis (deg)</span
-              ></label
-            >
+              >
+              <label for="container-skew-X">Skew X</label>
+            </section>
             <input
               id="container-skew-X"
               type="number"
               value="0"
               name="container-skew-x"
             />
-          </p>
-          <p class="input-field">
-            <label for="container-skew-Y" class="input-field__label"
-              >Skew Y<span class="tooltip-text"
+          </section>
+          <section class="input-field">
+            <section class="input-field-label">
+              <span class="tooltip-text"
                 >The value for skewing on the Y-axis (deg)</span
-              ></label
-            >
+              >
+              <label for="container-skew-Y">Skew Y</label>
+            </section>
             <input
               id="container-skew-Y"
               type="number"
               value="0"
               name="container-skew-y"
             />
-          </p>
-          <p class="input-field">
-            <label class="input-field__label"
-              >Rotation<span class="tooltip-text"
+          </section>
+          <section class="input-field">
+            <section class="input-field-label">
+              <span class="tooltip-text"
                 >The rotation on hover over the hexagon (deg)</span
-              ></label
-            >
+              >
+              <label for="hexagon-rotation">Rotation</label>
+            </section>
             <input
               id="hexagon-rotation"
               type="number"
               value="6"
               name="hexagon-rotation"
             />
-          </p>
-          <p class="input-field">
-            <label for="hexagon-scale" class="input-field__label"
-              >Scale<span class="tooltip-text"
+          </section>
+          <section class="input-field">
+            <section class="input-field-label">
+              <span class="tooltip-text"
                 >The scale on hover over the hexagon (%)</span
-              ></label
-            >
+              >
+              <label for="hexagon-scale">Scale</label>
+            </section>
             <input
               id="hexagon-scale"
               type="number"
@@ -177,13 +182,14 @@
               value="1.6"
               name="hexagon-scale"
             />
-          </p>
-          <p class="input-field">
-            <label for="hexagon-transition" class="input-field__label"
-              >Transition<span class="tooltip-text"
+          </section>
+          <section class="input-field">
+            <section class="input-field-label">
+              <span class="tooltip-text"
                 >The transition value on hover (seconds)</span
-              ></label
-            >
+              >
+              <label for="hexagon-transition">Transition</label>
+            </section>
             <input
               id="hexagon-transition"
               type="number"
@@ -191,13 +197,16 @@
               value="0.7"
               name="hexagon-transition"
             />
-          </p>
-          <p class="input-field">
-            <label for="media-query--1" class="input-field__label"
-              >@media 1<span class="tooltip-text"
+          </section>
+          <section class="input-field">
+            <section class="input-field-label">
+              <span class="tooltip-text"
                 >The 1st media query (value in px)</span
-              ></label
-            >
+              >
+              <label for="media-query--1" class="input-field__label"
+                >@media 1</label
+              >
+            </section>
             <input
               id="media-query--1"
               type="number"
@@ -205,13 +214,14 @@
               value="900"
               name="mediaquery1"
             />
-          </p>
-          <p class="input-field">
-            <label for="media-query--2" class="input-field__label"
-              >@media 2<span class="tooltip-text"
+          </section>
+          <section class="input-field">
+            <section class="input-field-label">
+              <span class="tooltip-text"
                 >The 2nd media query (value in px)</span
-              ></label
-            >
+              >
+              <label for="media-query--2">@media 2</label>
+            </section>
             <input
               id="media-query--2"
               type="number"
@@ -219,13 +229,14 @@
               value="700"
               name="mediaquery2"
             />
-          </p>
-          <p class="input-field">
-            <label for="media-query--3" class="input-field__label"
-              >@media 3<span class="tooltip-text"
+          </section>
+          <section class="input-field">
+            <section class="input-field-label">
+              <span class="tooltip-text"
                 >The 3rd media query (value in px)</span
-              ></label
-            >
+              >
+              <label for="media-query--3">@media 3</label>
+            </section>
             <input
               id="media-query--3"
               type="number"
@@ -233,13 +244,13 @@
               value="500"
               name="mediaquery3"
             />
-          </p>
+          </section>
         </form>
       </section>
       <dialog id="dialog">
         <section class="dialog__btns">
-          <button id="dialog__copy-btn">Copy</button>
-          <button id="dialog__close-btn">Close</button>
+          <button id="dialog__copy-btn">COPY</button>
+          <button id="dialog__close-btn">CLOSE</button>
         </section>
         <section class="dialog__header">
           <h2 id="dialog__title"></h2>
