@@ -1,61 +1,60 @@
 import { generateSingleHexagon } from "./generateSingleHexagon";
 
+export function appendHexagons({
+  fragment,
+  count,
+  start,
+  getClassName,
+}: {
+  fragment: DocumentFragment;
+  count: number;
+  start: number;
+  getClassName: (i: number) => string | undefined;
+}) {
+  for (let i = 0; i < count; i++) {
+    const className = getClassName(i);
+    fragment.appendChild(generateSingleHexagon(String(start + i), className));
+  }
+}
+
 export function generateHexagons(
   numberOfHexagonsFirstRow: number,
   totalNumberOfHexagons: number,
 ) {
-  const fragment = document.createDocumentFragment();
-
   if (numberOfHexagonsFirstRow < 1 || totalNumberOfHexagons < 1) {
     return null;
   }
 
-  if (numberOfHexagonsFirstRow === 1 && totalNumberOfHexagons === 1) {
-    return generateSingleHexagon(String(1));
-  }
+  const fragment = document.createDocumentFragment();
+  const totalHexagonsInFirstRow = Math.min(
+    numberOfHexagonsFirstRow,
+    totalNumberOfHexagons,
+  );
 
-  if (totalNumberOfHexagons <= numberOfHexagonsFirstRow) {
-    Array(totalNumberOfHexagons)
-      .fill(0)
-      .forEach((_, i) =>
-        fragment.appendChild(generateSingleHexagon(String(i + 1))),
-      );
+  // Append the first row hexagons with margin-top class
+  appendHexagons({
+    fragment,
+    count: totalHexagonsInFirstRow,
+    start: 1,
+    getClassName: () => "first-row__margin-top",
+  });
+
+  // If there are no more hexagons, return the fragment
+  if (totalHexagonsInFirstRow === totalNumberOfHexagons) {
     return fragment;
   }
 
-  if (numberOfHexagonsFirstRow === 1) {
-    Array(totalNumberOfHexagons)
-      .fill(0)
-      .forEach((_, i) =>
-        fragment.appendChild(
-          generateSingleHexagon(String(i + 1), "first-row__margin-top"),
-        ),
-      );
-    return fragment;
-  }
-
-  Array(numberOfHexagonsFirstRow)
-    .fill(0)
-    .forEach((_, i) => {
-      fragment.appendChild(
-        generateSingleHexagon(String(i + 1), "first-row__margin-top"),
-      );
-    });
-
-  let k = 0;
-  let hexagonNumber = numberOfHexagonsFirstRow + 1;
-
-  while (k < totalNumberOfHexagons - numberOfHexagonsFirstRow) {
-    if (k === 0 || k % ((numberOfHexagonsFirstRow - 1) * 2 + 1) === 0) {
-      fragment.appendChild(
-        generateSingleHexagon(String(hexagonNumber), "even-rows__margin-left"),
-      );
-    } else {
-      fragment.appendChild(generateSingleHexagon(String(hexagonNumber)));
-    }
-    hexagonNumber++;
-    k++;
-  }
+  // Append remaining hexagons with margin-left class conditionally
+  const remainingHexagons = totalNumberOfHexagons - totalHexagonsInFirstRow;
+  appendHexagons({
+    fragment,
+    count: remainingHexagons,
+    start: totalHexagonsInFirstRow + 1,
+    getClassName: (i) =>
+      i % ((numberOfHexagonsFirstRow - 1) * 2 + 1) === 0
+        ? "even-rows__margin-left"
+        : undefined,
+  });
 
   return fragment;
 }
