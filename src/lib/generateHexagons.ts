@@ -1,20 +1,4 @@
-export function generateHexagon(hexagonNumber: string, className?: string) {
-  const outerHexagon = document.createElement("div");
-  const innerHexagon = document.createElement("div");
-
-  outerHexagon.classList.add("hexagon__outer");
-
-  if (className) {
-    outerHexagon.classList.add(className);
-  }
-
-  innerHexagon.classList.add("hexagon__inner");
-  innerHexagon.innerText = hexagonNumber;
-
-  outerHexagon.appendChild(innerHexagon);
-
-  return outerHexagon;
-}
+import { generateSingleHexagon } from "./generateSingleHexagon";
 
 export function generateHexagons(
   numberOfHexagonsFirstRow: number,
@@ -27,13 +11,15 @@ export function generateHexagons(
   }
 
   if (numberOfHexagonsFirstRow === 1 && totalNumberOfHexagons === 1) {
-    return generateHexagon(String(1));
+    return generateSingleHexagon(String(1));
   }
 
   if (totalNumberOfHexagons <= numberOfHexagonsFirstRow) {
     Array(totalNumberOfHexagons)
       .fill(0)
-      .forEach((_, i) => fragment.appendChild(generateHexagon(String(i + 1))));
+      .forEach((_, i) =>
+        fragment.appendChild(generateSingleHexagon(String(i + 1))),
+      );
     return fragment;
   }
 
@@ -42,7 +28,7 @@ export function generateHexagons(
       .fill(0)
       .forEach((_, i) =>
         fragment.appendChild(
-          generateHexagon(String(i + 1), "first-row__margin-top"),
+          generateSingleHexagon(String(i + 1), "first-row__margin-top"),
         ),
       );
     return fragment;
@@ -52,7 +38,7 @@ export function generateHexagons(
     .fill(0)
     .forEach((_, i) => {
       fragment.appendChild(
-        generateHexagon(String(i + 1), "first-row__margin-top"),
+        generateSingleHexagon(String(i + 1), "first-row__margin-top"),
       );
     });
 
@@ -62,10 +48,10 @@ export function generateHexagons(
   while (k < totalNumberOfHexagons - numberOfHexagonsFirstRow) {
     if (k === 0 || k % ((numberOfHexagonsFirstRow - 1) * 2 + 1) === 0) {
       fragment.appendChild(
-        generateHexagon(String(hexagonNumber), "even-rows__margin-left"),
+        generateSingleHexagon(String(hexagonNumber), "even-rows__margin-left"),
       );
     } else {
-      fragment.appendChild(generateHexagon(String(hexagonNumber)));
+      fragment.appendChild(generateSingleHexagon(String(hexagonNumber)));
     }
     hexagonNumber++;
     k++;
