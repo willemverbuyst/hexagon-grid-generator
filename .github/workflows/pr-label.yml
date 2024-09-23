@@ -1,0 +1,76 @@
+name: Check PR Label and Update PR Description
+
+on:
+  pull_request:
+    types:
+      - opened
+      - labeled
+      - unlabeled
+      - edited
+      - synchronize
+    branches:
+      - development
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  check-label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set required labels
+        run: |
+          echo "REQUIRED_LABELS=bug|enhancement|refactor" >> "$GITHUB_ENV"
+
+      - name: Check if PR has one of the required labels
+        id: check_label
+        run: |
+          # Get the list of labels
+          labels=$(jq -r '.pull_request.labels[].name' "$GITHUB_EVENT_PATH")
+
+          # Check if any of the labels match the required ones
+          if echo "$labels" | grep -Eq "($REQUIRED_LABELS)"; then
+            echo "PR has one of the required labels."
+            echo "label_valid=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "This PR is missing one of the required labels."
+            echo "label_valid=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Update PR description to check "Added label" box
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const prNumber = context.payload.pull_request.number;
+              
+            // Get the current PR body
+            const { data: pr } = await github.rest.pulls.get({
+              owner,
+              repo,
+              pull_number: prNumber,
+            });
+
+            const labelValid = ${{ steps.check_label.outputs.label_valid }};
+
+            // Update the PR body based on whether required labels are present
+            const updatedBody = labelValid
+              ? pr.body.replace('- [ ] Added label', '- [x] Added label')
+              : pr.body.replace('- [x] Added label', '- [ ] Added label');
+
+
+            // Update the PR description
+            await github.rest.pulls.update({
+              owner,
+              repo,
+              pull_number: prNumber,
+              body: updatedBody,
+            });
+
+      - name: Fail if PR does not have the required labels
+        if: steps.check_label.outputs.label_valid == 'false'
+        run: |
+          echo "This PR is missing one of the required labels: bug, enhancement or refactor."
+          exit 1
