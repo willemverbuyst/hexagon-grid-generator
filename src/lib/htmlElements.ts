@@ -22,29 +22,29 @@ export function getElementByIdAndAssert<T extends HTMLElement = HTMLElement>(
   return element;
 }
 
-const ID_BTN_CSS = "cssBtn";
-const ID_BTN_HTML = "htmlBtn";
-const ID_HEXAGON_CONTAINER = "hexagon__container";
-const ID_NUMBER_OF_HEXAGONS = "numberOfHexagons";
-const ID_HEXAGON_FIRST_ROW = "hexagon-first-row";
-const ID_BG_COLOR = "bg-color";
-const ID_HEXAGON_COLOR = "hexagon-color";
-const ID_HEXAGON_SIZE = "hexagon-size";
-const ID_MEDIA_QUERY_1 = "media-query--1";
-const ID_MEDIA_QUERY_2 = "media-query--2";
-const ID_MEDIA_QUERY_3 = "media-query--3";
-const ID_TEXT_COLOR = "text-color";
-const ID_CONTAINER_SKEW_X = "container-skew-X";
-const ID_CONTAINER_SKEW_Y = "container-skew-Y";
-const ID_HEXAGON_ROTATION = "hexagon-rotation";
-const ID_HEXAGON_TRANSITION = "hexagon-transition";
-const ID_HEXAGON_SCALE = "hexagon-scale";
-const ID_HEXAGON_GAP = "hexagon-gap";
-const ID_DIALOG = "dialog";
-const ID_DIALOG_CLOSE_BTN = "dialog__close-btn";
-const ID_DIALOG_COPY_BTN = "dialog__copy-btn";
-const ID_DIALOG_TEXT = "dialog__text";
-const ID_DIALOG_TITLE = "dialog__title";
+export const ID_BTN_CSS = "cssBtn";
+export const ID_BTN_HTML = "htmlBtn";
+export const ID_HEXAGON_CONTAINER = "hexagon__container";
+export const ID_NUMBER_OF_HEXAGONS = "numberOfHexagons";
+export const ID_HEXAGON_FIRST_ROW = "hexagon-first-row";
+export const ID_BG_COLOR = "bg-color";
+export const ID_HEXAGON_COLOR = "hexagon-color";
+export const ID_HEXAGON_SIZE = "hexagon-size";
+export const ID_MEDIA_QUERY_1 = "media-query--1";
+export const ID_MEDIA_QUERY_2 = "media-query--2";
+export const ID_MEDIA_QUERY_3 = "media-query--3";
+export const ID_TEXT_COLOR = "text-color";
+export const ID_CONTAINER_SKEW_X = "container-skew-X";
+export const ID_CONTAINER_SKEW_Y = "container-skew-Y";
+export const ID_HEXAGON_ROTATION = "hexagon-rotation";
+export const ID_HEXAGON_TRANSITION = "hexagon-transition";
+export const ID_HEXAGON_SCALE = "hexagon-scale";
+export const ID_HEXAGON_GAP = "hexagon-gap";
+export const ID_DIALOG = "dialog";
+export const ID_DIALOG_CLOSE_BTN = "dialog__close-btn";
+export const ID_DIALOG_COPY_BTN = "dialog__copy-btn";
+export const ID_DIALOG_TEXT = "dialog__text";
+export const ID_DIALOG_TITLE = "dialog__title";
 
 export function getAndAssertHtmlElements() {
   const numberOfHexagons = getElementByIdAndAssert<HTMLInputElement>(
