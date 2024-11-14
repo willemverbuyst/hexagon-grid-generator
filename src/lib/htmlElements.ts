@@ -1,4 +1,4 @@
-import { assertNonNullish } from "./utils";
+import { assertNonNullish } from "../utils/assert";
 
 export function htmlElementNotFoundMessage(id: string) {
   return `HTMLElement #${id} not found!`;

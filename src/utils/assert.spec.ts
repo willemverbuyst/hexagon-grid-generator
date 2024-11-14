@@ -1,20 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { assertNonNullish, roundToTwoDecimals } from "./utils";
+import { assertNonNullish } from "./assert";
 
-describe("roundToTwoDecimals", () => {
-  describe("given a number", () => {
-    it("should return a number with two decimals", () => {
-      expect(roundToTwoDecimals(9)).toBe(9);
-      expect(roundToTwoDecimals(9.9111)).toBe(9.91);
-      expect(roundToTwoDecimals(9.911)).toBe(9.91);
-      expect(roundToTwoDecimals(9.91)).toBe(9.91);
-      expect(roundToTwoDecimals(0)).toBe(0);
-      expect(typeof roundToTwoDecimals(8.123)).toBe("number");
-    });
-  });
-});
-
-describe("F", () => {
+describe("assertNonNullish", () => {
   it("throws an error when the value is null or undefined", () => {
     expect(() => assertNonNullish(null, "Value cannot be null")).toThrowError(
       "Value cannot be null",
