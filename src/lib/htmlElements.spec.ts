@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 import {
-  assertNonNullish,
   getAndAssertHtmlElements,
   getElementByIdAndAssert,
   htmlElementNotFoundMessage,
@@ -28,23 +27,6 @@ import {
   ID_NUMBER_OF_HEXAGONS,
   ID_TEXT_COLOR,
 } from "./htmlElements";
-
-describe("assertNonNullish", () => {
-  it("throws an error when the value is null or undefined", () => {
-    expect(() => assertNonNullish(null, "Value cannot be null")).toThrowError(
-      "Value cannot be null",
-    );
-    expect(() =>
-      assertNonNullish(undefined, "Value cannot be undefined"),
-    ).toThrowError("Value cannot be undefined");
-  });
-
-  it("does not throw an error when the value is not null or undefined", () => {
-    assertNonNullish(1, "Value cannot be null");
-    assertNonNullish("test", "Value cannot be undefined");
-    assertNonNullish({}, "Value cannot be null or undefined");
-  });
-});
 
 describe("htmlElementNotFoundMessage", () => {
   it("returns the correct message for a given id", () => {
