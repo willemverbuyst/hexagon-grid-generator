@@ -26,7 +26,7 @@ import {
   ID_MEDIA_QUERY_3,
   ID_NUMBER_OF_HEXAGONS,
   ID_TEXT_COLOR,
-} from "./htmlElements";
+} from "./getAndAssertHtmlElements";
 
 describe("htmlElementNotFoundMessage", () => {
   it("returns the correct message for a given id", () => {

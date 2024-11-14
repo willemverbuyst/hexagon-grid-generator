@@ -14,7 +14,7 @@ import { InputGap } from "./entities/InputGap";
 import { InputMediaQuery } from "./entities/InputMediaQuery";
 import { InputNumberOfHexagons } from "./entities/InputNumberOfHexagons";
 import { InputRoot } from "./entities/InputRoot";
-import { getAndAssertHtmlElements } from "./lib/htmlElements";
+import { getAndAssertHtmlElements } from "./lib/getAndAssertHtmlElements";
 import "./style.css";
 
 console.info("🚀 Running the app!");
