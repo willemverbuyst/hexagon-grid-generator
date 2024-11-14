@@ -10,7 +10,7 @@ import {
   generateOuterHexagonChildCSS,
   generateOuterHexagonCSS,
   generateOuterHexagonHoverCSS,
-} from "./textCSS";
+} from "./generateCSSText";
 
 describe("generateBackgroundCSS", () => {
   describe("given a color (hexadecimal)", () => {

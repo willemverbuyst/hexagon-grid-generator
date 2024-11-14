@@ -1,6 +1,6 @@
 import DOMPurify from "dompurify";
+import { generateCSSText } from "../lib/generateCSSText";
 import { highlightCSS } from "../lib/highlightText";
-import { generateCSSText } from "../lib/textCSS";
 
 export class CSSButton {
   constructor(
