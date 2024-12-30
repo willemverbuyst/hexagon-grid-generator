@@ -1,6 +1,6 @@
 import DOMPurify from "dompurify";
+import { generateHTMLText } from "../lib/generateHTMLText";
 import { highlightHTML } from "../lib/highlightText";
-import { generateHTMLText } from "../lib/textHTML";
 
 export class HTMLButton {
   constructor(

@@ -1,3 +1,9 @@
+import {
+  POSTFIX_DEGREE,
+  POSTFIX_PERCENTAGE,
+  POSTFIX_SECONDS,
+  POSTFIX_VW,
+} from "./config/constants";
 import { CloseDialogButton } from "./entities/CloseDialogButton";
 import { CopyTextButton } from "./entities/CopyTextButton";
 import { CSSButton } from "./entities/CSSButton";
@@ -8,13 +14,8 @@ import { InputGap } from "./entities/InputGap";
 import { InputMediaQuery } from "./entities/InputMediaQuery";
 import { InputNumberOfHexagons } from "./entities/InputNumberOfHexagons";
 import { InputRoot } from "./entities/InputRoot";
-import { getAndAssertHtmlElements } from "./lib/htmlElements";
+import { getAndAssertHtmlElements } from "./lib/getAndAssertHtmlElements";
 import "./style.css";
-
-const POSTFIX_PERCENTAGE = "%";
-const POSTFIX_DEGREE = "deg";
-const POSTFIX_VW = "vw";
-const POSTFIX_SECONDS = "s";
 
 console.info("🚀 Running the app!");
 

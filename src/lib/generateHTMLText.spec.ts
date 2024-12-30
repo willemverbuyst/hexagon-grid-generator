@@ -4,7 +4,7 @@ import {
   generateHexagonsHTML,
   generateHTMLText,
   wrapHTML,
-} from "./textHTML";
+} from "./generateHTMLText";
 
 describe("generateHexagonHTML", () => {
   describe("given 2", () => {

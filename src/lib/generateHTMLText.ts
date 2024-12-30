@@ -31,11 +31,11 @@ export function wrapHTML(html: string) {
   return wrapper;
 }
 
-export interface HTMLInputValues {
+export function generateHTMLText({
+  numberOfHexagons,
+}: {
   numberOfHexagons: number;
-}
-
-export function generateHTMLText({ numberOfHexagons }: HTMLInputValues) {
+}) {
   const hexagonsHTML = generateHexagonsHTML(numberOfHexagons);
   const htmlText = wrapHTML(hexagonsHTML);
 

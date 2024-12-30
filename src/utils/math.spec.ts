@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { roundToTwoDecimals } from "./utils";
+import { roundToTwoDecimals } from "./math";
 
 describe("roundToTwoDecimals", () => {
   describe("given a number", () => {
