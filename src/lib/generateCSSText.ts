@@ -1,4 +1,4 @@
-import { roundToTwoDecimals } from "./utils";
+import { roundToTwoDecimals } from "../utils/math";
 
 const HEIGHT_TO_WIDTH_RATIO = 1.1547005;
 

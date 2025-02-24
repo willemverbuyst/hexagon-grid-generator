@@ -1,10 +1,10 @@
 import { beforeEach, describe, expect, it, Mock, vi } from "vitest";
+import { generateCSSText } from "../lib/generateCSSText";
 import { highlightCSS } from "../lib/highlightText";
-import { generateCSSText } from "../lib/textCSS";
 import { CSSButton } from "./CSSButton";
 
 vi.mock("../lib/highlightText");
-vi.mock("../lib/textCSS");
+vi.mock("../lib/generateCSSText");
 
 describe("CSSButton", () => {
   let button: HTMLButtonElement;

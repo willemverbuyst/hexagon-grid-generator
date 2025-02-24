@@ -1,10 +1,10 @@
 import { beforeEach, describe, expect, it, Mock, vi } from "vitest";
+import { generateHTMLText } from "../lib/generateHTMLText";
 import { highlightHTML } from "../lib/highlightText";
-import { generateHTMLText } from "../lib/textHTML";
 import { HTMLButton } from "./HTMLButton";
 
 vi.mock("../lib/highlightText");
-vi.mock("../lib/textHTML");
+vi.mock("../lib/generateHTMLText");
 
 describe("HTMLButton", () => {
   let buttonElement: HTMLButtonElement;
