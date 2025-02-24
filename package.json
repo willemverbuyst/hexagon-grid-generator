@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "format:check": "prettier --check src",
-    "format:fix": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "format:fix": "prettier --config .prettierrc 'src/**/*' --write",
     "lint": "eslint",
     "lint:md": "markdownlint-cli2 \"**/*.md\" \"#node_modules\"",
     "preview": "vite preview",
