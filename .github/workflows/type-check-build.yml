@@ -4,6 +4,7 @@ on: [pull_request]
 
 jobs:
   type-check:
+    name: Type Check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -14,6 +15,7 @@ jobs:
         run: npm run type:check
 
   build:
+    name: Build Check
     needs: type-check
     runs-on: ubuntu-latest
     steps:

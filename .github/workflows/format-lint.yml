@@ -8,6 +8,7 @@ on:
 
 jobs:
   format-and-lint:
+    name: Format & Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -26,6 +27,7 @@ jobs:
         run: npm run lint:md
 
   lint-actions:
+    name: Lint Actions
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
