@@ -1,4 +1,4 @@
-name: Create a comment on new issues
+name: Issue
 
 on:
   issues:
@@ -8,10 +8,12 @@ permissions: write-all
 
 jobs:
   comment-with-api:
+    name: Add comment
     runs-on: ubuntu-latest
     steps:
       - name: Log issue url
         run: echo "https://api.github.com/repos/${REPOSITORY_OWNER}/${REPOSITORY}/issues/${ISSUE_NUMBER}"
+
       - name: Create comment with API
         run: |
           gh api -X POST \
