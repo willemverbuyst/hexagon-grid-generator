@@ -13,7 +13,6 @@ jobs:
     steps:
       - name: Log issue url
         run: echo "https://api.github.com/repos/${REPOSITORY_OWNER}/${REPOSITORY}/issues/${ISSUE_NUMBER}"
-
       - name: Create comment with API
         run: |
           gh api -X POST \
@@ -22,7 +21,6 @@ jobs:
             Thanks ${{ github.event.issue.user.login }} for creating this issue :sparkles:
             We will look into it :detective:
             '
-
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       REPOSITORY_OWNER: ${{ github.event.repository.owner.login }}

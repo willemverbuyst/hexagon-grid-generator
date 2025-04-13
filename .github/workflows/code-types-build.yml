@@ -11,10 +11,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-
       - name: Install dependencies
         run: npm i
-
       - name: Run TypeScript compiler
         run: npm run type:check
 
@@ -25,9 +23,7 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-
       - name: Install dependencies
         run: npm i
-
       - name: Build
         run: npm run build
