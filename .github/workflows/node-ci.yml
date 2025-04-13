@@ -11,6 +11,10 @@ on:
         type: string
         default: node
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   node-ci-job:
     runs-on: ubuntu-latest
