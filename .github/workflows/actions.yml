@@ -6,7 +6,7 @@ on:
 
 jobs:
   lint-actions:
-    name: Lint
+    name: Lint Actions
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo

@@ -6,7 +6,7 @@ on:
 
 jobs:
   format-and-lint:
-    name: Format & Lint
+    name: Format & Lint Code
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo

@@ -20,7 +20,7 @@ jobs:
   check-label:
     runs-on: ubuntu-latest
     steps:
-      - name: Check Label
+      - name: Check Label PR
         uses: actions/github-script@v7
         with:
           script: |

@@ -6,7 +6,7 @@ on:
 
 jobs:
   lint-markdown:
-    name: Lint
+    name: Lint README
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
