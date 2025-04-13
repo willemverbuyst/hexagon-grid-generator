@@ -17,6 +17,7 @@ permissions:
 
 jobs:
   node-ci-job:
+    name: Use Node Cache
     runs-on: ubuntu-latest
 
     steps:
