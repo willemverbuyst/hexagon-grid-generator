@@ -7,23 +7,15 @@ on:
 jobs:
   type-check:
     name: Check Types
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-      - name: Install dependencies
-        run: npm i
-      - name: Run TypeScript compiler
-        run: npm run type:check
+    uses: ./.github/workflows/node-ci.yml
+    with:
+      run-command: |
+        npm run type:check
 
   build:
     name: Check Build
     needs: type-check
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-      - name: Install dependencies
-        run: npm i
-      - name: Build
-        run: npm run build
+    uses: ./.github/workflows/node-ci.yml
+    with:
+      run-command: |
+        npm run build
