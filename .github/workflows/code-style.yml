@@ -11,27 +11,18 @@ permissions:
 jobs:
   format-and-lint:
     name: Format & Lint
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-      - name: Install dependencies
-        run: npm i
-      - name: Format
-        run: npm run format:check
-      - name: Lint
-        run: npm run lint
+    uses: ./.github/workflows/node-ci.yml
+    with:
+      run-command: |
+        npm run format:check
+        npm run lint
 
   lint-readme:
     name: Lint README
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-      - name: Install dependencies
-        run: npm i
-      - name: Lint markdown files
-        run: npm run lint:md
+    uses: ./.github/workflows/node-ci.yml
+    with:
+      run-command: |
+        npm run lint:md
 
   lint-actions:
     name: Lint Actions
