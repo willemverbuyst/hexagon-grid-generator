@@ -6,11 +6,6 @@ updates:
       interval: "weekly"
       time: "02:00"
       day: "sunday"
-    groups:
-      dev-dependencies:
-        applies-to: version-updates
-        patterns:
-          - "*lint*"
     open-pull-requests-limit: 0
     commit-message:
       prefix: "chore: "
