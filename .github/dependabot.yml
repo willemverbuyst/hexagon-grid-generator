@@ -3,9 +3,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
-      time: "02:00"
-      day: "sunday"
+      interval: "daily"
     groups:
       dev-dependencies:
         applies-to: version-updates
@@ -17,9 +15,7 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
-      time: "02:00"
-      day: "sunday"
+      interval: "daily"
     open-pull-requests-limit: 0
     commit-message:
       prefix: "chore: "
