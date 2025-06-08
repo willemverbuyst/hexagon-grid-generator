@@ -9,13 +9,13 @@ updates:
         applies-to: version-updates
         patterns:
           - "*lint*"
-    open-pull-requests-limit: 0
+    open-pull-requests-limit: 10
     commit-message:
       prefix: "chore: "
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "daily"
-    open-pull-requests-limit: 0
+    open-pull-requests-limit: 10
     commit-message:
       prefix: "chore: "
