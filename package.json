@@ -40,7 +40,7 @@
     "eslint-plugin-prettier": "^5.5.1",
     "git-commit-msg-linter": "^5.0.8",
     "globals": "^16.4.0",
-    "happy-dom": "^20.0.10",
+    "happy-dom": "^20.0.11",
     "husky": "^9.1.7",
     "madge": "^8.0.0",
     "markdownlint-cli2": "^0.18.1",
