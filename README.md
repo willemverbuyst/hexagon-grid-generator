@@ -6,8 +6,6 @@
 
 The Hexagon Grid Generator is a tool to create the HTML and CSS needed to display a responsive grid of hexagons.
 
-[live version](https://willemverbuyst.github.io/hexagon-grid-generator/)
-
 !['screenshot of the hexagon generator'](./img/hexagonGridGenerator.png)
 
 ![highlighted code](./img/highlighted-code.png)
