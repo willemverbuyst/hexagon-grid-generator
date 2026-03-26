@@ -30,7 +30,7 @@ Use the live version and you don't have to install anything. One button to copy 
 
 When you want to run this tool locally run:
 
-> npm install
+> pnpm install
 
 ## Tweaking of the values
 

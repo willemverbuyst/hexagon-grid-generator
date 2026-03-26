@@ -10,4 +10,4 @@ jobs:
     uses: ./.github/workflows/node-ci.yml
     with:
       run-command: |
-        npm run test
+        pnpm test
