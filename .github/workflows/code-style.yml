@@ -14,15 +14,15 @@ jobs:
     uses: ./.github/workflows/node-ci.yml
     with:
       run-command: |
-        npm run format:check
-        npm run lint
+        pnpm format:check
+        pnpm lint
 
   lint-readme:
     name: Lint README
     uses: ./.github/workflows/node-ci.yml
     with:
       run-command: |
-        npm run lint:md
+        pnpm lint:md
 
   lint-actions:
     name: Lint Actions
