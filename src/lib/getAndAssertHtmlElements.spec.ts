@@ -83,29 +83,29 @@ describe("getAndAssertHtmlElements", () => {
 
     const elements = getAndAssertHtmlElements();
 
-    expect(elements.numberOfHexagons).toBeInstanceOf(HTMLInputElement);
-    expect(elements.hexagonsFirstRow).toBeInstanceOf(HTMLInputElement);
-    expect(elements.backgroundColor).toBeInstanceOf(HTMLInputElement);
-    expect(elements.hexagonColor).toBeInstanceOf(HTMLInputElement);
-    expect(elements.textColor).toBeInstanceOf(HTMLInputElement);
-    expect(elements.hexagonSize).toBeInstanceOf(HTMLInputElement);
-    expect(elements.containerSkewX).toBeInstanceOf(HTMLInputElement);
-    expect(elements.containerSkewY).toBeInstanceOf(HTMLInputElement);
-    expect(elements.hexagonRotation).toBeInstanceOf(HTMLInputElement);
-    expect(elements.hexagonTransition).toBeInstanceOf(HTMLInputElement);
-    expect(elements.hexagonScale).toBeInstanceOf(HTMLInputElement);
-    expect(elements.hexagonGap).toBeInstanceOf(HTMLInputElement);
-    expect(elements.mediaQuery_1).toBeInstanceOf(HTMLInputElement);
-    expect(elements.mediaQuery_2).toBeInstanceOf(HTMLInputElement);
-    expect(elements.mediaQuery_3).toBeInstanceOf(HTMLInputElement);
-    expect(elements.cssBtn).toBeInstanceOf(HTMLButtonElement);
-    expect(elements.htmlBtn).toBeInstanceOf(HTMLButtonElement);
-    expect(elements.hexagonContainer).toBeInstanceOf(HTMLDivElement);
-    expect(elements.dialogElement).toBeInstanceOf(HTMLDialogElement);
-    expect(elements.dialogCloseBtn).toBeInstanceOf(HTMLButtonElement);
-    expect(elements.dialogCopyBtn).toBeInstanceOf(HTMLButtonElement);
-    expect(elements.dialogText).toBeInstanceOf(HTMLDivElement);
-    expect(elements.dialogTitle).toBeInstanceOf(HTMLDivElement);
+    expect(elements.inputs.numberOfHexagons).toBeInstanceOf(HTMLInputElement);
+    expect(elements.inputs.hexagonsFirstRow).toBeInstanceOf(HTMLInputElement);
+    expect(elements.inputs.backgroundColor).toBeInstanceOf(HTMLInputElement);
+    expect(elements.inputs.hexagonColor).toBeInstanceOf(HTMLInputElement);
+    expect(elements.inputs.textColor).toBeInstanceOf(HTMLInputElement);
+    expect(elements.inputs.hexagonSize).toBeInstanceOf(HTMLInputElement);
+    expect(elements.inputs.containerSkewX).toBeInstanceOf(HTMLInputElement);
+    expect(elements.inputs.containerSkewY).toBeInstanceOf(HTMLInputElement);
+    expect(elements.inputs.hexagonRotation).toBeInstanceOf(HTMLInputElement);
+    expect(elements.inputs.hexagonTransition).toBeInstanceOf(HTMLInputElement);
+    expect(elements.inputs.hexagonScale).toBeInstanceOf(HTMLInputElement);
+    expect(elements.inputs.hexagonGap).toBeInstanceOf(HTMLInputElement);
+    expect(elements.inputs.mediaQuery_1).toBeInstanceOf(HTMLInputElement);
+    expect(elements.inputs.mediaQuery_2).toBeInstanceOf(HTMLInputElement);
+    expect(elements.inputs.mediaQuery_3).toBeInstanceOf(HTMLInputElement);
+    expect(elements.buttons.css).toBeInstanceOf(HTMLButtonElement);
+    expect(elements.buttons.html).toBeInstanceOf(HTMLButtonElement);
+    expect(elements.preview.hexagonContainer).toBeInstanceOf(HTMLDivElement);
+    expect(elements.dialog.element).toBeInstanceOf(HTMLDialogElement);
+    expect(elements.buttons.dialogClose).toBeInstanceOf(HTMLButtonElement);
+    expect(elements.buttons.dialogCopy).toBeInstanceOf(HTMLButtonElement);
+    expect(elements.dialog.text).toBeInstanceOf(HTMLDivElement);
+    expect(elements.dialog.title).toBeInstanceOf(HTMLDivElement);
   });
 
   it("throws an error when an element does not exist", () => {

@@ -38,78 +38,95 @@ export const ID_DIALOG_COPY_BTN = "dialog__copy-btn";
 export const ID_DIALOG_TEXT = "dialog__text";
 export const ID_DIALOG_TITLE = "dialog__title";
 
-export function getAndAssertHtmlElements() {
-  const numberOfHexagons = getElementByIdAndAssert<HTMLInputElement>(
-    ID_NUMBER_OF_HEXAGONS,
-  );
-  const hexagonsFirstRow =
-    getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_FIRST_ROW);
-  const backgroundColor =
-    getElementByIdAndAssert<HTMLInputElement>(ID_BG_COLOR);
-  const hexagonColor =
-    getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_COLOR);
-  const textColor = getElementByIdAndAssert<HTMLInputElement>(ID_TEXT_COLOR);
-  const hexagonSize =
-    getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_SIZE);
-  const containerSkewX =
-    getElementByIdAndAssert<HTMLInputElement>(ID_CONTAINER_SKEW_X);
-  const containerSkewY =
-    getElementByIdAndAssert<HTMLInputElement>(ID_CONTAINER_SKEW_Y);
-  const hexagonRotation =
-    getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_ROTATION);
-  const hexagonTransition = getElementByIdAndAssert<HTMLInputElement>(
-    ID_HEXAGON_TRANSITION,
-  );
-  const hexagonScale =
-    getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_SCALE);
-  const hexagonGap = getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_GAP);
-  const mediaQuery_1 =
-    getElementByIdAndAssert<HTMLInputElement>(ID_MEDIA_QUERY_1);
-  const mediaQuery_2 =
-    getElementByIdAndAssert<HTMLInputElement>(ID_MEDIA_QUERY_2);
-  const mediaQuery_3 =
-    getElementByIdAndAssert<HTMLInputElement>(ID_MEDIA_QUERY_3);
-  const cssBtn = getElementByIdAndAssert<HTMLButtonElement>(ID_BTN_CSS);
-  const htmlBtn = getElementByIdAndAssert<HTMLButtonElement>(ID_BTN_HTML);
-  const hexagonContainer = getElementByIdAndAssert(ID_HEXAGON_CONTAINER);
-  const numberOfHexagonsElement = getElementByIdAndAssert<HTMLInputElement>(
-    ID_NUMBER_OF_HEXAGONS,
-  );
-  const hexagonsFirstRowElement =
-    getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_FIRST_ROW);
-  const dialogElement = getElementByIdAndAssert<HTMLDialogElement>(ID_DIALOG);
-  const dialogCloseBtn =
-    getElementByIdAndAssert<HTMLButtonElement>(ID_DIALOG_CLOSE_BTN);
-  const dialogCopyBtn =
-    getElementByIdAndAssert<HTMLButtonElement>(ID_DIALOG_COPY_BTN);
-  const dialogText = getElementByIdAndAssert(ID_DIALOG_TEXT);
-  const dialogTitle = getElementByIdAndAssert(ID_DIALOG_TITLE);
+export type AppInputs = {
+  numberOfHexagons: HTMLInputElement;
+  hexagonsFirstRow: HTMLInputElement;
+  backgroundColor: HTMLInputElement;
+  hexagonColor: HTMLInputElement;
+  textColor: HTMLInputElement;
+  hexagonSize: HTMLInputElement;
+  containerSkewX: HTMLInputElement;
+  containerSkewY: HTMLInputElement;
+  hexagonRotation: HTMLInputElement;
+  hexagonTransition: HTMLInputElement;
+  hexagonScale: HTMLInputElement;
+  hexagonGap: HTMLInputElement;
+  mediaQuery_1: HTMLInputElement;
+  mediaQuery_2: HTMLInputElement;
+  mediaQuery_3: HTMLInputElement;
+};
 
+export type AppButtons = {
+  css: HTMLButtonElement;
+  html: HTMLButtonElement;
+  dialogClose: HTMLButtonElement;
+  dialogCopy: HTMLButtonElement;
+};
+
+export type AppDialogElements = {
+  element: HTMLDialogElement;
+  text: HTMLElement;
+  title: HTMLElement;
+};
+
+export type AppPreviewElements = {
+  hexagonContainer: HTMLElement;
+};
+
+export type AppElements = {
+  inputs: AppInputs;
+  buttons: AppButtons;
+  dialog: AppDialogElements;
+  preview: AppPreviewElements;
+};
+
+export function getAndAssertHtmlElements() {
   return {
-    numberOfHexagons,
-    hexagonsFirstRow,
-    backgroundColor,
-    hexagonColor,
-    textColor,
-    hexagonSize,
-    containerSkewX,
-    containerSkewY,
-    hexagonRotation,
-    hexagonTransition,
-    hexagonScale,
-    hexagonGap,
-    mediaQuery_1,
-    mediaQuery_2,
-    mediaQuery_3,
-    cssBtn,
-    htmlBtn,
-    hexagonContainer,
-    numberOfHexagonsElement,
-    hexagonsFirstRowElement,
-    dialogElement,
-    dialogCloseBtn,
-    dialogCopyBtn,
-    dialogText,
-    dialogTitle,
-  };
+    inputs: {
+      numberOfHexagons: getElementByIdAndAssert<HTMLInputElement>(
+        ID_NUMBER_OF_HEXAGONS,
+      ),
+      hexagonsFirstRow:
+        getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_FIRST_ROW),
+      backgroundColor: getElementByIdAndAssert<HTMLInputElement>(ID_BG_COLOR),
+      hexagonColor:
+        getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_COLOR),
+      textColor: getElementByIdAndAssert<HTMLInputElement>(ID_TEXT_COLOR),
+      hexagonSize: getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_SIZE),
+      containerSkewX:
+        getElementByIdAndAssert<HTMLInputElement>(ID_CONTAINER_SKEW_X),
+      containerSkewY:
+        getElementByIdAndAssert<HTMLInputElement>(ID_CONTAINER_SKEW_Y),
+      hexagonRotation:
+        getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_ROTATION),
+      hexagonTransition: getElementByIdAndAssert<HTMLInputElement>(
+        ID_HEXAGON_TRANSITION,
+      ),
+      hexagonScale:
+        getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_SCALE),
+      hexagonGap: getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_GAP),
+      mediaQuery_1:
+        getElementByIdAndAssert<HTMLInputElement>(ID_MEDIA_QUERY_1),
+      mediaQuery_2:
+        getElementByIdAndAssert<HTMLInputElement>(ID_MEDIA_QUERY_2),
+      mediaQuery_3:
+        getElementByIdAndAssert<HTMLInputElement>(ID_MEDIA_QUERY_3),
+    },
+    buttons: {
+      css: getElementByIdAndAssert<HTMLButtonElement>(ID_BTN_CSS),
+      html: getElementByIdAndAssert<HTMLButtonElement>(ID_BTN_HTML),
+      dialogClose:
+        getElementByIdAndAssert<HTMLButtonElement>(ID_DIALOG_CLOSE_BTN),
+      dialogCopy:
+        getElementByIdAndAssert<HTMLButtonElement>(ID_DIALOG_COPY_BTN),
+    },
+    dialog: {
+      element: getElementByIdAndAssert<HTMLDialogElement>(ID_DIALOG),
+      text: getElementByIdAndAssert(ID_DIALOG_TEXT),
+      title: getElementByIdAndAssert(ID_DIALOG_TITLE),
+    },
+    preview: {
+      hexagonContainer: getElementByIdAndAssert(ID_HEXAGON_CONTAINER),
+    },
+  } satisfies AppElements;
 }
