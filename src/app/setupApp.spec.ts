@@ -1,55 +1,13 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { AppElements } from "./appElements";
 import { setupApp } from "./setupApp";
-
-function createInput(value = ""): HTMLInputElement {
-  const input = document.createElement("input");
-  input.value = value;
-
-  return input;
-}
-
-function createElements(): AppElements {
-  return {
-    inputs: {
-      numberOfHexagons: createInput("5"),
-      hexagonsFirstRow: createInput("3"),
-      backgroundColor: createInput("#101010"),
-      hexagonColor: createInput("#202020"),
-      textColor: createInput("#303030"),
-      hexagonSize: createInput("10"),
-      containerSkewX: createInput("5"),
-      containerSkewY: createInput("6"),
-      hexagonRotation: createInput("7"),
-      hexagonTransition: createInput("0.2"),
-      hexagonScale: createInput("1.3"),
-      hexagonGap: createInput("20"),
-      mediaQuery_1: createInput("900"),
-      mediaQuery_2: createInput("700"),
-      mediaQuery_3: createInput("500"),
-    },
-    buttons: {
-      css: document.createElement("button"),
-      html: document.createElement("button"),
-      dialogClose: document.createElement("button"),
-      dialogCopy: document.createElement("button"),
-    },
-    dialog: {
-      element: document.createElement("dialog"),
-      text: document.createElement("div"),
-      title: document.createElement("div"),
-    },
-    preview: {
-      hexagonContainer: document.createElement("div"),
-    },
-  };
-}
+import { createAppElements } from "./test/createAppElements";
 
 describe("setupApp", () => {
   let elements: AppElements;
 
   beforeEach(() => {
-    elements = createElements();
+    elements = createAppElements();
     document.documentElement.style.cssText = "";
   });
 

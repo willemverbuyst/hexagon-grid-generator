@@ -1,6 +1,6 @@
+import { generateHexagons } from "../lib/generateHexagons";
 import type { AppElements } from "./appElements";
 import type { AppState } from "./readAppState";
-import { generateHexagons } from "./generateHexagons";
 
 export function renderHexagonSection(
   elements: AppElements,

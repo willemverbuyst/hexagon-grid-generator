@@ -1,5 +1,5 @@
-import { getAppElements } from "./lib/getAppElements";
-import { setupApp } from "./lib/setupApp";
+import { getAppElements } from "./app/getAppElements";
+import { setupApp } from "./app/setupApp";
 import "./style.css";
 
 console.info("🚀 Running the app!");

@@ -1,9 +1,9 @@
+import { generateCSSText } from "../lib/generateCSSText";
+import { generateHTMLText } from "../lib/generateHTMLText";
+import { highlightCSS, highlightHTML } from "../lib/highlightText";
 import type { AppElements } from "./appElements";
-import { generateCSSText } from "./generateCSSText";
-import { generateHTMLText } from "./generateHTMLText";
-import { highlightCSS, highlightHTML } from "./highlightText";
-import type { AppState } from "./readAppState";
 import { openDialog } from "./dialog";
+import type { AppState } from "./readAppState";
 
 type ReadState = () => AppState;
 
