@@ -18,9 +18,7 @@ export const defaultAppState: AppState = {
   mediaQuery_3: 500,
 };
 
-export function createAppState(
-  overrides: Partial<AppState> = {},
-): AppState {
+export function createAppState(overrides: Partial<AppState> = {}): AppState {
   return {
     ...defaultAppState,
     ...overrides,

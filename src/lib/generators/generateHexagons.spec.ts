@@ -26,9 +26,13 @@ describe("appendHexagons", () => {
       getClassName: (i) => (i % 2 === 0 ? "even-class" : "odd-class"),
     });
     const hexagons = Array.from(fragment.childNodes);
-    expect((hexagons[0] as Element).classList.contains("even-class")).toBe(true);
+    expect((hexagons[0] as Element).classList.contains("even-class")).toBe(
+      true,
+    );
     expect((hexagons[1] as Element).classList.contains("odd-class")).toBe(true);
-    expect((hexagons[2] as Element).classList.contains("even-class")).toBe(true);
+    expect((hexagons[2] as Element).classList.contains("even-class")).toBe(
+      true,
+    );
   });
 
   it("should start hexagon IDs from the specified start value", () => {
@@ -74,9 +78,7 @@ describe("generateHexagons", () => {
       (hexagons[0] as Element)?.classList.contains(FIRST_ROW_MARGIN_TOP_CLASS),
     ).toBe(true);
     expect(
-      (hexagons[3] as Element)?.classList.contains(
-        EVEN_ROWS_MARGIN_LEFT_CLASS,
-      ),
+      (hexagons[3] as Element)?.classList.contains(EVEN_ROWS_MARGIN_LEFT_CLASS),
     ).toBe(true);
   });
 });

@@ -4,10 +4,7 @@ import {
   generateBasicHexagonCSS,
 } from "./shared";
 import { getOuterHexagonShapeCSS } from "./generateLayoutCSS";
-import {
-  HEXAGON_INNER_SELECTOR,
-  HEXAGON_OUTER_SELECTOR,
-} from "../constants";
+import { HEXAGON_INNER_SELECTOR, HEXAGON_OUTER_SELECTOR } from "../constants";
 
 export function generateOuterHexagonCSS(
   hexagonSize: number,

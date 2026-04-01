@@ -48,8 +48,7 @@ export function getAppElements(): AppElements {
       hexagonsFirstRow:
         getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_FIRST_ROW),
       backgroundColor: getElementByIdAndAssert<HTMLInputElement>(ID_BG_COLOR),
-      hexagonColor:
-        getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_COLOR),
+      hexagonColor: getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_COLOR),
       textColor: getElementByIdAndAssert<HTMLInputElement>(ID_TEXT_COLOR),
       hexagonSize: getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_SIZE),
       containerSkewX:
@@ -61,15 +60,11 @@ export function getAppElements(): AppElements {
       hexagonTransition: getElementByIdAndAssert<HTMLInputElement>(
         ID_HEXAGON_TRANSITION,
       ),
-      hexagonScale:
-        getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_SCALE),
+      hexagonScale: getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_SCALE),
       hexagonGap: getElementByIdAndAssert<HTMLInputElement>(ID_HEXAGON_GAP),
-      mediaQuery_1:
-        getElementByIdAndAssert<HTMLInputElement>(ID_MEDIA_QUERY_1),
-      mediaQuery_2:
-        getElementByIdAndAssert<HTMLInputElement>(ID_MEDIA_QUERY_2),
-      mediaQuery_3:
-        getElementByIdAndAssert<HTMLInputElement>(ID_MEDIA_QUERY_3),
+      mediaQuery_1: getElementByIdAndAssert<HTMLInputElement>(ID_MEDIA_QUERY_1),
+      mediaQuery_2: getElementByIdAndAssert<HTMLInputElement>(ID_MEDIA_QUERY_2),
+      mediaQuery_3: getElementByIdAndAssert<HTMLInputElement>(ID_MEDIA_QUERY_3),
     },
     buttons: {
       css: getElementByIdAndAssert<HTMLButtonElement>(ID_BTN_CSS),

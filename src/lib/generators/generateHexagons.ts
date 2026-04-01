@@ -40,10 +40,7 @@ export function generateHexagons({
   }
 
   const fragment = document.createDocumentFragment();
-  const totalHexagonsInFirstRow = Math.min(
-    firstRowCount,
-    totalCount,
-  );
+  const totalHexagonsInFirstRow = Math.min(firstRowCount, totalCount);
 
   appendHexagons({
     fragment,

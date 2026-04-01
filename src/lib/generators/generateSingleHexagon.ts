@@ -1,7 +1,4 @@
-import {
-  HEXAGON_INNER_CLASS,
-  HEXAGON_OUTER_CLASS,
-} from "./constants";
+import { HEXAGON_INNER_CLASS, HEXAGON_OUTER_CLASS } from "./constants";
 
 export type GenerateSingleHexagonInput = {
   label: string;

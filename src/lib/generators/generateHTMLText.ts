@@ -11,7 +11,9 @@ export function generateHexagonMarkupText(hexagonNumber: number): string {
   return generateHexagonMarkup(hexagonNumber);
 }
 
-export function generateHexagonListMarkupText(numberOfHexagons: number): string {
+export function generateHexagonListMarkupText(
+  numberOfHexagons: number,
+): string {
   return generateHexagonListMarkup(numberOfHexagons);
 }
 

@@ -1,16 +1,14 @@
 import { describe, expect, it } from "vitest";
-import {
-  HEXAGON_INNER_CLASS,
-  HEXAGON_OUTER_CLASS,
-} from "./constants";
+import { HEXAGON_INNER_CLASS, HEXAGON_OUTER_CLASS } from "./constants";
 import { generateSingleHexagon } from "./generateSingleHexagon";
 
 describe("generateSingleHexagon", () => {
   it("should create a hexagon with the correct number", () => {
     const hexagon = generateSingleHexagon({ label: "1" });
 
-    const innerHexagon =
-      hexagon.querySelector<HTMLDivElement>(`.${HEXAGON_INNER_CLASS}`);
+    const innerHexagon = hexagon.querySelector<HTMLDivElement>(
+      `.${HEXAGON_INNER_CLASS}`,
+    );
     expect(innerHexagon).not.toBeNull();
     expect(innerHexagon?.innerText).toBe("1");
   });
