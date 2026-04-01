@@ -4,7 +4,6 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "architecture": "madge --extensions ts,tsx --exclude \"^.*\\.(spec\\.(ts|tsx)|css)$\" --image graph.svg src/",
     "dev": "vite",
     "build": "tsc && vite build",
     "format:check": "prettier --check src",
@@ -41,7 +40,6 @@
     "globals": "^17.4.0",
     "happy-dom": "^20.8.9",
     "husky": "^9.1.7",
-    "madge": "^8.0.0",
     "markdownlint-cli2": "^0.22.0",
     "prettier": "^3.8.1",
     "typescript": "^5.9.3",
