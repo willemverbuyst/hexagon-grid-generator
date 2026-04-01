@@ -1,33 +1,16 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import type { AppElements } from "./appElements";
-import type { AppState } from "./readAppState";
 import { renderHexagonSection } from "./renderHexagonSection";
 import { createAppElements } from "./test/createAppElements";
+import { createAppState } from "./test/createAppState";
 
 describe("renderHexagonSection", () => {
   let elements: AppElements;
-  let state: AppState;
+  let state: ReturnType<typeof createAppState>;
 
   beforeEach(() => {
     elements = createAppElements();
-
-    state = {
-      numberOfHexagons: 5,
-      hexagonsFirstRow: 3,
-      backgroundColor: "#111111",
-      hexagonColor: "#222222",
-      textColor: "#333333",
-      hexagonSize: 9,
-      containerSkewX: 10,
-      containerSkewY: 11,
-      hexagonRotation: 12,
-      hexagonTransition: 1.5,
-      hexagonScale: 1.1,
-      hexagonGap: 15,
-      mediaQuery_1: 900,
-      mediaQuery_2: 700,
-      mediaQuery_3: 500,
-    };
+    state = createAppState();
   });
 
   it("clears the container and renders the current hexagons", () => {

@@ -1,4 +1,5 @@
 import type { AppElements } from "../appElements";
+import { createAppState } from "./createAppState";
 
 function createInput(value = ""): HTMLInputElement {
   const input = document.createElement("input");
@@ -10,23 +11,53 @@ function createInput(value = ""): HTMLInputElement {
 export function createAppElements(
   inputValues: Partial<Record<keyof AppElements["inputs"], string>> = {},
 ): AppElements {
+  const defaultState = createAppState();
+
   return {
     inputs: {
-      numberOfHexagons: createInput(inputValues.numberOfHexagons ?? "5"),
-      hexagonsFirstRow: createInput(inputValues.hexagonsFirstRow ?? "3"),
-      backgroundColor: createInput(inputValues.backgroundColor ?? "#101010"),
-      hexagonColor: createInput(inputValues.hexagonColor ?? "#202020"),
-      textColor: createInput(inputValues.textColor ?? "#303030"),
-      hexagonSize: createInput(inputValues.hexagonSize ?? "10"),
-      containerSkewX: createInput(inputValues.containerSkewX ?? "5"),
-      containerSkewY: createInput(inputValues.containerSkewY ?? "6"),
-      hexagonRotation: createInput(inputValues.hexagonRotation ?? "7"),
-      hexagonTransition: createInput(inputValues.hexagonTransition ?? "0.2"),
-      hexagonScale: createInput(inputValues.hexagonScale ?? "1.3"),
-      hexagonGap: createInput(inputValues.hexagonGap ?? "20"),
-      mediaQuery_1: createInput(inputValues.mediaQuery_1 ?? "900"),
-      mediaQuery_2: createInput(inputValues.mediaQuery_2 ?? "700"),
-      mediaQuery_3: createInput(inputValues.mediaQuery_3 ?? "500"),
+      numberOfHexagons: createInput(
+        inputValues.numberOfHexagons ?? String(defaultState.numberOfHexagons),
+      ),
+      hexagonsFirstRow: createInput(
+        inputValues.hexagonsFirstRow ?? String(defaultState.hexagonsFirstRow),
+      ),
+      backgroundColor: createInput(
+        inputValues.backgroundColor ?? defaultState.backgroundColor,
+      ),
+      hexagonColor: createInput(
+        inputValues.hexagonColor ?? defaultState.hexagonColor,
+      ),
+      textColor: createInput(inputValues.textColor ?? defaultState.textColor),
+      hexagonSize: createInput(
+        inputValues.hexagonSize ?? String(defaultState.hexagonSize),
+      ),
+      containerSkewX: createInput(
+        inputValues.containerSkewX ?? String(defaultState.containerSkewX),
+      ),
+      containerSkewY: createInput(
+        inputValues.containerSkewY ?? String(defaultState.containerSkewY),
+      ),
+      hexagonRotation: createInput(
+        inputValues.hexagonRotation ?? String(defaultState.hexagonRotation),
+      ),
+      hexagonTransition: createInput(
+        inputValues.hexagonTransition ?? String(defaultState.hexagonTransition),
+      ),
+      hexagonScale: createInput(
+        inputValues.hexagonScale ?? String(defaultState.hexagonScale),
+      ),
+      hexagonGap: createInput(
+        inputValues.hexagonGap ?? String(defaultState.hexagonGap),
+      ),
+      mediaQuery_1: createInput(
+        inputValues.mediaQuery_1 ?? String(defaultState.mediaQuery_1),
+      ),
+      mediaQuery_2: createInput(
+        inputValues.mediaQuery_2 ?? String(defaultState.mediaQuery_2),
+      ),
+      mediaQuery_3: createInput(
+        inputValues.mediaQuery_3 ?? String(defaultState.mediaQuery_3),
+      ),
     },
     buttons: {
       css: document.createElement("button"),
