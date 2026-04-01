@@ -1,5 +1,5 @@
 import DOMPurify from "dompurify";
-import type { AppElements } from "./getAndAssertHtmlElements";
+import type { AppElements } from "./appElements";
 
 type OpenDialogInput = {
   dialogElement: HTMLDialogElement;

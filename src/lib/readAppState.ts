@@ -1,4 +1,4 @@
-import type { AppElements } from "./getAndAssertHtmlElements";
+import type { AppElements } from "./appElements";
 
 export type AppState = {
   numberOfHexagons: number;

@@ -4,7 +4,8 @@ import {
   POSTFIX_SECONDS,
   POSTFIX_VW,
 } from "../config/constants";
-import type { AppElements } from "./getAndAssertHtmlElements";
+import type { AppElements } from "./appElements";
+import { bindInput } from "./bindInput";
 
 type StyleInputBinding = {
   input: HTMLInputElement;
@@ -12,13 +13,6 @@ type StyleInputBinding = {
   postfix?: string;
   transformValue?: (value: number) => string;
 };
-
-function bindInput(
-  input: HTMLInputElement,
-  listener: (event: Event) => void,
-): void {
-  input.addEventListener("input", listener);
-}
 
 function bindStyleInput({
   input,

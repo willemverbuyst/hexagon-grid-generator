@@ -1,4 +1,4 @@
-import type { AppElements } from "./getAndAssertHtmlElements";
+import type { AppElements } from "./appElements";
 import { generateCSSText } from "./generateCSSText";
 import { generateHTMLText } from "./generateHTMLText";
 import { highlightCSS, highlightHTML } from "./highlightText";

@@ -1,11 +1,5 @@
-import type { AppElements } from "./getAndAssertHtmlElements";
-
-function bindInput(
-  input: HTMLInputElement,
-  listener: (event: Event) => void,
-): void {
-  input.addEventListener("input", listener);
-}
+import type { AppElements } from "./appElements";
+import { bindInput } from "./bindInput";
 
 export function bindRenderInputs(
   inputs: AppElements["inputs"],

@@ -1,4 +1,4 @@
-import type { AppElements } from "./getAndAssertHtmlElements";
+import type { AppElements } from "./appElements";
 import { bindCssExport, bindHtmlExport } from "./bindExports";
 import { bindRenderInputs } from "./bindRenderInputs";
 import { bindStyleInputs } from "./bindStyleInputs";

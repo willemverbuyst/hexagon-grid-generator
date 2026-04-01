@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import type { AppElements } from "./getAndAssertHtmlElements";
+import type { AppElements } from "./appElements";
 import { setupApp } from "./setupApp";
 
 function createInput(value = ""): HTMLInputElement {

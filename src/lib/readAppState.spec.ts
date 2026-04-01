@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { AppElements } from "./getAndAssertHtmlElements";
+import type { AppElements } from "./appElements";
 import { readAppState } from "./readAppState";
 
 function createInput(value: string): HTMLInputElement {

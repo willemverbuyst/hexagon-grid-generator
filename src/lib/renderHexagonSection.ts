@@ -1,4 +1,4 @@
-import type { AppElements } from "./getAndAssertHtmlElements";
+import type { AppElements } from "./appElements";
 import type { AppState } from "./readAppState";
 import { generateHexagons } from "./generateHexagons";
 

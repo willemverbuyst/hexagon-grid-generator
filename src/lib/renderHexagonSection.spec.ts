@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import type { AppElements } from "./getAndAssertHtmlElements";
+import type { AppElements } from "./appElements";
 import { renderHexagonSection } from "./renderHexagonSection";
 import type { AppState } from "./readAppState";
 

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
-  getAndAssertHtmlElements,
+  getAppElements,
   getElementByIdAndAssert,
   htmlElementNotFoundMessage,
   ID_BG_COLOR,
@@ -26,7 +26,7 @@ import {
   ID_MEDIA_QUERY_3,
   ID_NUMBER_OF_HEXAGONS,
   ID_TEXT_COLOR,
-} from "./getAndAssertHtmlElements";
+} from "./getAppElements";
 
 describe("htmlElementNotFoundMessage", () => {
   it("returns the correct message for a given id", () => {
@@ -53,7 +53,7 @@ describe("getElementByIdAndAssert", () => {
   });
 });
 
-describe("getAndAssertHtmlElements", () => {
+describe("getAppElements", () => {
   it("returns all elements when they exist", () => {
     document.body.innerHTML = `
       <input id="${ID_NUMBER_OF_HEXAGONS}" />
@@ -81,7 +81,7 @@ describe("getAndAssertHtmlElements", () => {
       <div id="${ID_DIALOG_TITLE}"></div>
     `;
 
-    const elements = getAndAssertHtmlElements();
+    const elements = getAppElements();
 
     expect(elements.inputs.numberOfHexagons).toBeInstanceOf(HTMLInputElement);
     expect(elements.inputs.hexagonsFirstRow).toBeInstanceOf(HTMLInputElement);
@@ -111,6 +111,6 @@ describe("getAndAssertHtmlElements", () => {
   it("throws an error when an element does not exist", () => {
     document.body.innerHTML = ""; // No elements
 
-    expect(() => getAndAssertHtmlElements()).toThrowError();
+    expect(() => getAppElements()).toThrowError();
   });
 });

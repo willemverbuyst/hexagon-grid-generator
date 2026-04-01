@@ -1,13 +1,14 @@
 import { assertNonNullish } from "../utils/assert";
+import type { AppElements } from "./appElements";
 
-export function htmlElementNotFoundMessage(id: string) {
+export function htmlElementNotFoundMessage(id: string): string {
   return `HTMLElement #${id} not found!`;
 }
 
 export function getElementByIdAndAssert<T extends HTMLElement = HTMLElement>(
   id: string,
 ): T {
-  const element = <T>document.getElementById(id);
+  const element = document.getElementById(id) as T | null;
   const message = htmlElementNotFoundMessage(id);
   assertNonNullish(element, message);
 
@@ -38,49 +39,7 @@ export const ID_DIALOG_COPY_BTN = "dialog__copy-btn";
 export const ID_DIALOG_TEXT = "dialog__text";
 export const ID_DIALOG_TITLE = "dialog__title";
 
-export type AppInputs = {
-  numberOfHexagons: HTMLInputElement;
-  hexagonsFirstRow: HTMLInputElement;
-  backgroundColor: HTMLInputElement;
-  hexagonColor: HTMLInputElement;
-  textColor: HTMLInputElement;
-  hexagonSize: HTMLInputElement;
-  containerSkewX: HTMLInputElement;
-  containerSkewY: HTMLInputElement;
-  hexagonRotation: HTMLInputElement;
-  hexagonTransition: HTMLInputElement;
-  hexagonScale: HTMLInputElement;
-  hexagonGap: HTMLInputElement;
-  mediaQuery_1: HTMLInputElement;
-  mediaQuery_2: HTMLInputElement;
-  mediaQuery_3: HTMLInputElement;
-};
-
-export type AppButtons = {
-  css: HTMLButtonElement;
-  html: HTMLButtonElement;
-  dialogClose: HTMLButtonElement;
-  dialogCopy: HTMLButtonElement;
-};
-
-export type AppDialogElements = {
-  element: HTMLDialogElement;
-  text: HTMLElement;
-  title: HTMLElement;
-};
-
-export type AppPreviewElements = {
-  hexagonContainer: HTMLElement;
-};
-
-export type AppElements = {
-  inputs: AppInputs;
-  buttons: AppButtons;
-  dialog: AppDialogElements;
-  preview: AppPreviewElements;
-};
-
-export function getAndAssertHtmlElements() {
+export function getAppElements(): AppElements {
   return {
     inputs: {
       numberOfHexagons: getElementByIdAndAssert<HTMLInputElement>(
@@ -128,5 +87,5 @@ export function getAndAssertHtmlElements() {
     preview: {
       hexagonContainer: getElementByIdAndAssert(ID_HEXAGON_CONTAINER),
     },
-  } satisfies AppElements;
+  };
 }
