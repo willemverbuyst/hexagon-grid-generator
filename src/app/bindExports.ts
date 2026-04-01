@@ -1,6 +1,6 @@
-import { generateCSSText } from "../lib/generateCSSText";
-import { generateHTMLText } from "../lib/generateHTMLText";
-import { highlightCSS, highlightHTML } from "../lib/highlightText";
+import { highlightCSS, highlightHTML } from "../lib/formatters/highlightText";
+import { generateCSSText } from "../lib/generators/generateCSSText";
+import { generateHTMLText } from "../lib/generators/generateHTMLText";
 import type { AppElements } from "./appElements";
 import { openDialog } from "./dialog";
 import type { AppState } from "./readAppState";

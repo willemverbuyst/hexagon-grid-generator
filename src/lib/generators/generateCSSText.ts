@@ -1,4 +1,4 @@
-import { roundToTwoDecimals } from "../utils/math";
+import { roundToTwoDecimals } from "../../utils/math";
 
 const HEIGHT_TO_WIDTH_RATIO = 1.1547005;
 
@@ -239,7 +239,7 @@ export function generateMediaQueriesCSS(
   return mediaQueriesCSS;
 }
 
-export interface CSSInputValues {
+export type CSSInputValues = {
   backgroundColor: string;
   containerSkewX: number;
   containerSkewY: number;
@@ -254,7 +254,7 @@ export interface CSSInputValues {
   mediaQuery_2: number;
   mediaQuery_3: number;
   textColor: string;
-}
+};
 
 export function generateCSSText({
   backgroundColor,

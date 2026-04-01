@@ -31,7 +31,6 @@ export function generateHexagons(
     totalNumberOfHexagons,
   );
 
-  // Append the first row hexagons with margin-top class
   appendHexagons({
     fragment,
     count: totalHexagonsInFirstRow,
@@ -39,12 +38,10 @@ export function generateHexagons(
     getClassName: () => "first-row__margin-top",
   });
 
-  // If there are no more hexagons, return the fragment
   if (totalHexagonsInFirstRow === totalNumberOfHexagons) {
     return fragment;
   }
 
-  // Append remaining hexagons with margin-left class conditionally
   const remainingHexagons = totalNumberOfHexagons - totalHexagonsInFirstRow;
   appendHexagons({
     fragment,
