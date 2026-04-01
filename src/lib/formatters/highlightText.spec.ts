@@ -130,7 +130,7 @@ describe("highlightHTML", () => {
   it("handles empty input string", () => {
     const inputHTML = "";
 
-    expect(inputHTML).toBe("");
+    expect(highlightHTML(inputHTML)).toBe("");
   });
 
   it("does not double-escape already escaped HTML", () => {
