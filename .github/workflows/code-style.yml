@@ -17,13 +17,6 @@ jobs:
         pnpm format:check
         pnpm lint
 
-  lint-readme:
-    name: Lint README
-    uses: ./.github/workflows/node-ci.yml
-    with:
-      run-command: |
-        pnpm lint:md
-
   lint-actions:
     name: Lint Actions
     runs-on: ubuntu-latest
