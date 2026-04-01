@@ -10,10 +10,10 @@ export function renderHexagonSection(
 
   hexagonContainer.innerHTML = "";
 
-  const hexagons = generateHexagons(
-    state.hexagonsFirstRow,
-    state.numberOfHexagons,
-  );
+  const hexagons = generateHexagons({
+    firstRowCount: state.hexagonsFirstRow,
+    totalCount: state.numberOfHexagons,
+  });
 
   if (hexagons) {
     hexagonContainer.appendChild(hexagons);

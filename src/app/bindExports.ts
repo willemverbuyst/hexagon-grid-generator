@@ -1,6 +1,6 @@
 import { highlightCSS, highlightHTML } from "../lib/formatters/highlightText";
-import { buildCssExport } from "../lib/generators/generateCSSText";
-import { buildHtmlExport } from "../lib/generators/generateHTMLText";
+import { generateCssText } from "../lib/generators/generateCSSText";
+import { generateHtmlText } from "../lib/generators/generateHTMLText";
 import type { AppElements } from "./appElements";
 import { openDialog } from "./dialog";
 import type { AppState } from "./readAppState";
@@ -13,7 +13,7 @@ export function bindHtmlExport(
 ): void {
   elements.buttons.html.addEventListener("click", () => {
     const state = readState();
-    const generatedHTML = buildHtmlExport({
+    const generatedHTML = generateHtmlText({
       numberOfHexagons: state.numberOfHexagons,
     });
 
@@ -32,7 +32,7 @@ export function bindCssExport(
   readState: ReadState,
 ): void {
   elements.buttons.css.addEventListener("click", () => {
-    const generatedCSS = buildCssExport(readState());
+    const generatedCSS = generateCssText(readState());
 
     openDialog({
       dialogElement: elements.dialog.element,

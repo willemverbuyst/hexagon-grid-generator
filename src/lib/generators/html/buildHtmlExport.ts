@@ -1,41 +1,55 @@
+import {
+  HEXAGON_CONTAINER_CLASS,
+  HEXAGON_INNER_CLASS,
+  HEXAGON_OUTER_CLASS,
+  HEXAGON_WRAPPER_CLASS,
+} from "../constants";
+
 export type HTMLInputValues = {
   numberOfHexagons: number;
 };
 
-export function renderHexagonMarkup(hexagonNumber: number): string {
+export type HtmlInputValues = HTMLInputValues;
+
+export function generateHexagonMarkup(hexagonNumber: number): string {
   return `
-    <div class="hexagon__outer">
-      <div class="hexagon__inner">${hexagonNumber}</div>
+    <div class="${HEXAGON_OUTER_CLASS}">
+      <div class="${HEXAGON_INNER_CLASS}">${hexagonNumber}</div>
     </div>
 `;
 }
 
-export function renderHexagonListMarkup(numberOfHexagons: number): string {
+export function generateHexagonListMarkup(numberOfHexagons: number): string {
   let hexagonsHTML = "";
 
   Array(numberOfHexagons)
     .fill(0)
     .forEach((_, i) => {
-      hexagonsHTML += renderHexagonMarkup(i + 1);
+      hexagonsHTML += generateHexagonMarkup(i + 1);
     });
 
   return hexagonsHTML;
 }
 
-export function renderHexagonWrapperMarkup(html: string): string {
+export function generateHexagonWrapperMarkup(html: string): string {
   return `
-<div class="hexagon-wrapper">
-  <div class="hexagon-wrapper__hexagon-container">
+<div class="${HEXAGON_WRAPPER_CLASS}">
+  <div class="${HEXAGON_CONTAINER_CLASS}">
     ${html}
   </div>
 </div>
 `;
 }
 
-export function buildHtmlExport({
+export function generateHtmlText({
   numberOfHexagons,
-}: HTMLInputValues): string {
-  const hexagonsHTML = renderHexagonListMarkup(numberOfHexagons);
+}: HtmlInputValues): string {
+  const hexagonsHTML = generateHexagonListMarkup(numberOfHexagons);
 
-  return renderHexagonWrapperMarkup(hexagonsHTML);
+  return generateHexagonWrapperMarkup(hexagonsHTML);
 }
+
+export const renderHexagonMarkup = generateHexagonMarkup;
+export const renderHexagonListMarkup = generateHexagonListMarkup;
+export const renderHexagonWrapperMarkup = generateHexagonWrapperMarkup;
+export const buildHtmlExport = generateHtmlText;

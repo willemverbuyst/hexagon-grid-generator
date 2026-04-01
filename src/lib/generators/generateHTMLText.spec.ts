@@ -1,70 +1,64 @@
 import { describe, expect, it } from "vitest";
 import {
   buildHtmlExport,
+  generateHtmlText,
+  generateHexagonListMarkupText,
+  generateHexagonMarkupText,
+  generateHexagonWrapperMarkupText,
   generateHexagonHTML,
   generateHexagonsHTML,
   generateHTMLText,
   wrapHTML,
 } from "./generateHTMLText";
+import {
+  HEXAGON_CONTAINER_CLASS,
+  HEXAGON_INNER_CLASS,
+  HEXAGON_OUTER_CLASS,
+  HEXAGON_WRAPPER_CLASS,
+} from "./constants";
+
+function parseMarkup(markup: string): HTMLDivElement {
+  const root = document.createElement("div");
+  root.innerHTML = markup;
+
+  return root;
+}
 
 describe("generateHexagonHTML", () => {
-  describe("given 2", () => {
-    it("should return string with hexagon #2", () => {
-      expect(generateHexagonHTML(2).replace(/\s/g, "")).toMatch(
-        `<div class="hexagon__outer">
-					<div class="hexagon__inner">2</div>
-				</div>
-				`.replace(/\s/g, ""),
-      );
-    });
+  it("returns markup for one numbered hexagon", () => {
+    const root = parseMarkup(generateHexagonHTML(2));
+    const outer = root.querySelector(`.${HEXAGON_OUTER_CLASS}`);
+    const inner = root.querySelector(`.${HEXAGON_INNER_CLASS}`);
+
+    expect(outer).not.toBeNull();
+    expect(inner?.textContent).toBe("2");
   });
 });
 
 describe("generateHexagonsHTML", () => {
-  describe("given 0", () => {
-    it("should return an empty string", () => {
-      expect(generateHexagonsHTML(0).replace(/\s/g, "")).toMatch("");
-    });
+  it("returns an empty string for zero hexagons", () => {
+    expect(generateHexagonsHTML(0)).toBe("");
   });
 
-  describe("given 1", () => {
-    it("should return string with hexagon #1", () => {
-      expect(generateHexagonsHTML(1).replace(/\s/g, "")).toMatch(
-        `<div class="hexagon__outer">
-					<div class="hexagon__inner">1</div>
-				</div>
-				`.replace(/\s/g, ""),
-      );
-    });
-  });
+  it("returns numbered hexagons in sequence", () => {
+    const root = parseMarkup(generateHexagonsHTML(2));
+    const labels = Array.from(
+      root.querySelectorAll(`.${HEXAGON_INNER_CLASS}`),
+      (element) => element.textContent,
+    );
 
-  describe("given 2", () => {
-    it("should return string with hexagon #1 and #2", () => {
-      expect(generateHexagonsHTML(2).replace(/\s/g, "")).toMatch(
-        `<div class="hexagon__outer">
-        <div class="hexagon__inner">1</div>
-        </div>
-				<div class="hexagon__outer">
-					<div class="hexagon__inner">2</div>
-				</div>
-				`.replace(/\s/g, ""),
-      );
-    });
+    expect(labels).toEqual(["1", "2"]);
   });
 });
 
 describe("wrapHTML", () => {
-  describe("given string", () => {
-    it("should return string with wrapper html", () => {
-      expect(wrapHTML("test").replace(/\s/g, "")).toMatch(
-        `<div class="hexagon-wrapper">
-          <div class="hexagon-wrapper__hexagon-container">
-						test
-          </div>
-        </div>
-				`.replace(/\s/g, ""),
-      );
-    });
+  it("wraps html in the preview container", () => {
+    const root = parseMarkup(wrapHTML("test"));
+    const wrapper = root.querySelector(`.${HEXAGON_WRAPPER_CLASS}`);
+    const container = root.querySelector(`.${HEXAGON_CONTAINER_CLASS}`);
+
+    expect(wrapper).not.toBeNull();
+    expect(container?.textContent).toContain("test");
   });
 });
 
@@ -77,54 +71,30 @@ describe("buildHtmlExport", () => {
 });
 
 describe("generateHTMLText", () => {
-  describe("given 0", () => {
-    it("should return anly the wrapper html", () => {
-      expect(
-        generateHTMLText({ numberOfHexagons: 0 }).replace(/\s/g, ""),
-      ).toMatch(
-        `<div class="hexagon-wrapper">
-		      <div class="hexagon-wrapper__hexagon-container">
-		      </div>
-		    </div>
-        `.replace(/\s/g, ""),
-      );
-    });
+  it("returns the wrapper without hexagons for zero items", () => {
+    const root = parseMarkup(generateHTMLText({ numberOfHexagons: 0 }));
+    expect(root.querySelector(`.${HEXAGON_WRAPPER_CLASS}`)).not.toBeNull();
+    expect(root.querySelectorAll(`.${HEXAGON_OUTER_CLASS}`)).toHaveLength(0);
   });
 
-  describe("given 1", () => {
-    it("should return string with wrapper and hexagon #1", () => {
-      expect(
-        generateHTMLText({ numberOfHexagons: 1 }).replace(/\s/g, ""),
-      ).toMatch(
-        `<div class="hexagon-wrapper">
-          <div class="hexagon-wrapper__hexagon-container">
-            <div class="hexagon__outer">
-              <div class="hexagon__inner">1</div>
-            </div>
-          </div>
-        </div>
-				`.replace(/\s/g, ""),
-      );
-    });
-  });
+  it("returns wrapper markup with numbered hexagons", () => {
+    const root = parseMarkup(generateHTMLText({ numberOfHexagons: 2 }));
+    const labels = Array.from(
+      root.querySelectorAll(`.${HEXAGON_INNER_CLASS}`),
+      (element) => element.textContent,
+    );
 
-  describe("given 2", () => {
-    it("should return string with wrapper and hexagon #1 and #2", () => {
-      expect(
-        generateHTMLText({ numberOfHexagons: 2 }).replace(/\s/g, ""),
-      ).toMatch(
-        `<div class="hexagon-wrapper">
-		      <div class="hexagon-wrapper__hexagon-container">
-            <div class="hexagon__outer">
-              <div class="hexagon__inner">1</div>
-            </div>
-            <div class="hexagon__outer">
-              <div class="hexagon__inner">2</div>
-            </div>
-		      </div>
-		    </div>
-				`.replace(/\s/g, ""),
-      );
-    });
+    expect(labels).toEqual(["1", "2"]);
+  });
+});
+
+describe("preferred html generator names", () => {
+  it("keeps the newer public names aligned with legacy aliases", () => {
+    expect(generateHtmlText({ numberOfHexagons: 2 })).toBe(
+      generateHTMLText({ numberOfHexagons: 2 }),
+    );
+    expect(generateHexagonMarkupText(1)).toBe(generateHexagonHTML(1));
+    expect(generateHexagonListMarkupText(2)).toBe(generateHexagonsHTML(2));
+    expect(generateHexagonWrapperMarkupText("test")).toBe(wrapHTML("test"));
   });
 });

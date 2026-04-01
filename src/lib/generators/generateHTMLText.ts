@@ -1,26 +1,31 @@
 import {
-  buildHtmlExport,
-  renderHexagonListMarkup,
-  renderHexagonMarkup,
-  renderHexagonWrapperMarkup,
+  generateHexagonListMarkup,
+  generateHexagonMarkup,
+  generateHexagonWrapperMarkup,
+  generateHtmlText,
 } from "./html/buildHtmlExport";
 
-export type { HTMLInputValues } from "./html/buildHtmlExport";
+export type { HTMLInputValues, HtmlInputValues } from "./html/buildHtmlExport";
 
-export function generateHexagonHTML(hexagonNumber: number): string {
-  return renderHexagonMarkup(hexagonNumber);
+export function generateHexagonMarkupText(hexagonNumber: number): string {
+  return generateHexagonMarkup(hexagonNumber);
 }
 
-export function generateHexagonsHTML(numberOfHexagons: number): string {
-  return renderHexagonListMarkup(numberOfHexagons);
+export function generateHexagonListMarkupText(numberOfHexagons: number): string {
+  return generateHexagonListMarkup(numberOfHexagons);
 }
 
-export function wrapHTML(html: string): string {
-  return renderHexagonWrapperMarkup(html);
+export function generateHexagonWrapperMarkupText(html: string): string {
+  return generateHexagonWrapperMarkup(html);
 }
 
 export function generateHTMLText(input: { numberOfHexagons: number }): string {
-  return buildHtmlExport(input);
+  return generateHtmlText(input);
 }
 
-export { buildHtmlExport };
+export { generateHtmlText };
+export const generateHtmlExport = generateHtmlText;
+export const generateHexagonHTML = generateHexagonMarkupText;
+export const generateHexagonsHTML = generateHexagonListMarkupText;
+export const wrapHTML = generateHexagonWrapperMarkupText;
+export const buildHtmlExport = generateHtmlText;

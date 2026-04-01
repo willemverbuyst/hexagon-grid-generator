@@ -13,6 +13,12 @@ import {
   generateMediaQueryCSS,
 } from "./css/generateResponsiveCSS";
 import { generateBasicHexagonCSS } from "./css/shared";
+import {
+  HEXAGON_CONTAINER_SELECTOR,
+  HEXAGON_INNER_SELECTOR,
+  HEXAGON_OUTER_SELECTOR,
+  HEXAGON_WRAPPER_SELECTOR,
+} from "./constants";
 
 export type CSSInputValues = {
   backgroundColor: string;
@@ -31,7 +37,9 @@ export type CSSInputValues = {
   textColor: string;
 };
 
-export function buildCssExport({
+export type CssInputValues = CSSInputValues;
+
+export function generateCssText({
   backgroundColor,
   containerSkewX,
   containerSkewY,
@@ -92,8 +100,10 @@ export function buildCssExport({
 }
 
 export function generateCSSText(input: CSSInputValues): string {
-  return buildCssExport(input);
+  return generateCssText(input);
 }
+
+export const buildCssExport = generateCssText;
 
 export {
   generateBackgroundCSS,
@@ -105,4 +115,8 @@ export {
   generateOuterHexagonChildCSS,
   generateOuterHexagonCSS,
   generateOuterHexagonHoverCSS,
+  HEXAGON_CONTAINER_SELECTOR,
+  HEXAGON_INNER_SELECTOR,
+  HEXAGON_OUTER_SELECTOR,
+  HEXAGON_WRAPPER_SELECTOR,
 };

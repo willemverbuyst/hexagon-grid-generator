@@ -1,8 +1,13 @@
 import { generateBasicHexagonCSS, getHexagonHeight } from "./shared";
+import {
+  HEXAGON_CONTAINER_SELECTOR,
+  HEXAGON_OUTER_SELECTOR,
+  HEXAGON_WRAPPER_SELECTOR,
+} from "../constants";
 
 export function generateBackgroundCSS(backgroundColor: string): string {
   return `
-  .hexagon-wrapper {
+  ${HEXAGON_WRAPPER_SELECTOR} {
     background-color: ${backgroundColor};
     display: flex;
     justify-content: center;
@@ -21,7 +26,7 @@ export function generateContainerCSS(
   const width = hexagonsFirstRow * hexagonSize;
 
   return `
-  .hexagon-wrapper__hexagon-container {
+  ${HEXAGON_CONTAINER_SELECTOR} {
     width: ${width}vw;
     display: flex;
     flex-wrap: wrap;
@@ -35,7 +40,7 @@ export function generateOuterHexagonHoverCSS(
   hexagonScale: number,
   hexagonRotation: number,
 ): string {
-  return `.hexagon__outer:hover {
+  return `${HEXAGON_OUTER_SELECTOR}:hover {
     transform: scale(${hexagonScale}) rotate(${hexagonRotation}deg);
   }
 

@@ -1,5 +1,9 @@
 import { roundToTwoDecimals } from "../../../utils/math";
 import { HEIGHT_TO_WIDTH_RATIO } from "./shared";
+import {
+  HEXAGON_CONTAINER_SELECTOR,
+  HEXAGON_OUTER_SELECTOR,
+} from "../constants";
 
 export function generateMediaQueryCSS(
   mediaQuery: number,
@@ -11,31 +15,31 @@ export function generateMediaQueryCSS(
   return `
   @media (max-width: ${mediaQuery}px) {
     ${extra}
-    .hexagon-wrapper__hexagon-container {
+    ${HEXAGON_CONTAINER_SELECTOR} {
       width: ${(hexagonsFirstRow - i) * hexagonSize}vw;
     }
 
     /* reset */
-    .hexagon__outer:nth-child(-n + ${hexagonsFirstRow + 1 - i}) {
+    ${HEXAGON_OUTER_SELECTOR}:nth-child(-n + ${hexagonsFirstRow + 1 - i}) {
       margin-top: ${roundToTwoDecimals(
         (HEIGHT_TO_WIDTH_RATIO * hexagonSize) / -4,
       )}vw;
     }
 
     /* reset */
-    .hexagon__outer:nth-child(${hexagonsFirstRow * 2 - i * 2 + 1}n + ${
+    ${HEXAGON_OUTER_SELECTOR}:nth-child(${hexagonsFirstRow * 2 - i * 2 + 1}n + ${
       hexagonsFirstRow + 2 - i
     }) {
         margin-left: 0;
     }
 
-    .hexagon__outer:nth-child(${hexagonsFirstRow - i < 2 ? "n" : "-n"} + ${
+    ${HEXAGON_OUTER_SELECTOR}:nth-child(${hexagonsFirstRow - i < 2 ? "n" : "-n"} + ${
       hexagonsFirstRow - i < 2 ? 0 : hexagonsFirstRow - i
     }) {
         margin-top: 0;
     }
 
-    .hexagon__outer:nth-child(${
+    ${HEXAGON_OUTER_SELECTOR}:nth-child(${
       hexagonsFirstRow * 2 - i * 2 - 1 < 3
         ? 0
         : hexagonsFirstRow * 2 - i * 2 - 1

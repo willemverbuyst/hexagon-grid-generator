@@ -1,4 +1,13 @@
 import { generateSingleHexagon } from "./generateSingleHexagon";
+import {
+  EVEN_ROWS_MARGIN_LEFT_CLASS,
+  FIRST_ROW_MARGIN_TOP_CLASS,
+} from "./constants";
+
+export type GenerateHexagonsInput = {
+  firstRowCount: number;
+  totalCount: number;
+};
 
 export function appendHexagons({
   fragment,
@@ -13,43 +22,48 @@ export function appendHexagons({
 }) {
   for (let i = 0; i < count; i++) {
     const className = getClassName(i);
-    fragment.appendChild(generateSingleHexagon(String(start + i), className));
+    fragment.appendChild(
+      generateSingleHexagon({
+        label: String(start + i),
+        className,
+      }),
+    );
   }
 }
 
-export function generateHexagons(
-  numberOfHexagonsFirstRow: number,
-  totalNumberOfHexagons: number,
-) {
-  if (numberOfHexagonsFirstRow < 1 || totalNumberOfHexagons < 1) {
+export function generateHexagons({
+  firstRowCount,
+  totalCount,
+}: GenerateHexagonsInput) {
+  if (firstRowCount < 1 || totalCount < 1) {
     return null;
   }
 
   const fragment = document.createDocumentFragment();
   const totalHexagonsInFirstRow = Math.min(
-    numberOfHexagonsFirstRow,
-    totalNumberOfHexagons,
+    firstRowCount,
+    totalCount,
   );
 
   appendHexagons({
     fragment,
     count: totalHexagonsInFirstRow,
     start: 1,
-    getClassName: () => "first-row__margin-top",
+    getClassName: () => FIRST_ROW_MARGIN_TOP_CLASS,
   });
 
-  if (totalHexagonsInFirstRow === totalNumberOfHexagons) {
+  if (totalHexagonsInFirstRow === totalCount) {
     return fragment;
   }
 
-  const remainingHexagons = totalNumberOfHexagons - totalHexagonsInFirstRow;
+  const remainingHexagons = totalCount - totalHexagonsInFirstRow;
   appendHexagons({
     fragment,
     count: remainingHexagons,
     start: totalHexagonsInFirstRow + 1,
     getClassName: (i) =>
-      i % ((numberOfHexagonsFirstRow - 1) * 2 + 1) === 0
-        ? "even-rows__margin-left"
+      i % ((firstRowCount - 1) * 2 + 1) === 0
+        ? EVEN_ROWS_MARGIN_LEFT_CLASS
         : undefined,
   });
 
