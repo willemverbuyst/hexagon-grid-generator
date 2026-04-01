@@ -111,6 +111,6 @@ describe("getAppElements", () => {
   it("throws an error when an element does not exist", () => {
     document.body.innerHTML = "";
 
-    expect(() => getAppElements()).toThrowError();
+    expect(() => getAppElements()).toThrow(Error);
   });
 });
