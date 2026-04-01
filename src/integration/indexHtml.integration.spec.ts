@@ -39,4 +39,31 @@ describe("app integration with index.html", () => {
 
     expect(elements.preview.hexagonContainer.childElementCount).toBe(12);
   });
+
+  it("opens export dialogs with generated content from the current inputs", () => {
+    document.body.innerHTML = loadIndexHtmlBody();
+
+    const elements = getAppElements();
+    setupApp(elements);
+
+    elements.inputs.numberOfHexagons.value = "12";
+    elements.inputs.numberOfHexagons.dispatchEvent(new Event("input"));
+
+    elements.buttons.html.click();
+
+    expect(elements.dialog.element.open).toBe(true);
+    expect(elements.dialog.title.innerText).toBe("HTML");
+    expect(elements.dialog.text.textContent).toContain("hexagon-wrapper");
+    expect(elements.dialog.text.textContent).toContain(">12<");
+
+    elements.dialog.element.close();
+    elements.inputs.mediaQuery_1.value = "640";
+    elements.inputs.mediaQuery_1.dispatchEvent(new Event("input"));
+    elements.buttons.css.click();
+
+    expect(elements.dialog.element.open).toBe(true);
+    expect(elements.dialog.title.innerText).toBe("CSS");
+    expect(elements.dialog.text.textContent).toContain("@media");
+    expect(elements.dialog.text.textContent).toContain("640px");
+  });
 });
