@@ -1,43 +1,26 @@
-export function generateHexagonHTML(hexagonNumber: number) {
-  const hexagon = `
-    <div class="hexagon__outer">
-      <div class="hexagon__inner">${hexagonNumber}</div>
-    </div>
-`;
+import {
+  buildHtmlExport,
+  renderHexagonListMarkup,
+  renderHexagonMarkup,
+  renderHexagonWrapperMarkup,
+} from "./html/buildHtmlExport";
 
-  return hexagon;
+export type { HTMLInputValues } from "./html/buildHtmlExport";
+
+export function generateHexagonHTML(hexagonNumber: number): string {
+  return renderHexagonMarkup(hexagonNumber);
 }
 
-export function generateHexagonsHTML(numberOfHexagons: number) {
-  let hexagonsHTML = "";
-
-  Array(numberOfHexagons)
-    .fill(0)
-    .forEach((_, i) => {
-      hexagonsHTML += generateHexagonHTML(i + 1);
-    });
-
-  return hexagonsHTML;
+export function generateHexagonsHTML(numberOfHexagons: number): string {
+  return renderHexagonListMarkup(numberOfHexagons);
 }
 
-export function wrapHTML(html: string) {
-  const wrapper = `
-<div class="hexagon-wrapper">
-  <div class="hexagon-wrapper__hexagon-container">
-    ${html}
-  </div>
-</div>
-`;
-  return wrapper;
+export function wrapHTML(html: string): string {
+  return renderHexagonWrapperMarkup(html);
 }
 
-export function generateHTMLText({
-  numberOfHexagons,
-}: {
-  numberOfHexagons: number;
-}) {
-  const hexagonsHTML = generateHexagonsHTML(numberOfHexagons);
-  const htmlText = wrapHTML(hexagonsHTML);
-
-  return htmlText;
+export function generateHTMLText(input: { numberOfHexagons: number }): string {
+  return buildHtmlExport(input);
 }
+
+export { buildHtmlExport };

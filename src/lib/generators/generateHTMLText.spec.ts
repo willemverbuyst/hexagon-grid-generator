@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  buildHtmlExport,
   generateHexagonHTML,
   generateHexagonsHTML,
   generateHTMLText,
@@ -64,6 +65,14 @@ describe("wrapHTML", () => {
 				`.replace(/\s/g, ""),
       );
     });
+  });
+});
+
+describe("buildHtmlExport", () => {
+  it("builds the html export from typed input", () => {
+    expect(buildHtmlExport({ numberOfHexagons: 1 })).toBe(
+      generateHTMLText({ numberOfHexagons: 1 }),
+    );
   });
 });
 

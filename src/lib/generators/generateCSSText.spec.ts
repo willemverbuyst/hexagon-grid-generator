@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  buildCssExport,
   generateBackgroundCSS,
   generateBasicHexagonCSS,
   generateContainerCSS,
@@ -595,5 +596,28 @@ describe("generateCSSText", () => {
         `.replace(/\s/g, ""),
       );
     });
+  });
+});
+
+describe("buildCssExport", () => {
+  it("builds the css export from typed input", () => {
+    const input = {
+      backgroundColor: "#f1f1f1",
+      containerSkewX: 2,
+      containerSkewY: 1,
+      hexagonsFirstRow: 4,
+      hexagonColor: "#333",
+      hexagonGap: 20,
+      hexagonRotation: 2,
+      hexagonScale: 1,
+      hexagonSize: 3,
+      hexagonTransition: 4,
+      mediaQuery_1: 900,
+      mediaQuery_2: 700,
+      mediaQuery_3: 500,
+      textColor: "#fff",
+    };
+
+    expect(buildCssExport(input)).toBe(generateCSSText(input));
   });
 });

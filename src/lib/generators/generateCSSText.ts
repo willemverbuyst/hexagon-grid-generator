@@ -31,7 +31,7 @@ export type CSSInputValues = {
   textColor: string;
 };
 
-export function generateCSSText({
+export function buildCssExport({
   backgroundColor,
   containerSkewX,
   containerSkewY,
@@ -89,6 +89,10 @@ export function generateCSSText({
     mediaQueriesCSS;
 
   return displayCSS;
+}
+
+export function generateCSSText(input: CSSInputValues): string {
+  return buildCssExport(input);
 }
 
 export {
