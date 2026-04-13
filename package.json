@@ -36,7 +36,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
     "git-commit-msg-linter": "^5.0.8",
-    "globals": "^17.4.0",
+    "globals": "^17.5.0",
     "happy-dom": "^20.8.9",
     "husky": "^9.1.7",
     "prettier": "^3.8.1",
