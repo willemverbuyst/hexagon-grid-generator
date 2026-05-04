@@ -46,7 +46,7 @@
     "vitest": "^4.1.1"
   },
   "dependencies": {
-    "dompurify": "^3.4.0"
+    "dompurify": "^3.4.2"
   },
   "packageManager": "pnpm@10.10.0"
 }
